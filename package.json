@@ -1,0 +1,13 @@
+{
+  "name": "qa-practices-resources",
+  "version": "1.0.0",
+  "description": "Downloadable resources and examples for qapractices.com",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-catalog.js",
+    "test": "npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
