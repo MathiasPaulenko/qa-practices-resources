@@ -16,7 +16,7 @@ This repository hosts complete projects, templates, checklists, test cases and p
 
 The resource browser is published at:
 
-**https://mathiaspaulenko.github.io/qa-practices-resources/**
+**<https://mathiaspaulenko.github.io/qa-practices-resources/>**
 
 It loads the generated catalog `resources.json` and lets you search by title, description, type, topic and language.
 
