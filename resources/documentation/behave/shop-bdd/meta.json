@@ -1,0 +1,31 @@
+{
+  "title": "Behave BDD Shop Example",
+  "title_es": "Ejemplo de tienda con Behave BDD",
+  "description": "Complete, runnable Behave/Gherkin example for an e-commerce cart with discounts, inventory alerts and loyalty tiers.",
+  "description_es": "Ejemplo completo y ejecutable de Behave/Gherkin para un carrito de comercio electrónico con descuentos, alertas de inventario y niveles de fidelización.",
+  "type": "documentation",
+  "topic": "behave",
+  "slug": "shop-bdd",
+  "source_urls": [
+    "https://qapractices.com/documentation/gherkin-best-practices-behave/",
+    "https://qapractices.com/documentation/behave-bdd-project-setup-guide/",
+    "https://qapractices.com/es/documentation/gherkin-best-practices-behave/",
+    "https://qapractices.com/es/documentation/behave-bdd-project-setup-guide/"
+  ],
+  "language": "python",
+  "tags": ["behave", "gherkin", "bdd", "python"],
+  "files": [
+    "shop_domain.py",
+    "behave.ini",
+    "requirements-dev.txt",
+    "pyproject.toml",
+    "features/environment.py",
+    "features/steps/shop_steps.py",
+    "features/order_discount.feature",
+    "features/product_catalog.feature",
+    "features/inventory_alerts.feature",
+    "features/loyalty_benefits.feature",
+    "order-a.txt",
+    "order-b.txt"
+  ]
+}

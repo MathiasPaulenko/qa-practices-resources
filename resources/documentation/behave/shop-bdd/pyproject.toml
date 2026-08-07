@@ -1,0 +1,13 @@
+[project]
+name = "shop-bdd"
+version = "1.0.0"
+description = "Runnable Behave/Gherkin example for an e-commerce cart"
+requires-python = ">=3.10"
+dependencies = [
+    "behave==1.3.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]

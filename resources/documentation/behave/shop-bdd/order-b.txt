@@ -1,0 +1,4 @@
+features/loyalty_benefits.feature
+features/inventory_alerts.feature
+features/product_catalog.feature
+features/order_discount.feature
