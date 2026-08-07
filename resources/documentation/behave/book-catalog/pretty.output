@@ -1,0 +1,92 @@
+Feature: Book lookup API # features/book_api.feature:1
+
+  Feature: Book lookup API  # features/book_api.feature:1
+
+  @api
+  Scenario: Request a book that is in the catalog       # features/book_api.feature:10
+    Given the API catalog contains the following books: # None
+      | Title       | Available |
+      | Clean Code  | true      |
+      | Refactoring | false     |
+    When I request the book "Clean Code"                # None
+    Then the API returns 200                            # None
+    And the response shows it is available              # None
+
+  @api
+  Scenario: Request a missing book                      # features/book_api.feature:16
+    Given the API catalog contains the following books: # None
+      | Title       | Available |
+      | Clean Code  | true      |
+      | Refactoring | false     |
+    When I request the book "DDD"                       # None
+    Then the API returns 404                            # None
+
+Feature: Book catalog search # features/book_catalog.feature:1
+
+  @smoke
+  Scenario: Find a book by title            # features/book_catalog.feature:4
+    Given the catalog contains "Clean Code" # None
+    When I search for "Clean Code"          # None
+    Then I should find 1 result             # None
+
+  @regression
+  Scenario Outline: Search returns the expected availability -- @1.1   # features/book_catalog.feature:18
+    Given the catalog contains "Refactoring" marked as unavailable     # None
+    When I search for "Refactoring"                                    # None
+    Then I should find 1 result                                        # None
+    And the result should be unavailable                               # None
+
+  @regression
+  Scenario Outline: Search returns the expected availability -- @1.2   # features/book_catalog.feature:19
+    Given the catalog contains "Clean Code" marked as available        # None
+    When I search for "Clean Code"                                     # None
+    Then I should find 1 result                                        # None
+    And the result should be available                                 # None
+
+  @regression
+  Scenario Outline: Search by title returns the expected count -- @1.1   # features/book_catalog.feature:30
+    Given the catalog contains "Clean Code"                              # None
+    And the catalog contains "Refactoring"                               # None
+    When I search for "Clean Code"                                       # None
+    Then I should find 1 result                                          # None
+
+  @regression
+  Scenario Outline: Search by title returns the expected count -- @1.2   # features/book_catalog.feature:31
+    Given the catalog contains "Clean Code"                              # None
+    And the catalog contains "Refactoring"                               # None
+    When I search for "Refactoring"                                      # None
+    Then I should find 1 result                                          # None
+
+  @regression
+  Scenario Outline: Search by title returns the expected count -- @1.3   # features/book_catalog.feature:32
+    Given the catalog contains "Clean Code"                              # None
+    And the catalog contains "Refactoring"                               # None
+    When I search for "DDD"                                              # None
+    Then I should find 0 results                                         # None
+
+  @regression
+  Scenario: Load books from a data table            # features/book_catalog.feature:35
+    Given the catalog contains the following books: # None
+      | Title                    | Available |
+      | Clean Code               | true      |
+      | Refactoring              | false     |
+      | The Pragmatic Programmer | true      |
+    When I search for "Refactoring"                 # None
+    Then the result should be unavailable           # None
+
+Feature: Book catalog search with SQLite # features/book_catalog_db.feature:1
+
+  @db @smoke
+  Scenario: Find an available book in the SQLite catalog        # features/book_catalog_db.feature:4
+    Given the catalog contains "Clean Code" marked as available # features/steps/catalog_steps.py:19
+    When I search for "Clean Code"                              # features/steps/catalog_steps.py:32
+    Then I should find 1 result                                 # features/steps/catalog_steps.py:37
+    And the result should be available                          # features/steps/catalog_steps.py:43
+
+  @db @regression
+  Scenario: Find an unavailable book in the SQLite catalog         # features/book_catalog_db.feature:11
+    Given the catalog contains "Refactoring" marked as unavailable # features/steps/catalog_steps.py:19
+    When I search for "Refactoring"                                # features/steps/catalog_steps.py:32
+    Then I should find 1 result                                    # features/steps/catalog_steps.py:37
+    And the result should be unavailable                           # features/steps/catalog_steps.py:43
+

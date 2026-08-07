@@ -1,0 +1,30 @@
+{
+  "title": "Behave BDD Book Catalog Example",
+  "title_es": "Ejemplo de catálogo de libros con Behave BDD",
+  "description": "Complete, runnable Behave example for the Behave BDD Project Setup Guide: in-memory catalog, HTTP API and SQLite variants.",
+  "description_es": "Ejemplo completo y ejecutable de Behave para la guía Behave BDD Project Setup Guide: catálogo en memoria, API HTTP y variantes con SQLite.",
+  "type": "documentation",
+  "topic": "behave",
+  "slug": "book-catalog",
+  "source_urls": [
+    "https://qapractices.com/documentation/behave-bdd-project-setup-guide/",
+    "https://qapractices.com/es/documentation/behave-bdd-project-setup-guide/"
+  ],
+  "language": "python",
+  "tags": ["behave", "gherkin", "bdd", "python", "sqlite", "api", "requests"],
+  "files": [
+    "catalog_service.py",
+    "catalog_db.py",
+    "book_server.py",
+    "api_client.py",
+    "behave.ini",
+    "requirements-dev.txt",
+    "pyproject.toml",
+    "features/environment.py",
+    "features/steps/catalog_steps.py",
+    "features/steps/api_steps.py",
+    "features/book_catalog.feature",
+    "features/book_api.feature",
+    "features/book_catalog_db.feature"
+  ]
+}
