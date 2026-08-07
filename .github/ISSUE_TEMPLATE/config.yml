@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: QAPractices website
+    url: https://qapractices.com
+    about: Read the articles that these resources support.
+  - name: Ask a question
+    url: https://github.com/MathiasPaulenko/qa-practices-resources/discussions
+    about: Use Discussions for questions that are not bugs or resource requests.
