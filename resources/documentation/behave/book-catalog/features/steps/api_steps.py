@@ -1,8 +1,8 @@
 # features/steps/api_steps.py
-import parse
 from behave import given, when, then, register_type
 from api_client import BookAPIClient
 from book_server import store
+import parse
 
 
 @parse.with_pattern(r'available|unavailable')

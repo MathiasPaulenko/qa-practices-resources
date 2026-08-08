@@ -1,6 +1,7 @@
 # features/steps/catalog_steps.py
-import parse
 from behave import given, when, then, register_type
+from catalog_service import Catalog
+import parse
 
 
 @parse.with_pattern(r'available|unavailable')

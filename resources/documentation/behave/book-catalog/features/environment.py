@@ -1,12 +1,11 @@
 # features/environment.py
+from catalog_service import Catalog
+from catalog_db import CatalogDB
+from book_server import make_server, store
 import sqlite3
 import threading
 import time
-
 import requests
-from book_server import make_server, store
-from catalog_db import CatalogDB
-from catalog_service import Catalog
 
 
 def before_all(context):
