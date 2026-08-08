@@ -18,7 +18,7 @@ def before_all(context):
     base_url = f'http://127.0.0.1:{port}'
     for _ in range(50):
         try:
-            requests.get(f'{base_url}/books/__health', timeout=0.1)
+            requests.get(f'{base_url}/', timeout=0.1)
         except requests.ConnectionError:
             time.sleep(0.05)
         else:
@@ -26,28 +26,47 @@ def before_all(context):
 
     context.base_url = base_url
     context.real_api_url = context.config.userdata.get('REAL_API_URL')
+    context.store = store
 
     context.db = sqlite3.connect(':memory:')
     context.db.execute(
         'CREATE TABLE books (title TEXT PRIMARY KEY, available INTEGER NOT NULL)'
     )
 
+    # Playwright is initialized on demand for @ui scenarios.
+    context.playwright = None
+    context.browser = None
+    context.browser_context = None
+
 
 def after_all(context):
     context.server.shutdown()
     context.db.close()
+
+    if context.browser_context:
+        context.browser_context.close()
+    if context.browser:
+        context.browser.close()
+    if context.playwright:
+        context.playwright.stop()
 
 
 def before_scenario(context, scenario):
     context.catalog = None
     context.results = None
     context.response = None
+    context.page = None
 
     if 'db' in scenario.tags:
         context.db.execute('SAVEPOINT scenario_state')
         context.catalog = CatalogDB(connection=context.db)
     elif 'api' in scenario.tags:
         store.clear()
+    elif 'ui' in scenario.tags:
+        store.clear()
+        _ensure_browser(context)
+        context.page = context.browser_context.new_page()
+        context.page.set_viewport_size({'width': 1280, 'height': 720})
     else:
         context.catalog = Catalog()
 
@@ -60,12 +79,38 @@ def after_scenario(context, scenario):
         context.db.execute('ROLLBACK TO SAVEPOINT scenario_state')
         context.db.execute('RELEASE SAVEPOINT scenario_state')
 
+    if context.page:
+        context.page.close()
+        context.page = None
+
+    store.clear()
     context.catalog = None
     context.results = None
     context.response = None
+
+
+def after_step(context, step):
+    if step.status.name == 'failed' and context.page:
+        try:
+            safe_name = ''.join(
+                c if c.isalnum() or c in (' ', '_', '-') else '_'
+                for c in step.name
+            ).replace(' ', '_')
+            context.page.screenshot(path=f'reports/screenshots/{safe_name}.png')
+        except Exception:
+            pass
 
 
 def after_tag(context, tag):
     if tag == 'integration':
         port = context.server.server_address[1]
         context.base_url = f'http://127.0.0.1:{port}'
+
+
+def _ensure_browser(context):
+    if context.browser:
+        return
+    from playwright.sync_api import sync_playwright
+    context.playwright = sync_playwright().start()
+    context.browser = context.playwright.chromium.launch(headless=True)
+    context.browser_context = context.browser.new_context()

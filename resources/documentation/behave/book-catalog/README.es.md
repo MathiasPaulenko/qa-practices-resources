@@ -59,7 +59,7 @@ book-catalog/
     ├── book_api.feature         # escenarios de API
     ├── book_catalog_db.feature  # escenarios de SQLite
     └── steps/
-        ├── catalog_steps.py     # pasos para memoria y SQLite
+        ├── book_catalog_steps.py     # pasos para memoria y SQLite
         └── api_steps.py         # pasos para la API
 ```
 

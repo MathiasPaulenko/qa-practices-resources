@@ -1,4 +1,4 @@
-# features/steps/catalog_steps.py
+# features/steps/book_catalog_steps.py
 from behave import given, when, then, register_type
 from catalog_service import Catalog
 import parse
