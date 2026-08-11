@@ -1,8 +1,8 @@
 {
   "title": "Behave Kit Utilities Example",
   "title_es": "Ejemplo de utilidades de Behave Kit",
-  "description": "Runnable Behave 1.2.6 project with behave-kit v1.5.0: soft assertions, TypedContext, conditional skips, fixtures, data loading and class-based steps.",
-  "description_es": "Proyecto ejecutable con Behare 1.2.6 y behave-kit v1.5.0: soft assertions, TypedContext, skips condicionales, fixtures, carga de datos y steps basados en clases.",
+  "description": "Runnable Behave 1.2.6 project with behave-kit 1.5.0: soft assertions, TypedContext, conditional skips, fixtures, data loading and class-based steps.",
+  "description_es": "Proyecto ejecutable con Behare 1.2.6 y behave-kit 1.5.0: soft assertions, TypedContext, skips condicionales, fixtures, carga de datos y steps basados en clases.",
   "type": "documentation",
   "topic": "behave-bdd-testing",
   "slug": "behave-kit-guide",

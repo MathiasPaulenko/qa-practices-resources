@@ -1,6 +1,6 @@
 # Ejemplo de utilidades de Behave Kit
 
-Esta carpeta contiene un proyecto ejecutable con **Behave 1.2.6** y **behave-kit v1.5.0**. Es el proyecto complementario de la guía de QAPractices [Utilidades de Behave Kit para tests BDD](https://qapractices.com/es/documentation/behave-kit-guide/).
+Esta carpeta contiene un proyecto ejecutable con **Behave 1.2.6** y **behave-kit 1.5.0**. Es el proyecto complementario de la guía de QAPractices [Utilidades de Behave Kit para tests BDD](https://qapractices.com/es/documentation/behave-kit-guide/).
 
 Demuestra las características más útiles de `behave-kit` en una pequeña suite de carrito de compras:
 

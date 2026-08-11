@@ -1,6 +1,6 @@
 # Behave Kit Utilities Example
 
-This folder contains a runnable **Behave 1.2.6** project with **behave-kit v1.5.0**. It is the companion project for the QAPractices guide [Behave Kit Utilities for BDD Tests](https://qapractices.com/documentation/behave-kit-guide/).
+This folder contains a runnable **Behave 1.2.6** project with **behave-kit 1.5.0**. It is the companion project for the QAPractices guide [Behave Kit Utilities for BDD Tests](https://qapractices.com/documentation/behave-kit-guide/).
 
 It demonstrates the most useful `behave-kit` features in a single small shopping-cart suite:
 
