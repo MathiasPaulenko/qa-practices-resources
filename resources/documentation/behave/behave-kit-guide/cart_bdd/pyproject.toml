@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cart-bdd-kit"
+version = "1.0.0"
+description = "Runnable Behave example with behave-kit"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "behave==1.2.6",
+    "behave-kit @ git+https://github.com/MathiasPaulenko/behave-kit.git@v1.5.0",
+    "requests==2.32.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["catalog_service*"]
