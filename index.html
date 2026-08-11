@@ -329,9 +329,28 @@
         }
 
         if (r.source_urls && r.source_urls.length) {
-          for (const url of r.source_urls) {
-            const label = url.includes('/es/') ? 'Open in QAPractices (ES)' : 'Open in QAPractices';
-            links.innerHTML += `<a href="${url}" target="_blank" rel="noopener">${label}</a>`;
+          const enUrls = r.source_urls.filter(u => !u.includes('/es/'));
+          const esUrls = r.source_urls.filter(u => u.includes('/es/'));
+          const extras = [];
+
+          if (enUrls.length) {
+            links.innerHTML += `<a href="${enUrls[0]}" target="_blank" rel="noopener">Open in QAPractices</a>`;
+            extras.push(...enUrls.slice(1));
+          }
+
+          if (esUrls.length) {
+            links.innerHTML += `<a href="${esUrls[0]}" target="_blank" rel="noopener">Open in QAPractices (ES)</a>`;
+            extras.push(...esUrls.slice(1));
+          }
+
+          if (extras.length) {
+            const extraList = extras.map(u => `<li><a href="${u}" target="_blank" rel="noopener">${u}</a></li>`).join('');
+            links.innerHTML += `
+              <details class="files" style="margin-left:auto;">
+                <summary>+${extras.length} related ${extras.length === 1 ? 'article' : 'articles'}</summary>
+                <ul>${extraList}</ul>
+              </details>
+            `;
           }
         }
 
