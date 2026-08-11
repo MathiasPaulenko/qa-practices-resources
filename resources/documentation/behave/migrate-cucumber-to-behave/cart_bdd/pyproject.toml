@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cart-bdd"
+version = "1.0.0"
+description = "Runnable Behave example for the Migrate Cucumber to Behave guide"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "behave==1.2.6",
+    "requests==2.32.0",
+    "parse_type==0.6.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cart*"]

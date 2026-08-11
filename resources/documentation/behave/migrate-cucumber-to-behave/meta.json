@@ -1,0 +1,40 @@
+{
+  "title": "Migrate from Cucumber to Behave Example",
+  "title_es": "Ejemplo de migración de Cucumber a Behave",
+  "description": "Runnable Behave 1.2.6 project that mirrors the Java Cucumber and cucumber-js migration examples from the QAPractices guide.",
+  "description_es": "Proyecto ejecutable con Behave 1.2.6 que refleja los ejemplos de migración desde Java Cucumber y cucumber-js de la guía de QAPractices.",
+  "type": "documentation",
+  "topic": "behave-bdd-testing",
+  "slug": "migrate-cucumber-to-behave",
+  "source_urls": [
+    "https://qapractices.com/documentation/migrate-cucumber-to-behave/",
+    "https://qapractices.com/es/documentation/migrate-cucumber-to-behave/"
+  ],
+  "language": "python",
+  "tags": [
+    "behave",
+    "cucumber",
+    "cucumber-jvm",
+    "cucumber-js",
+    "migration",
+    "bdd",
+    "python",
+    "gherkin"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "cart_bdd/behave.ini",
+    "cart_bdd/requirements.txt",
+    "cart_bdd/pyproject.toml",
+    "cart_bdd/api_server.py",
+    "cart_bdd/cart/__init__.py",
+    "cart_bdd/cart/service.py",
+    "cart_bdd/features/environment.py",
+    "cart_bdd/features/cart.feature",
+    "cart_bdd/features/api.feature",
+    "cart_bdd/features/steps/cart_steps.py",
+    "cart_bdd/features/steps/api_steps.py",
+    "cart_bdd/features/steps/types.py"
+  ]
+}
