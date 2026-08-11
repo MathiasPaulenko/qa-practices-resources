@@ -1,0 +1,29 @@
+{
+  "title": "Behave vs pytest-bdd Cart Example",
+  "title_es": "Ejemplo de carrito con Behave vs pytest-bdd",
+  "description": "Side-by-side runnable examples of the same shopping-cart Gherkin scenario in Behave 1.2.6 and pytest-bdd 7.x.",
+  "description_es": "Ejemplos ejecutables lado a lado del mismo escenario Gherkin de carrito de compras en Behave 1.2.6 y pytest-bdd 7.x.",
+  "type": "documentation",
+  "topic": "behave-bdd-testing",
+  "slug": "behave-vs-pytest-bdd",
+  "source_urls": [
+    "https://qapractices.com/documentation/behave-vs-pytest-bdd/",
+    "https://qapractices.com/es/documentation/behave-vs-pytest-bdd/"
+  ],
+  "language": "python",
+  "tags": ["behave", "pytest-bdd", "gherkin", "bdd", "python", "pytest"],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "behave-cart/features/cart.feature",
+    "behave-cart/features/environment.py",
+    "behave-cart/features/steps/cart_steps.py",
+    "behave-cart/requirements.txt",
+    "behave-cart/pyproject.toml",
+    "pytest-bdd-cart/features/cart.feature",
+    "pytest-bdd-cart/conftest.py",
+    "pytest-bdd-cart/test_cart.py",
+    "pytest-bdd-cart/requirements.txt",
+    "pytest-bdd-cart/pyproject.toml"
+  ]
+}
