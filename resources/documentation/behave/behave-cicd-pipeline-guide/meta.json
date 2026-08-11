@@ -1,0 +1,38 @@
+{
+  "title": "Behave CI/CD Pipeline Example",
+  "title_es": "Ejemplo de pipeline CI/CD con Behave",
+  "description": "Runnable book-catalog Behave project with GitHub Actions workflow, JUnit and JSON reports, and behavex example.",
+  "description_es": "Proyecto ejecutable de catálogo de libros con Behave, workflow de GitHub Actions, reportes JUnit y JSON, y ejemplo de behavex.",
+  "type": "documentation",
+  "topic": "behave-bdd-testing",
+  "slug": "behave-cicd-pipeline-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/behave-cicd-pipeline-guide/",
+    "https://qapractices.com/es/documentation/behave-cicd-pipeline-guide/"
+  ],
+  "language": "python",
+  "tags": [
+    "behave",
+    "bdd",
+    "ci-cd",
+    "github-actions",
+    "test-automation",
+    "python",
+    "behavex",
+    "junit"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "book-catalog/.github/workflows/behave.yml",
+    "book-catalog/behave.ini",
+    "book-catalog/requirements-dev.txt",
+    "book-catalog/pyproject.toml",
+    "book-catalog/catalog_service.py",
+    "book-catalog/discover_features.py",
+    "book-catalog/features/environment.py",
+    "book-catalog/features/catalog.feature",
+    "book-catalog/features/steps/catalog_steps.py",
+    "book-catalog/reports/.gitkeep"
+  ]
+}
