@@ -1,0 +1,4 @@
+[
+  {"sku": "PRD-003", "price": 5.99, "tier": "basic"},
+  {"sku": "PRD-004", "price": 12.49, "tier": "premium"}
+]

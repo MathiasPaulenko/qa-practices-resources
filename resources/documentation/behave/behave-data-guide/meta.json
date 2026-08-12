@@ -1,0 +1,44 @@
+{
+  "title": "behave-data Example — Product Catalog BDD",
+  "title_es": "Ejemplo de behave-data — BDD de catálogo de productos",
+  "description": "Runnable Behave BDD project that demonstrates behave-data: typed tables, diff, dynamic examples, fixtures, builders, and masked secrets.",
+  "description_es": "Proyecto ejecutable de Behave BDD que demuestra behave-data: tablas tipadas, diff, ejemplos dinámicos, fixtures, builders y secretos enmascarados.",
+  "type": "documentation",
+  "topic": "behave-bdd-testing",
+  "slug": "behave-data-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/behave-data-guide/",
+    "https://qapractices.com/es/documentation/behave-data-guide/"
+  ],
+  "language": "python",
+  "tags": [
+    "behave",
+    "bdd",
+    "python",
+    "behave-data",
+    "test-data",
+    "fixtures",
+    "typed-tables",
+    "secrets",
+    "csv",
+    "json"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "product_bdd/.github/workflows/behave-data.yml",
+    "product_bdd/behave.ini",
+    "product_bdd/pyproject.toml",
+    "product_bdd/requirements.txt",
+    "product_bdd/product_catalog.py",
+    "product_bdd/features/environment.py",
+    "product_bdd/features/products.feature",
+    "product_bdd/features/steps/product_steps.py",
+    "product_bdd/features/data/fixtures.py",
+    "product_bdd/features/data/products.csv",
+    "product_bdd/features/data/users.csv",
+    "product_bdd/features/data/prices.json",
+    "product_bdd/features/data/secrets/.gitkeep",
+    "product_bdd/reports/.gitkeep"
+  ]
+}
