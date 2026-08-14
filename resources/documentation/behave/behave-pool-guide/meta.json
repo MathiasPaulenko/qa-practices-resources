@@ -1,0 +1,39 @@
+{
+  "title": "Behave Pool Checkout Example",
+  "title_es": "Ejemplo de Checkout con Behave Pool",
+  "description": "Runnable checkout example for behave-pool: feature-level parallelism, @serial scenarios, LPT balancing, and GitHub Actions sharding.",
+  "description_es": "Ejemplo ejecutable de checkout para behave-pool: paralelismo a nivel de feature, escenarios @serial, balanceo LPT y sharding en GitHub Actions.",
+  "type": "documentation",
+  "topic": "behave-bdd-testing",
+  "slug": "behave-pool-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/behave-pool-guide/",
+    "https://qapractices.com/es/documentation/behave-pool-guide/"
+  ],
+  "language": "python",
+  "tags": [
+    "behave",
+    "bdd",
+    "python",
+    "behave-pool",
+    "parallel-execution",
+    "test-automation",
+    "ci-cd",
+    "sharding",
+    "github-actions"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "checkout-service/pyproject.toml",
+    "checkout-service/requirements.txt",
+    "checkout-service/behave.ini",
+    "checkout-service/checkout_service.py",
+    "checkout-service/features/environment.py",
+    "checkout-service/features/inventory.feature",
+    "checkout-service/features/checkout.feature",
+    "checkout-service/features/payment.feature",
+    "checkout-service/features/steps/checkout_steps.py",
+    "checkout-service/.github/workflows/behave-pool.yml"
+  ]
+}

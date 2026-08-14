@@ -1,0 +1,58 @@
+name: Behave Pool
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  local-parallel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: behave
+      - uses: actions/upload-artifact@v4
+        with:
+          name: behave-pool-report
+          path: behave-pool-report.json
+
+  sharded:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - id: 1-3
+            shard: 1/3
+          - id: 2-3
+            shard: 2/3
+          - id: 3-3
+            shard: 3/3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: |
+          cat > behave.ini <<EOF
+          [behave]
+          runner = parallel
+          jobs = 4
+          shard = ${{ matrix.shard }}
+          parallel_report = reports/behave-pool-report-${{ matrix.id }}.json
+
+          [behave.runners]
+          parallel = behave_pool:ParallelRunner
+          EOF
+          mkdir -p reports
+          behave features/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: behave-pool-report-${{ matrix.id }}
+          path: reports/behave-pool-report-*.json
