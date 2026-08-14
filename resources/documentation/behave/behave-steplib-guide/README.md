@@ -22,7 +22,7 @@ source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-If version 1.5.1 is not yet on PyPI, use the GitHub main branch:
+Version 1.5.1 is now on PyPI, so the normal install works. If you need the latest development build, use the GitHub main branch:
 
 ```bash
 pip install "git+https://github.com/MathiasPaulenko/behave-steplib.git@main#egg=behave-steplib[api,io,data]"
