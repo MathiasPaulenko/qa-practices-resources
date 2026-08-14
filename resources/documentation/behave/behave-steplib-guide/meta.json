@@ -1,0 +1,36 @@
+{
+  "title": "behave-steplib Example — Reusable Step Library for Behave",
+  "title_es": "Ejemplo de behave-steplib — Librería reutilizable de steps para Behave",
+  "description": "Runnable behave-steplib 1.5.1 example with API, data and IO scenarios, pyproject.toml config, and environment.py using autoload.",
+  "description_es": "Ejemplo ejecutable de behave-steplib 1.5.1 con escenarios de API, datos e IO, configuración pyproject.toml y environment.py usando autoload.",
+  "type": "documentation",
+  "topic": "behave-bdd-testing",
+  "slug": "behave-steplib-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/behave-steplib-guide/",
+    "https://qapractices.com/es/documentation/behave-steplib-guide/"
+  ],
+  "language": "python",
+  "tags": [
+    "behave",
+    "bdd",
+    "python",
+    "behave-steplib",
+    "step-library",
+    "api-testing",
+    "gherkin",
+    "reusable-steps",
+    "i18n",
+    "ci-cd"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "api-example/pyproject.toml",
+    "api-example/requirements.txt",
+    "api-example/features/environment.py",
+    "api-example/features/api_health.feature",
+    "api-example/features/data.feature",
+    "api-example/features/io.feature"
+  ]
+}
