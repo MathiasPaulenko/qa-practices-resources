@@ -1,0 +1,31 @@
+{
+  "title": "behave-lint Example — Gherkin Feature File Linter",
+  "title_es": "Ejemplo de behave-lint — Linter para archivos Feature de Gherkin",
+  "description": "Runnable behave-lint 2.4.1 example with an intentionally broken auth.feature, pyproject.toml config, and CLI output samples.",
+  "description_es": "Ejemplo ejecutable de behave-lint 2.4.1 con un auth.feature intencionalmente roto, configuración pyproject.toml y muestras de salida CLI.",
+  "type": "documentation",
+  "topic": "behave-bdd-testing",
+  "slug": "behave-lint-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/behave-lint-guide/",
+    "https://qapractices.com/es/documentation/behave-lint-guide/"
+  ],
+  "language": "python",
+  "tags": [
+    "behave",
+    "gherkin",
+    "lint",
+    "behave-lint",
+    "static-analysis",
+    "feature-files",
+    "ci-cd",
+    "sarif"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "lint-example/pyproject.toml",
+    "lint-example/requirements.txt",
+    "lint-example/features/auth.feature"
+  ]
+}

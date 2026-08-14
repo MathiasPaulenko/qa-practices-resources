@@ -1,0 +1,9 @@
+[tool.behave-lint]
+select = ["BC001", "BS001", "BI18N001", "BSEC001", "BX001"]
+ignore = ["BP001", "BP002", "BD003"]
+fail-on = "warning"
+exclude = ["features/wip/"]
+
+[tool.behave-lint.rules]
+BX001 = { max-steps = 8 }
+BP003 = { min-length = 5 }
