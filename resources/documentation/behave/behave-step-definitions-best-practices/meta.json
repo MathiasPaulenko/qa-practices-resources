@@ -1,0 +1,41 @@
+{
+  "title": "Behave Step Definitions Best Practices Shop Example",
+  "title_es": "Ejemplo de tienda para las mejores prácticas de step definitions en Behave",
+  "description": "Runnable Behave BDD shop project that demonstrates custom parse types, split step modules, data tables, inventory alerts and regex order references.",
+  "description_es": "Proyecto BDD de tienda ejecutable que demuestra tipos parse personalizados, módulos de steps separados, tablas de datos, alertas de inventario y referencias de orden con regex.",
+  "type": "documentation",
+  "topic": "behave-bdd-testing",
+  "slug": "behave-step-definitions-best-practices",
+  "source_urls": [
+    "https://qapractices.com/documentation/behave-step-definitions-best-practices/",
+    "https://qapractices.com/es/documentation/behave-step-definitions-best-practices/"
+  ],
+  "language": "python",
+  "tags": [
+    "behave",
+    "bdd",
+    "python",
+    "step-definitions",
+    "parse",
+    "gherkin",
+    "best-practices"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "shop-bdd/pyproject.toml",
+    "shop-bdd/requirements-dev.txt",
+    "shop-bdd/behave.ini",
+    "shop-bdd/shop_domain.py",
+    "shop-bdd/features/environment.py",
+    "shop-bdd/features/order_discount.feature",
+    "shop-bdd/features/product_catalog.feature",
+    "shop-bdd/features/inventory_alerts.feature",
+    "shop-bdd/features/order.feature",
+    "shop-bdd/features/steps/shared.py",
+    "shop-bdd/features/steps/cart_steps.py",
+    "shop-bdd/features/steps/catalog_steps.py",
+    "shop-bdd/features/steps/inventory_steps.py",
+    "shop-bdd/features/steps/order_steps.py"
+  ]
+}
