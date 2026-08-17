@@ -1,0 +1,36 @@
+{
+  "title": "Behave Priority Payment BDD Example",
+  "title_es": "Ejemplo de Behave Priority para BDD de pagos",
+  "description": "Runnable payment BDD project that demonstrates behave-priority ordering, fail-fast and priority reports.",
+  "description_es": "Proyecto BDD de pagos ejecutable que demuestra ordenamiento, fail-fast y reportes de prioridad con behave-priority.",
+  "type": "documentation",
+  "topic": "behave-bdd-testing",
+  "slug": "behave-priority-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/behave-priority-guide/",
+    "https://qapractices.com/es/documentation/behave-priority-guide/"
+  ],
+  "language": "python",
+  "tags": [
+    "behave",
+    "bdd",
+    "python",
+    "behave-priority",
+    "priority",
+    "fail-fast",
+    "smoke-tests",
+    "ci-cd"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "payment-bdd/pyproject.toml",
+    "payment-bdd/requirements.txt",
+    "payment-bdd/behave.ini",
+    "payment-bdd/features/environment.py",
+    "payment-bdd/features/auth.feature",
+    "payment-bdd/features/payment.feature",
+    "payment-bdd/features/reporting.feature",
+    "payment-bdd/features/steps/payment_steps.py"
+  ]
+}

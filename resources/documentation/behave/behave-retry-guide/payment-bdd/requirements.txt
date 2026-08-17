@@ -1,0 +1,2 @@
+behave==1.3.3
+behave-retry==1.8.4

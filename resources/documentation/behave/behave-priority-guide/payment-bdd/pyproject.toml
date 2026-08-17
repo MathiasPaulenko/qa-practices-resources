@@ -1,0 +1,13 @@
+[project]
+name = "payment-priority"
+version = "0.1.0"
+description = "Minimal Behave BDD project demonstrating behave-priority ordering and fail-fast."
+requires-python = ">=3.11"
+dependencies = [
+    "behave==1.3.3",
+    "behave-priority==1.1.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
