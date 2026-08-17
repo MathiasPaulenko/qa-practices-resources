@@ -1,0 +1,16 @@
+[project]
+name = "payment-bdd-demo"
+requires-python = ">=3.11"
+
+[tool.behave-runner]
+parallel = 4
+format = "json"
+
+[tool.behave-runner.profiles.smoke]
+tags = ["@smoke"]
+
+[tool.behave-runner.profiles.ci]
+parallel = 4
+format = "json"
+stop_on_failure = true
+output = "reports/report.json"

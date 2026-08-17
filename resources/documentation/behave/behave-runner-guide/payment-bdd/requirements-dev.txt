@@ -1,0 +1,1 @@
+behave-runner[parallel,priority,retry,trace,lint,format,doctor,gen,steplib,report-html,report-json]==1.3.0

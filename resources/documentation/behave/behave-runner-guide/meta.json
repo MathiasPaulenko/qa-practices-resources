@@ -1,0 +1,36 @@
+{
+  "title": "Behave Runner Payment BDD Example",
+  "title_es": "Ejemplo de Behave Runner para BDD de pagos",
+  "description": "Runnable payment BDD project that demonstrates behave-runner profiles, list/select/run/watch/report commands and a CI workflow.",
+  "description_es": "Proyecto BDD de pagos ejecutable que demuestra perfiles de behave-runner, comandos list/select/run/watch/report y un workflow de CI.",
+  "type": "documentation",
+  "topic": "behave-bdd-testing",
+  "slug": "behave-runner-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/behave-runner-guide/",
+    "https://qapractices.com/es/documentation/behave-runner-guide/"
+  ],
+  "language": "python",
+  "tags": [
+    "behave",
+    "bdd",
+    "python",
+    "behave-runner",
+    "cli",
+    "test-automation",
+    "ci-cd",
+    "gherkin",
+    "profiles"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "payment-bdd/pyproject.toml",
+    "payment-bdd/behave.ini",
+    "payment-bdd/requirements-dev.txt",
+    "payment-bdd/features/environment.py",
+    "payment-bdd/features/payment.feature",
+    "payment-bdd/features/steps/payment_steps.py",
+    "payment-bdd/.github/workflows/behave.yml"
+  ]
+}
