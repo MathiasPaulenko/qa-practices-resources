@@ -1,0 +1,31 @@
+{
+  "title": "Modern Reports for Behave BDD",
+  "title_es": "Informes Modernos para Behave BDD",
+  "description": "Runnable Behave project that demonstrates console, Markdown, JSON, HTML, spreadsheet and file report formatters.",
+  "description_es": "Proyecto ejecutable de Behave que demuestra formateadores de informes de consola, Markdown, JSON, HTML, hojas de cálculo y archivos.",
+  "type": "documentation",
+  "topic": "behave-bdd-testing",
+  "slug": "behave-modern-reports-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/behave-modern-reports-guide",
+    "https://qapractices.com/es/documentation/behave-modern-reports-guide"
+  ],
+  "language": "python",
+  "tags": [
+    "behave",
+    "bdd",
+    "reports",
+    "test-automation",
+    "ci-cd",
+    "python"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "pyproject.toml",
+    "behave.ini",
+    "environment.py",
+    "features/payment.feature",
+    "features/steps/payment_steps.py"
+  ]
+}

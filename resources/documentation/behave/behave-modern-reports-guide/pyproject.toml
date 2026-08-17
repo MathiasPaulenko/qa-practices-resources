@@ -1,0 +1,53 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "payment-reports"
+version = "0.1.0"
+description = "Example Behave BDD project demonstrating modern report formatters."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Mathias Paulenko", email = "mathias@paulenko.com" }
+]
+keywords = ["behave", "bdd", "reports", "testing"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "behave>=1.2.6",
+    "parse>=1.18",
+]
+
+[project.optional-dependencies]
+md = ["behave-modern-md-report>=1.2.0"]
+json = ["behave-modern-json-report[behave]>=1.2.0"]
+html = ["behave-modern-html-report>=2.3.0"]
+sheets = ["behave-modern-sheets-report>=1.1.1"]
+sheets-xlsx = ["behave-modern-sheets-report[xlsx]>=1.1.1"]
+file = ["behave-modern-file-report[behave]>=1.1.2"]
+file-pdf = ["behave-modern-file-report[pdf]>=1.1.2"]
+console = ["behave-modern-console-report>=1.0.1"]
+ci = [
+    "behave-modern-md-report>=1.2.0",
+    "behave-modern-json-report[behave]>=1.2.0",
+    "behave-modern-html-report>=2.3.0",
+    "behave-modern-sheets-report[xlsx]>=1.1.1",
+    "behave-modern-file-report[behave]>=1.1.2",
+    "behave-modern-console-report>=1.0.1",
+]
+
+[project.urls]
+Homepage = "https://qapractices.com/documentation/behave-modern-reports-guide"
+Repository = "https://github.com/MathiasPaulenko/qa-practices-resources"
+
+[tool.behave]
+paths = ["features"]
