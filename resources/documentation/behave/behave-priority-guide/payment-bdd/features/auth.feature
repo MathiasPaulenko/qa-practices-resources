@@ -6,7 +6,7 @@ Feature: Authentication
     When the user logs in
     Then the user should be authenticated
 
-  @priority(2)
+  @priority(2) @critical
   Scenario: Login with invalid password
     Given a registered user
     When the user logs in with wrong password

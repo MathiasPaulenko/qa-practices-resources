@@ -28,8 +28,9 @@ def step_user_logs_in(context):
 
 @when('the user logs in with wrong password')
 def step_wrong_password(context):
-    context.authenticated = False
-    raise AssertionError("wrong password")
+    # Simulates the buggy behaviour where the system authenticates a wrong
+    # password. The Then step expects the login to fail.
+    context.authenticated = True
 
 
 @when('the card is charged')
@@ -54,7 +55,7 @@ def step_authenticated(context):
 
 @then('the login should fail')
 def step_login_fail(context):
-    assert not getattr(context, "authenticated", False)
+    assert not getattr(context, "authenticated", False), "login should have failed"
 
 
 @then('the payment should be approved')
