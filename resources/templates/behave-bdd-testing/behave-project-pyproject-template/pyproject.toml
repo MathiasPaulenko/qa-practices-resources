@@ -1,0 +1,99 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "[PROJECT_NAME, e.g. shop-bdd]"
+version = "[VERSION, e.g. 0.1.0]"
+description = "[PROJECT_DESCRIPTION, e.g. Behave BDD suite for the shop domain]"
+readme = "README.md"
+requires-python = ">= [PYTHON_VERSION, e.g. 3.11]"
+license = { text = "[LICENSE, e.g. MIT]" }
+authors = [
+    { name = "[AUTHOR_NAME]", email = "[AUTHOR_EMAIL]" }
+]
+keywords = [
+    "behave",
+    "bdd",
+    "testing",
+    "[DOMAIN, e.g. e-commerce]"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "behave>=[MIN_BEHAVE_VERSION, e.g. 1.2.6]",
+    "parse>=[MIN_PARSE_VERSION, e.g. 1.19]",
+]
+
+[project.optional-dependencies]
+dev = [
+    "behave>=[MIN_BEHAVE_VERSION]",
+    "pytest>=[MIN_PYTEST_VERSION, e.g. 7.4]",
+]
+lint = [
+    "ruff>=[MIN_RUFF_VERSION, e.g. 0.4.0]",
+    "mypy>=[MIN_MYPY_VERSION, e.g. 1.10]",
+]
+test = [
+    "pytest>=[MIN_PYTEST_VERSION]",
+    "coverage>=[MIN_COVERAGE_VERSION, e.g. 7.5]",
+]
+ci = [
+    "[PROJECT_NAME][dev]",
+    "[PROJECT_NAME][lint]",
+    "[PROJECT_NAME][test]",
+]
+
+[project.scripts]
+# Uncomment if the suite is exposed as a CLI.
+# [PROJECT_NAME] = "[PACKAGE_NAME].cli:main"
+
+[project.urls]
+Homepage = "[REPOSITORY_URL]"
+Documentation = "[DOCS_URL]"
+Repository = "[REPOSITORY_URL].git"
+
+[tool.behave]
+paths = ["features"]
+format = ["plain"]
+outfiles = ["reports/behave.json"]
+# default-tags = "@smoke or @regression"
+# tags = "~@skip"
+# junit = true
+# junit_directory = "reports/junit"
+
+[tool.behave.formatters]
+allure = "allure_behave.formatter:AllureFormatter"
+
+[tool.behave-gen]
+features_dir = "features"
+steps_dir = "features/steps"
+environment_file = "environment.py"
+template_engine = "string"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-ra -q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py[PY_VERSION_SHORT, e.g. 311]"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+
+[tool.mypy]
+python_version = "[PYTHON_VERSION, e.g. 3.11]"
+strict = true
+warn_return_any = true
+warn_unused_configs = true

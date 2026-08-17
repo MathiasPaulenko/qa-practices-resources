@@ -1,0 +1,28 @@
+{
+  "title": "Behave BDD Project pyproject.toml Template",
+  "title_es": "Plantilla pyproject.toml para Proyectos Behave BDD",
+  "description": "Starter pyproject.toml for Behave BDD projects with packaging, optional extras and tool configuration.",
+  "description_es": "pyproject.toml de inicio para proyectos Behave BDD con empaquetado, extras opcionales y configuración de herramientas.",
+  "type": "templates",
+  "topic": "behave-bdd-testing",
+  "slug": "behave-project-pyproject-template",
+  "source_urls": [
+    "https://qapractices.com/templates/behave-project-pyproject-template/",
+    "https://qapractices.com/es/templates/behave-project-pyproject-template/"
+  ],
+  "language": "toml",
+  "tags": [
+    "behave",
+    "bdd",
+    "python",
+    "pyproject-toml",
+    "template",
+    "test-automation",
+    "behave-bdd"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "pyproject.toml"
+  ]
+}

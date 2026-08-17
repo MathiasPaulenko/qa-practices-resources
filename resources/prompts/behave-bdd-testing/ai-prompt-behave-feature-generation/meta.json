@@ -1,0 +1,29 @@
+{
+  "title": "AI Prompt: Generate Behave BDD Feature Files",
+  "title_es": "Prompt de IA: Generar archivos feature de Behave BDD",
+  "description": "Ready-to-copy AI prompt that turns user stories and acceptance criteria into Behave BDD feature files.",
+  "description_es": "Prompt de IA listo para copiar que convierte user stories y criterios de aceptación en archivos feature de Behave BDD.",
+  "type": "prompts",
+  "topic": "behave-bdd-testing",
+  "slug": "ai-prompt-behave-feature-generation",
+  "source_urls": [
+    "https://qapractices.com/prompts/ai-prompt-behave-feature-generation/",
+    "https://qapractices.com/es/prompts/ai-prompt-behave-feature-generation/"
+  ],
+  "language": "markdown",
+  "tags": [
+    "ai-prompt",
+    "behave",
+    "bdd",
+    "gherkin",
+    "feature-files",
+    "test-automation",
+    "python",
+    "user-stories"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "prompt.md"
+  ]
+}
