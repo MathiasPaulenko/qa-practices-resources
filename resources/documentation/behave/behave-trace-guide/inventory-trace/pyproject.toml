@@ -1,0 +1,13 @@
+[project]
+name = "inventory-trace"
+version = "0.1.0"
+description = "Minimal Behave BDD project that demonstrates behave-trace 1.3.1."
+requires-python = ">=3.11"
+dependencies = [
+    "behave==1.3.3",
+    "behave-trace==1.3.1",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
