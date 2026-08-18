@@ -33,22 +33,21 @@ def before_all(context):
         'CREATE TABLE books (title TEXT PRIMARY KEY, available INTEGER NOT NULL)'
     )
 
-    # Playwright is initialized on demand for @ui scenarios.
-    context.playwright = None
-    context.browser = None
-    context.browser_context = None
+    # Playwright is initialized on demand for @ui scenarios and kept
+    # in a mutable container so it survives across scenario layers.
+    context.ui = {'playwright': None, 'browser': None, 'browser_context': None}
 
 
 def after_all(context):
     context.server.shutdown()
     context.db.close()
 
-    if context.browser_context:
-        context.browser_context.close()
-    if context.browser:
-        context.browser.close()
-    if context.playwright:
-        context.playwright.stop()
+    if context.ui['browser_context']:
+        context.ui['browser_context'].close()
+    if context.ui['browser']:
+        context.ui['browser'].close()
+    if context.ui['playwright']:
+        context.ui['playwright'].stop()
 
 
 def before_scenario(context, scenario):
@@ -65,7 +64,7 @@ def before_scenario(context, scenario):
     elif 'ui' in scenario.tags:
         store.clear()
         _ensure_browser(context)
-        context.page = context.browser_context.new_page()
+        context.page = context.ui['browser_context'].new_page()
         context.page.set_viewport_size({'width': 1280, 'height': 720})
     else:
         context.catalog = Catalog()
@@ -108,9 +107,9 @@ def after_tag(context, tag):
 
 
 def _ensure_browser(context):
-    if context.browser:
+    if context.ui['browser']:
         return
     from playwright.sync_api import sync_playwright
-    context.playwright = sync_playwright().start()
-    context.browser = context.playwright.chromium.launch(headless=True)
-    context.browser_context = context.browser.new_context()
+    context.ui['playwright'] = sync_playwright().start()
+    context.ui['browser'] = context.ui['playwright'].chromium.launch(headless=True)
+    context.ui['browser_context'] = context.ui['browser'].new_context()
