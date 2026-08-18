@@ -5,10 +5,10 @@ This is a minimal Behave BDD project that demonstrates a healthy suite structure
 ## What it contains
 
 - `shop.py` — small catalog and cart domain.
-- `features/shop.feature` — cart scenarios.
+- `features/cart.feature` — cart scenarios.
 - `features/inventory.feature` — inventory scenario.
 - `features/steps/catalog_steps.py` — shared catalog step with a `Price` type.
-- `features/steps/shop_steps.py` — cart step definitions.
+- `features/steps/cart_steps.py` — cart step definitions.
 - `features/steps/inventory_steps.py` — inventory step definitions.
 - `features/environment.py` — per-scenario context setup.
 - `scripts/health_check.py` — detects duplicate step patterns and risky tags.

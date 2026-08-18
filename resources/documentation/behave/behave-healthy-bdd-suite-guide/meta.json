@@ -28,10 +28,10 @@
     "shop.py",
     "scripts/health_check.py",
     "features/environment.py",
-    "features/shop.feature",
+    "features/cart.feature",
     "features/inventory.feature",
     "features/steps/catalog_steps.py",
-    "features/steps/shop_steps.py",
+    "features/steps/cart_steps.py",
     "features/steps/inventory_steps.py"
   ]
 }

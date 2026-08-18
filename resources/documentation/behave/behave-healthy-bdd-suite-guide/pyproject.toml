@@ -36,6 +36,3 @@ dev = [
 [project.urls]
 Homepage = "https://qapractices.com/documentation/behave-healthy-bdd-suite-guide"
 Repository = "https://github.com/MathiasPaulenko/qa-practices-resources"
-
-[tool.behave]
-paths = ["features"]
