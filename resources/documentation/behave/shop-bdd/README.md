@@ -1,9 +1,8 @@
 # Behave BDD Shop Example
 
-A complete, runnable Behave/Gherkin project used in the QAPractices guides:
+A complete, runnable Behave/Gherkin project used in the QAPractices guide:
 
 - [Gherkin Best Practices for Behave](https://qapractices.com/documentation/gherkin-best-practices-behave/)
-- [Behave BDD Project Setup Guide](https://qapractices.com/documentation/behave-bdd-project-setup-guide/)
 
 ## Run
 

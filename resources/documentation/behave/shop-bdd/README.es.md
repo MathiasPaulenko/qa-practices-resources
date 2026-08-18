@@ -1,9 +1,8 @@
 # Ejemplo de tienda con Behave BDD
 
-Proyecto completo y ejecutable de Behave/Gherkin usado en las guías de QAPractices:
+Proyecto completo y ejecutable de Behave/Gherkin usado en la guía de QAPractices:
 
 - [Gherkin Best Practices for Behave](https://qapractices.com/es/documentation/gherkin-best-practices-behave/)
-- [Behave BDD Project Setup Guide](https://qapractices.com/es/documentation/behave-bdd-project-setup-guide/)
 
 ## Ejecutar
 
