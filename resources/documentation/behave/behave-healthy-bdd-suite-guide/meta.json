@@ -1,0 +1,37 @@
+{
+  "title": "Healthy Behave BDD Suite Guide",
+  "title_es": "Guía de Suite Behave BDD Saludable",
+  "description": "Runnable Behave project with cart and inventory features, shared steps and a suite health-check script.",
+  "description_es": "Proyecto ejecutable de Behave con features de carrito e inventario, steps compartidos y un script de health check de suite.",
+  "type": "documentation",
+  "topic": "behave-bdd-testing",
+  "slug": "behave-healthy-bdd-suite-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/behave-healthy-bdd-suite-guide",
+    "https://qapractices.com/es/documentation/behave-healthy-bdd-suite-guide"
+  ],
+  "language": "python",
+  "tags": [
+    "behave",
+    "bdd",
+    "testing",
+    "health-check",
+    "flaky-tests",
+    "qa-metrics",
+    "python"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "pyproject.toml",
+    "behave.ini",
+    "shop.py",
+    "scripts/health_check.py",
+    "features/environment.py",
+    "features/shop.feature",
+    "features/inventory.feature",
+    "features/steps/catalog_steps.py",
+    "features/steps/shop_steps.py",
+    "features/steps/inventory_steps.py"
+  ]
+}

@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "shop-bdd"
+version = "0.1.0"
+description = "Example Behave BDD project with a suite health check script."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Mathias Paulenko", email = "mathias@paulenko.com" }
+]
+keywords = ["behave", "bdd", "testing", "health-check"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "behave>=1.2.6",
+    "parse>=1.18",
+]
+
+[project.optional-dependencies]
+dev = [
+    "behave>=1.2.6",
+    "parse>=1.18",
+]
+
+[project.urls]
+Homepage = "https://qapractices.com/documentation/behave-healthy-bdd-suite-guide"
+Repository = "https://github.com/MathiasPaulenko/qa-practices-resources"
+
+[tool.behave]
+paths = ["features"]
