@@ -2,7 +2,7 @@ Feature: Book catalog web UI
 
   @ui
   Scenario: Search for an available book
-    Given the catalog contains "Clean Code" marked as available
+    Given the web catalog contains "Clean Code" marked as available
     When I search for "Clean Code" in the web catalog
     Then the web result should show "Clean Code"
 

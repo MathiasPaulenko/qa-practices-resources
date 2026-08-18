@@ -4,11 +4,11 @@
   "description": "Complete, runnable Behave example for the Behave BDD Project Setup Guide: in-memory catalog, HTTP API and SQLite variants.",
   "description_es": "Ejemplo completo y ejecutable de Behave para la guía Behave BDD Project Setup Guide: catálogo en memoria, API HTTP y variantes con SQLite.",
   "type": "documentation",
-  "topic": "behave",
+  "topic": "behave-bdd-testing",
   "slug": "book-catalog",
   "source_urls": [
-    "https://qapractices.com/documentation/behave-bdd-project-setup-guide/",
-    "https://qapractices.com/es/documentation/behave-bdd-project-setup-guide/"
+    "https://qapractices.com/documentation/behave-bdd-project-setup-guide",
+    "https://qapractices.com/es/documentation/behave-bdd-project-setup-guide"
   ],
   "language": "python",
   "tags": ["behave", "gherkin", "bdd", "python", "sqlite", "api", "requests"],

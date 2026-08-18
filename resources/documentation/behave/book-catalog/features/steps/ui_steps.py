@@ -12,8 +12,8 @@ def parse_availability(text):
 register_type(Availability=parse_availability)
 
 
-@given('the catalog contains "{title}" marked as {availability:Availability}')
-def step_catalog_contains(context, title, availability):
+@given('the web catalog contains "{title}" marked as {availability:Availability}')
+def step_web_catalog_contains(context, title, availability):
     context.store.add(title, available=availability)
 
 
