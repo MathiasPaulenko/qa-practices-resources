@@ -1,0 +1,23 @@
+name: Mobile Tests
+on: [push, pull_request]
+jobs:
+  maestro-tests:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Maestro
+        run: curl -Ls "https://get.maestro.mobile.dev" | bash
+      - name: Start Simulator
+        run: |
+          xcrun simctl boot "iPhone 15" || true
+          xcrun simctl bootstatus "iPhone 15" -b
+      - name: Install App
+        run: xcrun simctl install booted build/MyApp.app
+      - name: Run Tests
+        run: ~/.maestro/bin/maestro test flows/
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: maestro-failures
+          path: .maestro/tests/

@@ -1,0 +1,9 @@
+# flows/home-screen.yaml
+appId: com.qapractices.demo
+---
+- launchApp
+- assertVisible: "Home"
+- tapOn: "Search"
+- inputText: "headphones"
+- tapOn: "Search"
+- assertVisible: "Search Results"

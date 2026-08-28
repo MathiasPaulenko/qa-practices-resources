@@ -1,0 +1,11 @@
+# flows/profile-flow.yaml
+appId: com.qapractices.demo
+---
+- launchApp
+- runFlow:
+    file: subflows/login.yaml
+    env:
+      EMAIL: "qa-tester@qapractices.test"
+      PASSWORD: "TestPass123!"
+- tapOn: "Profile"
+- assertVisible: "Edit Profile"

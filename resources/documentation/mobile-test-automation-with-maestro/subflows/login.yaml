@@ -1,0 +1,12 @@
+# subflows/login.yaml
+appId: com.qapractices.demo
+---
+- tapOn: "Sign In"
+- inputText:
+    label: "Email"
+    text: "${EMAIL}"
+- inputText:
+    label: "Password"
+    text: "${PASSWORD}"
+- tapOn: "Submit"
+- assertVisible: "Welcome back"

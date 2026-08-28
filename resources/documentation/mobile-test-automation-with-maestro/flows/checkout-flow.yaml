@@ -1,0 +1,21 @@
+# flows/checkout-flow.yaml
+appId: com.qapractices.demo
+---
+- launchApp
+- tapOn: "Cart"
+
+- runFlow:
+    when:
+      visible: "Your cart is empty"
+    commands:
+      - tapOn: "Browse Products"
+      - tapOn: "Add to Cart"
+      - tapOn: "Cart"
+
+- assertVisible: "Checkout"
+- tapOn: "Proceed to Payment"
+- inputText:
+    label: "Card Number"
+    text: "4111111111111111"
+- tapOn: "Place Order"
+- assertVisible: "Order Confirmed"
