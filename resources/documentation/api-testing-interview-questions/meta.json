@@ -1,0 +1,41 @@
+{
+  "title": "Nexus Payments API Testing Interview Companion",
+  "title_es": "Companion de Preguntas de Entrevista de API Testing Nexus Payments",
+  "description": "Runnable Java/REST Assured 5.4 + Postman v11 + Newman 6.1 project that mirrors the Nexus Payments checkout v3.2.5 API testing scenarios from the QAPractices guide 50 API Testing Interview Questions.",
+  "description_es": "Proyecto ejecutable de Java/REST Assured 5.4 + Postman v11 + Newman 6.1 que replica los escenarios de API testing del checkout v3.2.5 de Nexus Payments desde la guía de QAPractices 50 Preguntas de Entrevista de API Testing.",
+  "type": "documentation",
+  "topic": "api-testing",
+  "slug": "api-testing-interview-questions",
+  "source_urls": [
+    "https://qapractices.com/documentation/api-testing-interview-questions/",
+    "https://qapractices.com/es/documentation/api-testing-interview-questions/"
+  ],
+  "language": "java",
+  "tags": [
+    "api-testing",
+    "rest-assured",
+    "postman",
+    "newman",
+    "java",
+    "interview-questions",
+    "nexus-payments",
+    "contract-testing",
+    "json-schema",
+    "k6"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "nexus-api-tests/pom.xml",
+    "nexus-api-tests/src/test/java/com/nexus/tests/CheckoutTest.java",
+    "nexus-api-tests/src/test/java/com/nexus/tests/AuthTest.java",
+    "nexus-api-tests/src/test/java/com/nexus/tests/ContractTest.java",
+    "nexus-api-tests/src/test/java/com/nexus/utils/RetryAnalyzer.java",
+    "nexus-api-tests/src/test/resources/checkout-schema.json",
+    "nexus-api-tests/src/test/resources/user-schema.json",
+    "nexus-api-tests/src/test/resources/test-config.properties",
+    "nexus-api-tests/.github/workflows/api-smoke.yml",
+    "postman/nexus-checkout-smoke.json",
+    "postman/nexus-qa-env.json"
+  ]
+}

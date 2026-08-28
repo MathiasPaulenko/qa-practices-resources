@@ -1,0 +1,40 @@
+{
+  "title": "Cartify Selenium 4 Interview Companion",
+  "title_es": "Companion de Preguntas de Entrevista de Selenium 4 Cartify",
+  "description": "Runnable Java/TestNG/Selenium 4 project that mirrors the Cartify checkout migration from the QAPractices guide 50 Selenium Interview Questions.",
+  "description_es": "Proyecto ejecutable de Java/TestNG/Selenium 4 que replica la migración del checkout de Cartify desde la guía de QAPractices 50 Preguntas de Entrevista de Selenium.",
+  "type": "documentation",
+  "topic": "selenium-testing",
+  "slug": "selenium-interview-questions",
+  "source_urls": [
+    "https://qapractices.com/documentation/selenium-interview-questions/",
+    "https://qapractices.com/es/documentation/selenium-interview-questions/"
+  ],
+  "language": "java",
+  "tags": [
+    "selenium",
+    "selenium-4",
+    "testng",
+    "java",
+    "page-object-model",
+    "selenium-grid-4",
+    "interview-questions",
+    "cartify"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "cartify-checkout/pom.xml",
+    "cartify-checkout/src/test/java/com/cartify/pages/BasePage.java",
+    "cartify-checkout/src/test/java/com/cartify/pages/LoginPage.java",
+    "cartify-checkout/src/test/java/com/cartify/pages/CartPage.java",
+    "cartify-checkout/src/test/java/com/cartify/pages/CheckoutPage.java",
+    "cartify-checkout/src/test/java/com/cartify/pages/PaymentPage.java",
+    "cartify-checkout/src/test/java/com/cartify/utils/RetryAnalyzer.java",
+    "cartify-checkout/src/test/java/com/cartify/tests/LoginTest.java",
+    "cartify-checkout/src/test/java/com/cartify/tests/CheckoutTest.java",
+    "cartify-checkout/src/test/resources/test-data.json",
+    "cartify-checkout/src/test/resources/log4j2.xml",
+    "cartify-checkout/.github/workflows/test.yml"
+  ]
+}

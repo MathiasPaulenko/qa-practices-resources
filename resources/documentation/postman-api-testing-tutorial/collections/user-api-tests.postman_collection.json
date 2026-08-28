@@ -1,0 +1,200 @@
+{
+  "info": {
+    "name": "User API Tests",
+    "description": "Companion collection for the Postman API Testing Tutorial on qapractices.com. Covers GET, POST, chaining, pre-request scripts, and data-driven testing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.staging.example.com",
+      "type": "string"
+    },
+    {
+      "key": "apiToken",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "userId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "createdUserId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "authToken",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "GET User",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiToken}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response time is under 500ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);",
+              "});",
+              "",
+              "pm.test(\"Response contains user data\", function () {",
+              "    const responseData = pm.response.json();",
+              "    pm.expect(responseData).to.have.property(\"id\");",
+              "    pm.expect(responseData).to.have.property(\"email\");",
+              "    pm.expect(responseData.email).to.include(\"@\");",
+              "});",
+              "",
+              "pm.test(\"Content-Type is application/json\", function () {",
+              "    pm.response.to.have.header(\"Content-Type\", \"application/json\");",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "POST Create User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{apiToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane@example.com\",\n  \"role\": \"admin\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/users",
+          "host": ["{{baseUrl}}"],
+          "path": ["users"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"User created successfully\", function () {",
+              "    pm.response.to.have.status(201);",
+              "    const responseData = pm.response.json();",
+              "    pm.expect(responseData.name).to.eql(\"Jane Doe\");",
+              "    pm.expect(responseData.email).to.eql(\"jane@example.com\");",
+              "    pm.expect(responseData).to.have.property(\"id\");",
+              "});",
+              "",
+              "const responseData = pm.response.json();",
+              "pm.environment.set(\"createdUserId\", responseData.id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Login (Chain Source)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"secure-password-123\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/login",
+          "host": ["{{baseUrl}}"],
+          "path": ["login"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Login successful\", function () {",
+              "    pm.response.to.have.status(200);",
+              "    const responseData = pm.response.json();",
+              "    pm.environment.set(\"authToken\", responseData.token);",
+              "    pm.environment.set(\"userId\", responseData.user.id);",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Use Auth Token (Chain Target)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{authToken}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/users/{{userId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "{{userId}}"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Authenticated request returns 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "    const responseData = pm.response.json();",
+              "    pm.expect(responseData).to.have.property(\"id\");",
+              "});"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

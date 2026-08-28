@@ -1,0 +1,40 @@
+{
+  "title": "Pytest Complete Example Project",
+  "title_es": "Proyecto Ejemplo Completo de Pytest",
+  "description": "Runnable pytest 8.3 project with fixtures, parametrization, markers, mocking, pytest-cov, pytest-mock and pytest-xdist.",
+  "description_es": "Proyecto ejecutable con pytest 8.3: fixtures, parametrización, markers, mocks, pytest-cov, pytest-mock y pytest-xdist.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "slug": "pytest-complete-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/pytest-complete-guide/",
+    "https://qapractices.com/es/documentation/pytest-complete-guide/"
+  ],
+  "language": "python",
+  "tags": [
+    "pytest",
+    "pytest-cov",
+    "pytest-mock",
+    "pytest-xdist",
+    "python-testing",
+    "ci-cd",
+    "github-actions"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "pytest-complete/README.md",
+    "pytest-complete/pyproject.toml",
+    "pytest-complete/pytest.ini",
+    "pytest-complete/requirements.txt",
+    "pytest-complete/.github/workflows/pytest.yml",
+    "pytest-complete/src/calculator.py",
+    "pytest-complete/src/user_service.py",
+    "pytest-complete/tests/conftest.py",
+    "pytest-complete/tests/unit/test_calculator.py",
+    "pytest-complete/tests/unit/test_parametrize.py",
+    "pytest-complete/tests/unit/test_mocking.py",
+    "pytest-complete/tests/unit/test_fixtures.py",
+    "pytest-complete/tests/integration/test_user_service.py"
+  ]
+}

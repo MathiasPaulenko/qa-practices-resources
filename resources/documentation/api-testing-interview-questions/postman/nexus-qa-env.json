@@ -1,0 +1,29 @@
+{
+  "name": "Nexus QA Environment",
+  "values": [
+    {
+      "key": "base_url",
+      "value": "https://api.qa.io",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "auth_token",
+      "value": "",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+      "key": "api_key",
+      "value": "pk_test_1234567890",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+      "key": "merchant_id",
+      "value": "m_001",
+      "type": "default",
+      "enabled": true
+    }
+  ]
+}

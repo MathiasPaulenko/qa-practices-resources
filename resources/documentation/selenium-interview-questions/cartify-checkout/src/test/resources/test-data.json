@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "username": "validuser@example.com",
+      "password": "ValidPass123!",
+      "expectedLogin": true
+    },
+    {
+      "username": "invaliduser@example.com",
+      "password": "WrongPass456",
+      "expectedLogin": false
+    }
+  ],
+  "checkout": [
+    {
+      "fullName": "John Doe",
+      "address": "123 Main St",
+      "city": "Anytown",
+      "zip": "12345",
+      "cardNumber": "4111111111111111",
+      "expiry": "12/26",
+      "cvv": "123",
+      "expectedSuccess": true
+    },
+    {
+      "fullName": "Jane Smith",
+      "address": "456 Oak Ave",
+      "city": "Springfield",
+      "zip": "67890",
+      "cardNumber": "5555555555554444",
+      "expiry": "06/27",
+      "cvv": "456",
+      "expectedSuccess": true
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "info": {
+    "name": "nexus-checkout-smoke",
+    "description": "Smoke collection for Nexus Payments checkout v3.2.5. Must complete under 180 seconds.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "https://api.qa.io",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth - Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Response time under 800 ms', function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(800);",
+              "});",
+              "",
+              "pm.test('Token is present', function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json.access_token).to.be.a('string');",
+              "    pm.environment.set('auth_token', json.access_token);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v2/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["v2", "auth", "login"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"ana.lopez\",\"password\":\"ValidPass123\"}"
+        }
+      }
+    },
+    {
+      "name": "Checkout - Happy Path",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 201', function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test('Payment status is completed', function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json.payment_status).to.eql('completed');",
+              "});",
+              "",
+              "pm.test('Response time under 1500 ms', function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(1500);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{auth_token}}" },
+          { "key": "Stripe-Idempotency-Key", "value": "{{$guid}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v2/checkout",
+          "host": ["{{base_url}}"],
+          "path": ["v2", "checkout"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"merchant_id\":\"m_001\",\"amount\":4999,\"currency\":\"USD\"}"
+        }
+      }
+    },
+    {
+      "name": "Checkout - Duplicate Charge Returns 409",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Second call returns 409', function () {",
+              "    pm.response.to.have.status(409);",
+              "});",
+              "",
+              "pm.test('Error mentions duplicate', function () {",
+              "    const json = pm.response.json();",
+              "    pm.expect(json.error).to.include('duplicate');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{auth_token}}" },
+          { "key": "Stripe-Idempotency-Key", "value": "fixed-key-for-duplicate-test" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v2/checkout",
+          "host": ["{{base_url}}"],
+          "path": ["v2", "checkout"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"merchant_id\":\"m_001\",\"amount\":4999,\"currency\":\"USD\"}"
+        }
+      }
+    },
+    {
+      "name": "Auth - Expired Token Returns 401",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 401', function () {",
+              "    pm.response.to.have.status(401);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer expired.token.here" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/v2/users/me",
+          "host": ["{{base_url}}"],
+          "path": ["v2", "users", "me"]
+        }
+      }
+    }
+  ]
+}

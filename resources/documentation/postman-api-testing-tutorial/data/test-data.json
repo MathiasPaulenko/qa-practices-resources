@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Jane Doe",
+    "email": "jane@example.com",
+    "expectedStatus": 201
+  },
+  {
+    "name": "John Smith",
+    "email": "john@example.com",
+    "expectedStatus": 201
+  },
+  {
+    "name": "",
+    "email": "invalid-email",
+    "expectedStatus": 400
+  }
+]

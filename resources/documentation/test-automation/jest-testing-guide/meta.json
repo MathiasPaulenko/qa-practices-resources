@@ -1,0 +1,45 @@
+{
+  "title": "Jest 29 Example Project: React & Node.js",
+  "title_es": "Proyecto Ejemplo con Jest 29: React y Node.js",
+  "description": "Runnable Jest 29 project with TypeScript, React Testing Library, mocks, snapshots, fake timers and GitHub Actions coverage.",
+  "description_es": "Proyecto ejecutable con Jest 29: TypeScript, React Testing Library, mocks, snapshots, timers falsos y cobertura con GitHub Actions.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "slug": "jest-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/jest-testing-guide/",
+    "https://qapractices.com/es/documentation/jest-testing-guide/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "jest",
+    "jest-29",
+    "react-testing-library",
+    "typescript",
+    "mocks",
+    "snapshots",
+    "ci-cd",
+    "github-actions"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "jest-react-node/package.json",
+    "jest-react-node/jest.config.js",
+    "jest-react-node/jest.config.react.js",
+    "jest-react-node/jest.setup.js",
+    "jest-react-node/tsconfig.json",
+    "jest-react-node/.github/workflows/test.yml",
+    "jest-react-node/src/calculator.js",
+    "jest-react-node/src/fetchUser.js",
+    "jest-react-node/src/user.service.js",
+    "jest-react-node/src/api.js",
+    "jest-react-node/src/components/UserCard.jsx",
+    "jest-react-node/src/components/LoginForm.jsx",
+    "jest-react-node/__tests__/calculator.test.js",
+    "jest-react-node/__tests__/fetchUser.test.js",
+    "jest-react-node/__tests__/user.service.test.js",
+    "jest-react-node/__tests__/UserCard.test.jsx",
+    "jest-react-node/__tests__/LoginForm.test.jsx"
+  ]
+}

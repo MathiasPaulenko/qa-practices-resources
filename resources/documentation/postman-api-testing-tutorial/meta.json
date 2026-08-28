@@ -1,0 +1,23 @@
+{
+  "slug": "postman-api-testing-tutorial",
+  "type": "documentation",
+  "topic": "api-testing",
+  "title": "Postman API Testing Tutorial for Beginners",
+  "titleEs": "Tutorial de Postman API Testing para Principiantes",
+  "description": "Companion resources for the Postman API Testing Tutorial. Includes a ready-to-run Postman collection, environment files, and data-driven test data.",
+  "descriptionEs": "Recursos complementarios para el Tutorial de Postman API Testing. Incluye una colección de Postman lista para ejecutar, archivos de entorno y datos para testing data-driven.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-08-28",
+  "tools": {
+    "postman": "v11",
+    "newman": "6.x",
+    "node": "20 LTS"
+  },
+  "files": [
+    "collections/user-api-tests.postman_collection.json",
+    "environments/staging.postman_environment.json",
+    "data/test-data.json",
+    "README.md",
+    "README.es.md"
+  ]
+}
