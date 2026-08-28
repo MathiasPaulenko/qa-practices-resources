@@ -1,0 +1,37 @@
+{
+  "title": "Password Reset Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Reset de Contraseña — Companion Ejecutable",
+  "description": "pytest 8.3 scripts and Postman collection covering the 16 password reset test cases from qapractices.com: token expiry, reuse, enumeration, brute force, password policy and audit logging.",
+  "description_es": "Scripts de pytest 8.3 y collection de Postman que cubren los 16 casos de prueba de reset de contraseña de qapractices.com: expiración de token, reuso, enumeración, fuerza bruta, política de contraseñas y logging de auditoría.",
+  "type": "test-cases",
+  "topic": "authentication",
+  "slug": "password-reset-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/password-reset-test-cases/",
+    "https://qapractices.com/es/test-cases/password-reset-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "password-reset",
+    "authentication",
+    "token-security",
+    "pytest",
+    "postman",
+    "owasp",
+    "rate-limiting",
+    "account-enumeration"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "tests/conftest.py",
+    "tests/test_reset_request.py",
+    "tests/test_reset_confirm.py",
+    "tests/test_token_security.py",
+    "tests/test_password_policy.py",
+    "tests/test_rate_limiting.py",
+    "tests/test_audit_log.py",
+    "tests/requirements.txt",
+    "postman/password-reset-test-cases.postman_collection.json"
+  ]
+}
