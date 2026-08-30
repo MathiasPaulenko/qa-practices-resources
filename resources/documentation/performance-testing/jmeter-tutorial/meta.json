@@ -1,0 +1,28 @@
+{
+  "title": "JMeter API Load Test Companion",
+  "title_es": "Companion de JMeter API Load Test",
+  "description": "Runnable JMeter 5.6.3 test plan with placeholder API host, assertions, listeners, and sample CSV data for the QAPractices JMeter tutorial.",
+  "description_es": "Plan de pruebas ejecutable de JMeter 5.6.3 con host placeholder de API, aserciones, listeners y CSV de ejemplo para el tutorial de JMeter de QAPractices.",
+  "type": "documentation",
+  "topic": "performance-testing",
+  "slug": "jmeter-tutorial",
+  "source_urls": [
+    "https://qapractices.com/documentation/jmeter-tutorial/",
+    "https://qapractices.com/es/documentation/jmeter-tutorial/"
+  ],
+  "language": "jmx",
+  "tags": [
+    "jmeter",
+    "load-testing",
+    "api-testing",
+    "performance-testing",
+    "jmx",
+    "csv"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "api-load-test.jmx",
+    "test-data.csv"
+  ]
+}
