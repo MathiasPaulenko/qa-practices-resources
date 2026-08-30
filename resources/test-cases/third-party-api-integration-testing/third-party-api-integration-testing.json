@@ -1,0 +1,41 @@
+{
+  "title": "Third-Party API Integration Test Cases",
+  "version": "1.0.0",
+  "lastUpdated": "2026-08-29",
+  "source": "https://qapractices.com/test-cases/third-party-api-integration-testing",
+  "edgeCases": 5,
+  "testCases": [
+    {
+      "title": "Authenticate with Valid Credentials",
+      "markdown": "Authenticate with Valid Credentials\n\nBefore testing failure modes, prove the happy path works against the provider's sandbox.\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-001 | Authenticate with valid API key or OAuth token | Valid credentials configured for the sandbox environment | Sandbox API key and OAuth token | 1. Send an authenticated request to the third-party sandbox.<br>2. Verify the response status and payload structure. | Request succeeds (2xx). Response matches the documented schema for the endpoint. | pytest + requests | High |"
+    },
+    {
+      "title": "Reject Invalid or Expired Credentials",
+      "markdown": "Reject Invalid or Expired Credentials\n\nBad credentials are the first line of defense. This case verifies the app rejects them without leaking secrets.\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-002 | Reject invalid, expired and revoked credentials | Test environment can use revoked tokens and invalid keys | Invalid API key, expired token, revoked OAuth token | 1. Send a request with an invalid API key.<br>2. Send a request with an expired token.<br>3. Send a request with a revoked OAuth token. | All requests return 401 or 403. Error bodies don't expose internal keys, tokens or stack traces. | pytest + requests | High |"
+    },
+    {
+      "title": "Rate Limit Threshold Behavior",
+      "markdown": "Rate Limit Threshold Behavior\n\nMost providers enforce a request limit. This case proves the app reads the headers and backs off instead of hammering the endpoint.\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-003 | Verify rate limit threshold and headers | Rate limit is documented (e.g., 1,000 req/min) | Request volume that crosses the threshold | 1. Send requests up to the documented limit.<br>2. Send one additional request beyond the limit.<br>3. Inspect `Retry-After` and `X-RateLimit-Remaining` headers. | Requests within the limit succeed. The request over the limit returns 429. Headers are present and accurate. | k6 / Locust | High |"
+    },
+    {
+      "title": "Timeout and Retry Logic",
+      "markdown": "Timeout and Retry Logic\n\nSlow responses are not errors, but they become errors if the app waits forever. This case checks timeout and retry behavior.\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-004 | Handle slow responses and network timeouts | Mock server or proxy configured to delay responses | Timeout threshold (e.g., 5 seconds); retry policy (e.g., 3 retries with exponential backoff) | 1. Configure the mock to delay the response beyond the timeout.<br>2. Send the request.<br>3. Observe retry attempts and final application behavior. | Request times out after the configured threshold. Retries follow the backoff policy. The user sees a graceful error. | WireMock / toxiproxy + pytest | High |"
+    },
+    {
+      "title": "Error Response Parsing",
+      "markdown": "Error Response Parsing\n\nProviders return 5xx and malformed bodies. This case ensures the app parses them without crashing or exposing internal details.\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-005 | Parse and propagate third-party error responses | Mock server or sandbox returns documented error codes | 400, 500, 503 and non-JSON responses | 1. Send requests that trigger each error code.<br>2. Verify that the application logs and surfaces the error correctly. | Application parses the provider error, doesn't crash, logs context and surfaces a user-friendly message. | pytest + requests | High |"
+    },
+    {
+      "title": "Fallback on Service Unavailability",
+      "markdown": "Fallback on Service Unavailability\n\nWhen the provider is down, the app must still work for the user. This case forces a 503 and validates fallback logic.\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-006 | Activate fallback when the third-party service is down | Fallback logic is implemented for the feature | Blocked endpoint or WireMock returning 503 | 1. Block all traffic to the provider endpoint or force a 503.<br>2. Trigger a request that depends on the service.<br>3. Observe fallback behavior. | Fallback activates. Core functionality remains available. Non-critical features degrade gracefully. | WireMock + application logs | High |"
+    },
+    {
+      "title": "Response Schema Validation",
+      "markdown": "Response Schema Validation\n\nProvider responses change without warning. This case validates every field the app actually uses and ignores the rest safely.\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-007 | Validate third-party response schema | JSON Schema or TypeScript types defined for the integration | Responses covering documented and undocumented variations | 1. Send requests covering all documented response shapes.<br>2. Validate each response against the schema.<br>3. Test handling of unknown fields. | All documented fields are present and correctly typed. Unknown fields are ignored or logged, not crash the parser. | jsonschema / Pydantic | High |"
+    },
+    {
+      "title": "Webhook Delivery and Signature Validation",
+      "markdown": "Webhook Delivery and Signature Validation\n\nWebhooks are push, not pull. This case verifies delivery and rejects any payload with a bad signature.\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-008 | Verify webhook delivery and signature from provider | Webhook endpoint is registered with the provider sandbox | Valid and invalid webhook payloads and signatures | 1. Trigger an event in the provider sandbox.<br>2. Verify the webhook reaches the endpoint.<br>3. Validate the signature and payload structure. | Webhook is delivered within the documented SLA. Payload matches the schema. Invalid signatures are rejected. | Flask test client / ngrok for sandbox | High |"
+    }
+  ]
+}

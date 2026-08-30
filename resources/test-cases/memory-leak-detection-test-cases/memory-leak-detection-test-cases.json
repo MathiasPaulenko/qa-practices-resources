@@ -1,0 +1,41 @@
+{
+  "title": "Memory Leak Detection Test Cases",
+  "version": "1.0.0",
+  "lastUpdated": "2026-08-29",
+  "source": "https://qapractices.com/test-cases/memory-leak-detection-test-cases",
+  "edgeCases": 5,
+  "testCases": [
+    {
+      "title": "Capture a Baseline Heap Snapshot",
+      "markdown": "Capture a Baseline Heap Snapshot\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-001 | Capture a baseline heap snapshot | Application freshly started; no active user sessions | N/A | 1. Start the app in production mode.<br>2. Open DevTools Memory tab or run `node --heapsnapshot-near-heap-limit=1`.<br>3. Force GC and capture a snapshot.<br>4. Record total heap size. | Heap size is within the documented baseline range for the environment. | Manual / Chrome DevTools | High |"
+    },
+    {
+      "title": "Detect DOM Node Accumulation in an SPA",
+      "markdown": "Detect DOM Node Accumulation in an SPA\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-002 | Detect detached DOM node accumulation | SPA with route transitions; DevTools open | 50 route transitions between `/list` and `/detail` | 1. Take a baseline snapshot at `/list`.<br>2. Navigate to `/detail` and back 50 times.<br>3. Force GC and take a second snapshot.<br>4. Compare heap size and detached DOM nodes. | Heap size difference is < 10% of baseline. No detached DOM nodes retained. | Playwright + Chrome DevTools | High |"
+    },
+    {
+      "title": "Validate Memory Stability Over a Long Session",
+      "markdown": "Validate Memory Stability Over a Long Session\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-003 | Validate 4-hour memory stability | User authenticated; background tasks running | Realistic session with actions every 5 minutes | 1. Log in and record initial heap size.<br>2. Perform user actions every 5 minutes for 4 hours.<br>3. Record final heap size and calculate growth rate. | Memory growth rate is < 5 MB/hour. No `OutOfMemory` errors in logs. | k6 / Manual endurance test | High |"
+    },
+    {
+      "title": "Verify Event Listeners Are Removed on Unmount",
+      "markdown": "Verify Event Listeners Are Removed on Unmount\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-004 | Verify event listener cleanup | Component with event listeners; DevTools open | 100 mount and unmount cycles | 1. Record active event listener count at baseline.<br>2. Mount and unmount the component 100 times.<br>3. Force GC and compare listener count. | Active event listener count returns to baseline after unmounting. | React DevTools / Playwright | High |"
+    },
+    {
+      "title": "Detect Backend Heap Growth Under Sustained Load",
+      "markdown": "Detect Backend Heap Growth Under Sustained Load\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-005 | Detect backend heap growth | API service running; load generator available | 1,000 requests over 30 minutes | 1. Record baseline `heapUsed` via `process.memoryUsage()`.<br>2. Send sustained load for 30 minutes.<br>3. Force GC and record final `heapUsed`. | Heap growth is < 20% of baseline. No object category grows > 50%. | k6 + Node.js heap dump | High |"
+    },
+    {
+      "title": "Validate Mobile App Memory Returns to Baseline",
+      "markdown": "Validate Mobile App Memory Returns to Baseline\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-006 | Validate mobile app memory recovery | Physical iOS or Android device; app installed | 10 minutes of typical user flow | 1. Launch app and record baseline memory.<br>2. Complete a typical user flow.<br>3. Return to the home screen and wait 60 seconds.<br>4. Record final memory. | Memory returns to near baseline. OS doesn't terminate the app. | Xcode Instruments / Android Profiler | High |"
+    },
+    {
+      "title": "Isolate a Leak to a Specific Library Version",
+      "markdown": "Isolate a Leak to a Specific Library Version\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-007 | Isolate a library version leak | Two builds: old library version and new version | Identical workload for both versions | 1. Run the same workload on the old version for 1 hour.<br>2. Capture a heap dump.<br>3. Repeat on the new version.<br>4. Compare retention graphs. | New version doesn't retain extra library objects that the old version frees. | `heapdump` / Valgrind | Medium |"
+    },
+    {
+      "title": "Fail CI Build on Memory Regression",
+      "markdown": "Fail CI Build on Memory Regression\n\n| Test Case ID | Scenario | Preconditions | Test Data | Steps | Expected Result | Automation Notes | Priority |\n|---|---|---|---|---|---|---|---|\n| TC-008 | Fail CI build on memory regression | CI pipeline can run headless browser or API tests | Baseline from previous green build | 1. Run a standardized workload in CI.<br>2. Capture `process.memoryUsage().heapUsed` or `performance.measureUserAgentSpecificMemory()`.<br>3. Compare against the previous baseline.<br>4. Fail if growth exceeds 10%. | Build passes when memory is stable; fails with a descriptive message when it exceeds the threshold. | GitHub Actions / Playwright | High |"
+    }
+  ]
+}

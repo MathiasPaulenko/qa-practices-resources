@@ -1,0 +1,15 @@
+{
+  "title": "Ecommerce Testing Checklist",
+  "title_es": "Checklist de Pruebas de Ecommerce",
+  "description": "Printable, importable checklist for validating ecommerce storefronts before release.",
+  "description_es": "Checklist imprimible e importable para validar tiendas online antes del release.",
+  "type": "checklists",
+  "slug": "ecommerce-testing-checklist",
+  "language": "en",
+  "version": "1.0.0",
+  "lastUpdated": "2026-08-28",
+  "sourceUrl": "https://qapractices.com/checklists/ecommerce-testing-checklist",
+  "sourceUrl_es": "https://qapractices.com/es/checklists/ecommerce-testing-checklist",
+  "items": 64,
+  "formats": ["md", "json"]
+}

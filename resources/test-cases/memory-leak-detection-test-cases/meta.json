@@ -1,0 +1,16 @@
+{
+  "title": "Memory Leak Detection Test Cases",
+  "title_es": "Casos de Prueba de Fugas de Memoria",
+  "description": "Reproducible test cases and example scripts to detect, isolate and fix memory leaks in web, backend and mobile apps.",
+  "description_es": "Casos de prueba reproducibles y scripts de ejemplo para detectar, aislar y corregir fugas de memoria en web, backend y apps mobile.",
+  "type": "test-cases",
+  "slug": "memory-leak-detection-test-cases",
+  "language": "en",
+  "version": "1.0.0",
+  "lastUpdated": "2026-08-29",
+  "sourceUrl": "https://qapractices.com/test-cases/memory-leak-detection-test-cases",
+  "sourceUrl_es": "https://qapractices.com/es/test-cases/memory-leak-detection-test-cases",
+  "testCases": 8,
+  "edgeCases": 5,
+  "formats": ["md", "json"]
+}

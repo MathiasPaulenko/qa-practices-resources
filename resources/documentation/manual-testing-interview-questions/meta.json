@@ -1,0 +1,15 @@
+{
+  "title": "Manual Testing Interview: Top 50 Questions & Answers",
+  "title_es": "Entrevista de Testing Manual: Top 50 Preguntas y Respuestas",
+  "description": "Printable study companion for manual testing interviews with 50 questions, key answer points and flashcard JSON.",
+  "description_es": "Recopilación imprimible para entrevistas de testing manual con 50 preguntas, puntos clave de respuesta y JSON de flashcards.",
+  "type": "documentation",
+  "slug": "manual-testing-interview-questions",
+  "language": "en",
+  "version": "1.0.0",
+  "lastUpdated": "2026-08-29",
+  "sourceUrl": "https://qapractices.com/documentation/manual-testing-interview-questions",
+  "sourceUrl_es": "https://qapractices.com/es/documentation/manual-testing-interview-questions",
+  "questionCount": 50,
+  "formats": ["md", "json"]
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Third-Party API Integration Testing Test Cases",
+  "title_es": "Casos de Prueba de APIs de Terceros",
+  "description": "Reproducible test cases and example scripts for third-party API integrations: authentication, rate limits, timeouts, retries, fallbacks, webhooks and schema validation.",
+  "description_es": "Casos de prueba reproducibles y scripts de ejemplo para APIs de terceros: autenticación, rate limits, timeouts, retries, fallbacks, webhooks y validación de esquema.",
+  "type": "test-cases",
+  "slug": "third-party-api-integration-testing",
+  "language": "en",
+  "version": "1.0.0",
+  "lastUpdated": "2026-08-29",
+  "sourceUrl": "https://qapractices.com/test-cases/third-party-api-integration-testing",
+  "sourceUrl_es": "https://qapractices.com/es/test-cases/third-party-api-integration-testing",
+  "testCases": 8,
+  "edgeCases": 5,
+  "formats": ["md", "json"]
+}

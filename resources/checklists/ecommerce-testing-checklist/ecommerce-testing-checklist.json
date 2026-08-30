@@ -1,0 +1,318 @@
+{
+  "title": "Ecommerce Testing Checklist",
+  "version": "1.0.0",
+  "lastUpdated": "2026-08-28",
+  "source": "https://qapractices.com/checklists/ecommerce-testing-checklist",
+  "categories": [
+    {
+      "category": "---",
+      "items": []
+    },
+    {
+      "category": "Product Catalog",
+      "items": [
+        {
+          "text": "Product pages display correct images, prices, stock status and descriptions.",
+          "risk": "High"
+        },
+        {
+          "text": "Search returns relevant results for exact names, partial names and common typos.",
+          "risk": "Medium"
+        },
+        {
+          "text": "Filters and sorting work with realistic product volumes (category, price, brand, rating).",
+          "risk": "Medium"
+        },
+        {
+          "text": "Product variants update price, SKU and stock when size or color changes.",
+          "risk": "High"
+        },
+        {
+          "text": "Out-of-stock products are clearly marked or hidden according to business rules.",
+          "risk": "High"
+        },
+        {
+          "text": "Reviews and ratings load and respect moderation/approval workflows.",
+          "risk": "Low"
+        },
+        {
+          "text": "Pagination and infinite scroll work without duplicated or missing items.",
+          "risk": "Low"
+        }
+      ]
+    },
+    {
+      "category": "Shopping Cart",
+      "items": [
+        {
+          "text": "Items can be added from product page, listing page and recently viewed.",
+          "risk": "Medium"
+        },
+        {
+          "text": "Cart badge updates immediately and matches line-item count.",
+          "risk": "Low"
+        },
+        {
+          "text": "Quantity can be changed and subtotal recalculates with taxes and discounts.",
+          "risk": "High"
+        },
+        {
+          "text": "Items can be removed and the cart shows an empty state.",
+          "risk": "Low"
+        },
+        {
+          "text": "Guest cart merges with user cart after login without losing items.",
+          "risk": "High"
+        },
+        {
+          "text": "Cart persists across sessions for logged-in users.",
+          "risk": "High"
+        },
+        {
+          "text": "Abandoned-cart email triggers within the configured delay (1–24 hours).",
+          "risk": "Medium"
+        }
+      ]
+    },
+    {
+      "category": "Checkout",
+      "items": [
+        {
+          "text": "Guest checkout and registered checkout both work end-to-end.",
+          "risk": "Medium"
+        },
+        {
+          "text": "Shipping address validates against supported regions and carrier rules.",
+          "risk": "Medium"
+        },
+        {
+          "text": "Shipping options and costs update when the address changes.",
+          "risk": "Medium"
+        },
+        {
+          "text": "Tax calculations are accurate for state, province and VAT rules.",
+          "risk": "High"
+        },
+        {
+          "text": "Promo and coupon codes apply, stack correctly and respect expiration.",
+          "risk": "High"
+        },
+        {
+          "text": "Minimum order value and free-shipping thresholds calculate correctly.",
+          "risk": "Medium"
+        },
+        {
+          "text": "Order total, line items, shipping and tax appear before payment.",
+          "risk": "High"
+        }
+      ]
+    },
+    {
+      "category": "Payment",
+      "items": [
+        {
+          "text": "Card payments complete successfully with the production gateway's sandbox.",
+          "risk": "High"
+        },
+        {
+          "text": "Declined cards, 3D Secure and OTP flows show clear, actionable errors.",
+          "risk": "High"
+        },
+        {
+          "text": "Partial payments (gift card + card, store credit + card) process correctly.",
+          "risk": "High"
+        },
+        {
+          "text": "Refund and cancellation flows return funds and restore inventory.",
+          "risk": "High"
+        },
+        {
+          "text": "Payment confirmation is received by the customer and the order service.",
+          "risk": "High"
+        },
+        {
+          "text": "PCI-compliant tokenization is used; raw card data never hits the server.",
+          "risk": "High"
+        }
+      ]
+    },
+    {
+      "category": "Order & Inventory",
+      "items": [
+        {
+          "text": "Order confirmation email includes order number, items, total and shipping address.",
+          "risk": "High"
+        },
+        {
+          "text": "Order status updates correctly from placed to shipped to delivered.",
+          "risk": "High"
+        },
+        {
+          "text": "Inventory decrements only after a successful order, not on add-to-cart.",
+          "risk": "High"
+        },
+        {
+          "text": "Low-stock alerts fire before the product sells out.",
+          "risk": "High"
+        },
+        {
+          "text": "Order cancellation by customer and admin updates stock and refund status.",
+          "risk": "High"
+        },
+        {
+          "text": "Return/refund process updates order totals, inventory and customer balance.",
+          "risk": "High"
+        }
+      ]
+    },
+    {
+      "category": "Security & Compliance",
+      "items": [
+        {
+          "text": "HTTPS is enforced and there's no mixed content on checkout pages.",
+          "risk": "High"
+        },
+        {
+          "text": "Customer PII and payment tokens are encrypted at rest.",
+          "risk": "High"
+        },
+        {
+          "text": "Admin panel requires MFA and role-based access control.",
+          "risk": "High"
+        },
+        {
+          "text": "Session tokens expire after a reasonable timeout and rotate on privilege change.",
+          "risk": "High"
+        },
+        {
+          "text": "CSRF tokens validate on cart, checkout, account and payment forms.",
+          "risk": "High"
+        },
+        {
+          "text": "SQL injection and XSS protections cover search, reviews and product fields.",
+          "risk": "High"
+        },
+        {
+          "text": "Rate limiting protects login, password reset and coupon endpoints.",
+          "risk": "High"
+        },
+        {
+          "text": "Security headers (CSP, X-Frame-Options, X-Content-Type-Options) are present.",
+          "risk": "High"
+        }
+      ]
+    },
+    {
+      "category": "Performance & Mobile",
+      "items": [
+        {
+          "text": "Checkout completes within 5 seconds including payment processing.",
+          "risk": "High"
+        },
+        {
+          "text": "Product images use WebP, lazy loading and responsive `srcset`.",
+          "risk": "Low"
+        },
+        {
+          "text": "Search returns results within 2 seconds on typical queries.",
+          "risk": "Medium"
+        },
+        {
+          "text": "Site handles peak traffic (Black Friday, flash sales) without errors.",
+          "risk": "Medium"
+        },
+        {
+          "text": "Full checkout flow works on iOS and Android with real payment options.",
+          "risk": "High"
+        },
+        {
+          "text": "Touch targets, input zoom and mobile keyboards don't break payment forms.",
+          "risk": "High"
+        }
+      ]
+    },
+    {
+      "category": "Notifications & SEO",
+      "items": [
+        {
+          "text": "Order, shipping and password-reset emails include correct data and tracking links.",
+          "risk": "High"
+        },
+        {
+          "text": "Promotional emails include an unsubscribe link and pass SPF/DKIM/DMARC.",
+          "risk": "Low"
+        },
+        {
+          "text": "Product pages have unique titles, meta descriptions and valid Product schema.",
+          "risk": "Low"
+        },
+        {
+          "text": "Canonical URLs and sitemap prevent duplicate product and category pages.",
+          "risk": "Low"
+        },
+        {
+          "text": "Analytics events fire on add-to-cart, checkout, purchase and refund.",
+          "risk": "High"
+        }
+      ]
+    },
+    {
+      "category": "Accessibility",
+      "items": [
+        {
+          "text": "Add-to-cart, filters and checkout fields are keyboard accessible.",
+          "risk": "Low"
+        },
+        {
+          "text": "Product images have meaningful alt text or are marked decorative.",
+          "risk": "Low"
+        },
+        {
+          "text": "Form fields in checkout have associated labels and error announcements.",
+          "risk": "Medium"
+        },
+        {
+          "text": "Color contrast meets WCAG 2.2 AA for prices, badges and error states.",
+          "risk": "Low"
+        },
+        {
+          "text": "Focus order follows the logical checkout flow.",
+          "risk": "Low"
+        }
+      ]
+    },
+    {
+      "category": "Edge Cases & Negative Checks",
+      "items": [
+        {
+          "text": "Pay with an expired card and verify the payment is rejected with a clear message.",
+          "risk": "High"
+        },
+        {
+          "text": "Pay with insufficient funds and confirm the user can retry without double-charging.",
+          "risk": "High"
+        },
+        {
+          "text": "Submit payment with a missing or short CVV and verify validation blocks it.",
+          "risk": "High"
+        },
+        {
+          "text": "Apply an already-used, expired or region-locked coupon and verify rejection.",
+          "risk": "High"
+        },
+        {
+          "text": "Attempt to buy more units than available stock and verify oversell protection.",
+          "risk": "High"
+        },
+        {
+          "text": "Change currency after cart is loaded and confirm prices recalculate or warn.",
+          "risk": "Medium"
+        },
+        {
+          "text": "Complete checkout with a shipping address the carrier doesn't serve.",
+          "risk": "Medium"
+        }
+      ]
+    }
+  ]
+}

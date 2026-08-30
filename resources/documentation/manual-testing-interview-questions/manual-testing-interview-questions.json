@@ -1,0 +1,257 @@
+{
+  "title": "Manual Testing Interview: Top 50 Questions & Answers",
+  "title_es": "Entrevista de Testing Manual: Top 50 Preguntas y Respuestas",
+  "questionCount": 50,
+  "questions": [
+    {
+      "id": "Q1",
+      "question": "What is manual testing and why do we still need it?",
+      "answer": "Manual testing is a human executing test cases or exploring the application to find issues. I keep this in mind when a confusing error message, a layout that breaks on a 320px screen, or a checkout flow that simply feels wrong makes me doubt the design, not just the code. Automation confirms expected paths; manual testing questions whether the expected path is even the right one."
+    },
+    {
+      "id": "Q2",
+      "question": "What is the difference between verification and validation?",
+      "answer": "Verification asks whether we built it right. That means reviewing requirements, design, code and checklists against the specifications. Validation asks whether we built the right thing, which only becomes clear when real users or testers run the software against actual needs and business goals."
+    },
+    {
+      "id": "Q3",
+      "question": "What are the different levels of testing?",
+      "answer": "Testing happens at four main levels:\n\n| Level | What it tests | Who usually owns it |\n|---|---|---|\n| Unit testing | Individual functions or classes | Developers |\n| Integration testing | Interactions between modules or services | Developers and QA |\n| System testing | Complete application against requirements | QA |\n| Acceptance testing | Fit for business use by users or stakeholders | Users, product owners, QA |"
+    },
+    {
+      "id": "Q4",
+      "question": "What is the difference between functional and non-functional testing?",
+      "answer": "Functional testing checks what the system does: login works, the cart saves items, payment completes. Non-functional testing checks how the system behaves: response time, security, usability, compatibility, reliability. A feature can pass functional tests and still be unusable if it takes 15 seconds to load."
+    },
+    {
+      "id": "Q5",
+      "question": "What is the difference between static and dynamic testing?",
+      "answer": "| Static testing | Dynamic testing |\n|---|---|\n| Examines documents or code without executing it | Executes the software and observes behavior |\n| Examples: requirements review, code walkthrough, checklist inspection | Examples: running test cases, exploratory sessions |\n| Catches defects earlier and more cheaply | Confirms actual runtime behavior |"
+    },
+    {
+      "id": "Q6",
+      "question": "What is a test bed?",
+      "answer": "Think of a test bed as the controlled room where testing happens. It includes the OS, browser or device version, database state, network settings, test data and any dependencies. A mobile banking test bed might be an iPhone 14 on iOS 17.2 with a seeded test account. If the test bed differs from production, environment-specific bugs slip through."
+    },
+    {
+      "id": "Q7",
+      "question": "What is the difference between a bug, a defect, and an error?",
+      "answer": "An error is the human mistake, such as a typo in code or a misunderstood requirement. A defect is the flaw in the code or design caused by that error. A bug is the observable misbehavior when the software runs. In most Jira instances the team labels all three as \"bug,\" but the distinction matters in formal defect analysis."
+    },
+    {
+      "id": "Q8",
+      "question": "What is a test harness?",
+      "answer": "A test harness is the scaffolding that runs a component in isolation under controlled conditions. It usually includes stubs, drivers, test data, and assertions. Harnesses are common in automated unit testing, but understanding them shows you know how components are exercised apart from the full system.\n\n### Test Design Techniques"
+    },
+    {
+      "id": "Q9",
+      "question": "What are the different test design techniques?",
+      "answer": "Techniques fall into three groups:\n\n| Category | Examples |\n|---|---|\n| Black-box | Equivalence partitioning, boundary value analysis, decision tables, state transition, use case testing |\n| White-box | Statement, branch, path, and condition coverage |\n| Experience-based | Exploratory testing, error guessing, checklist-based testing |"
+    },
+    {
+      "id": "Q10",
+      "question": "Explain equivalence partitioning with an example",
+      "answer": "Equivalence partitioning divides input data into groups that should behave the same way. You test one value from each group instead of every possible value.\n\nExample: a password field accepts 8-20 characters.\n\n| Partition | Values to test |\n|---|---|\n| Valid | 10 characters |\n| Too short | 5 characters |\n| Too long | 25 characters |"
+    },
+    {
+      "id": "Q11",
+      "question": "Explain boundary value analysis with an example",
+      "answer": "Boundary value analysis targets the edges of partitions because off-by-one errors often hide there.\n\nExample: a field accepts values from 1 to 100.\n\n| Position | Value |\n|---|---|\n| Just below lower boundary | 0 |\n| Lower boundary | 1 |\n| Just above lower boundary | 2 |\n| Just below upper boundary | 99 |\n| Upper boundary | 100 |\n| Just above upper boundary | 101 |\n\nSix values cover the risk zone; testing all 100 inputs is usually unnecessary."
+    },
+    {
+      "id": "Q12",
+      "question": "What is decision table testing?",
+      "answer": "Decision tables map combinations of conditions to expected actions. They work well when several inputs interact.\n\nExample: login validation with conditions valid username, valid password, account active.\n\n| Username | Password | Account Active | Expected Result |\n|---|---|---|---|\n| Valid | Valid | Yes | Login success |\n| Valid | Valid | No | Account locked |\n| Valid | Invalid | Yes | Wrong password |\n| Invalid | Valid | Yes | User not found |"
+    },
+    {
+      "id": "Q13",
+      "question": "What is state transition testing?",
+      "answer": "State transition testing models the system as states and the events that move between them. It suits flows such as order processing or authentication.\n\nExample: an order state machine.\n\n- Valid transitions: New → Paid → Shipped → Delivered\n- Invalid transition: Delivered → New\n\nYou test both valid paths and attempts to break the state machine."
+    },
+    {
+      "id": "Q14",
+      "question": "What is use case testing?",
+      "answer": "Use case testing validates a user's end-to-end goal. Each use case describes the main success path plus alternatives.\n\nExample: \"Customer returns an item.\" Variations include: with receipt, without receipt, past return window, partial refund. Testing every variation ensures the flow works for real customers, not just the happy path."
+    },
+    {
+      "id": "Q15",
+      "question": "What is exploratory testing and when should you use it?",
+      "answer": "Exploratory testing is simultaneous learning, test design, and execution. The tester explores the application without a fixed script, guided by heuristics and previous experience. Use it when requirements are unclear, time is short, or you need to fill gaps that scripted tests missed. It is not random clicking; it is structured investigation with notes, charters, and time boxes.\n\n### Defect Management"
+    },
+    {
+      "id": "Q16",
+      "question": "What information should a good bug report contain?",
+      "answer": "A good bug report gives anyone enough context to reproduce and prioritize. I once received a ticket that said \"it broke\" with no steps; it took half a day just to find the screen.\n\n| Field | Purpose |\n|---|---|\n| Summary | One-line description |\n| Description | What happened and where |\n| Steps to reproduce | Numbered steps anyone can follow |\n| Expected result | What should happen |\n| Actual result | What actually happened |\n| Severity | Impact on the system |\n| Priority | Urgency of the fix |\n| Environment | OS, browser, build version, device |\n| Evidence | Screenshot, video, log, network trace |\n| Reporter / date | Who found it and when |"
+    },
+    {
+      "id": "Q17",
+      "question": "What is the difference between severity and priority?",
+      "answer": "Severity measures impact on the system; priority measures how fast it should be fixed.\n\n| Severity | Priority | Example |\n|---|---|---|\n| High | High | App crashes on login for all users |\n| High | Low | Crash only on an unsupported legacy browser |\n| Low | High | Spelling error on the homepage before a marketing launch |\n| Low | Low | Minor alignment issue on a rarely used settings page |"
+    },
+    {
+      "id": "Q18",
+      "question": "What is the bug lifecycle?",
+      "answer": "A typical lifecycle is:\n\n1. New\n2. Assigned\n3. Open\n4. Fixed\n5. Retest\n6. Verified\n7. Closed\n8. Reopened (if it reappears)\n9. Deferred, Duplicate, Rejected, or Cannot Reproduce as terminal or alternate states"
+    },
+    {
+      "id": "Q19",
+      "question": "How do you handle a bug that is not reproducible?",
+      "answer": "Start by collecting everything: exact steps, browser and OS version, build number, test account, timestamps, and screenshots. Try to reproduce on the same environment with the same data. If it still does not fail, look for timing, network, or data-specific conditions. Document every attempt and keep the ticket open. Some bugs are genuinely environment-dependent and only surface under rare conditions."
+    },
+    {
+      "id": "Q20",
+      "question": "What is a duplicate bug and how do you avoid logging one?",
+      "answer": "A duplicate bug is the same issue already reported by someone else. Before creating a new ticket, search the tracker by keyword, component, and recent reports. If you find a similar bug, add your reproduction steps and evidence as a comment instead of opening a duplicate."
+    },
+    {
+      "id": "Q21",
+      "question": "What do you do when a developer says a bug is not a bug?",
+      "answer": "Re-read the requirement or user story. If the spec supports your finding, share the exact wording with the developer. If the requirement is missing or ambiguous, involve the product owner or business analyst. Sometimes the intended behavior is undocumented, and the fix is updating the documentation, not the code. Keep the discussion factual and focused on user impact."
+    },
+    {
+      "id": "Q22",
+      "question": "How do you prioritize which bugs to report first?",
+      "answer": "Report blockers first: anything that prevents further testing, causes data loss, or breaks a core flow. Next, core functionality defects. Cosmetic or minor issues come last. If you find several bugs in one session, log the severe ones immediately while the context is fresh; minor issues can be logged after triage.\n\n### SDLC and Methodologies"
+    },
+    {
+      "id": "Q23",
+      "question": "What are the different SDLC models you have worked with?",
+      "answer": "Common models include:\n\n| Model | Key trait |\n|---|---|\n| Waterfall | Sequential phases, each completed before the next |\n| V-Model | Each development phase maps to a testing phase |\n| Agile / Scrum / Kanban | Iterative development with continuous testing |\n| Iterative | Repeated cycles with refinements |\n| Spiral | Risk-driven with repeated prototyping |\n\nMost modern teams use Agile or a hybrid."
+    },
+    {
+      "id": "Q24",
+      "question": "What is the role of a QA engineer in Agile?",
+      "answer": "QA participates in sprint planning, story grooming, backlog refinement, and daily standups. QA writes acceptance criteria, designs tests, executes them inside the sprint, and contributes to retrospectives. The biggest shift from Waterfall is that testing is continuous, not a phase at the end."
+    },
+    {
+      "id": "Q25",
+      "question": "What is the difference between Agile and Waterfall testing?",
+      "answer": "| Agile testing | Waterfall testing |\n|---|---|\n| Continuous within each sprint | Distinct phase after development |\n| Feedback is immediate | Feedback often comes late |\n| Requirements evolve | Requirements are typically fixed |\n| Testers and developers collaborate daily | Testing is often handed off |"
+    },
+    {
+      "id": "Q26",
+      "question": "What is shift-left testing?",
+      "answer": "Shift-left testing moves testing activities earlier in the lifecycle. Instead of testing after code is written, QA reviews requirements, asks questions during grooming, and writes test cases before development starts. A defect found in requirements costs minutes to fix; the same defect in production can cost hours or days."
+    },
+    {
+      "id": "Q27",
+      "question": "What is the V-Model and how does testing fit in?",
+      "answer": "The V-Model pairs each development phase with a corresponding testing phase.\n\n| Development phase | Testing phase |\n|---|---|\n| Requirements analysis | Acceptance testing |\n| System design | System testing |\n| Architecture design | Integration testing |\n| Module design | Unit testing |\n\nTesting is planned alongside development, not bolted on at the end."
+    },
+    {
+      "id": "Q28",
+      "question": "What is a test plan and what does it contain?",
+      "answer": "A test plan documents the testing approach for a specific release or project. It typically contains:\n\n- Scope (in scope and out of scope)\n- Strategy and testing types\n- Resource allocation and responsibilities\n- Schedule and milestones\n- Environment requirements\n- Risk analysis\n- Entry and exit criteria\n- Deliverables and reporting"
+    },
+    {
+      "id": "Q29",
+      "question": "What are entry and exit criteria?",
+      "answer": "Entry criteria are conditions that must be true before testing starts: build deployed, environment ready, test cases reviewed. Exit criteria are conditions that must be true before testing stops: all cases executed, no critical defects open, pass rate threshold met. These criteria prevent starting too early or releasing too soon."
+    },
+    {
+      "id": "Q30",
+      "question": "What is the difference between a test strategy and a test plan?",
+      "answer": "A test strategy is a high-level document that defines the testing approach for an organization or product line. It is relatively stable. A test plan is project-specific and derived from the strategy; it changes per release or sprint.\n\n### Regression and Test Execution"
+    },
+    {
+      "id": "Q31",
+      "question": "What is regression testing?",
+      "answer": "Regression testing re-runs existing tests after a change to catch side effects. I have seen a tax fix break checkout, payment and order history because nobody re-ran the regression suite."
+    },
+    {
+      "id": "Q32",
+      "question": "How do you select test cases for regression testing?",
+      "answer": "Prioritize based on risk, not habit.\n\n| Factor | Why it matters |\n|---|---|\n| Impact analysis | Areas touched by the change |\n| Frequency of use | Core features used by most users |\n| Defect history | Modules that fail often |\n| Integration points | Code that talks to many other modules |\n| Business risk | High-value or legally critical flows |\n\nYou do not need to run every test every time."
+    },
+    {
+      "id": "Q33",
+      "question": "What is the difference between retesting and regression testing?",
+      "answer": "Retesting verifies that a specific bug fix works. Regression testing verifies that the fix did not break surrounding functionality. Retesting is focused; regression is broad."
+    },
+    {
+      "id": "Q34",
+      "question": "What is smoke testing?",
+      "answer": "Smoke testing is a quick health check of the most critical functions before deeper testing begins. A typical e-commerce smoke run might cover login, product search, add to cart, and checkout. If smoke tests fail, the build is rejected until the blockers are fixed."
+    },
+    {
+      "id": "Q35",
+      "question": "What is sanity testing?",
+      "answer": "Sanity testing is a narrow check of a specific change or fix. For example, after a hotfix to the login flow, you test login with a few key scenarios before running the full regression suite. It is smaller in scope than smoke testing."
+    },
+    {
+      "id": "Q36",
+      "question": "What is the difference between alpha and beta testing?",
+      "answer": "| Alpha testing | Beta testing |\n|---|---|\n| Performed by internal staff | Performed by real users |\n| Happens at the developer site | Happens in user environments |\n| Near the end of development | After alpha, before final release |\n| Finds functional issues | Finds issues from real-world usage |"
+    },
+    {
+      "id": "Q37",
+      "question": "What is ad-hoc testing?",
+      "answer": "Ad-hoc testing is informal and unscripted. I use it when I have a hunch about an edge case, but it is a supplement, not a replacement for planned test cases."
+    },
+    {
+      "id": "Q38",
+      "question": "How do you ensure test coverage?",
+      "answer": "Use several approaches together:\n\n| Approach | Purpose |\n|---|---|\n| Requirements traceability matrix | Map each requirement to test cases |\n| Test design techniques | Cover input combinations systematically |\n| Risk-based testing | Spend more effort on high-risk areas |\n| Code coverage tools | Identify untested paths when code is available |\n| Exploratory testing | Fill gaps scripts miss |\n\nAim for risk-weighted coverage, not 100% for its own sake.\n\n### Web and Mobile Testing"
+    },
+    {
+      "id": "Q39",
+      "question": "What is cross-browser testing and why is it important?",
+      "answer": "Cross-browser testing checks that a web application works in Chrome, Firefox, Safari and Edge. Browsers render HTML, CSS and JavaScript differently, so a feature that works in Chrome may break in Safari. I usually test the latest version and one previous version of each major browser, not every historical release."
+    },
+    {
+      "id": "Q40",
+      "question": "What do you test in a web application?",
+      "answer": "A good web test plan covers at least six areas:\n\n| Area | Examples |\n|---|---|\n| Functionality | Forms, search, navigation, transactions |\n| Compatibility | Browsers, OS versions, screen sizes |\n| Performance | Page load time, response under load |\n| Security | Authentication, input validation, session handling |\n| Usability | Error messages, flows, accessibility |\n| Visual / responsive | Layout, fonts, colors, mobile adaptation |"
+    },
+    {
+      "id": "Q41",
+      "question": "What is responsive testing?",
+      "answer": "Responsive testing checks that the application adapts correctly to different screen sizes and orientations. Test at representative resolutions such as 1920×1080 desktop, 768×1024 tablet, and 375×667 mobile. Look for readable text, no horizontal scrolling, and touch targets that are large enough for fingers."
+    },
+    {
+      "id": "Q42",
+      "question": "What is the difference between testing a web app and a mobile app?",
+      "answer": "| Web app testing | Mobile app testing |\n|---|---|\n| Browsers and screen sizes | OS versions, device models, hardware sensors |\n| Network is usually stable | 3G, 4G, 5G, WiFi, offline, airplane mode |\n| No installation step | Install, update, uninstall, app store guidelines |\n| Fewer interruptions | Calls, notifications, low battery, backgrounding |"
+    },
+    {
+      "id": "Q43",
+      "question": "How do you test an application with minimal documentation?",
+      "answer": "When documentation is sparse, use a practical approach:\n\n1. Talk to developers and product owners to understand intent.\n2. Use exploratory testing to learn the application while testing it.\n3. Write test cases based on your understanding and review them with the team.\n4. Check support tickets or user feedback for common pain points.\n5. Use competitor products as a reference when business rules are unclear.\n6. Document your findings so future testing has a baseline.\n\n### Scenario-Based Questions"
+    },
+    {
+      "id": "Q44",
+      "question": "You find a bug the day before release. What do you do?",
+      "answer": "First assess severity and impact. If the bug is a showstopper, such as data loss, a security issue, or a broken payment flow, notify the team lead and product owner immediately and recommend a delay or hotfix. If it is minor, log it and propose fixing it in the next patch. The release decision belongs to stakeholders; your job is to present the risk clearly."
+    },
+    {
+      "id": "Q45",
+      "question": "How do you test a feature with no clear requirements?",
+      "answer": "Start by asking the product owner or developer for clarification. If no one is available, explore the feature, compare it with similar functionality or competitor products, and write test cases based on your best understanding. Share the test cases with the team for review. Common sense and a user perspective are your best guides when requirements are missing."
+    },
+    {
+      "id": "Q46",
+      "question": "A developer rejects your bug as \"working as designed.\" How do you handle it?",
+      "answer": "Ask the developer to point to the requirement or design document that defines the behavior. If the behavior matches the spec, close the bug. If the spec is missing or ambiguous, involve the product owner. Sometimes the issue is a missing requirement rather than a code defect. Keep the conversation focused on facts and user impact."
+    },
+    {
+      "id": "Q47",
+      "question": "How do you estimate testing effort for a new feature?",
+      "answer": "Break the feature into testable pieces and estimate each:\n\n- Understanding requirements and writing test cases\n- Preparing test data and environment\n- Executing functional tests\n- Regression testing affected areas\n- Reporting bugs and retesting fixes\n- Exploratory testing buffer\n\nAdd 20-30% buffer for unexpected issues. Historical data from similar features improves accuracy."
+    },
+    {
+      "id": "Q48",
+      "question": "What would you do if you found 50 bugs in one day of testing?",
+      "answer": "A flood of bugs usually means the build was not ready. I run a quick smoke test first. If it fails, I reject the build and alert the team. If the build is stable but the feature is genuinely buggy, I log the worst issues first, group related bugs to avoid duplicates and tell the team lead so they can decide on resources or schedule."
+    },
+    {
+      "id": "Q49",
+      "question": "How do you test a login page?",
+      "answer": "Structure your answer by category. Interviewers want to hear breadth and depth.\n\n| Category | Test ideas |\n|---|---|\n| Positive | Valid username and password login |\n| Negative | Invalid credentials, empty fields, locked account |\n| Security | SQL injection, XSS, brute-force lockout, password masking |\n| Edge cases | Remember me, session timeout, browser back after logout |\n| UX | Clear error messages, password visibility toggle |"
+    },
+    {
+      "id": "Q50",
+      "question": "How do you measure your testing effectiveness?",
+      "answer": "Use a small set of metrics and look at them together:\n\n| Metric | What it tells you |\n|---|---|\n| Defect leakage | Bugs found in production vs. testing |\n| Test case pass rate | Percentage of cases passing |\n| Defect density | Bugs per module or feature |\n| Coverage | Requirements covered by test cases |\n| Defect rejection rate | Bugs rejected by developers |\n\nNo single metric tells the whole story. Combine them to judge testing quality."
+    }
+  ]
+}
