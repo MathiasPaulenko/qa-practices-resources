@@ -1,0 +1,31 @@
+{
+  "title": "HIL Testing Guide Companion",
+  "title_es": "Companion de la Guía de Testing HIL",
+  "description": "Runnable pytest framework for HIL testing: HilRig abstraction, fault injection test, conftest fixtures and CI workflow for the QAPractices guide.",
+  "description_es": "Framework de pytest ejecutable para testing HIL: abstracción HilRig, test de inyección de fallas, fixtures de conftest y workflow de CI para la guía de QAPractices.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "slug": "hardware-in-the-loop-testing",
+  "source_urls": [
+    "https://qapractices.com/documentation/hardware-in-the-loop-testing/",
+    "https://qapractices.com/es/documentation/hardware-in-the-loop-testing/"
+  ],
+  "language": "python",
+  "tags": [
+    "hil-testing",
+    "pytest",
+    "fault-injection",
+    "embedded-testing",
+    "dspace",
+    "automation"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "hil_rig.py",
+    "dut_interface.py",
+    "conftest.py",
+    "test_hil_motor.py",
+    ".github/workflows/hil-tests.yml"
+  ]
+}

@@ -1,0 +1,64 @@
+name: HIL Tests
+
+on:
+  schedule:
+    # Nightly at 02:00 UTC — HIL rigs are shared, don't run on every commit
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      test_suite:
+        description: 'Test suite to run (smoke, regression, all)'
+        required: false
+        default: 'smoke'
+        type: choice
+        options:
+          - smoke
+          - regression
+          - all
+
+jobs:
+  hil-tests:
+    name: HIL ${{ github.event.inputs.test_suite || 'smoke' }} suite
+    runs-on: [self-hosted, hil-rig]
+
+    steps:
+      - name: Checkout companion repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install pytest python-can pytest-json-report
+
+      - name: Rig health check
+        run: |
+          python -c "from hil_rig import HilRig; r = HilRig(); r.connect(); exit(0 if r.health_check() else 1)"
+
+      - name: Run HIL smoke suite
+        if: ${{ github.event.inputs.test_suite == 'smoke' || github.event.inputs.test_suite == '' }}
+        run: |
+          pytest test_hil_motor.py -v --json-report --json-report-file=reports/hil-smoke.json
+        continue-on-error: false
+
+      - name: Run HIL regression suite
+        if: ${{ github.event.inputs.test_suite == 'regression' || github.event.inputs.test_suite == 'all' }}
+        run: |
+          pytest test_hil_motor.py -v --json-report --json-report-file=reports/hil-regression.json --reruns 2
+        continue-on-error: false
+
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hil-test-reports
+          path: reports/
+          retention-days: 30
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::warning::HIL ${{ github.event.inputs.test_suite || 'smoke' }} suite failed — check the test report artifact for details."
