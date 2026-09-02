@@ -1,0 +1,20 @@
+name: flutter_test_app
+description: Companion example for QAPractices Flutter Widget Testing Guide
+publish_to: 'none'
+version: 1.0.0
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.24.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  mockito: ^5.4.4
+  build_runner: ^2.4.15

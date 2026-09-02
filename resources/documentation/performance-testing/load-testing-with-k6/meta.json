@@ -1,0 +1,33 @@
+{
+  "title": "k6 Load Testing Companion",
+  "title_es": "Companion de Load Testing con k6",
+  "description": "Runnable k6 v0.56 load test scripts with JavaScript scenarios, thresholds, custom metrics, sample data, and GitHub Actions workflow for the QAPractices k6 tutorial.",
+  "description_es": "Scripts de load testing ejecutables con k6 v0.56 en JavaScript con scenarios, thresholds, métricas custom, datos de ejemplo y workflow de GitHub Actions para el tutorial de k6 de QAPractices.",
+  "type": "documentation",
+  "topic": "performance-testing",
+  "slug": "load-testing-with-k6",
+  "source_urls": [
+    "https://qapractices.com/documentation/load-testing-with-k6/",
+    "https://qapractices.com/es/documentation/load-testing-with-k6/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "k6",
+    "load-testing",
+    "javascript",
+    "performance-testing",
+    "grafana",
+    "ci-cd"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "api-load.js",
+    "smoke-test.js",
+    "stress-test.js",
+    "spike-test.js",
+    "soak-test.js",
+    "data/users.json",
+    ".github/workflows/k6-load.yml"
+  ]
+}

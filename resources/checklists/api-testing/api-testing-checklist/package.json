@@ -1,0 +1,17 @@
+{
+  "name": "api-testing-checklist-companion",
+  "version": "1.0.0",
+  "description": "Companion for QAPractices API Testing Checklist",
+  "private": true,
+  "scripts": {
+    "test:graphql": "npx playwright test graphql_playwright_test.ts",
+    "test:load": "k6 run k6_load_smoke.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@apollo/server": "^4.0.0",
+    "graphql-depth-limit": "^1.1.0",
+    "graphql-validation-complexity": "^0.4.0",
+    "k6": "^0.53.0"
+  }
+}

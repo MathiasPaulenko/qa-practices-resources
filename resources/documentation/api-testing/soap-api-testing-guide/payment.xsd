@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XSD schema for AuthorizePayment response validation -->
+<!-- Save from WSDL imports or create from the service's published schema -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:pay="http://example.com/payment"
+           targetNamespace="http://example.com/payment"
+           elementFormDefault="qualified">
+
+  <xs:element name="AuthorizePaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Status" type="xs:string"/>
+        <xs:element name="TransactionId" type="xs:string"/>
+        <xs:element name="Timestamp" type="xs:dateTime"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

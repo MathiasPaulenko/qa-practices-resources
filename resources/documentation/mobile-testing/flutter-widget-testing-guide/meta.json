@@ -1,0 +1,19 @@
+{
+  "resourceType": "documentation",
+  "slug": "flutter-widget-testing-guide",
+  "title": "Flutter Widget Testing: 4 Layers with Dart Examples",
+  "companionVersion": "1.0.0",
+  "flutterVersion": "3.24.0",
+  "mockitoVersion": "5.4.4",
+  "buildRunnerVersion": "2.4.15",
+  "files": [
+    "lib/utils/validators.dart",
+    "lib/widgets/login_button.dart",
+    "test/utils/validators_test.dart",
+    "test/widgets/login_button_test.dart",
+    "test/golden/login_button_golden_test.dart",
+    "integration_test/login_flow_test.dart",
+    "test/helpers/mock_api_service.dart",
+    "pubspec.yaml"
+  ]
+}

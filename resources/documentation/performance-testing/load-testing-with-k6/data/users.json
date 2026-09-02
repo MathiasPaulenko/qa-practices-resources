@@ -1,0 +1,12 @@
+[
+  { "id": "user-001", "email": "qa-load-01@qapractices.com", "password": "Str0ngP@ss!01" },
+  { "id": "user-002", "email": "qa-load-02@qapractices.com", "password": "Str0ngP@ss!02" },
+  { "id": "user-003", "email": "qa-load-03@qapractices.com", "password": "Str0ngP@ss!03" },
+  { "id": "user-004", "email": "qa-load-04@qapractices.com", "password": "Str0ngP@ss!04" },
+  { "id": "user-005", "email": "qa-load-05@qapractices.com", "password": "Str0ngP@ss!05" },
+  { "id": "user-006", "email": "qa-load-06@qapractices.com", "password": "Str0ngP@ss!06" },
+  { "id": "user-007", "email": "qa-load-07@qapractices.com", "password": "Str0ngP@ss!07" },
+  { "id": "user-008", "email": "qa-load-08@qapractices.com", "password": "Str0ngP@ss!08" },
+  { "id": "user-009", "email": "qa-load-09@qapractices.com", "password": "Str0ngP@ss!09" },
+  { "id": "user-010", "email": "qa-load-10@qapractices.com", "password": "Str0ngP@ss!10" }
+]

@@ -1,0 +1,23 @@
+# .github/workflows/k6-load.yml
+name: k6 load test
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 5 * * 1-5'
+jobs:
+  load:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run k6 smoke test
+        uses: grafana/k6-action@v0.3.1
+        with:
+          filename: smoke-test.js
+          flags: --env BASE_URL=https://staging.qapractices.com/api/v1
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k6-results
+          path: results.json

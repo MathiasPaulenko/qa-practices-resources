@@ -1,0 +1,32 @@
+{
+  "title": "SOAP API Testing Guide Companion",
+  "title_es": "Companion de la Guía de Testing de APIs SOAP",
+  "description": "Runnable SOAP testing fixtures: WSDL validation script, XML request template, XSD schema, curl command, SoapUI Groovy assertion and GitHub Actions workflow for the QAPractices guide.",
+  "description_es": "Fixtures ejecutables de testing SOAP: script de validación WSDL, template de request XML, schema XSD, comando curl, assertion Groovy de SoapUI y workflow de GitHub Actions para la guía de QAPractices.",
+  "type": "documentation",
+  "topic": "api-testing",
+  "slug": "soap-api-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/soap-api-testing-guide/",
+    "https://qapractices.com/es/documentation/soap-api-testing-guide/"
+  ],
+  "language": "bash",
+  "tags": [
+    "soap-testing",
+    "wsdl-testing",
+    "xml-testing",
+    "soapui",
+    "ws-security",
+    "cxf",
+    "jmeter"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "request.xml",
+    "payment.xsd",
+    "validate-wsdl.sh",
+    "soapui-groovy-assertion.groovy",
+    ".github/workflows/soap-tests.yml"
+  ]
+}

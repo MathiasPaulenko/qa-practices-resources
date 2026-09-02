@@ -1,0 +1,31 @@
+{
+  "title": "Headless Browser Testing with Playwright Companion",
+  "title_es": "Companion de Testing Headless con Playwright",
+  "description": "Runnable Playwright v1.61 headless test config, auth setup, Dockerfile, GitHub Actions workflow and example tests for the QAPractices guide.",
+  "description_es": "Configuración ejecutable de Playwright v1.61 headless, auth setup, Dockerfile, workflow de GitHub Actions y tests de ejemplo para la guía de QAPractices.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "slug": "headless-browser-testing-with-playwright",
+  "source_urls": [
+    "https://qapractices.com/documentation/headless-browser-testing-with-playwright/",
+    "https://qapractices.com/es/documentation/headless-browser-testing-with-playwright/"
+  ],
+  "language": "typescript",
+  "tags": [
+    "playwright",
+    "headless-testing",
+    "ci-testing",
+    "docker",
+    "github-actions",
+    "browser-automation"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "playwright.config.ts",
+    "auth.setup.ts",
+    "Dockerfile.test",
+    "tests/login.spec.ts",
+    ".github/workflows/playwright.yml"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "container-security-testing-checklist",
+  "type": "checklists",
+  "topic": "security-testing",
+  "title": "Container Security Testing Checklist: Docker & K8s",
+  "titleEs": "45 Items de Seguridad de Contenedores: Docker y K8s",
+  "description": "Scripts and policies for container security testing: image scanning, signature verification, RBAC checks and network policies.",
+  "version": "1.0.0",
+  "lastUpdated": "2026-09-02",
+  "resourceUrl": "https://qapractices.com/checklists/container-security-testing-checklist",
+  "resourceUrlEs": "https://qapractices.com/es/checklists/container-security-testing-checklist",
+  "tools": ["trivy 0.74.0", "cosign 2.6.5", "falco 0.44.1", "kubectl", "docker"]
+}

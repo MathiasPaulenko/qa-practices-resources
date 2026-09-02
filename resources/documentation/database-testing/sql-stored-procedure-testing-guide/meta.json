@@ -1,0 +1,35 @@
+{
+  "title": "SQL Stored Procedure Testing Companion",
+  "title_es": "Companion de Testing de Stored Procedures SQL",
+  "description": "Runnable SQL test scripts for stored procedures across SQL Server (tSQLt), PostgreSQL (pgTAP) and Oracle (utPLSQL) with GitHub Actions workflow for the QAPractices guide.",
+  "description_es": "Scripts SQL ejecutables para testing de stored procedures en SQL Server (tSQLt), PostgreSQL (pgTAP) y Oracle (utPLSQL) con workflow de GitHub Actions para la guía de QAPractices.",
+  "type": "documentation",
+  "topic": "database-testing",
+  "slug": "sql-stored-procedure-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/sql-stored-procedure-testing-guide/",
+    "https://qapractices.com/es/documentation/sql-stored-procedure-testing-guide/"
+  ],
+  "language": "sql",
+  "tags": [
+    "sql",
+    "stored-procedures",
+    "tsqlt",
+    "pgtap",
+    "utplsql",
+    "database-testing",
+    "ci-cd"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "schema/procedures.sql",
+    "test/sql/test_order_summary_pgtap.sql",
+    "test/sql/test_order_summary_tsqlt.sql",
+    "test/sql/test_input_validation.sql",
+    "test/sql/test_error_handling.sql",
+    "test/sql/test_concurrency.sql",
+    "test/sql/test_security.sql",
+    ".github/workflows/sql-tests.yml"
+  ]
+}

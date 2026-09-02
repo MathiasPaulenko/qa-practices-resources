@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SOAP 1.1 request template for AuthorizePayment -->
+<!-- Replace endpoint URL and namespace with your service's values -->
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:pay="http://example.com/payment">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <pay:AuthorizePayment>
+      <pay:MerchantId>12345</pay:MerchantId>
+      <pay:Amount>250.00</pay:Amount>
+      <pay:Currency>USD</pay:Currency>
+    </pay:AuthorizePayment>
+  </soapenv:Body>
+</soapenv:Envelope>

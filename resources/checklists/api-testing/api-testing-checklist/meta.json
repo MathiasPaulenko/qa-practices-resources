@@ -1,0 +1,16 @@
+{
+  "resourceType": "checklists",
+  "slug": "api-testing-checklist",
+  "title": "API Testing Checklist: 106 REST, GraphQL & Webhook Checks",
+  "companionVersion": "1.0.0",
+  "files": [
+    "tests/smoke_test.py",
+    "tests/json_schema_validation.py",
+    "scripts/curl_contract_check.sh",
+    "tests/k6_load_smoke.js",
+    "tests/graphql_playwright_test.ts",
+    "server/apollo_depth_complexity.js",
+    "requirements.txt",
+    "package.json"
+  ]
+}
