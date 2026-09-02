@@ -1,0 +1,23 @@
+name: Tests
+
+on:
+  push:
+    paths:
+      - 'resources/test-cases/security-testing/oauth-21-pkce-testing-test-cases/**'
+  pull_request:
+    paths:
+      - 'resources/test-cases/security-testing/oauth-21-pkce-testing-test-cases/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: resources/test-cases/security-testing/oauth-21-pkce-testing-test-cases
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pytest==8.3.*
+      - run: pytest test_oauth_pkce.py -v

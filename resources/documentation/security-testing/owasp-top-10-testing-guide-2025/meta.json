@@ -1,0 +1,12 @@
+{
+  "resourceType": "documentation",
+  "slug": "owasp-top-10-testing-guide-2025",
+  "title": "10 OWASP Top 10 Testing Scenarios for LumaPay 2025",
+  "parentResource": "/documentation/owasp-top-10-testing-guide-2025",
+  "topic": "security-testing",
+  "language": ["en", "es"],
+  "tools": ["zap 2.15.0", "burp 2024.12", "sonarqube 10.6", "trivy 0.57.1", "nuclei v3.3.0", "sqlmap 1.8.8", "testssl.sh 3.0.8"],
+  "createdAt": "2026-09-02",
+  "updatedAt": "2026-09-02",
+  "author": "Mathias Paulenko"
+}

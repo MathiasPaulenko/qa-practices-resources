@@ -1,0 +1,12 @@
+{
+  "resourceType": "test-cases",
+  "slug": "deep-link-universal-link-testing",
+  "title": "10 Deep Link & Universal Link Test Cases",
+  "parentResource": "/test-cases/deep-link-universal-link-testing",
+  "topic": "mobile-testing",
+  "language": ["en", "es"],
+  "tools": ["appium 2.5", "adb 35", "xcode 16"],
+  "createdAt": "2026-09-02",
+  "updatedAt": "2026-09-02",
+  "author": "Mathias Paulenko"
+}

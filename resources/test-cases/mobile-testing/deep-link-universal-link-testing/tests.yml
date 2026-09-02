@@ -1,0 +1,30 @@
+name: Deep Link Test Cases CI
+
+on:
+  push:
+    paths:
+      - 'resources/test-cases/mobile-testing/deep-link-universal-link-testing/**'
+  pull_request:
+    paths:
+      - 'resources/test-cases/mobile-testing/deep-link-universal-link-testing/**'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install flake8==7.1
+      - run: flake8 resources/test-cases/mobile-testing/deep-link-universal-link-testing/ --max-line-length=100
+
+  pytest-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pytest==8.3
+      - run: pytest --collect-only resources/test-cases/mobile-testing/deep-link-universal-link-testing/
