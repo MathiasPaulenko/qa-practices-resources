@@ -1,0 +1,14 @@
+{
+  "name": "playwright-vs-cypress-vs-selenium-2025-comparison",
+  "version": "1.0.0",
+  "description": "Runnable examples for Playwright, Cypress and Selenium comparison",
+  "scripts": {
+    "test:playwright": "npx playwright test tests/playwright",
+    "test:cypress": "npx cypress run --spec tests/cypress/checkout.cy.js",
+    "test:selenium": "mvn test -Dtest=CheckoutTest -f tests/selenium/pom.xml"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.48.0",
+    "cypress": "13.15.0"
+  }
+}

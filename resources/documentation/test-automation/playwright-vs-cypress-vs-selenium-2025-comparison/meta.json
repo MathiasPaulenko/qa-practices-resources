@@ -1,0 +1,18 @@
+{
+  "resourceSlug": "playwright-vs-cypress-vs-selenium-2025-comparison",
+  "resourceType": "documentation",
+  "title": "Playwright vs Cypress vs Selenium: 2025 Comparison",
+  "description": "Runnable examples for the three browser automation frameworks compared in the guide.",
+  "versions": {
+    "playwright": "1.48.0",
+    "cypress": "13.15.0",
+    "selenium": "4.25.0",
+    "java": "21",
+    "node": "20.x"
+  },
+  "files": [
+    "tests/playwright/checkout.spec.ts",
+    "tests/cypress/checkout.cy.js",
+    "tests/selenium/CheckoutTest.java"
+  ]
+}
