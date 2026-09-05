@@ -3,6 +3,9 @@
   "resourceType": "documentation",
   "title": "Playwright vs Cypress vs Selenium: 2025 Comparison",
   "description": "Runnable examples for the three browser automation frameworks compared in the guide.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "slug": "playwright-vs-cypress-vs-selenium-2025-comparison",
   "versions": {
     "playwright": "1.48.0",
     "cypress": "13.15.0",

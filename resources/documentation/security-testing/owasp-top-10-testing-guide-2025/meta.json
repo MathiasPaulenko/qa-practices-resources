@@ -2,6 +2,8 @@
   "resourceType": "documentation",
   "slug": "owasp-top-10-testing-guide-2025",
   "title": "10 OWASP Top 10 Testing Scenarios for LumaPay 2025",
+  "description": "Runnable OWASP Top 10 testing scenarios for a sample payment app: ZAP scans, Burp configs, SonarQube analysis, Trivy image scans, Nuclei templates, sqlmap and testssl.sh.",
+  "type": "documentation",
   "parentResource": "/documentation/owasp-top-10-testing-guide-2025",
   "topic": "security-testing",
   "language": ["en", "es"],

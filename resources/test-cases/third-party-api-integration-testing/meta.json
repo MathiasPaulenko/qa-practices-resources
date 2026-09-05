@@ -4,6 +4,7 @@
   "description": "Reproducible test cases and example scripts for third-party API integrations: authentication, rate limits, timeouts, retries, fallbacks, webhooks and schema validation.",
   "description_es": "Casos de prueba reproducibles y scripts de ejemplo para APIs de terceros: autenticación, rate limits, timeouts, retries, fallbacks, webhooks y validación de esquema.",
   "type": "test-cases",
+  "topic": "api-testing",
   "slug": "third-party-api-integration-testing",
   "language": "en",
   "version": "1.0.0",

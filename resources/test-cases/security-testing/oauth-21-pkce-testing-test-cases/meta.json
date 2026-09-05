@@ -3,6 +3,8 @@
   "resourceType": "test-cases",
   "title": "OAuth 2.1 & PKCE Test Cases",
   "description": "pytest framework for OAuth 2.1 and PKCE test cases: authorization code flow, S256 verifier, redirect URI, state CSRF, refresh rotation, scope enforcement.",
+  "type": "test-cases",
+  "topic": "security-testing",
   "language": "python",
   "framework": "pytest",
   "frameworkVersion": "8.3",

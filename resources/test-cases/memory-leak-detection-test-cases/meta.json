@@ -4,6 +4,7 @@
   "description": "Reproducible test cases and example scripts to detect, isolate and fix memory leaks in web, backend and mobile apps.",
   "description_es": "Casos de prueba reproducibles y scripts de ejemplo para detectar, aislar y corregir fugas de memoria en web, backend y apps mobile.",
   "type": "test-cases",
+  "topic": "performance-testing",
   "slug": "memory-leak-detection-test-cases",
   "language": "en",
   "version": "1.0.0",

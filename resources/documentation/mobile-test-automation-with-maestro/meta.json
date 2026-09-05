@@ -3,6 +3,8 @@
   "slug": "mobile-test-automation-with-maestro",
   "title": "Mobile Test Automation with Maestro: iOS & Android",
   "description": "Companion project with Maestro YAML flows, subflows and GitHub Actions CI workflow for iOS and Android mobile UI testing.",
+  "type": "documentation",
+  "topic": "mobile-testing",
   "versions": {
     "maestro": "2.8.0",
     "node": "20 LTS",

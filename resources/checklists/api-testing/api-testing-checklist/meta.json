@@ -2,6 +2,9 @@
   "resourceType": "checklists",
   "slug": "api-testing-checklist",
   "title": "API Testing Checklist: 106 REST, GraphQL & Webhook Checks",
+  "description": "Runnable companion for the API Testing Checklist: pytest smoke tests, JSON schema validation, curl contract checks, k6 load smoke, and GraphQL Playwright tests.",
+  "type": "checklists",
+  "topic": "api-testing",
   "companionVersion": "1.0.0",
   "files": [
     "tests/smoke_test.py",

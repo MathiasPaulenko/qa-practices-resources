@@ -2,6 +2,8 @@
   "resourceType": "test-cases",
   "slug": "deep-link-universal-link-testing",
   "title": "10 Deep Link & Universal Link Test Cases",
+  "description": "Runnable test cases for deep links and universal links across iOS and Android: Appium 2.5 flows, adb intent tests, and XCUITest universal link verification.",
+  "type": "test-cases",
   "parentResource": "/test-cases/deep-link-universal-link-testing",
   "topic": "mobile-testing",
   "language": ["en", "es"],

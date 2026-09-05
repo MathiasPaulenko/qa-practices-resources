@@ -2,6 +2,7 @@
   "id": "container-security-testing-checklist",
   "type": "checklists",
   "topic": "security-testing",
+  "slug": "container-security-testing-checklist",
   "title": "Container Security Testing Checklist: Docker & K8s",
   "titleEs": "45 Items de Seguridad de Contenedores: Docker y K8s",
   "description": "Scripts and policies for container security testing: image scanning, signature verification, RBAC checks and network policies.",

@@ -4,6 +4,7 @@
   "description": "Printable study companion for manual testing interviews with 50 questions, key answer points and flashcard JSON.",
   "description_es": "Recopilación imprimible para entrevistas de testing manual con 50 preguntas, puntos clave de respuesta y JSON de flashcards.",
   "type": "documentation",
+  "topic": "manual-testing",
   "slug": "manual-testing-interview-questions",
   "language": "en",
   "version": "1.0.0",

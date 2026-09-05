@@ -4,6 +4,7 @@
   "description": "Printable, importable checklist for validating ecommerce storefronts before release.",
   "description_es": "Checklist imprimible e importable para validar tiendas online antes del release.",
   "type": "checklists",
+  "topic": "ecommerce-testing",
   "slug": "ecommerce-testing-checklist",
   "language": "en",
   "version": "1.0.0",
