@@ -1,0 +1,16 @@
+[
+  {
+    "id": "sentiment-001",
+    "input": "The checkout flow is fast, but the refund process is confusing.",
+    "expected_label": ["mixed", "positive"],
+    "min_confidence": 0.75,
+    "max_latency_ms": 300
+  },
+  {
+    "id": "sentiment-002",
+    "input": "I want a refund now!!!",
+    "expected_label": ["negative"],
+    "min_confidence": 0.85,
+    "max_latency_ms": 300
+  }
+]

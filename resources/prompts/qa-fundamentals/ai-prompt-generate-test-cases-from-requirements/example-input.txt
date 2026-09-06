@@ -1,0 +1,12 @@
+Requirement or user story:
+As a new user, I want to register with email and password so that I can access the dashboard.
+
+Feature description:
+Self-service user registration with email verification and unique email enforcement.
+
+Application type: Web
+Target users: First-time desktop and mobile users
+Business criticality: High
+Technology stack: React 18, Node 20, PostgreSQL 16, SendGrid
+Known risks: Duplicate email race condition under concurrent submissions
+Test case ID prefix: TC-AUTH

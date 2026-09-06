@@ -1,0 +1,15 @@
+{
+  "title": "Lighthouse Performance Testing: Companion Scripts",
+  "slug": "lighthouse-performance-testing",
+  "type": "documentation",
+  "category": "performance-testing",
+  "description": "Lighthouse CI config, GitHub Actions workflow, programmatic Node.js usage, web-vitals RUM collector, and assert-on-metric script for Lighthouse performance testing.",
+  "language": ["en", "es"],
+  "files": [
+    "scripts/lighthouserc.js",
+    "scripts/lighthouse-ci-workflow.yml",
+    "scripts/run-lighthouse-programmatic.js",
+    "scripts/web-vitals-collector.js",
+    "scripts/assert-lighthouse.js"
+  ]
+}

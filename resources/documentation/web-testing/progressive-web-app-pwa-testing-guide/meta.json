@@ -1,0 +1,15 @@
+{
+  "title": "PWA Testing Guide: Companion Scripts",
+  "slug": "progressive-web-app-pwa-testing-guide",
+  "type": "documentation",
+  "category": "web-testing",
+  "description": "Web app manifest, Workbox caching config, Playwright offline and install prompt tests, and Lighthouse CI config for PWA testing.",
+  "language": ["en", "es"],
+  "files": [
+    "scripts/manifest.json",
+    "scripts/workbox-config.js",
+    "scripts/playwright-offline-test.js",
+    "scripts/playwright-install-prompt-test.js",
+    "scripts/lighthouse-ci-config.json"
+  ]
+}

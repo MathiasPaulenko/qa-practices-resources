@@ -1,0 +1,15 @@
+{
+  "title": "Component Testing Guide: Companion Scripts",
+  "slug": "component-testing-guide",
+  "type": "documentation",
+  "category": "test-automation",
+  "description": "React Testing Library 16 examples: useCounter hook test, Button rendering and interaction tests, Storybook 8 stories, jest-axe 9 a11y test, and a complete Button test suite.",
+  "language": ["en", "es"],
+  "files": [
+    "scripts/useCounter.js",
+    "scripts/useCounter.test.js",
+    "scripts/Button.jsx",
+    "scripts/Button.test.js",
+    "scripts/Button.stories.js"
+  ]
+}

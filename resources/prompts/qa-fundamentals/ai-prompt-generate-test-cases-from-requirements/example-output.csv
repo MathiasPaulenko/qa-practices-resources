@@ -1,0 +1,8 @@
+ID,Title,Category,Priority,Test Data,Expected Result,Traceability
+TC-AUTH-001,Register with valid email and strong password,Positive,High,new.user@qa.local / SecurePass9!,Account created; welcome email sent within 60 s,FR-001 AC-1
+TC-AUTH-002,Reject duplicate email address,Negative,High,existing@qa.local / Password1!,Error: An account with this email already exists,FR-001 AC-2
+TC-AUTH-003,Reject password shorter than 8 characters,Negative,High,short@qa.local / Pass1!,Error: Password must be at least 8 characters,FR-001 AC-3
+TC-AUTH-004,Accept 20-character password at upper boundary,Edge,Medium,boundary@qa.local / ValidPassw0rd!ValidP,Account created,FR-001 AC-3
+TC-AUTH-005,Reject email without @ symbol,Negative,Medium,invalidemail.com / Password1!,Error: Enter a valid email address,FR-001 AC-2
+TC-AUTH-006,Verify welcome email contains functional verification link,Integration,High,new.user@qa.local,Email received; link returns 200 and marks email verified,FR-001 AC-4
+TC-AUTH-007,Submit registration while another user creates same email,Edge,Medium,race@qa.local / Password1!,Only one account created; second request rejected,FR-001 AC-2

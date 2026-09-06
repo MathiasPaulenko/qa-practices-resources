@@ -1,0 +1,27 @@
+{
+  "type": "documentation",
+  "resourceType": "documentation",
+  "slug": "oauth-testing",
+  "title": "OAuth Testing Guide: OAuth 2.0 & OpenID Connect",
+  "titleEs": "Guía de Testing OAuth: OAuth 2.0 y OpenID Connect",
+  "description": "Companion scripts for the OAuth Testing Guide: PKCE verifier generation, token exchange, JWT validation, and token replay test.",
+  "topic": "authentication",
+  "language": "python",
+  "languages": ["python", "bash"],
+  "versions": {
+    "python": "3.10+",
+    "PyJWT": "2.9.0",
+    "requests": "2.31+",
+    "curl": "any"
+  },
+  "files": [
+    "scripts/generate-pkce-pair.py",
+    "scripts/token-exchange.sh",
+    "scripts/validate-jwt.py",
+    "scripts/token-replay-test.py"
+  ],
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "author": "Mathias Paulenko",
+  "license": "MIT"
+}
