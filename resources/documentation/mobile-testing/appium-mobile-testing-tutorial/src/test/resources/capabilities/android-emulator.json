@@ -1,0 +1,10 @@
+{
+  "platformName": "Android",
+  "platformVersion": "14",
+  "deviceName": "Pixel_7_API_34",
+  "app": "/path/to/app.apk",
+  "appPackage": "com.shop.qa",
+  "appActivity": "com.shop.qa.MainActivity",
+  "autoGrantPermissions": true,
+  "noReset": true
+}

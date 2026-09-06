@@ -1,0 +1,22 @@
+{
+  "type": "documentation",
+  "resourceType": "documentation",
+  "slug": "appium-mobile-testing-tutorial",
+  "title": "Appium Mobile Testing Tutorial: iOS & Android",
+  "titleEs": "Tutorial de Appium: iOS y Android",
+  "description": "Companion repo for the Appium Mobile Testing Tutorial with Java examples for iOS and Android.",
+  "topic": "mobile-testing",
+  "language": "java",
+  "framework": "appium",
+  "frameworkVersion": "2.0.0",
+  "clientVersion": "9.2.0",
+  "seleniumVersion": "4.21.0",
+  "junitVersion": "5.10.2",
+  "javaVersion": "17+",
+  "platforms": ["android", "ios"],
+  "topics": ["test-automation", "mobile-testing"],
+  "createdAt": "2026-09-06",
+  "updatedAt": "2026-09-06",
+  "author": "Mathias Paulenko",
+  "license": "MIT"
+}

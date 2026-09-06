@@ -1,0 +1,8 @@
+{
+  "platformName": "Android",
+  "udid": "device_serial_number",
+  "app": "/path/to/app.apk",
+  "appPackage": "com.shop.qa",
+  "appActivity": "com.shop.qa.MainActivity",
+  "noReset": true
+}

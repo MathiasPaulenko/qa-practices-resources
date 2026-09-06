@@ -1,0 +1,9 @@
+{
+  "platformName": "iOS",
+  "platformVersion": "17.5",
+  "deviceName": "iPhone 15",
+  "app": "/path/to/app.app",
+  "bundleId": "com.shop.qa.ios",
+  "autoAcceptAlerts": true,
+  "noReset": true
+}

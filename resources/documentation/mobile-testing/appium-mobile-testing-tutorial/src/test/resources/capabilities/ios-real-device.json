@@ -1,0 +1,9 @@
+{
+  "platformName": "iOS",
+  "udid": "device_udid",
+  "app": "/path/to/app.ipa",
+  "xcodeSigningId": "iPhone Developer",
+  "updatedWdaBundleId": "com.shop.WebDriverAgentRunner",
+  "useNewWDA": false,
+  "noReset": true
+}
