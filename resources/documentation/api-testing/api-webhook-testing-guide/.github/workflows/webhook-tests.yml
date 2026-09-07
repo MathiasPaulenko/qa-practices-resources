@@ -1,0 +1,42 @@
+name: Webhook Tests
+
+on:
+  push:
+    paths:
+      - 'resources/documentation/api-testing/api-webhook-testing-guide/**'
+  pull_request:
+    paths:
+      - 'resources/documentation/api-testing/api-webhook-testing-guide/**'
+
+jobs:
+  signature-verification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install requests
+        run: pip install requests
+      - name: Run signature verification tests
+        working-directory: resources/documentation/api-testing/api-webhook-testing-guide
+        run: python scripts/verify_signature.py
+      - name: Run retry behavior tests
+        working-directory: resources/documentation/api-testing/api-webhook-testing-guide
+        run: python scripts/test_retry_behavior.py
+
+  consumer-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Install express
+        run: npm install express
+      - name: Start consumer
+        working-directory: resources/documentation/api-testing/api-webhook-testing-guide
+        run: |
+          node scripts/stripe_consumer.js &
+          sleep 2
+          curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/webhooks -X POST -H "Content-Type: application/json" -H "stripe-signature: t=123,v1=fake" -d '{"test":true}' | grep -E "401|400"

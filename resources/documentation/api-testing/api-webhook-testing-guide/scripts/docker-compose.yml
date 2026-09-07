@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # ngrok tunnel for local webhook testing
+  ngrok:
+    image: ngrok/ngrok:latest
+    environment:
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+    command: http host.docker.internal:3000
+    ports:
+      - "4040:4040"
+    depends_on:
+      - webhook-consumer
+
+  # Stripe webhook consumer (Node.js)
+  webhook-consumer:
+    build: .
+    environment:
+      - STRIPE_WEBHOOK_SECRET=whsec_test123
+      - REDIS_URL=redis://redis:6379
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+
+  # Redis for event ID storage (idempotency)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
