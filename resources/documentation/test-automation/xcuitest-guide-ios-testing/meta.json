@@ -1,0 +1,14 @@
+{
+  "title": "XCUITest Guide for iOS UI Testing: Companion Files",
+  "slug": "xcuitest-guide-ios-testing",
+  "type": "documentation",
+  "category": "test-automation",
+  "description": "LoginPage, LoginTests, QueryExamples and CI YAML for XCUITest iOS UI testing with Xcode 15.4+.",
+  "language": ["en", "es"],
+  "files": [
+    "tests/LoginPage.swift",
+    "tests/LoginTests.swift",
+    "tests/QueryExamples.swift",
+    ".github/workflows/xcuitest-ios.yml"
+  ]
+}

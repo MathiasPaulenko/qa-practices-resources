@@ -1,0 +1,31 @@
+name: XCUITest iOS
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  xcuitest:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        simulator: ['iPhone 15', 'iPhone SE (3rd generation)']
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_15.4.app
+      - name: Run XCUITest
+        run: |
+          xcodebuild test \
+            -project MyApp.xcodeproj \
+            -scheme MyApp \
+            -destination "platform=iOS Simulator,name=${{ matrix.simulator }}" \
+            -resultBundlePath TestResults
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcuitest-results-${{ matrix.simulator }}
+          path: TestResults.xcresult
