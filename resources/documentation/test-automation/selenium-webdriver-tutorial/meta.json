@@ -1,0 +1,19 @@
+{
+  "title": "Selenium WebDriver Tutorial: Companion Code",
+  "slug": "selenium-webdriver-tutorial",
+  "type": "documentation",
+  "topic": "test-automation",
+  "category": "test-automation",
+  "description": "Selenium WebDriver 4.48 examples in Java, JavaScript and Python: login test, stable locators, explicit waits, Page Object Model, cross-browser execution, Selenium Grid with Docker, and GitHub Actions CI/CD workflow.",
+  "language": ["en", "es"],
+  "files": [
+    "scripts/java/LoginTest.java",
+    "scripts/java/LoginPage.java",
+    "scripts/javascript/login.test.js",
+    "scripts/javascript/LoginPage.js",
+    "scripts/python/test_login.py",
+    "scripts/python/login_page.py",
+    "scripts/docker-compose.yml",
+    ".github/workflows/selenium-tests.yml"
+  ]
+}
