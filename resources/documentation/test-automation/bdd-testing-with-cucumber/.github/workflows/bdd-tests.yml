@@ -1,0 +1,29 @@
+# .github/workflows/bdd-tests.yml
+name: BDD Tests
+on: [push, pull_request]
+jobs:
+  bdd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npx playwright install chromium
+      - name: Run Cucumber BDD suite
+        run: npx cucumber-js --format json:results.json --format html:report.html
+        env:
+          API_BASE_URL: https://staging.qa.local
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+        continue-on-error: true
+      - name: Upload Cucumber report
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-report
+          path: report.html
+      - name: Upload JSON results
+        uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-results
+          path: results.json

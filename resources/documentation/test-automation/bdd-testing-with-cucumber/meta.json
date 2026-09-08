@@ -1,0 +1,30 @@
+{
+    "topic":  "test-automation",
+    "version":  "1.0.0",
+    "license":  "MIT",
+    "title":  "Cucumber BDD: JavaScript, Java \u0026 Web APIs Companion",
+    "tags":  [
+                 "bdd",
+                 "cucumber",
+                 "gherkin",
+                 "step-definitions",
+                 "cucumber-js",
+                 "cucumber-jvm"
+             ],
+    "author":  "Mathias Paulenko",
+    "type":  "documentation",
+    "requirements":  [
+                         "Node.js 20+",
+                         "Java 17+",
+                         "Cucumber.js 10+",
+                         "Cucumber-JVM 7.14+",
+                         "Playwright",
+                         "REST Assured 5.4+"
+                     ],
+    "description":  "Feature files, step definitions in JavaScript and Java, hooks, page objects and CI workflow for Cucumber BDD with Cucumber.js 10+ and Cucumber-JVM 7.14+.",
+    "slug":  "bdd-testing-with-cucumber",
+    "titleEs":  "Cucumber BDD: JavaScript, Java y APIs Web Companion",
+    "createdAt":  "2026-09-08",
+    "updatedAt":  "2026-09-08",
+    "descriptionEs":  "Feature files, step definitions en JavaScript y Java, hooks, page objects y workflow de CI para Cucumber BDD con Cucumber.js 10+ y Cucumber-JVM 7.14+."
+}
