@@ -1,0 +1,27 @@
+{
+    "topic":  "mobile-testing",
+    "version":  "1.0.0",
+    "license":  "MIT",
+    "title":  "iOS App Testing Checklist Companion",
+    "tags":  [
+                 "ios-testing",
+                 "xcuitest",
+                 "appium",
+                 "mobile-testing",
+                 "iphone"
+             ],
+    "author":  "Mathias Paulenko",
+    "type":  "checklists",
+    "requirements":  [
+                         "Xcode 15+",
+                         "Appium 2.x",
+                         "Python 3.10+",
+                         "iOS Simulator or physical device"
+                     ],
+    "description":  "XCUITest login test and Appium iOS capabilities for the iOS App Testing Checklist.",
+    "slug":  "ios-app-testing-checklist",
+    "titleEs":  "Checklist de Testing de iOS Companion",
+    "createdAt":  "2026-09-08",
+    "updatedAt":  "2026-09-08",
+    "descriptionEs":  "Test de login con XCUITest y capabilities de Appium para iOS para la Checklist de Testing de iOS."
+}
