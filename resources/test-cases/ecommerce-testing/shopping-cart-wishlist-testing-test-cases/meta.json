@@ -1,0 +1,28 @@
+{
+    "topic":  "ecommerce-testing",
+    "version":  "1.0.0",
+    "license":  "MIT",
+    "title":  "Shopping Cart \u0026 Wishlist Testing: Companion Tests and Fixtures",
+    "tags":  [
+                 "shopping-cart",
+                 "wishlist",
+                 "playwright",
+                 "e-commerce",
+                 "cart-persistence"
+             ],
+    "author":  "Mathias Paulenko",
+    "type":  "test-cases",
+    "requirements":  [
+                         "Node.js 20+",
+                         "Playwright 1.48",
+                         "Python 3.12+",
+                         "pytest 8.3",
+                         "requests 2.32"
+                     ],
+    "description":  "Playwright specs, API test helpers and test data fixtures for shopping cart and wishlist testing with Playwright 1.48 and pytest 8.3.",
+    "slug":  "shopping-cart-wishlist-testing-test-cases",
+    "titleEs":  "Testing de Shopping Cart y Wishlist: Tests y Fixtures Companion",
+    "createdAt":  "2026-09-08",
+    "updatedAt":  "2026-09-08",
+    "descriptionEs":  "Specs de Playwright, helpers de API y fixtures de datos de test para testing de shopping cart y wishlist con Playwright 1.48 y pytest 8.3."
+}

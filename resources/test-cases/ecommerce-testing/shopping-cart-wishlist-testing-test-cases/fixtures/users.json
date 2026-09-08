@@ -1,0 +1,1 @@
+[{"email":"user@qa.local","password":"test-password","type":"authenticated"},{"email":"guest@qa.local","type":"guest","cart_id":"guest-cart-123"},{"email":"mobile@qa.local","password":"test-password","type":"authenticated","device":"mobile"}]
