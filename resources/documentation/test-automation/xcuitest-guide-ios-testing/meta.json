@@ -2,6 +2,7 @@
   "title": "XCUITest Guide for iOS UI Testing: Companion Files",
   "slug": "xcuitest-guide-ios-testing",
   "type": "documentation",
+  "topic": "test-automation",
   "category": "test-automation",
   "description": "LoginPage, LoginTests, QueryExamples and CI YAML for XCUITest iOS UI testing with Xcode 15.4+.",
   "language": ["en", "es"],

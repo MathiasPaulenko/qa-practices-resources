@@ -1,0 +1,4 @@
+# pyproject.toml
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--base-url https://staging.qa.local --browser chromium --numprocesses 4"

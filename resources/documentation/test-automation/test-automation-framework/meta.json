@@ -1,0 +1,21 @@
+{
+  "slug": "test-automation-framework",
+  "type": "documentation",
+  "topic": "test-automation",
+  "title": "How to Build a Test Automation Framework from Scratch",
+  "titleEs": "Cómo Construir un Framework de Test Automation desde Cero",
+  "description": "Minimal Playwright 1.48 + pytest 8.3 framework scaffold with layered architecture: config, page objects, and base tests.",
+  "descriptionEs": "Scaffold mínimo con Playwright 1.48 + pytest 8.3 con arquitectura por capas: config, page objects y tests base.",
+  "version": "1.0.0",
+  "createdAt": "2026-09-07",
+  "updatedAt": "2026-09-07",
+  "author": "Mathias Paulenko",
+  "license": "MIT",
+  "tags": ["playwright", "pytest", "python", "page-object-model", "test-automation"],
+  "requirements": [
+    "Python 3.12+",
+    "pytest 8.3",
+    "pytest-playwright 0.5",
+    "playwright 1.48"
+  ]
+}

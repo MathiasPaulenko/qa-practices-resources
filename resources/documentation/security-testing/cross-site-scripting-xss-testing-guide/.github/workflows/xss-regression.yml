@@ -1,0 +1,36 @@
+# .github/workflows/xss-regression.yml
+name: XSS Regression Tests
+on: [push, pull_request]
+
+jobs:
+  reflected-xss:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests==2.32
+      - run: python scripts/reflected_xss_probe.py --url https://staging.qa.local/search
+        continue-on-error: true
+
+  csp-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests==2.32
+      - run: python scripts/csp_verifier.py --url https://staging.qa.local
+
+  dalfox-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+      - run: go install github.com/hahwul/dalfox/v2@latest
+      - run: dalfox url "https://staging.qa.local/search?q=test" --blind https://xss-receiver.qa.local
+        continue-on-error: true

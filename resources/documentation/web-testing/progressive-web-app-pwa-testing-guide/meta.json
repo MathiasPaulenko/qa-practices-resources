@@ -2,6 +2,7 @@
   "title": "PWA Testing Guide: Companion Scripts",
   "slug": "progressive-web-app-pwa-testing-guide",
   "type": "documentation",
+  "topic": "web-testing",
   "category": "web-testing",
   "description": "Web app manifest, Workbox caching config, Playwright offline and install prompt tests, and Lighthouse CI config for PWA testing.",
   "language": ["en", "es"],

@@ -1,0 +1,30 @@
+{
+    "topic":  "security-testing",
+    "version":  "1.0.0",
+    "license":  "MIT",
+    "title":  "XSS Testing Guide: Companion Scripts and Payloads",
+    "tags":  [
+                 "xss",
+                 "cross-site-scripting",
+                 "reflected-xss",
+                 "stored-xss",
+                 "dom-based-xss",
+                 "csp",
+                 "owasp-zap",
+                 "dalfox"
+             ],
+    "author":  "Mathias Paulenko",
+    "type":  "documentation",
+    "requirements":  [
+                         "Python 3.12+",
+                         "requests 2.32",
+                         "OWASP ZAP 2.15 (optional)",
+                         "dalfox 2.x (optional)"
+                     ],
+    "description":  "Python probe scripts, payload library and CI workflow for testing reflected, stored and DOM-based XSS with OWASP ZAP 2.15 and dalfox 2.x.",
+    "slug":  "cross-site-scripting-xss-testing-guide",
+    "titleEs":  "Guia de Testing XSS: Scripts y Payloads Companion",
+    "createdAt":  "2026-09-08",
+    "updatedAt":  "2026-09-08",
+    "descriptionEs":  "Scripts de probe en Python, libreria de payloads y workflow de CI para testear XSS reflected, stored y DOM-based con OWASP ZAP 2.15 y dalfox 2.x."
+}

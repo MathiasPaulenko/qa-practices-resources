@@ -1,0 +1,28 @@
+{
+    "topic":  "api-testing",
+    "version":  "1.0.0",
+    "license":  "MIT",
+    "title":  "API Contract Testing with Pact: Companion Scripts",
+    "tags":  [
+                 "pact",
+                 "contract-testing",
+                 "consumer-driven-contracts",
+                 "pact-broker",
+                 "can-i-deploy"
+             ],
+    "author":  "Mathias Paulenko",
+    "type":  "documentation",
+    "requirements":  [
+                         "Node.js 20+",
+                         "npm 10+",
+                         "@pact-foundation/pact 13.x",
+                         "Python 3.12+ (for Python examples)",
+                         "pact-python 2.x (for Python examples)"
+                     ],
+    "description":  "Pact JS 13.x and Pact Python 2.x scripts for consumer-driven contract testing, provider verification, can-i-deploy checks and CI/CD integration.",
+    "slug":  "api-contract-testing-with-pact",
+    "titleEs":  "Testing de Contratos API con Pact: Scripts Companion",
+    "createdAt":  "2026-09-08",
+    "updatedAt":  "2026-09-08",
+    "descriptionEs":  "Scripts de Pact JS 13.x y Pact Python 2.x para contract testing consumer-driven, verificacion de provider, checks can-i-deploy e integracion CI/CD."
+}

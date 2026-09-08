@@ -2,6 +2,7 @@
   "title": "Lighthouse Performance Testing: Companion Scripts",
   "slug": "lighthouse-performance-testing",
   "type": "documentation",
+  "topic": "performance-testing",
   "category": "performance-testing",
   "description": "Lighthouse CI config, GitHub Actions workflow, programmatic Node.js usage, web-vitals RUM collector, and assert-on-metric script for Lighthouse performance testing.",
   "language": ["en", "es"],

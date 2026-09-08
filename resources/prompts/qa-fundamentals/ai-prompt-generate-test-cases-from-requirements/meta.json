@@ -2,6 +2,7 @@
   "title": "AI Prompt to Generate Test Cases from Requirements: Companion Files",
   "slug": "ai-prompt-generate-test-cases-from-requirements",
   "type": "prompts",
+  "topic": "qa-fundamentals",
   "category": "qa-fundamentals",
   "description": "Prompt template, example input and example output for generating structured test cases from requirements with traceability.",
   "language": ["en", "es"],

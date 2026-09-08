@@ -2,6 +2,7 @@
   "title": "Playwright Visual Regression Testing: Companion Files",
   "slug": "playwright-visual-regression-testing",
   "type": "documentation",
+  "topic": "test-automation",
   "category": "test-automation",
   "description": "Playwright config, visual test examples and CI YAML for visual regression testing with snapshots.",
   "language": ["en", "es"],

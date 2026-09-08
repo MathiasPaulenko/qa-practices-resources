@@ -2,6 +2,7 @@
   "title": "How to Test AI-Powered Features: Companion Files",
   "slug": "how-to-test-ai-powered-features",
   "type": "documentation",
+  "topic": "ai-testing",
   "category": "ai-testing",
   "description": "Golden dataset and 5 pytest test files for testing AI-powered features with contract tests, property-based assertions, drift detection, shadow testing and adversarial robustness.",
   "language": ["en", "es"],

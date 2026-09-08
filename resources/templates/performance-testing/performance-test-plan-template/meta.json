@@ -2,6 +2,7 @@
   "title": "Performance Test Plan Template: Companion Scripts",
   "slug": "performance-test-plan-template",
   "type": "templates",
+  "topic": "performance-testing",
   "category": "performance-testing",
   "description": "k6 0.54 and JMeter 5.6 example scripts for load, stress, soak and spike testing of a checkout API.",
   "language": ["en", "es"],

