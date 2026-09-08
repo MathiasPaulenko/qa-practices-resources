@@ -1,0 +1,25 @@
+{
+    "topic":  "test-management",
+    "version":  "1.0.0",
+    "license":  "MIT",
+    "title":  "Test Closure Checklist: Companion Script and Fixtures",
+    "tags":  [
+                 "test-closure",
+                 "test-exit-report",
+                 "qa-handoff",
+                 "release-readiness",
+                 "python"
+             ],
+    "author":  "Mathias Paulenko",
+    "type":  "checklists",
+    "requirements":  [
+                         "Python 3.12+",
+                         "pytest 8.3"
+                     ],
+    "description":  "Python Test Exit Report generator, test data fixtures and CI workflow for test closure with Python 3.12 and pytest 8.3.",
+    "slug":  "test-closure-checklist",
+    "titleEs":  "Checklist de Cierre de Testing: Script y Fixtures Companion",
+    "createdAt":  "2026-09-08",
+    "updatedAt":  "2026-09-08",
+    "descriptionEs":  "Generador de Test Exit Report en Python, fixtures de datos de test y workflow de CI para cierre de testing con Python 3.12 y pytest 8.3."
+}

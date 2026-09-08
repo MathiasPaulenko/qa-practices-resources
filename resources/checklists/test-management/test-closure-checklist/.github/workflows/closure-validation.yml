@@ -1,0 +1,35 @@
+# .github/workflows/closure-validation.yml
+name: Test Closure Validation
+on:
+  push:
+    branches:
+      - 'release/*'
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  closure-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pytest==8.3
+      - name: Run closure validation tests
+        run: pytest scripts/test_closure_validation.py -v
+        continue-on-error: true
+      - name: Generate Test Exit Report
+        run: |
+          python scripts/generate_exit_report.py \
+            --release ${{ github.ref_name }} \
+            --results fixtures/test_results.json \
+            --defects fixtures/open_defects.json \
+            --output reports/
+        continue-on-error: true
+      - name: Upload Test Exit Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-exit-report-${{ github.ref_name }}
+          path: reports/
