@@ -1,0 +1,27 @@
+{
+    "topic":  "test-automation",
+    "version":  "1.0.0",
+    "license":  "MIT",
+    "title":  "Test Automation Framework Architecture Template Companion",
+    "tags":  [
+                 "test-automation-framework",
+                 "framework-architecture",
+                 "playwright",
+                 "typescript",
+                 "layered-architecture"
+             ],
+    "author":  "Mathias Paulenko",
+    "type":  "templates",
+    "requirements":  [
+                         "Node.js 20+",
+                         "Playwright 1.44+",
+                         "TypeScript 5.4+",
+                         "GitHub Actions"
+                     ],
+    "description":  "Layered test automation framework with spec files, page objects, core utilities and CI workflow for Playwright 1.44 + TypeScript 5.4.",
+    "slug":  "test-automation-framework-architecture-template",
+    "titleEs":  "Plantilla de Arquitectura de Framework de Automatización Companion",
+    "createdAt":  "2026-09-08",
+    "updatedAt":  "2026-09-08",
+    "descriptionEs":  "Framework de automatización en capas con spec files, page objects, utilidades core y workflow de CI para Playwright 1.44 + TypeScript 5.4."
+}
