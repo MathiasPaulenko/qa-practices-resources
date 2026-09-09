@@ -1,0 +1,49 @@
+name: BDD Comparison
+on: [push, pull_request]
+jobs:
+  cucumber-jvm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - run: mvn -B test -Dtest=RunCucumberTest
+        working-directory: cucumber-jvm
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cucumber-reports
+          path: cucumber-jvm/target/cucumber-reports.html
+
+  robot-framework:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+        working-directory: robot-framework
+      - run: robot --variable BASE_URL:${{ vars.STAGING_URL }} --outputdir reports tests/
+        working-directory: robot-framework
+      - uses: actions/upload-artifact@v4
+        with:
+          name: robot-reports
+          path: robot-framework/reports/
+
+  behave:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+        working-directory: behave
+      - run: behave --format=plain --junit --junit-directory=reports features/
+        working-directory: behave
+      - uses: actions/upload-artifact@v4
+        with:
+          name: behave-reports
+          path: behave/reports/
