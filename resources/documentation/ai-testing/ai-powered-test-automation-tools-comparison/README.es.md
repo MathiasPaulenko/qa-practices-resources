@@ -5,7 +5,7 @@ Recurso companion de la [Comparación de Herramientas de Test Automation con IA]
 ## Archivos
 
 | Archivo | Propósito |
-|---------|-----------|
+| -------- | --------- |
 | `src/self_healing_fallback.py` | Helper de Selenium con estrategia de fallback de selectores |
 | `src/user_story_parser.py` | Parsear user stories en outlines de test |
 | `src/launchable_subset.sh` | Comandos CLI de Launchable para selección predictiva |

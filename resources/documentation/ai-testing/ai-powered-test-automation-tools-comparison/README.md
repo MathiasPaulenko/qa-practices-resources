@@ -5,7 +5,7 @@ Companion resource for the [AI-Powered Test Automation Tools Comparison](https:/
 ## Files
 
 | File | Purpose |
-|------|---------|
+| ---- | ------- |
 | `src/self_healing_fallback.py` | Selenium helper with fallback selector strategy |
 | `src/user_story_parser.py` | Parse user stories into test outlines |
 | `src/launchable_subset.sh` | Launchable CLI commands for predictive test selection |
