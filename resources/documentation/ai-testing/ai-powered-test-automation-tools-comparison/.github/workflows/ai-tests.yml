@@ -1,0 +1,16 @@
+name: AI Test Automation Examples
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install selenium
+      - name: Run user story parser
+        run: python src/user_story_parser.py
+      - name: Run self-healing fallback (dry run)
+        run: python -c "from src.self_healing_fallback import find_with_fallback; print('Import OK')"
