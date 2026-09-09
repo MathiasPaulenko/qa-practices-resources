@@ -1,0 +1,12 @@
+{
+  "name": "cypress-ct-angular",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "cypress": "15.21.0",
+    "@angular/core": "19.0.0",
+    "@angular/common": "19.0.0",
+    "@angular/platform-browser": "19.0.0",
+    "typescript": "5.6.0"
+  }
+}

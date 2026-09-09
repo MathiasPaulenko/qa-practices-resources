@@ -1,0 +1,53 @@
+name: Cypress Component Tests
+on: [push, pull_request]
+jobs:
+  react:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+        working-directory: react
+      - run: npx cypress run --component
+        working-directory: react
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-react-screenshots
+          path: react/cypress/screenshots
+
+  vue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+        working-directory: vue
+      - run: npx cypress run --component
+        working-directory: vue
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-vue-screenshots
+          path: vue/cypress/screenshots
+
+  angular:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+        working-directory: angular
+      - run: npx cypress run --component
+        working-directory: angular
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-angular-screenshots
+          path: angular/cypress/screenshots
