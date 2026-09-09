@@ -1,0 +1,21 @@
+{
+  "id": "pwa-testing-guide",
+  "slug": "pwa-testing-guide",
+  "title": "PWA Testing Guide Companion",
+  "description": "Companion resource with Workbox config, Playwright PWA tests, web app manifest, and CI workflow for testing offline and installability.",
+  "type": "documentation",
+  "topic": "pwa-testing",
+  "languages": ["en", "es"],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "meta.json",
+    "workbox-config.js",
+    "sw.js",
+    "manifest.json",
+    "playwright.config.ts",
+    "tests/offline.spec.ts",
+    "tests/installability.spec.ts",
+    ".github/workflows/pwa-tests.yml"
+  ]
+}
