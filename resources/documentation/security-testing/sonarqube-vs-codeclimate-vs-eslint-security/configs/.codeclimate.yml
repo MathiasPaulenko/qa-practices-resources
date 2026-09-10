@@ -1,0 +1,11 @@
+version: "2"
+plugins:
+  eslint:
+    enabled: true
+    channel: "eslint-9"
+  sonar-java:
+    enabled: true
+exclude_patterns:
+  - "tests/"
+  - "dist/"
+  - "coverage/"
