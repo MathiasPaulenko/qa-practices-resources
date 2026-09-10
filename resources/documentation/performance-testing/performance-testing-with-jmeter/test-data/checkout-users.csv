@@ -1,0 +1,7 @@
+# checkout-users.csv
+email,sku,qty,token
+customer-001@qa.local,BOOK-001,2,tok_visa
+customer-002@qa.local,BOOK-002,1,tok_mastercard
+customer-003@qa.local,EBOOK-001,1,tok_amex
+customer-004@qa.local,BOOK-003,3,tok_visa
+customer-005@qa.local,EBOOK-002,1,tok_mastercard

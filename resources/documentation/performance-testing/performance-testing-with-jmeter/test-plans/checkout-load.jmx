@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestPlan guiclass="TestPlanGui" testname="Checkout Load Test" testclass="org.apache.jmeter.config.Arguments">
+  <ThreadGroup guiclass="ThreadGroupGui" testname="100 Concurrent Users">
+    <stringProp name="ThreadGroup.num_threads">100</stringProp>
+    <stringProp name="ThreadGroup.ramp_time">60</stringProp>
+    <stringProp name="ThreadGroup.duration">300</stringProp>
+    <boolProp name="ThreadGroup.scheduler">true</boolProp>
+  </ThreadGroup>
+  <CSVDataSet guiclass="TestBeanGUI" testname="Customer Data">
+    <stringProp name="filename">${__P(dataDir,.)}/checkout-users.csv</stringProp>
+    <stringProp name="variableNames">email,sku,qty,token</stringProp>
+    <stringProp name="delimiter">,</stringProp>
+    <boolProp name="ignoreFirstLine">true</boolProp>
+    <boolProp name="recycle">true</boolProp>
+  </CSVDataSet>
+  <HTTPSamplerProxy guiclass="HttpTestSampleGui" testname="POST /checkout">
+    <stringProp name="HTTPSampler.domain">api.staging.local</stringProp>
+    <stringProp name="HTTPSampler.port">8080</stringProp>
+    <stringProp name="HTTPSampler.protocol">https</stringProp>
+    <stringProp name="HTTPSampler.path">/checkout</stringProp>
+    <stringProp name="HTTPSampler.method">POST</stringProp>
+  </HTTPSamplerProxy>
+  <ResponseAssertion guiclass="AssertionGui" testname="HTTP 201">
+    <collectionProp name="Asserion.test_strings">
+      <stringProp name="">201</stringProp>
+    </collectionProp>
+    <intProp name="Assertion.test_type">8</intProp>
+  </ResponseAssertion>
+  <DurationAssertion guiclass="DurationAssertionGui" testname="Max 500 ms">
+    <stringProp name="DurationAssertion.duration">500</stringProp>
+  </DurationAssertion>
+  <BackendListener guiclass="BackendListenerGui" testname="InfluxDB Backend">
+    <stringProp name="classname">org.apache.jmeter.visualizers.backend.influxdb.InfluxDBBackendClient</stringProp>
+    <stringProp name="influxdbUrl">http://influxdb:8086/write?db=jmeter</stringProp>
+  </BackendListener>
+</TestPlan>

@@ -1,0 +1,37 @@
+name: JMeter Performance Tests
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  jmeter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download JMeter 5.6.3
+        run: |
+          wget https://dlcdn.apache.org/jmeter/binaries/apache-jmeter-5.6.3.tgz
+          tar -xzf apache-jmeter-5.6.3.tgz
+
+      - name: Run load test
+        run: |
+          ./apache-jmeter-5.6.3/bin/jmeter \
+            -n -t test-plans/checkout-load.jmx \
+            -l results/checkout.jtl \
+            -e -o report/ \
+            -JdataDir=${{ github.workspace }}/test-data
+
+      - name: Assert SLA
+        run: |
+          python scripts/assert-sla.py \
+            --jtl results/checkout.jtl \
+            --max-p95 1000 \
+            --max-error-rate 0.5
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: jmeter-report
+          path: report/
