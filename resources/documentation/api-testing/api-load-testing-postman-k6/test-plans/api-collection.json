@@ -1,0 +1,72 @@
+{
+  "info": {
+    "name": "API Smoke Tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Cart",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/cart",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"userId\": \"{{$randomInt}}\", \"items\": [{\"sku\": \"SKU-001\", \"qty\": 1}]}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 201', function () {",
+              "  pm.response.to.have.status(201);",
+              "});",
+              "pm.test('Response time under 500ms', function () {",
+              "  pm.expect(pm.response.responseTime).to.be.below(500);",
+              "});",
+              "pm.test('Cart contains id', function () {",
+              "  const jsonData = pm.response.json();",
+              "  pm.expect(jsonData).to.have.property('id');",
+              "});"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "Checkout",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/checkout",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"cartId\": \"{{cartId}}\", \"paymentToken\": \"{{$randomGuid}}\"}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 201', function () {",
+              "  pm.response.to.have.status(201);",
+              "});",
+              "pm.test('Response time under 500ms', function () {",
+              "  pm.expect(pm.response.responseTime).to.be.below(500);",
+              "});"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "https://api.staging.local" },
+    { "key": "cartId", "value": "test-cart-001" }
+  ]
+}

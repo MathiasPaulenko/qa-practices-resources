@@ -1,0 +1,12 @@
+[
+  { "id": 1, "sku": "SKU-001", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIn0.abc123" },
+  { "id": 2, "sku": "SKU-002", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIn0.def456" },
+  { "id": 3, "sku": "SKU-003", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIn0.ghi789" },
+  { "id": 4, "sku": "SKU-004", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0In0.jkl012" },
+  { "id": 5, "sku": "SKU-005", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1In0.mno345" },
+  { "id": 6, "sku": "SKU-006", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2In0.pqr678" },
+  { "id": 7, "sku": "SKU-007", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3In0.stu901" },
+  { "id": 8, "sku": "SKU-008", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4In0.vwx234" },
+  { "id": 9, "sku": "SKU-009", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5In0.yza567" },
+  { "id": 10, "sku": "SKU-010", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMCJ9.bcd890" }
+]
