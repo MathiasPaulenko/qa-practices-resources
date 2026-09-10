@@ -1,0 +1,24 @@
+# chaos-engine.yaml
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosEngine
+metadata:
+  name: payments-staging-chaos
+  namespace: litmus
+spec:
+  appinfo:
+    appns: staging
+    applabel: app=payments-service
+    appkind: deployment
+  chaosServiceAccount: litmus-admin
+  experiments:
+    - name: pod-delete
+      spec:
+        components:
+          env:
+            - name: TOTAL_CHAOS_DURATION
+              value: "30"
+            - name: FORCE
+              value: "true"
+            - name: PODS_AFFECTED_PERC
+              value: "25"
+  annotationCheck: "true"

@@ -1,0 +1,32 @@
+name: Chaos Engineering
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+jobs:
+  steady-state:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./scripts/verify-steady-state.sh
+
+  chaos:
+    needs: steady-state
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v4
+      - name: Run Litmus experiment
+        run: |
+          kubectl apply -f chaos-experiments/pod-delete.yaml
+          kubectl wait --for=condition=Completed chaosengine/payments-staging-chaos -n litmus --timeout=120s
+      - name: Verify recovery
+        run: ./scripts/verify-steady-state.sh
+      - name: Upload logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chaos-logs
+          path: logs/

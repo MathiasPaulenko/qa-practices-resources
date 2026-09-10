@@ -1,0 +1,19 @@
+# network-latency.yaml
+apiVersion: chaos-mesh.org/v1alpha1
+kind: NetworkChaos
+metadata:
+  name: payments-network-delay
+  namespace: staging
+spec:
+  action: delay
+  mode: one
+  selector:
+    labelSelectors:
+      app: payments-service
+  delay:
+    latency: "100ms"
+    correlation: "100"
+    jitter: "0ms"
+  duration: "30s"
+  scheduler:
+    cron: "@every 168h"
