@@ -1,0 +1,31 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+sast:
+  stage: test
+  image: semgrep/semgrep
+  script:
+    - semgrep --config=auto --json --output=semgrep.json .
+  artifacts:
+    reports:
+      sast: semgrep.json
+
+deploy_staging:
+  stage: deploy
+  dependencies:
+    - build
+  script:
+    - echo "Promoting artifact $CI_COMMIT_SHA to staging"
+  environment:
+    name: staging

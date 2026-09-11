@@ -1,0 +1,19 @@
+name: test-and-deploy
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test:unit
+      - run: npm run test:e2e
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run build
+      - run: npm run deploy:staging
+      - run: npm run smoke:staging
