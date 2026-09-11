@@ -1,0 +1,4 @@
+# GitHub Actions
+- uses: actions/setup-node@v4
+- run: npx playwright install --with-deps
+- run: npx playwright test --workers=4 --shard=${{ matrix.shard }}/4
