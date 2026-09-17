@@ -1,0 +1,12 @@
+{
+  "platformName": "Android",
+  "appium:automationName": "UiAutomator2",
+  "appium:deviceName": "Pixel_7_API_34",
+  "appium:platformVersion": "14",
+  "appium:app": "./apps/shop-debug.apk",
+  "appium:autoGrantPermissions": true,
+  "appium:appWaitActivity": "com.shop.*,com.shop.MainActivity",
+  "appium:noReset": false,
+  "appium:fullReset": false,
+  "appium:newCommandTimeout": 120
+}

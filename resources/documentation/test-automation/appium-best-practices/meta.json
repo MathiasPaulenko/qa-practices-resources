@@ -1,0 +1,19 @@
+{
+  "type": "documentation",
+  "resourceType": "documentation",
+  "slug": "appium-best-practices",
+  "title": "Appium Best Practices: Stable Mobile Tests",
+  "titleEs": "Mejores Prácticas de Appium: Tests Móviles Estables",
+  "description": "Runnable companion for the Appium Best Practices guide: UiAutomator2/XCUITest driver factory, page object example, capabilities presets, and an emulator CI workflow.",
+  "topic": "test-automation",
+  "companionVersion": "1.0.0",
+  "files": [
+    "capabilities/android-emulator.json",
+    "capabilities/ios-simulator.json",
+    "pages/login_screen.py",
+    "tests/conftest.py",
+    "tests/test_login_flow.py",
+    "requirements.txt",
+    ".github/workflows/appium-android.yml"
+  ]
+}
