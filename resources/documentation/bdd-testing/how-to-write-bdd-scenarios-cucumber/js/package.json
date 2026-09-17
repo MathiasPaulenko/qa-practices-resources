@@ -1,0 +1,9 @@
+{
+  "name": "bdd-scenarios-cucumber-js",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Runnable Cucumber.js examples for the BDD scenarios guide",
+  "devDependencies": {
+    "@cucumber/cucumber": "13.2.1"
+  }
+}

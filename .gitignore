@@ -22,3 +22,6 @@ Thumbs.db
 
 # Generated catalog for GitHub Pages (do not commit to main)
 resources.json
+
+# Java/Maven
+target/
