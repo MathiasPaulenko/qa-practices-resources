@@ -1,0 +1,34 @@
+{
+  "title": "API Pagination Testing — Runnable Companion",
+  "title_es": "Pruebas de Paginación de API — Companion Ejecutable",
+  "description": "pytest 8.3 suite and a stdlib mock server implementing offset, cursor and keyset pagination for the 14 API pagination test cases from qapractices.com: boundaries, sort stability, concurrent inserts, invalid cursors and total_count.",
+  "description_es": "Suite de pytest 8.3 y un mock server stdlib que implementa paginación offset, cursor y keyset para los 14 casos de prueba de paginación de API de qapractices.com: límites, ordenamiento, inserts concurrentes, cursores inválidos y total_count.",
+  "type": "test-cases",
+  "topic": "api-testing",
+  "slug": "api-pagination-testing-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/api-pagination-testing-test-cases/",
+    "https://qapractices.com/es/test-cases/api-pagination-testing-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "api-pagination",
+    "offset-pagination",
+    "cursor-pagination",
+    "keyset-pagination",
+    "pytest",
+    "requests",
+    "api-testing",
+    "mock-server"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "mock_server.py",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_boundaries.py",
+    "tests/test_cursor_pagination.py",
+    "tests/test_offset_pagination.py"
+  ]
+}

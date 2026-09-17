@@ -1,0 +1,21 @@
+{
+  "name": "jest-vs-vitest-side-by-side",
+  "private": true,
+  "version": "1.0.0",
+  "description": "The same test suite running under Jest 30.5 and Vitest 5.0 — companion to qapractices.com/documentation/jest-vs-vitest",
+  "scripts": {
+    "test:jest": "jest",
+    "test:vitest": "vitest run",
+    "test:watch": "vitest",
+    "coverage:jest": "jest --coverage",
+    "coverage:vitest": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "jest": "^30.5.1",
+    "vitest": "^5.0.0",
+    "vite": ">=6.4.0",
+    "@vitest/coverage-v8": "^5.0.0",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0"
+  }
+}

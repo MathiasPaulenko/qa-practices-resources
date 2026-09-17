@@ -1,0 +1,36 @@
+{
+  "id": "jest-vs-vitest",
+  "slug": "jest-vs-vitest",
+  "title": "Jest vs Vitest Companion",
+  "title_es": "Jest vs Vitest Companion",
+  "description": "Runnable side-by-side demo: the same test suite under Jest 30.5 and Vitest 5.0, with alias parity between moduleNameMapper and resolve.alias.",
+  "description_es": "Demo ejecutable lado a lado: la misma suite de tests bajo Jest 30.5 y Vitest 5.0, con paridad de aliases entre moduleNameMapper y resolve.alias.",
+  "type": "documentation",
+  "topic": "unit-testing",
+  "languages": ["en", "es"],
+  "source_urls": [
+    "https://qapractices.com/documentation/jest-vs-vitest/",
+    "https://qapractices.com/es/documentation/jest-vs-vitest/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "jest",
+    "vitest",
+    "unit-testing",
+    "test-migration",
+    "vite",
+    "javascript-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "meta.json",
+    "side-by-side/package.json",
+    "side-by-side/jest.config.js",
+    "side-by-side/vite.config.ts",
+    "side-by-side/src/validators.js",
+    "side-by-side/src/cart.js",
+    "side-by-side/__tests__/validators.test.js",
+    "side-by-side/__tests__/cart.test.js"
+  ]
+}

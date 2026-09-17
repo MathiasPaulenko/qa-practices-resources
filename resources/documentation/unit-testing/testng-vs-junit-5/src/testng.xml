@@ -1,0 +1,13 @@
+<suite name="RegressionSuite" parallel="methods" thread-count="4">
+    <test name="SmokeTests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.example.DependencyTests"/>
+            <class name="com.example.LoginTests"/>
+        </classes>
+    </test>
+</suite>
