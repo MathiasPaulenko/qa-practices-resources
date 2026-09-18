@@ -1,0 +1,10 @@
+{
+  "id": "sql-injection-test-cases",
+  "slug": "sql-injection-test-cases",
+  "title": "SQL Injection Test Cases Companion",
+  "description": "Runnable Flask + SQLite lab for the SQL Injection Test Cases resource: an intentionally vulnerable app paired with a pytest suite that runs the payloads from TC-SQLI-001, TC-SQLI-002 and the numeric-parameter edge case against vulnerable and parameterized endpoints.",
+  "type": "test-cases",
+  "topic": "security-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "app.py", "tests/__init__.py", "tests/test_sqli.py"]
+}
