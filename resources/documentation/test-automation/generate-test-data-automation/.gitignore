@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+test-data.json
+test_users.csv
+*.class
+__pycache__/
+.pytest_cache/

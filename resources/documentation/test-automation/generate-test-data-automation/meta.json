@@ -1,0 +1,21 @@
+{
+  "slug": "generate-test-data-automation",
+  "type": "documentation",
+  "topic": "test-automation",
+  "title": "How to Generate Test Data for Automation",
+  "description": "Companion for the test data generation guide: JavaScript user factory with faker, Python generation script and Java UserBuilder examples.",
+  "resourceUrl": "https://qapractices.com/documentation/generate-test-data-automation",
+  "resourceUrlEs": "https://qapractices.com/es/documentation/generate-test-data-automation",
+  "lastUpdated": "2026-09-18",
+  "files": [
+    "README.md",
+    "README.es.md",
+    "javascript/package.json",
+    "javascript/user-factory.js",
+    "javascript/user-factory.test.js",
+    "javascript/generate.js",
+    "python/requirements.txt",
+    "python/test_data_generation.py",
+    "java/UserBuilder.java"
+  ]
+}

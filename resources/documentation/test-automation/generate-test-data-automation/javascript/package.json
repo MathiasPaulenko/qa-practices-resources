@@ -1,0 +1,14 @@
+{
+  "name": "test-data-generation-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Runnable test data generation examples: Faker.js, factory pattern, deterministic seeds, CSV/JSON output",
+  "scripts": {
+    "test": "node --test",
+    "generate": "node generate.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "10.6.0"
+  }
+}
