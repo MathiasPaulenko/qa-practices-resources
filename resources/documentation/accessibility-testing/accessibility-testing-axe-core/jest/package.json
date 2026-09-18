@@ -1,0 +1,17 @@
+{
+  "name": "axe-core-jest-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Component-level accessibility tests with jest-axe",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "devDependencies": {
+    "jest": "30.5.1",
+    "jest-axe": "11.0.0",
+    "jest-environment-jsdom": "30.5.1"
+  }
+}

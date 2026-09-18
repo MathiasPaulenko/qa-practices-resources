@@ -1,0 +1,10 @@
+{
+  "name": "axe-core-playwright-example",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Runnable axe-core + Playwright accessibility tests (self-contained, no external URL needed)",
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0"
+  }
+}
