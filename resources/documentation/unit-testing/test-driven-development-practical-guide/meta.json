@@ -1,0 +1,35 @@
+{
+  "id": "test-driven-development-practical-guide",
+  "slug": "test-driven-development-practical-guide",
+  "title": "TDD Kata Companion",
+  "title_es": "TDD Kata Companion",
+  "description": "Runnable Vitest 3 kata: the password validator and FizzBuzz examples from the TDD guide, plus a self-check script that walks red-green-refactor step by step.",
+  "description_es": "Kata ejecutable con Vitest 3: el validador de contraseña y FizzBuzz de la guía TDD, más un script que recorre el ciclo red-green-refactor paso a paso.",
+  "type": "documentation",
+  "topic": "unit-testing",
+  "languages": ["en", "es"],
+  "source_urls": [
+    "https://qapractices.com/documentation/test-driven-development-practical-guide/",
+    "https://qapractices.com/es/documentation/test-driven-development-practical-guide/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "tdd",
+    "test-driven-development",
+    "red-green-refactor",
+    "vitest",
+    "unit-testing",
+    "kata",
+    "fizzbuzz"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "meta.json",
+    "kata/package.json",
+    "kata/src/password.js",
+    "kata/src/fizzbuzz.js",
+    "kata/__tests__/password.test.js",
+    "kata/__tests__/fizzbuzz.test.js"
+  ]
+}

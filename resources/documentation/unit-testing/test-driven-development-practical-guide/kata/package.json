@@ -1,0 +1,16 @@
+{
+  "name": "tdd-kata",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Red-green-refactor kata companion for qapractices.com/documentation/test-driven-development-practical-guide",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4",
+    "@vitest/coverage-v8": "^3.2.4"
+  }
+}
