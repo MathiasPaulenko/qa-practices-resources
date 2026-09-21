@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Product defects",
+    "matchedStatuses": ["failed"]
+  },
+  {
+    "name": "Test defects",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*NoSuchElementException.*|.*TimeoutException.*"
+  },
+  {
+    "name": "Infrastructure issues",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*Connection refused.*|.*ECONNREFUSED.*"
+  }
+]
