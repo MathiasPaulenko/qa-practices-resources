@@ -1,0 +1,10 @@
+{
+  "id": "jwt-authentication-test-cases",
+  "slug": "jwt-authentication-test-cases",
+  "title": "JWT Authentication Test Cases Companion",
+  "description": "Runnable Flask lab for the JWT Authentication Test Cases resource: an RS256 token issuer with /secure/* and /vulnerable/* verifiers, plus a pytest suite that executes the alg=none, expired, tampered, RS256-to-HS256 confusion, refresh replay and post-logout revocation cases from TC-JWT-001 to TC-JWT-007.",
+  "type": "test-cases",
+  "topic": "security-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "app.py", "tests/__init__.py", "tests/test_jwt.py"]
+}
