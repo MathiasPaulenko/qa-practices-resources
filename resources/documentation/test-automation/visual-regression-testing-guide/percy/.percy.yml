@@ -1,0 +1,8 @@
+# .percy.yml — Percy snapshot configuration
+version: 2
+snapshot:
+  widths: [375, 1280] # capture mobile and desktop in one snapshot call
+  min-height: 1024
+  percy-css: |
+    .loading-spinner { display: none !important; }
+  enable-javascript: true

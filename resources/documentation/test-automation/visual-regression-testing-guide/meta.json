@@ -1,0 +1,17 @@
+{
+  "title": "Visual Regression Testing Guide: Companion Files",
+  "slug": "visual-regression-testing-guide",
+  "type": "documentation",
+  "topic": "test-automation",
+  "category": "test-automation",
+  "description": "Runnable visual regression examples for Playwright, Percy, BackstopJS, Applitools Eyes, plus a GitHub Actions CI workflow.",
+  "language": ["en", "es"],
+  "files": [
+    "tests/visual-baseline.spec.js",
+    "percy/percy-visual.spec.js",
+    "percy/.percy.yml",
+    "backstopjs/backstop.json",
+    "applitools/applitools-eyes.spec.js",
+    ".github/workflows/visual-regression-tests.yml"
+  ]
+}

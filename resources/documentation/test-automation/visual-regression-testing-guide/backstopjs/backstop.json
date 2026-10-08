@@ -1,0 +1,25 @@
+{
+  "id": "visual-tests",
+  "viewports": [
+    { "label": "desktop", "width": 1280, "height": 1024 },
+    { "label": "mobile", "width": 375, "height": 812 }
+  ],
+  "scenarios": [
+    {
+      "label": "Homepage",
+      "url": "http://localhost:3000",
+      "selectors": ["#hero", "#features"],
+      "delay": 1000,
+      "misMatchThreshold": 0.1
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "html_report": "backstop_data/html_report"
+  },
+  "report": ["browser"],
+  "engine": "playwright",
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50
+}

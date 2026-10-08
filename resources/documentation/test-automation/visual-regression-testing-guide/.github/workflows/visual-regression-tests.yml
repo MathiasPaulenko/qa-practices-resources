@@ -1,0 +1,18 @@
+name: Visual Regression Tests
+on: [pull_request]
+jobs:
+  visual:
+    runs-on: ubuntu-latest # always the same OS — baselines are OS-dependent
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npx playwright install --with-deps
+      - run: npx playwright test --grep @visual
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: visual-diffs
+          path: test-results/
