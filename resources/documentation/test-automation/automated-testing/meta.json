@@ -1,0 +1,20 @@
+{
+  "slug": "automated-testing",
+  "type": "documentation",
+  "topic": "test-automation",
+  "title": "Automated Testing Guide: A Real QA Team Decision",
+  "titleEs": "Pruebas Automatizadas: La Decisión Real de un Equipo QA",
+  "description": "Runnable Jest 29, Playwright 1.44 and GitHub Actions examples from the LedgerFlow decision playbook.",
+  "descriptionEs": "Ejemplos ejecutables de Jest 29, Playwright 1.44 y GitHub Actions del playbook de decisión de LedgerFlow.",
+  "version": "1.0.0",
+  "createdAt": "2026-10-08",
+  "updatedAt": "2026-10-08",
+  "author": "Mathias Paulenko",
+  "license": "MIT",
+  "tags": ["jest", "playwright", "github-actions", "test-pyramid", "ci-cd", "test-automation"],
+  "requirements": [
+    "Node.js 20",
+    "Jest 29",
+    "Playwright 1.44"
+  ]
+}

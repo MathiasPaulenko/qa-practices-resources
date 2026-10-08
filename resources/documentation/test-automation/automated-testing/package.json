@@ -1,0 +1,16 @@
+{
+  "name": "automated-testing-companion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Companion code for 'Automated Testing Guide: A Real QA Team Decision' on QAPractices.com",
+  "scripts": {
+    "test:unit": "jest",
+    "test:api": "playwright test tests/api",
+    "test:e2e": "playwright test tests/e2e"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@playwright/test": "^1.44.0",
+    "jest": "^29.7.0"
+  }
+}
