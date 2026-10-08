@@ -1,0 +1,40 @@
+{
+  "title": "GraphQL Mutation Testing — Runnable Companion",
+  "title_es": "Testing de Mutaciones GraphQL — Companion Ejecutable",
+  "description": "pytest 8.3 suite and a stdlib mock GraphQL server for the 10 mutation test cases from qapractices.com: create/update/delete lifecycle, batch partial failure, authorization codes, error unions, idempotency-key replay and optimistic concurrency.",
+  "description_es": "Suite de pytest 8.3 y un mock GraphQL stdlib para los 10 casos de mutación de qapractices.com: ciclo crear/actualizar/eliminar, fallo parcial en batch, códigos de autorización, unions de error, reintento con idempotency key y concurrencia optimista.",
+  "type": "test-cases",
+  "topic": "api-testing",
+  "slug": "graphql-mutation-testing-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/graphql-mutation-testing-test-cases/",
+    "https://qapractices.com/es/test-cases/graphql-mutation-testing-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "graphql",
+    "graphql-mutation",
+    "mutation-testing",
+    "batch-mutation",
+    "idempotency",
+    "optimistic-concurrency",
+    "subscriptions",
+    "websocket",
+    "pytest",
+    "requests",
+    "websockets",
+    "api-testing",
+    "mock-server"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "mock_server.py",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_mutation_lifecycle.py",
+    "tests/test_batch_and_auth.py",
+    "tests/test_edges_and_replay.py",
+    "tests/test_subscription_trigger.py"
+  ]
+}
