@@ -1,0 +1,17 @@
+## User Story
+As a shopper, I want to apply a discount code at checkout so that I pay less for eligible items.
+
+## Acceptance Criteria
+- A valid code reduces the order total according to its campaign rule (e.g. SAVE10 = 10% off).
+- An invalid or expired code shows a clear error message and does not change the total.
+- Only one code can be applied per order; applying a second code replaces the first.
+- The discount applies to the merchandise subtotal, never to shipping costs.
+- Removing an applied code restores the original total.
+
+## Context
+- Application type: web
+- Tech stack: React 18 storefront + Node 20 checkout service
+- Business rules or constraints: codes are case-insensitive; one code per order
+- Known risks or related bugs: discount re-applied on page refresh in a past release
+- Test management tool: TestRail (CSV import)
+- Test case ID prefix: TC-COUPON

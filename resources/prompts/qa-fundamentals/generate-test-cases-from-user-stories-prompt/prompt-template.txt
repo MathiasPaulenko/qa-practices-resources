@@ -1,0 +1,37 @@
+You are a senior QA engineer with experience in agile test design and test management
+tools. Generate a complete test case suite from the user story and acceptance
+criteria below.
+
+## User Story
+[paste the story, e.g. "As a shopper, I want to apply a discount code at checkout
+so that I pay less for eligible items."]
+
+## Acceptance Criteria
+[paste the acceptance criteria, e.g.:
+- A valid code reduces the order total according to the campaign rule.
+- An invalid or expired code shows an error and does not change the total.
+- Only one code per order; applying a second code replaces the first.
+- The discount applies to the subtotal, never to shipping.]
+
+## Context
+- Application type: [web / mobile / API / desktop]
+- Tech stack: [e.g. React 18 + Node 20 checkout service]
+- Business rules or constraints: [e.g. codes are case-insensitive]
+- Known risks or related bugs: [optional, e.g. code applies twice on refresh]
+- Test management tool: [TestRail / Zephyr / Jira Xray / none]
+- Test case ID prefix: [e.g. TC-COUPON]
+
+## Instructions
+1. Cover positive scenarios, negative scenarios, boundary and edge cases, UI
+   validation, integration points, and accessibility or permission checks where
+   they apply to this story.
+2. For every test case output: ID, Title, Preconditions, numbered Steps,
+   Expected Result, Priority (High / Medium / Low), Type (Functional /
+   Regression / Smoke / Edge Case), and Related Acceptance Criterion.
+3. Output the suite as a markdown table. If I named a test management tool
+   above, also give me a CSV or JSON block that matches its import format.
+4. Finish with a short "Risk Analysis": which test cases to automate first,
+   which area carries the highest regression risk, and which gaps in the
+   story need product-owner clarification.
+5. If an acceptance criterion is ambiguous, ask me a clarifying question
+   instead of inventing the behavior.

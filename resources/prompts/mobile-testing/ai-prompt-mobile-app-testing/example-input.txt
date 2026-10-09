@@ -1,0 +1,11 @@
+## App and Environment
+
+- App name and version: MedDrop v2.4.0
+- Framework: React Native
+- Service type and main user flow: prescription delivery — order medication, track courier
+- Devices and OS versions to cover: iPhone 15 Pro iOS 17.4, Samsung Galaxy S24 Android 14, Pixel 8 Android 14
+- Real-device farm: BrowserStack with device session IDs
+- Crash reporting: Firebase Crashlytics
+- Push provider: Firebase Cloud Messaging
+- Biometric method: Face ID / Fingerprint
+- Offline sync layer: SQLite + REST sync queue

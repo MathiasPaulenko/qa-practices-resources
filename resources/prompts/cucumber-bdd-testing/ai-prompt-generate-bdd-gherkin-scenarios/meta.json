@@ -1,0 +1,30 @@
+{
+  "title": "AI Prompt: Generate BDD Gherkin Scenarios",
+  "title_es": "Prompt de IA: Generar Escenarios BDD Gherkin",
+  "description": "Ready-to-copy AI prompt that turns user stories and acceptance criteria into a Gherkin .feature file with scenarios, tags and a Scenario Outline.",
+  "description_es": "Prompt de IA listo para copiar que convierte user stories y criterios de aceptación en un archivo .feature Gherkin con escenarios, tags y Scenario Outline.",
+  "type": "prompts",
+  "topic": "cucumber-bdd-testing",
+  "slug": "ai-prompt-generate-bdd-gherkin-scenarios",
+  "source_urls": [
+    "https://qapractices.com/prompts/ai-prompt-generate-bdd-gherkin-scenarios/",
+    "https://qapractices.com/es/prompts/ai-prompt-generate-bdd-gherkin-scenarios/"
+  ],
+  "language": "markdown",
+  "tags": [
+    "ai-prompt",
+    "bdd",
+    "gherkin",
+    "cucumber",
+    "feature-files",
+    "user-stories",
+    "acceptance-criteria",
+    "test-automation"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "prompt.md",
+    "password-reset.feature"
+  ]
+}

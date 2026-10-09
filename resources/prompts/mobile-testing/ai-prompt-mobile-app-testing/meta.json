@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: Mobile App Test Plan — Companion Files",
+  "slug": "ai-prompt-mobile-app-testing",
+  "type": "prompts",
+  "topic": "mobile-testing",
+  "category": "mobile-testing",
+  "description": "Prompt template, example input and CSV example output for generating a release-ready mobile test plan with device matrix and evidence-linked test cases.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.csv"
+  ]
+}

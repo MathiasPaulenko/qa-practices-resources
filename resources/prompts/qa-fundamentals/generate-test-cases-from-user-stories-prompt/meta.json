@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: Test Cases from User Stories — Companion Files",
+  "slug": "generate-test-cases-from-user-stories-prompt",
+  "type": "prompts",
+  "topic": "qa-fundamentals",
+  "category": "qa-fundamentals",
+  "description": "Prompt template, example input and CSV example output for generating a structured test case suite from an agile user story and acceptance criteria.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.csv"
+  ]
+}

@@ -1,0 +1,35 @@
+You are a senior QA engineer with deep experience in real-device mobile testing
+for React Native and Flutter apps. I am testing a [delivery/fitness/health] mobile
+app before release. Build a complete, executable test plan based on the context below.
+
+## App and Environment
+
+- App name and version: [APP_NAME vX.Y.Z]
+- Framework: [React Native / Flutter]
+- Service type and main user flow: [e.g., place a prescription delivery, book a class, log a vital sign]
+- Devices and OS versions to cover: [e.g., iPhone 15 Pro iOS 17.4, Samsung Galaxy S24 Android 14, Pixel 8 Android 14]
+- Real-device farm: [BrowserStack / Sauce Labs] with device session IDs
+- Crash reporting: [Firebase Crashlytics / Bugsnag / Instabug]
+- Push provider: [Firebase Cloud Messaging / OneSignal / APNs]
+- Biometric method: [Face ID / Touch ID / Fingerprint]
+- Offline sync layer: [SQLite / Realm / Hive / local DB + sync adapter]
+
+## Required Deliverables
+
+1. Device matrix with exact model, OS, form factor, real-device farm session ID, assigned owner, and test date.
+2. Functional test cases (5-8) for login, core service flow, payment or checkout, geolocation, and status tracking.
+3. Native feature test cases (4-6) for biometrics, push notifications, offline sync, camera or scanner, GPS, and deep links.
+4. Real-device compatibility test cases (3-5) for low battery, airplane mode, backgrounding and foregrounding, OS permission dialogs, and foldables or tablets if applicable.
+5. Performance and reliability test cases (3-5) for cold start time, memory usage, battery drain during 30 minutes of use, crash-free session rate, and offline queue flush.
+6. Crashlytics and observability checks (3-4) verifying crash reports, ANRs, non-fatal logs, and release regression signals.
+7. Regression and smoke suite (3-5) for must-pass pre-release verification.
+
+## Output Structure
+
+- Device matrix table: Model | OS | Farm Session ID | Owner | Date
+- For each test case: ID | Title | Objective | Preconditions | Device(s) | Steps | Expected Result | Evidence | Priority
+- Evidence column must specify screenshot, device log, Crashlytics link, or network trace.
+- Issues found table with: Symptom | Device | Logs/Crashlytics link | Severity | Repro steps
+
+Return only the filled deliverables. Be specific. Do not use generic language like
+verify the app works.

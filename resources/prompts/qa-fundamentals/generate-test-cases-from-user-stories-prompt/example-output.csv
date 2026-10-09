@@ -1,0 +1,9 @@
+ID,Title,Preconditions,Steps,Expected Result,Priority,Type,Related AC
+TC-COUPON-01,Apply valid code reduces subtotal by 10 percent,"Cart with eligible items; code SAVE10 active at 10%","1. Open checkout with 100.00 subtotal. 2. Enter SAVE10. 3. Apply code.","Discount line shows -10.00; total updates to 90.00 plus shipping",High,Functional,AC-1
+TC-COUPON-02,Invalid code rejected and total unchanged,"Cart ready; code NOTREAL does not exist","1. Enter NOTREAL in the code field. 2. Apply.","Error message shown; no discount line; total unchanged",High,Functional,AC-2
+TC-COUPON-03,Expired code rejected with clear message,"Code OLD2024 expired yesterday","1. Enter OLD2024. 2. Apply.","Error states the code expired; total unchanged",High,Functional,AC-2
+TC-COUPON-04,Second code replaces the first,"SAVE10 already applied; FREESHIP exists","1. Apply SAVE10. 2. Apply FREESHIP.","SAVE10 removed; only FREESHIP active on the order",Medium,Functional,AC-3
+TC-COUPON-05,Discount never applied to shipping cost,"Code SAVE10 valid; shipping 8.00","1. Apply SAVE10. 2. Check totals.","Subtotal reduced by 10%; shipping stays 8.00",High,Edge Case,AC-4
+TC-COUPON-06,Removing applied code restores original total,"SAVE10 applied on checkout","1. Remove the code.","Discount line disappears; original total restored",Medium,Functional,AC-5
+TC-COUPON-07,Code entry is case-insensitive,"SAVE10 active","1. Enter save10 in lowercase. 2. Apply.","Code accepted; identical discount applied",Low,Edge Case,AC-1
+TC-COUPON-08,Error message readable by screen reader,"Screen reader active (NVDA or VoiceOver)","1. Apply invalid code.","Error announced via aria-live region; focus moved to error",Medium,Edge Case,AC-2
