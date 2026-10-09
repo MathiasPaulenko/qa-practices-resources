@@ -1,0 +1,19 @@
+Application Name: Online Banking App
+Application Type: Web Application
+Technology Stack: React 18, Node.js 20, PostgreSQL 16
+Authentication Method: JWT access tokens with refresh tokens
+Data Sensitivity: Financial
+Deployment: Kubernetes on AWS, public internet facing
+Critical Assets:
+- User credentials and password reset flow
+- Transaction records
+- Session tokens
+Sensitive Data Flows:
+- Card details to payment gateway
+- SMS codes through a third-party provider
+External Integrations:
+- Payment gateway
+- SMS service for 2FA
+- Email service for notifications
+In scope: public web app, REST API, authentication flows
+Out of scope: bank core ledger internals, third-party provider internals

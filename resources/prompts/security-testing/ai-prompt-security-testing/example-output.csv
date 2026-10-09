@@ -1,0 +1,7 @@
+ID,Threat,Asset,STRIDE,OWASP,Likelihood,Impact,Risk,Rationale,Suggested test focus
+RISK-001,Session hijacking via token theft,Session tokens,Spoofing,A07,4,5,20,JWTs lack revocation; a stolen refresh token survives logout,"Token expiry, rotation and revocation cases"
+RISK-002,IDOR on account endpoints,Transaction records,Elevation of Privilege,A01,3,5,15,Object IDs in URLs without per-record authorization checks,Horizontal and vertical privilege escalation
+RISK-003,Credential stuffing on login,Credentials store,Spoofing,A07,4,4,16,No rate limiting or lockout observed on /login,"Rate limiting, lockout and MFA bypass cases"
+RISK-004,Stored XSS via support form,User sessions,Tampering,A03,3,3,9,Free-text field rendered in the agent dashboard,Output encoding and CSP validation
+RISK-005,Sensitive data in transit to SMS provider,SMS 2FA codes,Information Disclosure,A02,3,4,12,One-time codes leave the trust boundary over a third-party channel,TLS enforcement and provider contract review
+RISK-006,Card data logging in gateway callbacks,Payment card data,Information Disclosure,A09,2,5,10,Callback payloads may be logged with full card metadata,Log redaction and data-retention validation

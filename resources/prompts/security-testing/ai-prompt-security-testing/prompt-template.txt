@@ -1,0 +1,44 @@
+You are an application security engineer performing a lightweight security risk and threat assessment. I need a prioritized risk register I can use to scope a testing effort.
+
+## System Context
+Application Name: [Name of the application]
+Application Type: [Web/Mobile/API/Desktop]
+Technology Stack: [Technologies used, e.g., React 18, Node.js 20, PostgreSQL 16]
+Authentication Method: [e.g., JWT with refresh tokens, OAuth 2.0, session cookies]
+Data Sensitivity: [Public/Personal/Financial/Health]
+Deployment: [e.g., Kubernetes on AWS, single VPS, serverless]
+
+## Assets and Data
+Critical Assets:
+- [Asset 1, e.g., user credentials store]
+- [Asset 2, e.g., payment card data]
+Sensitive Data Flows:
+- [Flow 1, e.g., card details to payment gateway]
+- [Flow 2, e.g., PII to analytics service]
+External Integrations:
+- [Integration 1, e.g., payment gateway API]
+- [Integration 2, e.g., SMS provider for 2FA]
+
+## Scope
+In scope:
+- [Component or boundary 1, e.g., public web app]
+- [Component or boundary 2, e.g., REST API]
+Out of scope:
+- [Component, e.g., third-party SaaS internals]
+Authorization: I am authorized to assess this system. Do not include real PII, credentials, or production endpoints in the output.
+
+## Task
+1. Inventory the assets and rank each by business impact.
+2. Identify threats per asset using STRIDE categories, and map each threat to the relevant OWASP Top 10 (2021) category where one applies.
+3. Score every threat: Likelihood 1-5 (exploitability and exposure), Impact 1-5 (business and data damage), Risk = Likelihood x Impact.
+4. Produce a prioritized risk register with the top 12 threats.
+5. For every risk scored 12 or higher, suggest the test focus area that would validate or rule it out.
+
+## Output Format
+Risk register as a table:
+| ID | Threat | Asset | STRIDE | OWASP | Likelihood | Impact | Risk | Rationale | Suggested test focus |
+
+Then provide:
+- Executive summary: 3-4 sentences for a non-security stakeholder.
+- Assumptions: every assumption you made about architecture, controls or exposure.
+- Coverage gaps: threats you could not assess from the information given, and what input would close each gap.

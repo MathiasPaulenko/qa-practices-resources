@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: Security Risk & Threat Assessment — Companion Files",
+  "slug": "ai-prompt-security-testing",
+  "type": "prompts",
+  "topic": "security-testing",
+  "category": "security-testing",
+  "description": "Prompt template, example input and CSV risk register for producing a prioritized security risk and threat assessment with likelihood x impact scoring.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.csv"
+  ]
+}
