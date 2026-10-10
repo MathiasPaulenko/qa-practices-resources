@@ -1,0 +1,6 @@
+metric,how_to_calculate,target,red_flag,current_value,notes
+Sessions per day,Total sessions / tester days,2-3 per tester,<1 charters too large or testers blocked,,
+Charter completion rate,Completed charters / total charters,>80%,<60% charters too ambitious,,
+Bug find rate,Bugs / session hours,context-dependent,sudden drop suggests saturation or poor charters,,
+Setup ratio,Setup time / session time,<20%,>30% environment or data issues,,
+Test vs bug investigation ratio,Test time / (test + bug investigation time),>70%,<50% too many distractions or low-quality builds,,
