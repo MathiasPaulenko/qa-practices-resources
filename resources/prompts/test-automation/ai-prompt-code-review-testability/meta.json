@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: Code Review Focused on Testability — Companion Files",
+  "slug": "ai-prompt-code-review-testability",
+  "type": "prompts",
+  "topic": "test-automation",
+  "category": "test-automation",
+  "description": "Prompt template, example input and CSV findings table for running an LLM-based testability review: hidden I/O, static state, tight coupling, seams and the tests each refactor unlocks.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.csv"
+  ]
+}

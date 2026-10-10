@@ -1,0 +1,11 @@
+Code under review:
+OrderService.ts — a 90-line TypeScript class that creates orders, charges a
+Stripe client it instantiates inline, writes through a static `db` import,
+stamps `new Date()` on every record, and swallows errors into a `void`
+return.
+
+Context:
+- Language and framework: TypeScript 5 + Node 20 (Express)
+- Test framework: Jest 29 with ts-jest
+- Current coverage of this file: none
+- Refactor budget: internal changes ok — the public signature must stay stable

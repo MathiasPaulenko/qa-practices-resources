@@ -1,0 +1,5 @@
+id,location,pattern,why_it_blocks_testing,minimal_refactor,test_it_unlocks,severity
+TST-01,charge(),new StripeClient(key) in the method,"No stub point; tests would hit Stripe",Inject PaymentGateway via constructor,"declined card returns Err, no network call",High
+TST-02,order.createdAt,new Date() inline,"Timestamps differ per run; flaky asserts",Inject a Clock (or pass now),createdAt equals the injected time,High
+TST-03,static db import,Module-level Postgres handle,"Tests share a real connection, no isolation",Inject a repository interface,save failure rolls back the order,High
+TST-04,catch block,"Swallows errors, returns void","Failures invisible; nothing to assert on",Return Result<Order>,payment error surfaces as Err(code),Medium
