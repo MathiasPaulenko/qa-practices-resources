@@ -1,0 +1,6 @@
+id,resource_or_line,finding,why_it_matters,minimal_fix,how_to_verify,severity
+INF-01,aws_security_group.app,SSH open to 0.0.0.0/0,Internet-reachable management port,Restrict to bastion CIDR or use SSM,nmap from external host,Critical
+INF-02,aws_db_instance.orders,No storage_encrypted,PII at rest unencrypted (SOC 2),storage_encrypted = true + KMS CMK,aws rds describe-db-instances,High
+INF-03,aws_db_instance.orders,No backup_retention_period,Zero-day recovery window,backup_retention_period = 7,terraform plan diff,High
+INF-04,aws_autoscaling_group.web,Single AZ (us-east-1a only),Zone loss = full outage,Add us-east-1b and min_size = 2,ASG describe + chaos drill,High
+INF-05,module (global),No Environment tags,Cost and ownership untraceable,default_tags in provider block,aws resourcegroupstaggingapi,Medium

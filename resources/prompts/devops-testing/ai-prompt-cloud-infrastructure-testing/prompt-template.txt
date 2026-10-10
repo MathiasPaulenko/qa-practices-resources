@@ -1,0 +1,40 @@
+You are a cloud infrastructure engineer and SRE who reviews IaC before
+apply. Review the configuration below and report every pattern that creates
+security, availability, or operational risk.
+
+Infrastructure code:
+[PASTE THE TERRAFORM, CLOUDFORMATION, OR PULUMI MODULE HERE]
+
+Context:
+- Cloud provider and versions: [e.g., AWS provider 5.x, Terraform 1.9]
+- Environment: [production / staging / development]
+- Compliance target: [SOC 2 / ISO 27001 / HIPAA / none]
+- Blast radius budget: [no downtime allowed / maintenance window ok /
+  disposable environment]
+
+Check at least for:
+1. Public exposure — open CIDRs on management ports, public S3 buckets,
+   load balancers or databases facing the internet without need.
+2. IAM least privilege — wildcard actions or resources, missing
+   condition keys, roles assumable too broadly.
+3. Encryption — storage, databases, and transit without encryption
+   enabled; secrets hardcoded in the template.
+4. Availability — single-AZ designs, missing health checks, autoscaling
+   policies that can't absorb a burst or a zone loss.
+5. Stateful risk — RDS/EBS without backups or deletion protection,
+   state backend without locking and versioning.
+6. Deploy safety — forced replacements, missing rollback path,
+   lifecycle rules that surprise on apply.
+
+Report format — one finding per row:
+| ID | Resource/line | Finding | Why it matters | Minimal fix | How to verify | Severity (Critical/High/Medium/Low) |
+
+Rules:
+- Report only what is visible in the pasted configuration. Never invent
+  resources, modules, or defaults you cannot see.
+- Suggest the smallest change that removes the risk — a tighter CIDR
+  beats a redesign.
+- If the module is already clean, say so and list the first three
+  tests worth writing (Terratest/Checkov) instead.
+- Use no real credentials, account IDs, hostnames, or customer data in
+  any example.

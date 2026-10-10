@@ -1,0 +1,30 @@
+Infrastructure code:
+A Terraform snippet for a two-tier app — a security group opening port 22
+to 0.0.0.0/0, an RDS instance without encryption or backups, and an
+autoscaling group pinned to one availability zone.
+
+resource "aws_security_group" "app" {
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_db_instance" "orders" {
+  instance_class = "db.t3.medium"
+  engine         = "postgres"
+}
+
+resource "aws_autoscaling_group" "web" {
+  min_size           = 1
+  max_size           = 2
+  availability_zones = ["us-east-1a"]
+}
+
+Context:
+- Cloud provider and versions: AWS provider 5.x, Terraform 1.9
+- Environment: production
+- Compliance target: SOC 2
+- Blast radius budget: no downtime allowed

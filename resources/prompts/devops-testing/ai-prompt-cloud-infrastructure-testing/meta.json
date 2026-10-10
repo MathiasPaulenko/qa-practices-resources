@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: Cloud Infrastructure Testing — Companion Files",
+  "slug": "ai-prompt-cloud-infrastructure-testing",
+  "type": "prompts",
+  "topic": "devops-testing",
+  "category": "devops-testing",
+  "description": "Prompt template, Terraform example input and CSV findings table for running an LLM pre-apply review of IaC: open CIDRs, IAM least privilege, encryption, single-AZ risk and deploy safety.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.csv"
+  ]
+}
