@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: Microservices Saga Rollback Tests — Companion Files",
+  "slug": "ai-prompt-microservices-saga-rollback-tests",
+  "type": "prompts",
+  "topic": "integration-testing",
+  "category": "integration-testing",
+  "description": "Prompt template, e-commerce choreography saga example input and CSV test-case output for generating saga rollback tests: compensation ordering, idempotency, timeouts, duplicate events and crash recovery.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.csv"
+  ]
+}

@@ -1,0 +1,169 @@
+You are a microservices and distributed systems testing expert. Generate comprehensive saga rollback tests for the following system:
+
+System Details:
+- Saga type: [choreography / orchestration / hybrid]
+- Services involved: [order, payment, inventory, shipping, notification, loyalty]
+- Message broker: [Kafka / RabbitMQ / AWS SNS+SQS / EventBridge / NATS / custom]
+- Orchestration framework: [Temporal / Camunda / custom / none (choreography)]
+- Database per service: [yes / shared / mixed]
+- State persistence: [event store / database table / Redis / none]
+- Idempotency: [idempotency key / dedup table / none]
+- Timeout strategy: [per-step timeout / global saga timeout / both]
+- Retry strategy: [exponential backoff / fixed / none]
+- Dead letter queue: [yes / no]
+- Saga monitoring: [distributed tracing / saga dashboard / custom / none]
+- Business context: [e-commerce / finance / travel / healthcare / custom]
+
+Generate test cases covering:
+
+1. **Choreography Saga Compensation:**
+ - Step 1 succeeds, Step 2 succeeds, Step 3 fails: compensate Step 2 and Step 1
+ - Step 1 succeeds, Step 2 fails: compensate Step 1 only
+ - All steps succeed: no compensation needed
+ - First step fails: no compensation needed (nothing to undo)
+ - Compensation event published: all services receive and process
+ - Compensation order: reverse of execution order (LIFO)
+ - Compensation success: all compensations complete
+ - Compensation failure: retry compensation, then escalate
+ - Compensation partial: some compensations succeed, some fail
+ - Event ordering: compensation events delivered in correct order
+ - Event deduplication: same compensation event processed once
+ - Compensation idempotency: reprocessing compensation is safe
+
+2. **Orchestration Saga Rollback:**
+ - Orchestrator sends compensation commands in reverse order
+ - Orchestrator tracks saga state: each step status recorded
+ - Orchestrator detects failure: triggers compensation flow
+ - Orchestrator compensation command: service receives and executes
+ - Orchestrator timeout: step doesn't respond, trigger compensation
+ - Orchestrator restart: saga state recovered from persistence
+ - Orchestrator crash mid-compensation: resume compensation on restart
+ - Orchestrator concurrent sagas: multiple sagas managed independently
+ - Orchestrator saga query: can query saga status at any point
+ - Orchestrator force cancel: manual saga cancellation
+ - Orchestrator retry compensation: configurable retry for compensation
+ - Orchestrator saga completion: all compensations verified complete
+
+3. **Partial Failure Recovery:**
+ - Service A completes, Service B times out: compensate A, retry B or fail
+ - Service A completes, Service B returns error: compensate A
+ - Service A completes, Service B crashes: detect via timeout, compensate A
+ - Service A completes, Service B partial write: B must be idempotent
+ - Network partition between B and C: saga pauses or compensates
+ - Message broker downtime: saga pauses, resumes on recovery
+ - Database write fails after side effect: compensation must handle
+ - Payment charged but order creation fails: refund payment
+ - Inventory reserved but payment fails: release inventory
+ - Shipping created but order cancelled: cancel shipping
+ - Email sent but transaction failed: send correction email (or accept)
+ - Loyalty points added but order returned: deduct points
+
+4. **Idempotency Validation:**
+ - Same saga step executed twice: only one side effect
+ - Same compensation executed twice: only one reversal
+ - Idempotency key: same key produces same result
+ - Idempotency key collision: different sagas with same key handled
+ - Dedup table: duplicate event detected and skipped
+ - Event replay: replaying events doesn't cause duplicate side effects
+ - Retry after timeout: original completed, retry is no-op
+ - Concurrent execution: two instances of same step, only one succeeds
+ - Idempotency in payment: don't charge twice for same order
+ - Idempotency in inventory: don't reserve twice for same order
+ - Idempotency in shipping: don't create duplicate shipment
+ - Idempotency in compensation: don't refund twice for same charge
+
+5. **Compensation Ordering and Dependencies:**
+ - Compensation must reverse all steps in LIFO order
+ - Compensation of Step 3 before Step 2: not allowed (dependency)
+ - Compensation of independent steps: can be parallel
+ - Compensation of dependent steps: must be sequential
+ - Compensation with prerequisite: must complete prerequisite first
+ - Compensation circular dependency: detect and prevent
+ - Compensation ordering with async events: events arrive in order
+ - Compensation ordering with message broker: partition ordering
+ - Compensation with new concurrent saga: don't interfere
+ - Compensation priority: critical compensations first
+ - Compensation batch: multiple compensations in batch
+ - Compensation dependency graph: verify graph is DAG
+
+6. **Timeout and Retry Handling:**
+ - Step timeout: step doesn't complete within timeout, trigger compensation
+ - Compensation timeout: compensation doesn't complete, retry
+ - Global saga timeout: entire saga exceeds time limit, compensate all
+ - Retry with backoff: failed step retried with exponential backoff
+ - Max retries exceeded: stop retrying, trigger compensation
+ - Retry storm: too many retries, circuit breaker engages
+ - Timeout during compensation: compensation timeout triggers escalation
+ - Timeout with eventual consistency: step completes after timeout
+ - Timeout with message delay: message arrives after timeout
+ - Timeout configuration: per-step and global timeouts configurable
+ - Timeout monitoring: alert on frequent timeouts
+ - Timeout with user notification: inform user of delay or failure
+
+7. **Duplicate Event and Message Handling:**
+ - Duplicate event from broker (at-least-once): processed once
+ - Duplicate compensation event: compensated once
+ - Event replay from event store: no duplicate side effects
+ - Redelivery after consumer crash: processed once
+ - Event from crashed producer: partial event handled
+ - Event ordering with duplicates: order preserved, duplicates skipped
+ - Event with same correlation ID: same saga, deduplicate
+ - Event with different correlation ID: different saga, process
+ - Dead letter queue: unprocessable events moved to DLQ
+ - DLQ replay: replay DLQ events after fix
+ - Event schema evolution: old event format handled
+ - Event version mismatch: reject or transform
+
+8. **Saga State Persistence and Recovery:**
+ - Saga state persisted after each step: can recover from any point
+ - Saga state after crash: recover and resume or compensate
+ - Saga state after restart: orchestrator loads state and continues
+ - Saga state in event store: event sourcing replay reconstructs state
+ - Saga state in database: query and update state
+ - Saga state corruption: detect and recover
+ - Saga state versioning: state schema evolution
+ - Saga state archival: old completed sagas archived
+ - Saga state query: API to query saga status
+ - Saga state metrics: track saga duration, success rate, compensation rate
+ - Saga state cleanup: completed saga state cleaned up
+ - Saga state consistency: state consistent across services
+
+9. **Concurrent Saga Conflicts:**
+ - Same entity in two sagas: detect conflict, one saga waits or fails
+ - Optimistic locking: version mismatch, retry saga
+ - Pessimistic locking: lock entity, other saga waits
+ - Saga deadlock: two sagas waiting for each other, detect and resolve
+ - Saga priority: high-priority saga preempts low-priority
+ - Saga cancellation: cancel one saga in favor of another
+ - Concurrent inventory reservation: don't oversell
+ - Concurrent payment: don't double-charge
+ - Concurrent shipping: don't duplicate shipment
+ - Conflict resolution: business rule determines winner
+ - Conflict logging: track conflicts for analysis
+ - Conflict metrics: monitor conflict rate
+
+10. **Observability and Monitoring:**
+ - Distributed trace: saga trace spans all services
+ - Saga correlation ID: all events tagged with same correlation ID
+ - Saga dashboard: real-time saga status and progress
+ - Saga metrics: success rate, failure rate, compensation rate, duration
+ - Saga alert: alert on high compensation rate or long duration
+ - Saga log: structured logs with saga ID, step, status
+ - Saga event log: all saga events logged for audit
+ - Saga visualization: graph showing saga flow and status
+ - Saga replay: replay saga from event log for debugging
+ - Saga bottleneck: identify slowest step in saga
+ - Saga failure analysis: categorize failures by step and reason
+ - Saga SLA: verify saga completes within SLA
+
+For each test case provide:
+- Test name and description
+- Saga type (choreography / orchestration)
+- Services involved and their roles
+- Failure scenario (which step fails, how)
+- Preconditions (saga state, service state, message state)
+- Execution steps
+- Expected result (compensation triggered, state consistent, no side effects)
+- Pass/fail criteria
+- Severity: Critical / High / Medium / Low
+- Test type (functional / resilience / consistency / performance)

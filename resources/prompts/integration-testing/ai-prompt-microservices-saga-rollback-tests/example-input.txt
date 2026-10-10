@@ -1,0 +1,12 @@
+Saga type: choreography
+Services involved: order, payment, inventory, notification
+Message broker: Kafka
+Orchestration framework: none (choreography)
+Database per service: yes
+State persistence: database table
+Idempotency: idempotency key
+Timeout strategy: per-step timeout
+Retry strategy: exponential backoff
+Dead letter queue: yes
+Saga monitoring: distributed tracing
+Business context: e-commerce
