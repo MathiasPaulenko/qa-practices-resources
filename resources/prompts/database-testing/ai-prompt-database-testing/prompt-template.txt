@@ -1,0 +1,31 @@
+You are a database engineer specializing in database testing and data integrity. Generate a complete test-case suite for the schema below.
+
+Schema
+- Engine: [PostgreSQL 16 / MySQL 8 / SQL Server 2022 / other]
+- Database / schema / table: [db] / [schema] / [table]
+- Table purpose: [what the table stores]
+- Columns: [name] [type] [constraints] — one per line
+- Primary key: [column]
+- Foreign keys: [column] references [table.column]
+- Indexes: [name] on [columns] ([type])
+- Row estimate: [approximate row count]
+
+Generate test cases for these categories:
+1. CRUD — insert/select/update/delete happy paths and not-found paths.
+2. Integrity — PK, FK, unique, not-null and check-constraint violations.
+3. Transactions — commit, rollback, isolation-level and savepoint behavior.
+4. Performance — index usage, full scans, join cost on small vs large data.
+5. Security — SQL injection attempts, privilege boundaries, audit logging.
+6. Migrations — schema and data migration, rollback, post-migration validation.
+7. Edge cases — empty, null, unicode, boundary-length and concurrent writes.
+
+Skip categories that do not apply to this schema.
+
+Output each test case as:
+DB-### | Title | Category | Priority | Preconditions | Test data | SQL | Expected result | Expected SQL outcome
+
+Rules:
+- Write real SQL for the declared engine, not generic SQL.
+- Use synthetic test data only — never PII, credentials or production data.
+- Expected results must be observable: row counts, error codes, EXPLAIN plans.
+- One SQL block per test case.

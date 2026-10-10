@@ -1,0 +1,14 @@
+Engine: PostgreSQL 16
+Database / schema / table: taskflow_db / public / users
+Table purpose: Stores user account information
+Columns:
+- id: SERIAL PRIMARY KEY — unique user identifier
+- username: VARCHAR(50) UNIQUE NOT NULL — login name
+- email: VARCHAR(100) UNIQUE NOT NULL — user email
+- password_hash: VARCHAR(255) NOT NULL — hashed password
+- created_at: TIMESTAMP NOT NULL DEFAULT NOW() — creation timestamp
+- is_active: BOOLEAN NOT NULL DEFAULT TRUE — account status
+Primary key: id
+Foreign keys: none
+Indexes: idx_username on (username) B-tree, idx_email on (email) B-tree
+Row estimate: 100000

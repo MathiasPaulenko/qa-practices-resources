@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: SQL Database Test Cases — Companion Files",
+  "slug": "ai-prompt-database-testing",
+  "type": "prompts",
+  "topic": "database-testing",
+  "category": "database-testing",
+  "description": "Prompt template, PostgreSQL schema example input and CSV test-case output for generating a categorized database test suite: CRUD, integrity, transactions, performance, security, migrations and edge cases.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.csv"
+  ]
+}
