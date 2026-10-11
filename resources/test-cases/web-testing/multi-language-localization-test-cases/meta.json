@@ -1,0 +1,34 @@
+{
+  "title": "Multi-Language and Localization Testing — Runnable Companion",
+  "title_es": "Testing Multi-Idioma y Localización — Companion Ejecutable",
+  "description": "Stdlib mock API with locale-aware products (en/es/de/ja/ar) plus a pytest 8.3 suite covering translation completeness, fallback, currency/number formatting, plural rules and RTL flags from the 33 localization test cases on qapractices.com.",
+  "description_es": "API mock stdlib con productos por locale (en/es/de/ja/ar) más una suite pytest 8.3 que cubre completitud de traducción, fallback, formato de moneda/número, reglas plurales y flags RTL de los 33 casos de prueba de localización de qapractices.com.",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "slug": "multi-language-localization-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/multi-language-localization-test-cases/",
+    "https://qapractices.com/es/test-cases/multi-language-localization-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "localization-testing",
+    "i18n",
+    "l10n",
+    "rtl",
+    "pluralization",
+    "pytest",
+    "requests",
+    "mock-server"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "mock_server.py",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_localization.py"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-11"
+}
