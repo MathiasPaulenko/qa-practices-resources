@@ -1,0 +1,32 @@
+{
+  "title": "CI/CD Testing Pipeline Example",
+  "title_es": "Ejemplo de pipeline de testing en CI/CD",
+  "description": "Runnable GitHub Actions pipeline, Jenkins quality gate, faker factory and k6 load gate matching the CI/CD testing guide.",
+  "description_es": "Pipeline ejecutable de GitHub Actions, quality gate de Jenkins, factory con faker y gate de carga k6 correspondientes a la guía de testing en CI/CD.",
+  "type": "documentation",
+  "topic": "ci-cd",
+  "slug": "ci-cd-testing-best-practices",
+  "source_urls": [
+    "https://qapractices.com/documentation/ci-cd-testing-best-practices/",
+    "https://qapractices.com/es/documentation/ci-cd-testing-best-practices/"
+  ],
+  "language": "yaml",
+  "tags": [
+    "ci-cd",
+    "github-actions",
+    "jenkins",
+    "quality-gates",
+    "k6",
+    "faker",
+    "typescript"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "pipeline-example/.github/workflows/quality-gates.yml",
+    "pipeline-example/Jenkinsfile",
+    "pipeline-example/factories/user.factory.ts",
+    "pipeline-example/load-test.js",
+    "pipeline-example/package.json"
+  ]
+}

@@ -1,0 +1,109 @@
+# Six-stage testing pipeline from the QAPractices CI/CD best practices guide.
+# Stages run cheapest-to-most-expensive; security and integration are parallel.
+name: Quality Gates
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  # Stage 2 — Build & unit tests (pre-commit lint runs locally via husky)
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Run unit tests
+        run: npm run test:unit -- --coverage
+      - name: Upload coverage
+        uses: codecov/codecov-action@v5
+
+  # Stage 3 — Integration tests against real dependencies
+  integration:
+    needs: build
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: test
+        ports:
+          - 5432:5432
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - name: Run integration tests
+        run: npm run test:integration
+
+  # Stage 4 — Static analysis and security, parallel with integration
+  security:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dependency audit
+        run: npm audit --audit-level=moderate
+      - name: Set up Python for Semgrep
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: SAST scan
+        run: pipx run semgrep ci
+      - name: Secret detection
+        uses: trufflesecurity/trufflehog@main
+
+  # Stage 5 — End-to-end critical journeys
+  e2e:
+    needs: [build, integration]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - name: Start application
+        run: docker compose up -d
+      - name: Run Cypress tests  # Cypress 13
+        run: npx cypress run
+      - name: Upload screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots/
+
+  # Stage 6 — Performance + contract, only on main
+  performance:
+    needs: e2e
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - name: Load test with k6  # k6 v0.52
+        run: k6 run load-test.js
+      - name: API contract test
+        run: npm run test:contract

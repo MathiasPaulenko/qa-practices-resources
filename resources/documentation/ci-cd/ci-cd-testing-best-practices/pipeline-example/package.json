@@ -1,0 +1,26 @@
+{
+  "name": "cicd-testing-pipeline-example",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Example package.json wiring lint-staged, husky and the test scripts the pipeline expects.",
+  "scripts": {
+    "lint": "eslint .",
+    "test:unit": "jest --shard=$SHARD",
+    "test:integration": "jest --testPathPattern=integration",
+    "test:contract": "pact test",
+    "test:e2e": "cypress run"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.md": [
+      "markdownlint --fix"
+    ]
+  },
+  "devDependencies": {
+    "husky": "9",
+    "lint-staged": "15"
+  }
+}

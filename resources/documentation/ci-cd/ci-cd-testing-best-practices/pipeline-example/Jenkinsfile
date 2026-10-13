@@ -1,0 +1,33 @@
+// Declarative Jenkinsfile with a blocking coverage gate (80% floor).
+// Reads lcov.info counters directly — no plugin required.
+pipeline {
+  agent any
+
+  stages {
+    stage('Build & Unit Test') {
+      steps {
+        sh 'npm ci'
+        sh 'npm run test:unit -- --coverage'
+      }
+    }
+
+    stage('Quality Gate') {
+      steps {
+        script {
+          def coverage = sh(
+            script: "grep -oP 'LF:\\K[0-9]+' coverage/lcov.info | head -1",
+            returnStdout: true
+          ).trim() as Integer
+          def covered = sh(
+            script: "grep -oP 'LH:\\K[0-9]+' coverage/lcov.info | head -1",
+            returnStdout: true
+          ).trim() as Integer
+          def pct = (covered * 100) / coverage
+          if (pct < 80) {
+            error("Coverage ${pct}% below threshold 80%")
+          }
+        }
+      }
+    }
+  }
+}
