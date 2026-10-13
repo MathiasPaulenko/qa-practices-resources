@@ -1,0 +1,28 @@
+{
+  "topic": "api-testing",
+  "version": "1.0.0",
+  "license": "MIT",
+  "title": "gRPC API Testing: Companion Scripts",
+  "tags": [
+    "grpc",
+    "protobuf",
+    "grpcurl",
+    "buf",
+    "streaming",
+    "contract-testing"
+  ],
+  "author": "Mathias Paulenko",
+  "type": "documentation",
+  "requirements": [
+    "grpcurl 1.9+",
+    "buf CLI 1.x",
+    "Python 3.12+ (for the in-process mock test)",
+    "grpcio 1.60+ and grpcio-tools (for the in-process mock test)"
+  ],
+  "description": "grpcurl commands, a buf breaking-change setup and a minimal in-process gRPC mock test for validating unary and streaming RPCs against the payflow ledger example used in the guide.",
+  "slug": "grpc-api-testing",
+  "titleEs": "Testing de APIs gRPC: Scripts Companion",
+  "createdAt": "2026-10-13",
+  "updatedAt": "2026-10-13",
+  "descriptionEs": "Comandos grpcurl, configuracion de buf para breaking changes y un test mock in-process de gRPC para validar RPC unary y streaming contra el ejemplo de ledger payflow de la guia."
+}

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package com.payflow.ledger;
+
+// Fictional ledger service used in the guide examples.
+service TransferService {
+  rpc CreateTransfer(CreateTransferRequest) returns (Transfer);
+  rpc GetTransfer(GetTransferRequest) returns (Transfer);
+}
+
+service AccountService {
+  rpc WatchTransactions(WatchRequest) returns (stream Transaction);
+}
+
+message CreateTransferRequest {
+  string account_id = 1;
+  string amount = 2;
+  string currency = 3;
+}
+
+message GetTransferRequest {
+  string transfer_id = 1;
+}
+
+message Transfer {
+  string transfer_id = 1;
+  string status = 2; // STATUS_PENDING, STATUS_SETTLED, STATUS_FAILED
+  string amount = 3;
+  string currency = 4;
+}
+
+message WatchRequest {
+  string account_id = 1;
+}
+
+message Transaction {
+  string transaction_id = 1;
+  string account_id = 2;
+  string amount = 3;
+  string direction = 4; // DEBIT or CREDIT
+}
