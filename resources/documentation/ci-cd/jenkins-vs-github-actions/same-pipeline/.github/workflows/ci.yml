@@ -1,0 +1,43 @@
+# GitHub Actions workflow equivalent to the Jenkinsfile in this folder.
+# Requires Node.js 20 runners (actions/setup-node@v4 handles that).
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Unit tests
+        run: npm run test:unit -- --ci --reporters=default --reporters=jest-junit
+
+      - name: Publish unit results
+        if: always()
+        uses: dorny/test-reporter@v1
+        with:
+          name: unit-tests
+          path: junit/unit.xml
+          reporter: jest-junit
+
+      - name: E2E tests
+        run: npm run test:e2e
+
+      - name: Upload E2E report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-report
+          path: playwright-report/

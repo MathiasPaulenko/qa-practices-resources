@@ -1,0 +1,28 @@
+{
+  "title": "Jenkins vs GitHub Actions: Same Pipeline in Both Tools",
+  "title_es": "Jenkins vs GitHub Actions: el mismo pipeline en ambas herramientas",
+  "description": "The same Node.js CI pipeline implemented twice: a declarative Jenkinsfile and an equivalent GitHub Actions workflow, with a concept-mapping guide.",
+  "description_es": "El mismo pipeline CI de Node.js implementado dos veces: un Jenkinsfile declarativo y un workflow equivalente de GitHub Actions, con guía de mapeo de conceptos.",
+  "type": "documentation",
+  "topic": "ci-cd",
+  "slug": "jenkins-vs-github-actions",
+  "source_urls": [
+    "https://qapractices.com/documentation/jenkins-vs-github-actions/",
+    "https://qapractices.com/es/documentation/jenkins-vs-github-actions/"
+  ],
+  "language": "yaml",
+  "tags": [
+    "ci-cd",
+    "github-actions",
+    "jenkins",
+    "jenkinsfile",
+    "pipeline",
+    "nodejs"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "same-pipeline/Jenkinsfile",
+    "same-pipeline/.github/workflows/ci.yml"
+  ]
+}

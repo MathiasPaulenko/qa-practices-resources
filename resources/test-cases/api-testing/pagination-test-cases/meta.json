@@ -1,0 +1,28 @@
+{
+  "title": "Pagination Test Cases: Runnable pytest Suite",
+  "title_es": "Casos de Prueba de Paginación: suite pytest ejecutable",
+  "description": "Flask mini-app serving offset and cursor pagination plus a pytest 8.3 suite that implements TC-01 through TC-10 from the QAPractices guide.",
+  "description_es": "Mini-app Flask con paginación offset y cursor más una suite pytest 8.3 que implementa los casos TC-01 a TC-10 de la guía de QAPractices.",
+  "type": "test-cases",
+  "topic": "api-testing",
+  "slug": "pagination-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/pagination-test-cases/",
+    "https://qapractices.com/es/test-cases/pagination-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "api-testing",
+    "flask",
+    "pagination",
+    "pytest",
+    "python"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "app.py",
+    "requirements.txt",
+    "test_pagination.py"
+  ]
+}

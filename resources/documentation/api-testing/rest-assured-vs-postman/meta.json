@@ -1,0 +1,31 @@
+{
+  "title": "REST Assured vs Postman: Same API Suite in Both Tools",
+  "title_es": "REST Assured vs Postman: la misma suite de API en ambas herramientas",
+  "description": "The same API test suite implemented twice: a REST Assured 5.x Maven project and an equivalent Postman collection runnable with Newman 6.x.",
+  "description_es": "La misma suite de tests de API implementada dos veces: un proyecto Maven con REST Assured 5.x y una colección equivalente de Postman ejecutable con Newman 6.x.",
+  "type": "documentation",
+  "topic": "api-testing",
+  "slug": "rest-assured-vs-postman",
+  "source_urls": [
+    "https://qapractices.com/documentation/rest-assured-vs-postman/",
+    "https://qapractices.com/es/documentation/rest-assured-vs-postman/"
+  ],
+  "language": "java",
+  "tags": [
+    "api-testing",
+    "java",
+    "junit5",
+    "maven",
+    "newman",
+    "postman",
+    "rest-assured"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "rest-assured/pom.xml",
+    "rest-assured/src/test/java/com/qapractices/api/UserApiTest.java",
+    "postman/users-collection.postman_collection.json",
+    "postman/env-dev.postman_environment.json"
+  ]
+}

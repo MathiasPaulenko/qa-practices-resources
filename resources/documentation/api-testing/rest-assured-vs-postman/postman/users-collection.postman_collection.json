@@ -1,0 +1,94 @@
+{
+  "info": {
+    "name": "Users API — same suite as rest-assured/UserApiTest.java",
+    "description": "Mirror of the REST Assured suite in the companion folder. Run with: newman run users-collection.postman_collection.json -e env-dev.postman_environment.json",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET user by id",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "X-API-Key", "value": "{{apiKey}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/users/123",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "123"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status code is 200', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('User name is Ana', function () {",
+              "    const jsonData = pm.response.json();",
+              "    pm.expect(jsonData.name).to.eql('Ana');",
+              "    pm.expect(jsonData.email).to.include('@acme-retail.com');",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET user without API key",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users/123",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "123"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Missing API key returns 401', function () {",
+              "    pm.response.to.have.status(401);",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "GET user responds fast",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "X-API-Key", "value": "{{apiKey}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/users/123",
+          "host": ["{{baseUrl}}"],
+          "path": ["users", "123"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Responds under 2000ms', function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+              "});"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

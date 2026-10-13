@@ -1,0 +1,44 @@
+// Declarative pipeline equivalent to .github/workflows/ci.yml.
+// Requires a Jenkins agent with Node.js 20 installed (or a Docker agent image
+// such as node:20-bookworm) and the JUnit + HTML Publisher plugins.
+pipeline {
+    agent any
+
+    options {
+        timestamps()
+        buildDiscarder(logRotator(numToKeepStr: '20'))
+    }
+
+    environment {
+        CI = 'true'
+    }
+
+    stages {
+        stage('Install') {
+            steps {
+                sh 'node --version'
+                sh 'npm ci'
+            }
+        }
+        stage('Unit tests') {
+            steps {
+                sh 'npm run test:unit -- --ci --reporters=default --reporters=jest-junit'
+            }
+            post {
+                always {
+                    junit 'junit/unit.xml'
+                }
+            }
+        }
+        stage('E2E tests') {
+            steps {
+                sh 'npm run test:e2e'
+            }
+            post {
+                failure {
+                    archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
+                }
+            }
+        }
+    }
+}
