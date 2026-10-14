@@ -1,0 +1,12 @@
+{
+  "name": "search-filter-test-cases",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Runnable Playwright suite for the search/filter test cases companion",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.48.2"
+  }
+}

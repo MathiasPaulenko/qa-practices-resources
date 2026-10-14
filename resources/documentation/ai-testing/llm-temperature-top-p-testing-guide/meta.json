@@ -1,0 +1,34 @@
+{
+  "title": "LLM Temperature & Top-P Testing Guide — Runnable Companion",
+  "title_es": "Testing de Temperature y Top-P en LLMs — Companion Ejecutable",
+  "description": "Temperature x top-p sweep runner (openai 1.x) plus a deterministic mock client and a pytest 8.3 suite covering determinism, diversity, top-p truncation and grid behavior from the QAPractices guide.",
+  "description_es": "Runner de barrido temperature x top-p (openai 1.x) con cliente mock determinista y suite pytest 8.3 que cubre determinismo, diversidad, truncamiento de top-p y comportamiento de grilla de la guía de QAPractices.",
+  "type": "documentation",
+  "topic": "ai-testing",
+  "slug": "llm-temperature-top-p-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/llm-temperature-top-p-testing-guide/",
+    "https://qapractices.com/es/documentation/llm-temperature-top-p-testing-guide/"
+  ],
+  "language": "python",
+  "tags": [
+    "llm-testing",
+    "temperature",
+    "top-p",
+    "sampling",
+    "determinism",
+    "openai",
+    "pytest",
+    "mock-client"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "sweep.py",
+    "mock_llm.py",
+    "requirements.txt",
+    "tests/test_sweep.py"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-14"
+}

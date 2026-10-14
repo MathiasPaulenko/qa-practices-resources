@@ -1,0 +1,2 @@
+openai>=1.54
+pytest>=8.3

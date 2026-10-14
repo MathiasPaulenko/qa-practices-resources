@@ -1,0 +1,33 @@
+{
+  "title": "Data Table Sort & Filter Testing — Runnable Companion",
+  "title_es": "Testing de Sort y Filtro de Tablas de Datos — Companion Ejecutable",
+  "description": "Stdlib mock of the fictional DataGrid Pro orders API (sort, direction, page, pageSize, status, date range, search) plus a pytest 8.3 suite covering the sort, filter and pagination cases on qapractices.com.",
+  "description_es": "Mock stdlib de la API ficticia de órdenes de DataGrid Pro (sort, direction, page, pageSize, status, rango de fechas, búsqueda) más una suite pytest 8.3 que cubre los casos de sort, filtro y paginación de qapractices.com.",
+  "type": "test-cases",
+  "topic": "ui-component-testing",
+  "slug": "data-table-sort-filter-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/data-table-sort-filter-test-cases/",
+    "https://qapractices.com/es/test-cases/data-table-sort-filter-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "data-table-testing",
+    "sort-testing",
+    "filter-testing",
+    "pagination-testing",
+    "mock-server",
+    "pytest",
+    "requests"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "mock_server.py",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_orders_api.py"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-14"
+}

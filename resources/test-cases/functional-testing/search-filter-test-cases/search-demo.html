@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Search &amp; Filter Demo — companion fixture</title>
+<style>
+  body { font-family: sans-serif; max-width: 720px; margin: 2rem auto; }
+  fieldset { margin-bottom: 1rem; }
+  #results li { padding: 2px 0; }
+  #empty-state { display: none; color: #666; }
+</style>
+</head>
+<body>
+<h1>Catalog</h1>
+
+<input data-testid="search-input" type="search" placeholder="Search products…" aria-label="Search">
+
+<fieldset>
+  <legend>Color (OR)</legend>
+  <label><input type="checkbox" data-facet="color" value="red"> Red</label>
+  <label><input type="checkbox" data-facet="color" value="blue"> Blue</label>
+</fieldset>
+
+<fieldset>
+  <legend>Category (AND)</legend>
+  <label><input type="checkbox" data-facet="category" value="electronics"> Electronics</label>
+  <label><input type="checkbox" data-facet="category" value="books"> Books</label>
+</fieldset>
+
+<fieldset>
+  <legend>Price max</legend>
+  <input data-testid="facet-price-max" type="number" placeholder="Max price">
+  <button data-testid="apply-filters">Apply</button>
+  <button data-testid="clear-filters">Clear all</button>
+</fieldset>
+
+<p id="call-count" data-testid="call-count">Search calls: 0</p>
+<p id="result-count" data-testid="result-count"></p>
+<ul id="results"></ul>
+<p id="empty-state" data-testid="empty-state">No results for your search. Try removing a filter.</p>
+
+<script>
+const PRODUCTS = [
+  { title: 'iPhone 15',        category: 'electronics', color: 'black', price: 999 },
+  { title: 'IPHONE CASE',      category: 'electronics', color: 'red',   price: 25 },
+  { title: 'Refurbished iPhone', category: 'electronics', color: 'blue', price: 650 },
+  { title: 'Wireless Headphones', category: 'electronics', color: 'black', price: 120 },
+  { title: 'Headphone Stand',  category: 'electronics', color: 'red',   price: 45 },
+  { title: 'Design of Everyday Things', category: 'books', color: 'blue', price: 30 },
+  { title: 'Notebook A5',      category: 'books', color: 'red',   price: 8 },
+];
+
+let callCount = 0;
+let debounceTimer = null;
+
+const input = document.querySelector("[data-testid='search-input']");
+const resultsEl = document.getElementById('results');
+const emptyEl = document.getElementById('empty-state');
+const countEl = document.getElementById('result-count');
+
+function state() {
+  const colors = [...document.querySelectorAll('[data-facet="color"]:checked')].map(c => c.value);
+  const categories = [...document.querySelectorAll('[data-facet="category"]:checked')].map(c => c.value);
+  const maxPrice = Number(document.querySelector("[data-testid='facet-price-max']").value) || null;
+  return { q: input.value.trim().toLowerCase(), colors, categories, maxPrice };
+}
+
+function fetchResults() {
+  callCount++;
+  document.getElementById('call-count').textContent = 'Search calls: ' + callCount;
+  const { q, colors, categories, maxPrice } = state();
+  const out = PRODUCTS.filter(p => {
+    if (q && !p.title.toLowerCase().includes(q)) return false;          // case-insensitive substring
+    if (colors.length && !colors.includes(p.color)) return false;       // OR within facet
+    if (categories.length && !categories.includes(p.category)) return false; // AND across facets
+    if (maxPrice !== null && p.price > maxPrice) return false;
+    return true;
+  });
+  resultsEl.innerHTML = out.map(p => `<li data-testid="result-item">${p.title} — $${p.price}</li>`).join('');
+  countEl.textContent = out.length + ' results';
+  emptyEl.style.display = out.length ? 'none' : 'block';
+  syncUrl();
+}
+
+function syncUrl() {
+  const { q, colors, categories, maxPrice } = state();
+  const params = new URLSearchParams();
+  if (q) params.set('q', q);
+  colors.forEach(c => params.append('color', c));
+  categories.forEach(c => params.append('category', c));
+  if (maxPrice !== null) params.set('maxPrice', maxPrice);
+  history.replaceState(null, '', location.pathname + (params.toString() ? '?' + params : ''));
+}
+
+function restore() {
+  const params = new URLSearchParams(location.search);
+  input.value = params.get('q') ?? '';
+  for (const v of params.getAll('color')) document.querySelector(`[data-facet="color"][value="${v}"]`).checked = true;
+  for (const v of params.getAll('category')) document.querySelector(`[data-facet="category"][value="${v}"]`).checked = true;
+  if (params.get('maxPrice')) document.querySelector("[data-testid='facet-price-max']").value = params.get('maxPrice');
+  fetchResults();
+}
+
+input.addEventListener('input', () => {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(fetchResults, 300); // debounce 300ms
+});
+document.querySelectorAll("[data-facet]").forEach(el => el.addEventListener('change', fetchResults));
+document.querySelector("[data-testid='apply-filters']").addEventListener('click', fetchResults);
+document.querySelector("[data-testid='clear-filters']").addEventListener('click', () => {
+  document.querySelectorAll("[data-facet]:checked").forEach(c => c.checked = false);
+  document.querySelector("[data-testid='facet-price-max']").value = '';
+  fetchResults();
+});
+
+restore();
+</script>
+</body>
+</html>

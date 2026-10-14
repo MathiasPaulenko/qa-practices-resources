@@ -1,0 +1,7 @@
+{
+  "name": "ecommerce-test-cases",
+  "private": true,
+  "devDependencies": {
+    "@playwright/test": "1.48.2"
+  }
+}

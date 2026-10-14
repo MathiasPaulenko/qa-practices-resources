@@ -1,0 +1,34 @@
+{
+  "title": "AI Testing Checklist — Runnable Companion",
+  "title_es": "Checklist de Testing de IA — Companion Ejecutable",
+  "description": "LLM output checker (openai 1.x) with a deterministic mock client, a starter guardrail dataset and a pytest 8.3 suite covering expected/forbidden assertions from the QAPractices checklist.",
+  "description_es": "Verificador de outputs de LLM (openai 1.x) con cliente mock determinista, dataset inicial de guardrails y suite pytest 8.3 que cubre las aserciones esperadas/prohibidas del checklist de QAPractices.",
+  "type": "checklists",
+  "topic": "ai-testing",
+  "slug": "ai-testing-checklist",
+  "source_urls": [
+    "https://qapractices.com/checklists/ai-testing-checklist/",
+    "https://qapractices.com/es/checklists/ai-testing-checklist/"
+  ],
+  "language": "python",
+  "tags": [
+    "llm-testing",
+    "ai-testing",
+    "guardrails",
+    "hallucination",
+    "openai",
+    "pytest",
+    "mock-client"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "eval_runner.py",
+    "mock_llm.py",
+    "guardrail_dataset.json",
+    "requirements.txt",
+    "tests/test_eval_runner.py"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-14"
+}

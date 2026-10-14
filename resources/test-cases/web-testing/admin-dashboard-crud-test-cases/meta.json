@@ -1,0 +1,37 @@
+{
+  "title": "Admin Dashboard CRUD Testing — Runnable Companion",
+  "title_es": "Testing CRUD de Panel Admin — Companion Ejecutable",
+  "description": "Stdlib TaskFlow admin API (projects/users/tasks) with auth, CSRF, optimistic locking, soft delete, bulk ops and audit log, plus a pytest 8.3 suite covering the 15 CRUD test cases on qapractices.com.",
+  "description_es": "API admin TaskFlow solo stdlib (proyectos/usuarios/tareas) con auth, CSRF, bloqueo optimista, soft delete, bulk ops y log de auditoría, más una suite pytest 8.3 que cubre los 15 casos CRUD de qapractices.com.",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "slug": "admin-dashboard-crud-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/admin-dashboard-crud-test-cases/",
+    "https://qapractices.com/es/test-cases/admin-dashboard-crud-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "crud-testing",
+    "admin-dashboard",
+    "mock-server",
+    "pytest",
+    "requests",
+    "soft-delete",
+    "optimistic-locking",
+    "audit-log"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "mock_server.py",
+    "requirements.txt",
+    "fixtures/project-create.json",
+    "fixtures/user-create.json",
+    "fixtures/task-update.json",
+    "tests/conftest.py",
+    "tests/test_admin_crud.py"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-14"
+}
