@@ -1,0 +1,8 @@
+- Contract name: TokenVault
+- Chain: Ethereum (Sepolia for test runs)
+- Language and version: Solidity ^0.8.24
+- Contract type: ERC4626-style vault wrapping an ERC20
+- Key functions: deposit, withdraw, claimRewards, setFee
+- Access control: Ownable + Pausable
+- Upgradeable: UUPS proxy (OpenZeppelin Contracts 5.x)
+- Test framework: Foundry (forge)

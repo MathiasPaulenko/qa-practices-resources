@@ -1,0 +1,318 @@
+{
+  "title": "E-commerce Checkout Testing Checklist",
+  "slug": "ecommerce-checkout-testing-checklist",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-16",
+  "sections": [
+    {
+      "section": "Cart Management",
+      "items": [
+        {
+          "label": "Add to cart",
+          "check": "products can be added from product pages, category pages and search results; the count badge updates immediately.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Cart persistence",
+          "check": "contents survive logout and return; guest carts persist via cookie or local storage for 30+ days.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Quantity updates",
+          "check": "increase, decrease and remove all work, and totals recalculate instantly.",
+          "risk": "Low"
+        },
+        {
+          "label": "Out-of-stock handling",
+          "check": "items that sell out while in the cart get flagged, checkout is blocked for them, and alternatives are offered.",
+          "risk": "High"
+        },
+        {
+          "label": "Price change reflection",
+          "check": "if a price changes mid-session, the cart shows the current price and warns the user.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Cart merge on login",
+          "check": "a guest cart merges with the account cart on login; nothing is lost and duplicates combine quantities.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Cart limits",
+          "check": "maximum item count or total value limits are enforced with a clear error message.",
+          "risk": "Low"
+        }
+      ]
+    },
+    {
+      "section": "User Authentication",
+      "items": [
+        {
+          "label": "Guest checkout",
+          "check": "purchase completes without an account; account creation is offered after, never forced.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Mid-checkout login",
+          "check": "returning users can log in mid-flow without losing the cart and land back on the correct step.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Social login",
+          "check": "Google, Apple and Facebook sign-in work and return to checkout without data loss.",
+          "risk": "Low"
+        },
+        {
+          "label": "Password reset",
+          "check": "users can reset a forgotten password without leaving checkout; the reset email arrives within a minute.",
+          "risk": "High"
+        }
+      ]
+    },
+    {
+      "section": "Shipping and Fulfillment",
+      "items": [
+        {
+          "label": "Address validation",
+          "check": "addresses verify against postal APIs, invalid ones get correction suggestions, PO boxes follow shipping rules.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Shipping methods",
+          "check": "all options (standard, express, overnight, pickup) display with correct rates and delivery estimates.",
+          "risk": "Low"
+        },
+        {
+          "label": "Rate calculation",
+          "check": "shipping costs match the carrier API, and free-shipping thresholds trigger at the right subtotal.",
+          "risk": "High"
+        },
+        {
+          "label": "International orders",
+          "check": "foreign addresses are accepted where supported, customs and duties are calculated or disclosed, country restrictions hold.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Address autocomplete",
+          "check": "suggestions speed up entry and populate every field correctly.",
+          "risk": "Low"
+        },
+        {
+          "label": "Restricted products",
+          "check": "hazmat and age-restricted items show warnings and can't ship to prohibited regions.",
+          "risk": "High"
+        }
+      ]
+    },
+    {
+      "section": "Tax Calculation",
+      "items": [
+        {
+          "label": "Jurisdiction rates",
+          "check": "sales tax, VAT and GST calculate correctly per shipping address against current tax tables.",
+          "risk": "High"
+        },
+        {
+          "label": "Tax on shipping",
+          "check": "where applicable, shipping costs are taxed too; rules vary by jurisdiction, verify each one you sell into.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Tax-exempt orders",
+          "check": "B2B customers with exemption status can buy tax-free; certificates are validated and stored.",
+          "risk": "High"
+        },
+        {
+          "label": "Digital products",
+          "check": "downloads, subscriptions and services follow their own tax rules, different from physical goods in many jurisdictions.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Tax visible before payment",
+          "check": "the tax amount shows on the order summary before card details are entered; no surprise charges.",
+          "risk": "High"
+        }
+      ]
+    },
+    {
+      "section": "Discounts and Promotions",
+      "items": [
+        {
+          "label": "Coupon application",
+          "check": "valid codes apply the right discount (percentage, fixed, free shipping); invalid or expired codes get clear errors.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Stacking rules",
+          "check": "non-combinable coupons can't stack; where stacking is allowed, combined discounts calculate correctly.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Minimum purchase",
+          "check": "threshold coupons only apply when the subtotal qualifies, checked after other discounts if configured.",
+          "risk": "Low"
+        },
+        {
+          "label": "Exclusions",
+          "check": "category and product exclusions hold; discounts calculate only on eligible items.",
+          "risk": "Low"
+        },
+        {
+          "label": "Usage limits",
+          "check": "single-use codes can't be reused, per-user limits hold, and total caps stop the coupon at the limit.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Automatic promotions",
+          "check": "BOGO, free-gift and tiered discounts trigger on their own; no manual code entry needed.",
+          "risk": "Low"
+        },
+        {
+          "label": "Expired promotions",
+          "check": "ended promos stop applying and no stale discount amount shows in the cart.",
+          "risk": "Low"
+        }
+      ]
+    },
+    {
+      "section": "Payment Processing",
+      "items": [
+        {
+          "label": "Card payments",
+          "check": "Visa, Mastercard, Amex and Discover process correctly; card numbers are tokenized, never stored (see PCI DSS in References).",
+          "risk": "High"
+        },
+        {
+          "label": "Digital wallets",
+          "check": "Apple Pay, Google Pay and PayPal complete checkout in minimal steps, with shipping and billing populated from the wallet.",
+          "risk": "High"
+        },
+        {
+          "label": "Decline handling",
+          "check": "declined cards show the processor's reason, and users can retry with another method without re-entering shipping info.",
+          "risk": "High"
+        },
+        {
+          "label": "3D Secure / SCA",
+          "check": "Strong Customer Authentication triggers when the issuer requires it; the challenge completes and the order processes.",
+          "risk": "High"
+        },
+        {
+          "label": "Regional payment methods",
+          "check": "methods display by user location: iDEAL in the Netherlands, Klarna in Scandinavia, PIX in Brazil, and so on.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Split payments",
+          "check": "gift card plus credit card splits calculate correctly, and the gift card balance updates after purchase.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Refund flow",
+          "check": "full and partial refunds process through the gateway and sync status back to the OMS.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Webhook handling",
+          "check": "gateway webhooks (success, failure, dispute) are received and processed; idempotency prevents duplicate orders on retries.",
+          "risk": "High"
+        }
+      ]
+    },
+    {
+      "section": "Fraud Prevention",
+      "items": [
+        {
+          "label": "AVS checks",
+          "check": "billing address verifies against the card issuer; mismatches trigger review or decline per risk settings.",
+          "risk": "Medium"
+        },
+        {
+          "label": "CVV required",
+          "check": "CVV is validated on every card payment and failed checks block the transaction.",
+          "risk": "High"
+        },
+        {
+          "label": "Velocity rules",
+          "check": "repeat orders from the same IP, device or card in a short window get flagged.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Device fingerprinting",
+          "check": "fraud services (Sift, Signifyd, Riskified) score device and behavioral signals; high-risk orders hold for review.",
+          "risk": "Medium"
+        },
+        {
+          "label": "BIN country match",
+          "check": "card BIN country compares against shipping and billing countries; mismatches trigger extra verification.",
+          "risk": "Medium"
+        }
+      ]
+    },
+    {
+      "section": "Order Confirmation",
+      "items": [
+        {
+          "label": "Confirmation page",
+          "check": "shows order number, items, totals and estimated delivery after successful payment; printable.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Confirmation email",
+          "check": "arrives within ~2 minutes with order details, tracking link where available, and a support contact.",
+          "risk": "Low"
+        },
+        {
+          "label": "SMS notification",
+          "check": "if enabled, the confirmation text sends; opted-out users never receive it.",
+          "risk": "Low"
+        },
+        {
+          "label": "Order in account",
+          "check": "the order appears in user history with the right status (pending, processing, paid).",
+          "risk": "Medium"
+        },
+        {
+          "label": "Inventory decrement",
+          "check": "stock drops by the purchased quantity, and out-of-stock alerts fire at zero.",
+          "risk": "High"
+        },
+        {
+          "label": "ERP/OMS sync",
+          "check": "order number, items, totals and customer data sync correctly to the order management system.",
+          "risk": "Medium"
+        }
+      ]
+    },
+    {
+      "section": "Edge Cases and Error Handling",
+      "items": [
+        {
+          "label": "Session timeout mid-checkout",
+          "check": "an expired session prompts re-authentication and preserves the cart.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Network drop during payment",
+          "check": "on reconnection the system checks the payment status; no duplicate charges.",
+          "risk": "High"
+        },
+        {
+          "label": "Concurrent checkouts",
+          "check": "the same user on two devices produces one order, not two; the second attempt gets a clear message.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Browser back button",
+          "check": "pressing back after payment doesn't resubmit; the user sees the confirmation or an \"order already placed\" message.",
+          "risk": "Medium"
+        },
+        {
+          "label": "Empty cart",
+          "check": "checkout can't proceed with an empty cart; the button is disabled or routes back to the cart.",
+          "risk": "Low"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "slug": "iso-9001-quality-management-testing-alignment",
+  "title": "ISO 9001 Testing Alignment — Companion Files",
+  "titleEs": "Alineación de Testing ISO 9001 — Archivos Complementarios",
+  "description": "Downloadable artifacts for aligning a QA process with ISO 9001:2015: a requirements-to-tests traceability matrix template, a clause-by-clause mapping worksheet, and an audit evidence checklist.",
+  "descriptionEs": "Artefactos descargables para alinear un proceso de QA con ISO 9001:2015: plantilla de matriz de trazabilidad requisitos→tests, hoja de mapeo cláusula por cláusula y checklist de evidencia de auditoría.",
+  "type": "documentation",
+  "topic": "test-management",
+  "language": "both",
+  "files": [
+    "traceability-matrix-template.csv",
+    "iso-9001-clause-mapping.csv",
+    "audit-evidence-checklist.md",
+    "audit-evidence-checklist.es.md"
+  ]
+}

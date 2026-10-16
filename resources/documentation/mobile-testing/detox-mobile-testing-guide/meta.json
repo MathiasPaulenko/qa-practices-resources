@@ -1,0 +1,32 @@
+{
+  "title": "Detox React Native Testing Companion",
+  "title_es": "Companion de Testing con Detox para React Native",
+  "description": "Runnable Detox v20 gray-box E2E setup for React Native: .detoxrc.js config, Jest runner, login test suite, Page Object Model and GitHub Actions workflow for the QAPractices Detox guide.",
+  "description_es": "Setup E2E gray-box ejecutable con Detox v20 para React Native: config .detoxrc.js, runner Jest, suite de login, Page Object Model y workflow de GitHub Actions para la guía de Detox de QAPractices.",
+  "type": "documentation",
+  "topic": "mobile-testing",
+  "slug": "detox-mobile-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/detox-mobile-testing-guide/",
+    "https://qapractices.com/es/documentation/detox-mobile-testing-guide/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "detox",
+    "react-native",
+    "e2e-testing",
+    "mobile-testing",
+    "jest",
+    "ci-cd"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    ".detoxrc.js",
+    "e2e/jest.config.js",
+    "e2e/config.json",
+    "e2e/login.test.js",
+    "e2e/pages/LoginPage.js",
+    ".github/workflows/detox.yml"
+  ]
+}

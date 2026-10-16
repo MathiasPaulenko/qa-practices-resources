@@ -1,0 +1,5 @@
+{
+  "maxWorkers": 1,
+  "testEnvironment": "detox/runners/jest/testEnvironment",
+  "testTimeout": 120000
+}

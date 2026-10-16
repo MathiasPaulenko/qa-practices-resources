@@ -1,0 +1,23 @@
+name: Detox Tests
+on: [push, pull_request]
+
+jobs:
+  detox-ios:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: cd ios && pod install
+      - name: Build app for Detox
+        run: detox build -c ios
+      - name: Run Detox tests
+        run: detox test -c ios --cleanup
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: detox-screenshots
+          path: artifacts/

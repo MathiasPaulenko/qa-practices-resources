@@ -1,0 +1,63 @@
+You are a blockchain security and testing expert for EVM smart contracts.
+Generate a test suite for the following contract.
+
+Contract context:
+- Contract name: [e.g., TokenVault]
+- Chain: [e.g., Ethereum / Polygon / Arbitrum / BSC / other EVM]
+- Language and version: [e.g., Solidity ^0.8.24 / Vyper 0.4]
+- Contract type: [e.g., ERC20 / ERC721 / ERC4626 vault / DeFi / DAO / custom]
+- Key functions: [e.g., deposit, withdraw, transfer, stake, claimRewards]
+- Access control: [e.g., Ownable / AccessControl roles / none]
+- Upgradeable: [e.g., UUPS proxy / Transparent proxy / no]
+- Test framework: [e.g., Foundry (forge) / Hardhat 2.x + ethers / Ape]
+
+Generate test cases covering:
+
+1. Function correctness
+   - Happy path for each public/external function
+   - Boundary values: 0, 1, type(uint256).max, type(int256).min/.max where signed
+   - Invalid inputs: out-of-range values, zero address, duplicate calls
+   - Return values and state changes verified after each call
+   - Reverts fire the expected custom error or revert reason
+
+2. Access control
+   - Restricted functions reject unauthorized callers
+   - Role grant and revocation tested end to end
+   - Ownership transfer tested (two-step if applicable)
+   - Restricted functions stay blocked after renounceOwnership()
+
+3. Reentrancy and common vulnerabilities (reference SWC IDs where relevant)
+   - Reentrancy on every function that makes external calls (SWC-107)
+   - Checks-Effects-Interactions ordering verified
+   - Front-running exposure on price-sensitive functions
+   - Overflow/underflow inside unchecked blocks on Solidity >= 0.8
+
+4. Gas
+   - Per-function gas measurement
+   - Batch operations compared against individual calls
+   - Storage packing and SSTORE reduction opportunities flagged
+
+5. Events
+   - Each state-changing function emits its declared events
+   - Event parameters (indexed included) carry the right values
+   - No events emitted on reverted calls
+
+6. Upgradeability (if applicable)
+   - Implementation cannot be initialized twice
+   - Storage layout compatibility between V1 and V2
+   - Only the authorized role can trigger an upgrade
+   - State preserved across the upgrade
+
+Output each test case as:
+- ID and name (e.g., TC-01, deposit_mintsSharesOnValidDeposit)
+- Precondition (contract state, balances, roles)
+- Steps
+- Expected result (return value, state change, event, revert)
+- A runnable test snippet in the declared framework
+
+Rules:
+- Reference SWC Registry IDs for security cases (e.g., SWC-107 for reentrancy).
+  If you are not certain a vulnerability class applies, mark it [VERIFY]
+  instead of inventing one.
+- Never include private keys, seed phrases or real mainnet addresses.
+- If a behavior depends on context I did not provide, ask instead of guessing.

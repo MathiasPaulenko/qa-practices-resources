@@ -1,0 +1,19 @@
+{
+  "title": "E-commerce Checkout Testing Checklist",
+  "title_es": "Checklist de Checkout E-commerce",
+  "description": "Printable, importable checklist for validating the full checkout flow: cart, auth, shipping, tax, discounts, payments, fraud and order confirmation.",
+  "description_es": "Checklist imprimible e importable para validar todo el flujo de checkout: carrito, auth, envío, impuestos, descuentos, pagos, fraude y confirmación.",
+  "type": "checklists",
+  "topic": "ecommerce-testing",
+  "slug": "ecommerce-checkout-testing-checklist",
+  "language": "en",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-16",
+  "sourceUrl": "https://qapractices.com/checklists/ecommerce-checkout-testing-checklist",
+  "sourceUrl_es": "https://qapractices.com/es/checklists/ecommerce-checkout-testing-checklist",
+  "items": 53,
+  "formats": [
+    "md",
+    "json"
+  ]
+}

@@ -1,0 +1,5 @@
+req_id,req_title,test_case_ids,test_result,linked_defects,defect_status,verification_date,notes
+REQ-1042,User can reset password via email link,TC-087;TC-088,Pass,,,2026-10-10,
+REQ-1055,Payment declines with expired card show localized error,TC-112,Fail → Pass,BUG-2301,Fixed + retested,2026-10-12,"Edge case: card expiring this month"
+REQ-1060,Admin can export audit log as CSV,TC-130,Pass,,,2026-10-11,
+REQ-1061,,,,,,"GAP — no test case linked yet"

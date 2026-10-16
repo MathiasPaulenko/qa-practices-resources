@@ -1,0 +1,8 @@
+iso_9001_clause,clause_name,iso_requirement,qa_artifact,evidence_produced,owner
+4,Context of the Organization,"Scope, boundaries, interested parties, QMS processes",Test strategy + stakeholder register,"Scope statement, stakeholder register, QA workflow diagram",
+5,Leadership,"Quality policy, roles, risk-based thinking",Testing policy + RACI matrix,"Published policy, RACI, management investment decisions",
+6,Planning,"Quality objectives, risk actions",Measurable test objectives + risk register,"Target table (escape rate, coverage), risk-based test plan",
+7,Support,"Competence, infrastructure, controlled docs, knowledge",Skills matrix + env inventory + doc control,"Skills matrix, environment inventory, controlled doc list, wiki",
+8,Operation,"Operational planning and control",Traceability matrix + run logs + release evidence,"RTM, execution logs, test summary report, defect register",
+9,Performance Evaluation,"Monitoring, internal audit, management review",Metrics dashboard + audit checklist + review minutes,"Escape-rate trend, audit findings, management review input",
+10,Improvement,"Nonconformity, corrective action, continual improvement",Defect RCA + corrective action log + improvement backlog,"Corrective action records, improvement actions tracked to completion"
