@@ -1,0 +1,15 @@
+{
+  "resourceType": "test-cases",
+  "slug": "cloud-storage-upload-test-cases",
+  "title": "Cloud Storage Upload Test Cases",
+  "description": "Runnable companion for Cloud Storage Upload Test Cases: stdlib mock of the CloudBin multipart API plus a pytest suite covering chunked integrity, resume, quota boundaries and edge cases.",
+  "type": "test-cases",
+  "topic": "functional-testing",
+  "companionVersion": "1.0.0",
+  "files": [
+    "multipart_store.py",
+    "cloudbin_mock_server.py",
+    "tests/test_multipart_upload.py",
+    "requirements.txt"
+  ]
+}

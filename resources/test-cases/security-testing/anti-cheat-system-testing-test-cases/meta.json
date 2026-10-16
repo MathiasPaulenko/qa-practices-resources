@@ -1,0 +1,14 @@
+{
+  "resourceType": "test-cases",
+  "slug": "anti-cheat-system-testing-test-cases",
+  "title": "Anti-Cheat System Testing",
+  "description": "Runnable companion for Anti-Cheat System Testing: server-side reference checks for speed-hack velocity violations, aim-snap rates and ban-evidence auditing, with a pytest suite.",
+  "type": "test-cases",
+  "topic": "security-testing",
+  "companionVersion": "1.0.0",
+  "files": [
+    "anticheat_checks.py",
+    "tests/test_anticheat.py",
+    "requirements.txt"
+  ]
+}

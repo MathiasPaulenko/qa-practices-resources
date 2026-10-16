@@ -1,0 +1,221 @@
+{
+  "info": {
+    "_postman_id": "b3f7a1c2-4d5e-6f7a-8b9c-0d1e2f3a4b5c",
+    "name": "Postman Test Scripts Cheat Sheet",
+    "description": "Runnable collection for the Postman Test Scripts Cheat Sheet on QAPractices.com. All requests target postman-echo.com — no auth or API key required.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET — Basic assertions",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response time is less than 3000ms\", function () {",
+              "  pm.expect(pm.response.responseTime).to.be.below(3000);",
+              "});",
+              "",
+              "pm.test(\"Content-Type is JSON\", function () {",
+              "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Query param echoed back\", function () {",
+              "  pm.expect(jsonData.args.source).to.eql(\"cheat-sheet\");",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/get?source=cheat-sheet",
+          "host": ["{{baseUrl}}"],
+          "path": ["get"],
+          "query": [{ "key": "source", "value": "cheat-sheet" }]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST — Login and extract token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Login accepted\", function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Username echoed\", function () {",
+              "  pm.expect(jsonData.json.username).to.eql(\"qa-tester\");",
+              "});",
+              "",
+              "// Extract token — postman-echo returns the body it received,",
+              "// so the {{$guid}} generated below is echoed back and stored.",
+              "pm.collectionVariables.set(\"auth_token\", jsonData.json.token);",
+              "",
+              "pm.test(\"Token extracted to collection variable\", function () {",
+              "  pm.expect(pm.collectionVariables.get(\"auth_token\")).to.not.be.null;",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"qa-tester\",\"password\":\"Pass1234!\",\"token\":\"{{$guid}}\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/post",
+          "host": ["{{baseUrl}}"],
+          "path": ["post"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET — Protected resource with schema check",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Authorized call returns 200\", function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "pm.test(\"Bearer token forwarded\", function () {",
+              "  pm.expect(jsonData.headers.authorization).to.include(\"Bearer\");",
+              "});",
+              "",
+              "const schema = {",
+              "  type: \"object\",",
+              "  properties: {",
+              "    args: { type: \"object\" },",
+              "    headers: { type: \"object\" },",
+              "    url: { type: \"string\" }",
+              "  },",
+              "  required: [\"headers\", \"url\"]",
+              "};",
+              "",
+              "pm.test(\"Response matches schema\", () => {",
+              "  pm.response.to.have.jsonSchema(schema);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/get",
+          "host": ["{{baseUrl}}"],
+          "path": ["get"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "POST — Data-driven user creation",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"User created\", function () {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              "",
+              "const jsonData = pm.response.json();",
+              "",
+              "// With -d data.csv each row is one iteration; values are strings.",
+              "// Skip file assertions when the collection runs without -d.",
+              "const expectedName = pm.iterationData.get(\"name\");",
+              "const expectedEmail = pm.iterationData.get(\"email\");",
+              "",
+              "if (expectedName !== undefined) {",
+              "  pm.test(\"Name matches data file\", () => {",
+              "    pm.expect(jsonData.json.name).to.eql(expectedName);",
+              "  });",
+              "}",
+              "",
+              "if (expectedEmail !== undefined) {",
+              "  pm.test(\"Email matches data file\", () => {",
+              "    pm.expect(jsonData.json.email).to.eql(expectedEmail);",
+              "  });",
+              "}",
+              "",
+              "pm.test(\"Quantity converts to number\", () => {",
+              "  pm.expect(Number(pm.iterationData.get(\"quantity\"))).to.be.a(\"number\");",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"{{name}}\",\"email\":\"{{email}}\",\"quantity\":\"{{quantity}}\"}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/post",
+          "host": ["{{baseUrl}}"],
+          "path": ["post"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": { "type": "text/javascript", "exec": [""] }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Shared assertion — runs after EVERY request in the collection.",
+          "pm.test(\"Response has Content-Type header\", function () {",
+          "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.not.be.null;",
+          "});"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "auth_token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

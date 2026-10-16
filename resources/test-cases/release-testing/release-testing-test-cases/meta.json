@@ -1,0 +1,29 @@
+{
+  "title": "Release Testing Test Cases: Runnable Smoke-Gate Suite",
+  "title_es": "Casos de Prueba de Release Testing: suite de smoke-gate ejecutable",
+  "description": "Flask mini-app simulating a deployed service plus a pytest 8.3 suite implementing RT-SM, RT-ENV and the release-specific edge cases from the QAPractices guide.",
+  "description_es": "Mini-app Flask que simula un servicio desplegado más una suite pytest 8.3 que implementa los casos RT-SM, RT-ENV y los casos límite de la guía de QAPractices.",
+  "type": "test-cases",
+  "topic": "release-testing",
+  "slug": "release-testing-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/release-testing-test-cases/",
+    "https://qapractices.com/es/test-cases/release-testing-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "release-testing",
+    "smoke-testing",
+    "deployment-validation",
+    "pytest",
+    "flask"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "app.py",
+    "requirements.txt",
+    "tests/test_release_smoke.py",
+    ".github/workflows/release-gate.yml"
+  ]
+}

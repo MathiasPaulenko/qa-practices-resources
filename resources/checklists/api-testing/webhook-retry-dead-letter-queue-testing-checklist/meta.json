@@ -1,0 +1,14 @@
+{
+  "resourceType": "checklists",
+  "slug": "webhook-retry-dead-letter-queue-testing-checklist",
+  "title": "Webhook Retry and Dead Letter Queue Testing Checklist",
+  "description": "Runnable companion for the Webhook Retry and DLQ Testing Checklist: a reference webhook sender with exponential backoff, jitter, Retry-After support and a dead letter queue, plus a pytest suite for retry, replay and idempotency behavior.",
+  "type": "checklists",
+  "topic": "api-testing",
+  "companionVersion": "1.0.0",
+  "files": [
+    "webhook_client.py",
+    "tests/test_webhook_retry.py",
+    "requirements.txt"
+  ]
+}

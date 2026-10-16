@@ -1,0 +1,26 @@
+{
+  "title": "AI Prompt: Test Metrics and KPI Dashboard — Sample Output Pack",
+  "title_es": "Prompt de IA: Dashboard de métricas y KPIs — pack de output de ejemplo",
+  "description": "Sample output pack for the QAPractices KPI-dashboard prompt: a Grafana 10 dashboard JSON and a filled executive summary, matching the guide's Example Input.",
+  "description_es": "Pack de output de ejemplo para el prompt de dashboard de KPIs de QAPractices: un JSON de dashboard de Grafana 10 y un resumen ejecutivo completo, siguiendo el Example Input de la guía.",
+  "type": "prompts",
+  "topic": "qa-metrics-dashboard",
+  "slug": "ai-prompt-test-metrics-kpi-dashboard",
+  "source_urls": [
+    "https://qapractices.com/prompts/ai-prompt-test-metrics-kpi-dashboard/",
+    "https://qapractices.com/es/prompts/ai-prompt-test-metrics-kpi-dashboard/"
+  ],
+  "language": "json",
+  "tags": [
+    "ai-prompt",
+    "test-metrics",
+    "kpi-dashboard",
+    "grafana"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "grafana-dashboard.json",
+    "executive-summary.md"
+  ]
+}

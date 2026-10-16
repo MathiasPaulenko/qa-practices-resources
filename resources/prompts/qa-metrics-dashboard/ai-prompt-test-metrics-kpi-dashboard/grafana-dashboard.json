@@ -1,0 +1,67 @@
+{
+  "title": "QA Metrics — Release Health",
+  "uid": "qa-metrics-release",
+  "refresh": "1d",
+  "time": { "from": "now-28d", "to": "now" },
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Defect escape rate per release",
+      "description": "Jira issues tagged production-escape / total bugs closed per release. Target < 3%.",
+      "targets": [
+        { "expr": "jira_issues{label=\"production-escape\"} / jira_issues_closed", "legendFormat": "escape rate" }
+      ],
+      "thresholds": [
+        { "value": 3, "color": "yellow" },
+        { "value": 5, "color": "red" }
+      ],
+      "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 }
+    },
+    {
+      "id": 2,
+      "type": "barchart",
+      "title": "Flaky test ratio by file",
+      "description": "Playwright results in GitHub Actions per commit. Target < 2%.",
+      "targets": [
+        { "expr": "flaky_tests / total_tests", "legendFormat": "flaky ratio" }
+      ],
+      "thresholds": [
+        { "value": 2, "color": "yellow" },
+        { "value": 4, "color": "red" }
+      ],
+      "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 }
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "Build lead time (p50 / p90)",
+      "description": "GitHub Actions workflow_run duration on main. Target p90 < 12 min.",
+      "targets": [
+        { "expr": "quantile(0.5, workflow_run_duration_minutes{branch=\"main\"})", "legendFormat": "p50" },
+        { "expr": "quantile(0.9, workflow_run_duration_minutes{branch=\"main\"})", "legendFormat": "p90" }
+      ],
+      "gridPos": { "x": 0, "y": 8, "w": 12, "h": 8 }
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "API coverage delta per sprint",
+      "description": "Coverage scoped to files changed in the PR. Target: no net decrease.",
+      "targets": [
+        { "expr": "coverage_delta_pct", "legendFormat": "coverage delta" }
+      ],
+      "gridPos": { "x": 12, "y": 8, "w": 12, "h": 8 }
+    },
+    {
+      "id": 5,
+      "type": "table",
+      "title": "Customer-impacting incidents by release",
+      "description": "Datadog alerts matched to a release tag. Target: zero unresolved > 1 hour.",
+      "targets": [
+        { "expr": "datadog_incidents{customer_impacting=\"true\"}", "format": "table" }
+      ],
+      "gridPos": { "x": 0, "y": 16, "w": 24, "h": 8 }
+    }
+  ]
+}

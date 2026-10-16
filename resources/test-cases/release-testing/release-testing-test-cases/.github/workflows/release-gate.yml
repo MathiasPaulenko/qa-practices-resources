@@ -1,0 +1,19 @@
+# Post-deploy smoke gate — runs the release suite when GitHub reports a
+# successful deployment. Adapt RELEASE_BASE_URL via repository variables.
+name: release-gate
+on:
+  deployment_status
+jobs:
+  smoke:
+    if: github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pytest==8.3 requests==2.32
+      - run: pytest tests/test_release_smoke.py -x --tb=short
+        env:
+          RELEASE_BASE_URL: ${{ vars.RELEASE_BASE_URL }}
+          EXPECTED_ENV: production
