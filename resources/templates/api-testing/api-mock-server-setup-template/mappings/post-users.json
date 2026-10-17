@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/users",
+    "bodyPatterns": [
+      {
+        "matchesJsonPath": "$[?(@.email =~ /.+@.+/)]"
+      }
+    ]
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "fixedDelayMs": 100,
+    "jsonBody": {
+      "id": 2,
+      "name": "Jane Doe",
+      "email": "jane@example.com",
+      "role": "user",
+      "createdAt": "2026-01-15T11:00:00Z"
+    }
+  }
+}

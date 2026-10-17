@@ -1,0 +1,16 @@
+{
+  "title": "New message from Ana",
+  "body": "Are we still on for tomorrow?",
+  "icon": "/icons/notification-192.png",
+  "badge": "/icons/badge-72.png",
+  "tag": "chat-ana",
+  "renotify": true,
+  "data": {
+    "url": "/chat/ana",
+    "notificationId": "ntf_8432"
+  },
+  "actions": [
+    { "action": "reply", "title": "Reply" },
+    { "action": "mark_read", "title": "Mark as read" }
+  ]
+}

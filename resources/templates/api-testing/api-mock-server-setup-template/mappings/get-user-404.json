@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/users/99999"
+  },
+  "response": {
+    "status": 404,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "error": "User not found",
+      "code": "USER_NOT_FOUND",
+      "statusCode": 404
+    }
+  }
+}

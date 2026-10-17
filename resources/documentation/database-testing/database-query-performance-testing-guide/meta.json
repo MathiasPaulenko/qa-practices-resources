@@ -1,0 +1,31 @@
+{
+  "title": "Database Query Performance Testing Companion",
+  "title_es": "Companion de Pruebas de Rendimiento de Consultas",
+  "description": "Diagnostic SQL queries (pg_stat_statements, unused indexes, lock waits) and a runnable sysbench OLTP load script for the QAPractices database query performance guide.",
+  "description_es": "Consultas SQL de diagnóstico (pg_stat_statements, índices sin usar, lock waits) y un script sysbench OLTP ejecutable para la guía de rendimiento de consultas de QAPractices.",
+  "type": "documentation",
+  "topic": "database-testing",
+  "slug": "database-query-performance-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/database-query-performance-testing-guide/",
+    "https://qapractices.com/es/documentation/database-query-performance-testing-guide/"
+  ],
+  "language": "sql",
+  "tags": [
+    "postgresql",
+    "mysql",
+    "pg-stat-statements",
+    "sysbench",
+    "slow-query",
+    "index-usage",
+    "database-testing",
+    "load-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "sql/pg-diagnostics.sql",
+    "sql/explain-orders.sql",
+    "sysbench/oltp-shop-test.sh"
+  ]
+}

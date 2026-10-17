@@ -25,3 +25,4 @@ resources.json
 
 # Java/Maven
 target/
+test-results/

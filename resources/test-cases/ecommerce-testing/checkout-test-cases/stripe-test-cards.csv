@@ -1,0 +1,11 @@
+card_number,brand,expected_behavior,decline_code,scenario_id
+4242424242424242,visa,success,,happy-path
+5555555555554444,mastercard,success,,happy-path
+4000000000000002,visa,declined,card_declined,generic-decline
+4000000000009995,visa,declined,insufficient_funds,insufficient-funds
+4000000000000127,visa,declined,incorrect_cvc,cvv-mismatch
+4000000000000069,visa,declined,expired_card,expired-card
+4000002500003155,visa,requires_action,authentication_required,3ds-required
+4000000000003220,visa,requires_action,authentication_required,3ds2-required
+4000000000000101,visa,declined,cvc_check_fails,cvc-check
+4000002760003184,visa,success_with_3ds_optional,,3ds-optional

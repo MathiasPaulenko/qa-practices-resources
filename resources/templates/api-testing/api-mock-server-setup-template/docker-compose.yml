@@ -1,0 +1,9 @@
+services:
+  mock-server:
+    image: wiremock/wiremock:3.13.2
+    ports:
+      - "3001:8080"
+    volumes:
+      - ./mappings:/home/wiremock/mappings
+      - ./responses:/home/wiremock/__files
+    command: --verbose

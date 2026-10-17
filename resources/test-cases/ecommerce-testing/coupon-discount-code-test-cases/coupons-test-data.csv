@@ -1,0 +1,19 @@
+code,type,value,min_spend,category,per_customer_limit,global_limit,valid_from,valid_to,expected_result,tc
+SAVE10,percentage,10,,,,,2026-01-01,2026-12-31,applies 10% off,TC001
+DOLLAR20,fixed,20,,,,,2026-01-01,2026-12-31,applies $20 off,TC002
+FREESHIP,free_shipping,,,shipping:standard,,,2026-01-01,2026-12-31,standard shipping becomes $0,TC003
+SPEND50,percentage,15,50.00,,,,2026-01-01,2026-12-31,applies when pre-tax subtotal >= 50,TC004/TC018/TC031
+SHOES20,percentage,20,,Footwear,,,2026-01-01,2026-12-31,discounts only Footwear items,TC005
+WELCOME15,percentage,15,,,first_order_only,,2026-01-01,2026-12-31,first-time customers only,TC006/TC022
+LIMIT100,percentage,10,,,,100,2026-01-01,2026-12-31,exhausted after 100th redemption,TC008/TC021/TC030
+ONETIME,fixed,10,,,1,,2026-01-01,2026-12-31,one redemption per customer,TC009
+SUMMER25,percentage,25,,,,,2026-06-01,2026-08-31,valid only inside date range,TC010
+BOGO,bogo,,,Accessories,,,2026-01-01,2026-12-31,lowest-priced Accessories item free,TC011
+FREEGIFT,gift,,75.00,,,,2026-01-01,2026-12-31,adds free gift item at $0,TC012
+EXTRA10,percentage,10,,sale_items_allowed,,,2026-01-01,2026-12-31,applies on sale price not original,TC013
+CAP50,percentage,20,,,,,2026-01-01,2026-12-31,discount capped at $50,TC014
+EXPIRED,percentage,10,,,,,2025-01-01,2025-12-31,rejected: expired,TC016
+FAKE123,,,,,,,,,rejected: code does not exist,TC017
+ELECTRONICS10,percentage,10,,excludes:Electronics,,,2026-01-01,2026-12-31,rejected for excluded category,TC020
+DOLLAR50,fixed,50,,,,,2026-01-01,2026-12-31,capped at cart total,TC026
+SAVE7,percentage,7,,,,,2026-01-01,2026-12-31,rounding half-up on fractional cents,TC029

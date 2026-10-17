@@ -1,0 +1,33 @@
+{
+  "title": "E2E Test Data Management Checklist — Runnable Companion",
+  "title_es": "Checklist de Gestión de Datos de Testing E2E — Companion Ejecutable",
+  "description": "Playwright 1.49 data layer for E2E suites: a user factory with unique-per-invocation emails, a worker-scoped seeded-account fixture that cleans up on failure, and a transactional seed script.",
+  "description_es": "Capa de datos Playwright 1.49 para suites E2E: factory de usuarios con emails únicos por invocación, fixture worker-scoped de cuenta seeded que limpia en fallo y script de seed transaccional.",
+  "type": "checklists",
+  "topic": "quality-assurance",
+  "slug": "e2e-test-data-management-checklist",
+  "source_urls": [
+    "https://qapractices.com/checklists/e2e-test-data-management-checklist/",
+    "https://qapractices.com/es/checklists/e2e-test-data-management-checklist/"
+  ],
+  "language": "typescript",
+  "tags": [
+    "test-data",
+    "e2e-testing",
+    "playwright",
+    "factories",
+    "fixtures",
+    "seeding",
+    "parallel-tests"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "user.factory.ts",
+    "seeded-account.fixture.ts",
+    "seed.sql",
+    "example.spec.ts"
+  ],
+  "difficulty": "advanced",
+  "lastUpdated": "2026-10-17"
+}

@@ -1,0 +1,17 @@
+{
+  "title": "API Mock Server Setup Template: Companion Files",
+  "slug": "api-mock-server-setup-template",
+  "type": "templates",
+  "topic": "api-testing",
+  "category": "api-testing",
+  "description": "WireMock 3.13.2 mappings, Docker Compose setup and MSW 2.x handlers for the API mock server sample endpoints (GET/POST /users with 200/201/404/400 and fault scenarios).",
+  "language": ["en", "es"],
+  "files": [
+    "docker-compose.yml",
+    "mappings/get-user-by-id.json",
+    "mappings/get-user-404.json",
+    "mappings/post-users.json",
+    "mappings/get-users-rate-limited.json",
+    "msw/handlers.js"
+  ]
+}

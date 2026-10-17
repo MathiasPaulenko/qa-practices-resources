@@ -1,0 +1,24 @@
+{
+  "message": {
+    "token": "DEVICE_FCM_TOKEN",
+    "data": {
+      "type": "content_refresh",
+      "feedVersion": "1842",
+      "deepLink": "myapp://feed?since=1842"
+    },
+    "android": {
+      "priority": "NORMAL"
+    },
+    "apns": {
+      "headers": {
+        "apns-priority": "5",
+        "apns-push-type": "background"
+      },
+      "payload": {
+        "aps": {
+          "content-available": 1
+        }
+      }
+    }
+  }
+}

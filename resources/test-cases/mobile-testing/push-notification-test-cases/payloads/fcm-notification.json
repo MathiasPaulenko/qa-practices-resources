@@ -1,0 +1,33 @@
+{
+  "message": {
+    "token": "DEVICE_FCM_TOKEN",
+    "notification": {
+      "title": "Order shipped",
+      "body": "Your order #7842 is on its way"
+    },
+    "data": {
+      "orderId": "7842",
+      "deepLink": "myapp://orders/7842"
+    },
+    "android": {
+      "priority": "HIGH",
+      "notification": {
+        "channel_id": "orders",
+        "click_action": "OPEN_ORDER_DETAIL"
+      }
+    },
+    "apns": {
+      "payload": {
+        "aps": {
+          "alert": {
+            "title": "Order shipped",
+            "body": "Your order #7842 is on its way"
+          },
+          "sound": "default",
+          "badge": 1,
+          "thread-id": "orders"
+        }
+      }
+    }
+  }
+}
