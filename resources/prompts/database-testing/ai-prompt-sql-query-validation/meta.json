@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: SQL Query Validation — Companion Files",
+  "slug": "ai-prompt-sql-query-validation",
+  "type": "prompts",
+  "topic": "database-testing",
+  "category": "database-testing",
+  "description": "Query-validation prompt template, PostgreSQL 16 example input with planted defects, and reference findings with the corrected query for checking model output.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.sql",
+    "expected-findings.md"
+  ]
+}

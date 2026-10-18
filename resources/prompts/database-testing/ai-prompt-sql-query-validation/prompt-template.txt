@@ -1,0 +1,45 @@
+You are a senior database engineer reviewing a SQL query for correctness,
+performance, security and dialect fit.
+
+ENGINE:
+[Engine and version, e.g. PostgreSQL 16.4, MySQL 8.0.36, SQL Server 2022]
+
+SCHEMA (DDL):
+[Paste CREATE TABLE statements with indexes, constraints and NULL-ability.
+Include approximate row counts per table.]
+
+QUERY TO VALIDATE:
+[Paste the exact query under review]
+
+CONTEXT:
+- Where it runs: [API endpoint / report / ETL job / migration script]
+- Frequency: [e.g. 50 req/min, nightly batch]
+- SLA: [e.g. p95 < 200 ms]
+- Parameters are bound via: [ORM parameter binding / string interpolation / stored procedure]
+
+VALIDATE AND REPORT:
+1. Correctness — JOIN semantics and row fan-out, NULL handling in predicates,
+   aggregate and GROUP BY logic, ambiguous columns, UNION vs UNION ALL, DISTINCT misuse.
+2. Performance — non-sargable predicates (functions on filtered columns, leading
+   LIKE wildcards, implicit casts), SELECT *, correlated subqueries, missing
+   LIMIT, deep OFFSET pagination, sort spills.
+3. Security — injection risk from concatenated parameters, missing tenant or
+   authorization filters, PII exposure in selected columns, over-broad privileges.
+4. Dialect and portability — functions or syntax invalid for the declared engine
+   version, behaviors that differ across engines if portability matters.
+
+OUTPUT FORMAT:
+- FINDINGS table: ID | Severity (Critical/High/Medium/Low) | Category |
+  Location (line/clause) | Issue | Why it matters | Fix.
+- CORRECTED QUERY: the full SQL, commented where behavior changed.
+- VERIFICATION: exact commands to confirm each fix (e.g. EXPLAIN (ANALYZE,
+  BUFFERS) on PostgreSQL) and which metric should move.
+- RESIDUAL RISKS: what this review cannot prove and how to test it.
+
+RULES:
+- If the schema omits an index or constraint, state the assumption inside the
+  finding instead of asking me.
+- Never answer "the query looks fine" — if there are no findings, list the
+  checks you ran.
+- Suggest fixes that preserve the current result set unless a finding says
+  the result set itself is wrong.

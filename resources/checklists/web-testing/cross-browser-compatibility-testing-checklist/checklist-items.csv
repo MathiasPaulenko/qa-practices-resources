@@ -1,0 +1,30 @@
+area,item,risk
+Environment Parity,Lab browser versions match the analytics top-5 (navigator.userAgent or About dialog),High
+Environment Parity,OS regional settings pinned — UTC plus the release timezone / en-US locale verified via Intl.DateTimeFormat,Medium
+Environment Parity,"Display scales exercised: 100% / 125% / 150% / 200% / 3x DPR with screenshots",Medium
+Environment Parity,Network baseline fixed (20 Mbps down / 50 ms latency) so layout tests are comparable,Low
+Environment Parity,Clean profile: fresh incognito window / no extensions / no cached credentials or prior consent,High
+Environment Parity,Hardware acceleration on for the main run; fallback verified with it off (chrome://gpu / about:support),Medium
+CSS & Rendering,CSS Grid sidebar and main panel align in Chromium / WebKit / Gecko,High
+CSS & Rendering,backdrop-filter glass header frosts in Chrome/Safari/Edge and degrades to solid bar in Firefox,Medium
+CSS & Rendering,CSS custom properties (--nav-width) resolve and update on resize in every engine,Medium
+CSS & Rendering,Container queries reflow the widget cards when the dashboard panel resizes,Medium
+CSS & Rendering,scroll-snap carousel snaps to KPI cards on touch and on wheel,Low
+CSS & Rendering,@media (prefers-color-scheme: dark) matches the OS theme in every browser,Low
+JavaScript & APIs,Intersection Observer lazy table loads rows as the user scrolls in Safari / Firefox / Chrome,High
+JavaScript & APIs,Intl.DateTimeFormat renders the date picker identically under en-GB and es-ES,Medium
+JavaScript & APIs,ResizeObserver re-renders charts when the sidebar collapses,Medium
+JavaScript & APIs,navigator.clipboard copies the KPI value; execCommand fallback works in Firefox ESR,Medium
+JavaScript & APIs,dvh units resize the mobile layout as the iOS Safari toolbar shows and hides,Medium
+JavaScript & APIs,fetch calls cancelled with AbortController leave no hanging requests after route changes,High
+Forms & Input,<input type="date"> submits the ISO value 2026-02-14 regardless of native picker format,High
+Forms & Input,<input type="number"> respects min/max on mobile virtual keyboards,Medium
+Forms & Input,autocomplete="email" autofills without breaking validation in Chrome saved profiles,Medium
+Forms & Input,Custom <select> opens above the virtual keyboard on iOS,Medium
+Forms & Input,File picker with accept=".csv" filters correctly in Firefox and Edge,Low
+Edge & Negative,"Zoom 200%-400%: sidebar reflows / no horizontal scroll / every control stays reachable",High
+Edge & Negative,JavaScript disabled: core metrics still visible with a graceful-degradation message,Medium
+Edge & Negative,prefers-reduced-motion: no animated transitions / static fallback renders,Medium
+Edge & Negative,320 x 568 viewport: layout usable / no overlapping text,High
+Edge & Negative,TLS 1.2-only network: no mixed-content warnings / fonts still load,Low
+Edge & Negative,Do Not Track enabled: analytics scripts respect the signal where declared,Low

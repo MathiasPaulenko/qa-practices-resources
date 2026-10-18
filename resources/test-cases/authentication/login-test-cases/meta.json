@@ -1,0 +1,31 @@
+{
+  "resourceType": "test-cases",
+  "slug": "login-test-cases",
+  "title": "Login Test Cases: 20 Scenarios + Test Data (CSV/JSON)",
+  "title_es": "Casos de Prueba de Login: 20 Escenarios + Datos de Prueba (CSV/JSON)",
+  "description": "Companion for the Login Test Cases resource: a 20-case CSV matrix plus a reusable test-data JSON (users, edge inputs, SQLi/XSS payloads).",
+  "description_es": "Companion de los Casos de Prueba de Login: matriz CSV de 20 casos más un JSON de datos reutilizable (usuarios, entradas edge, payloads SQLi/XSS).",
+  "type": "test-cases",
+  "topic": "authentication",
+  "companionVersion": "1.0.0",
+  "source_urls": [
+    "https://qapractices.com/test-cases/login-test-cases/",
+    "https://qapractices.com/es/test-cases/login-test-cases/"
+  ],
+  "language": "json",
+  "tags": [
+    "login-test-cases",
+    "authentication",
+    "security-testing",
+    "csv",
+    "test-data"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "login-test-cases.csv",
+    "test-data.json"
+  ],
+  "difficulty": "beginner",
+  "lastUpdated": "2026-10-18"
+}

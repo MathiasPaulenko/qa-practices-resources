@@ -1,0 +1,32 @@
+{
+  "resourceType": "checklists",
+  "slug": "production-deployment-testing-checklist",
+  "title": "Thorough Production Deployment Checklist: 71 Deploy Checks with Risk Levels",
+  "title_es": "Checklist Completo de Despliegue a Producción: 71 Checks con Nivel de Riesgo",
+  "description": "Importable CSV companion for the Thorough Production Deployment Checklist: all 71 deployment checks across 10 phases with a risk level per item.",
+  "description_es": "Companion CSV importable para el Checklist Completo de Despliegue a Producción: los 71 checks en 10 fases con nivel de riesgo por ítem.",
+  "type": "checklists",
+  "topic": "deployment-testing",
+  "companionVersion": "1.0.0",
+  "source_urls": [
+    "https://qapractices.com/checklists/production-deployment-testing-checklist/",
+    "https://qapractices.com/es/checklists/production-deployment-testing-checklist/"
+  ],
+  "language": "csv",
+  "tags": [
+    "production-deployment",
+    "release-management",
+    "rollback",
+    "health-checks",
+    "smoke-tests",
+    "csv",
+    "checklist"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "checklist-items.csv"
+  ],
+  "difficulty": "advanced",
+  "lastUpdated": "2026-10-18"
+}

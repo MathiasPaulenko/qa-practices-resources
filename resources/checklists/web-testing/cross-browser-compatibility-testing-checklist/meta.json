@@ -1,0 +1,33 @@
+{
+  "resourceType": "checklists",
+  "slug": "cross-browser-compatibility-testing-checklist",
+  "title": "Cross-Browser Compatibility Matrix Checklist: Browser, Viewport & Env-Parity Matrices",
+  "title_es": "Checklist de Matriz de Compatibilidad Cross-Browser: Matrices de Navegador, Viewport y Paridad",
+  "description": "Importable CSV companion for the Cross-Browser Compatibility Matrix Checklist: target browser matrix, viewport matrix and 29 checklist items with risk levels.",
+  "description_es": "Companion CSV importable para el Checklist de Matriz de Compatibilidad Cross-Browser: matriz de navegadores, matriz de viewports y 29 ítems con nivel de riesgo.",
+  "type": "checklists",
+  "topic": "web-testing",
+  "companionVersion": "1.0.0",
+  "source_urls": [
+    "https://qapractices.com/checklists/cross-browser-compatibility-testing-checklist/",
+    "https://qapractices.com/es/checklists/cross-browser-compatibility-testing-checklist/"
+  ],
+  "language": "csv",
+  "tags": [
+    "cross-browser",
+    "browser-compatibility",
+    "viewport-matrix",
+    "environment-parity",
+    "csv",
+    "checklist"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "browser-matrix.csv",
+    "viewport-matrix.csv",
+    "checklist-items.csv"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-18"
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Blockchain Transaction Test Cases: Companion",
+  "slug": "blockchain-transaction-test-cases",
+  "type": "test-cases",
+  "topic": "functional-testing",
+  "category": "functional-testing",
+  "description": "Hardhat 2.22 + ethers 6.x executable test suite for blockchain transaction cases: value transfers, receipts, nonce ordering, zero-balance rejection and onlyOwner reverts.",
+  "language": ["en", "es"],
+  "files": [
+    "hardhat-transaction.test.js",
+    "GuardedVault.sol",
+    "README.md",
+    "README.es.md",
+    "meta.json"
+  ]
+}

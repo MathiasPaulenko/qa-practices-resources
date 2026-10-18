@@ -1,0 +1,36 @@
+{
+  "id": "api-latency-throughput-test-cases",
+  "slug": "api-latency-throughput-test-cases",
+  "title": "API Latency & Throughput — Runnable Companion",
+  "title_es": "Latencia y Throughput de API — Companion Ejecutable",
+  "description": "Runnable k6 scripts (baseline, saturation ramp, concurrent load), JMeter throughput assertions and a Gherkin feature file for the API latency and throughput test cases from qapractices.com.",
+  "description_es": "Scripts de k6 ejecutables (línea base, rampa de saturación, carga concurrente), aserciones de throughput para JMeter y un feature Gherkin para los casos de test de latencia y throughput de API de qapractices.com.",
+  "type": "test-cases",
+  "topic": "performance-testing",
+  "languages": ["en", "es"],
+  "source_urls": [
+    "https://qapractices.com/test-cases/api-latency-throughput-test-cases/",
+    "https://qapractices.com/es/test-cases/api-latency-throughput-test-cases/"
+  ],
+  "tags": [
+    "api-latency",
+    "throughput",
+    "k6",
+    "jmeter",
+    "gherkin",
+    "load-testing",
+    "performance-testing",
+    "percentiles",
+    "rps",
+    "saturation"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "meta.json",
+    "k6-latency.js",
+    "k6-throughput-ramp.js",
+    "jmeter-throughput-assertions.xml",
+    "latency-throughput.feature"
+  ]
+}

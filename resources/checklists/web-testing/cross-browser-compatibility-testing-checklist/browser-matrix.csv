@@ -1,0 +1,7 @@
+engine,browser,version,os_device,display_scale,priority,evidence
+Chromium,Chrome,132 / 131,Windows 11 desktop,100% / 150%,P1,BrowserStack screenshot
+WebKit,Safari,18 / 17,macOS Sonoma MacBook Air,100% / 200%,P1,Real device + simulator
+WebKit,Safari,iOS 18,iPhone 15 Pro,3x DPR,P1,Real iPhone
+Gecko,Firefox,134 / 133,Ubuntu 24.04 desktop,100%,P2,VM screenshot
+Chromium,Edge,132 / 131,Windows 10 enterprise,100% / 125%,P2,BrowserStack
+Chromium,Samsung Internet,27,Galaxy S24,3x DPR,P3,Remote device

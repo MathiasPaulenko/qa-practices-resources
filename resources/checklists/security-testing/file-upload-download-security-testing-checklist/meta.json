@@ -1,0 +1,15 @@
+{
+  "title": "File Upload and Download Security Testing Checklist: Companion",
+  "slug": "file-upload-download-security-testing-checklist",
+  "type": "checklists",
+  "topic": "security-testing",
+  "category": "security-testing",
+  "description": "Adversarial payload set for file upload/download security testing: extension bypass, null bytes, MIME spoofing, path traversal, zip slip, XSS files, EICAR and download authz checks.",
+  "language": ["en", "es"],
+  "files": [
+    "upload-payloads.csv",
+    "README.md",
+    "README.es.md",
+    "meta.json"
+  ]
+}

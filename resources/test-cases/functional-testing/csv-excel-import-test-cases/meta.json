@@ -1,0 +1,10 @@
+{
+  "id": "csv-excel-import-test-cases",
+  "slug": "csv-excel-import-test-cases",
+  "title": "CSV and Excel Import Test Cases Companion",
+  "description": "Runnable stdlib-only Python CSV importer for the CSV and Excel Import Test Cases resource: delimiter sniffing, BOM handling, header normalization, row-level errors, duplicate detection, partial vs atomic import and formula-injection sanitization, covered by 14 pytest tests mapped to TC001-TC015.",
+  "type": "test-cases",
+  "topic": "functional-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "importer.py", "tests/__init__.py", "tests/test_importer.py"]
+}

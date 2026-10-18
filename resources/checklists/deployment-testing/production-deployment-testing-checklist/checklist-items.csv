@@ -1,0 +1,72 @@
+area,item,risk
+Pre-Deployment Verification,All unit / integration / E2E tests pass in CI/CD — the build is green,High
+Pre-Deployment Verification,The change was reviewed and approved by at least one teammate,High
+Pre-Deployment Verification,Release notes and changelog document all changes — nothing ships undocumented,Medium
+Pre-Deployment Verification,Deploy scheduled inside an approved maintenance window — not peak traffic / not Friday afternoon,High
+Pre-Deployment Verification,Product / support / sales notified of deploy time and expected impact,Medium
+Pre-Deployment Verification,Feature flags configured for production defaults — new features off / toggleable without redeploy,High
+Pre-Deployment Verification,Dependencies (libraries / packages / services) compatible with the new version,Medium
+Infrastructure Readiness,Production CPU / memory / storage headroom covers the new version footprint,High
+Infrastructure Readiness,Auto-scaling policies configured and tested under load,Medium
+Infrastructure Readiness,Load balancer healthy with all backend targets registered,High
+Infrastructure Readiness,DNS records point to the right LB/CDN; TTL short enough for quick rollback,High
+Infrastructure Readiness,SSL/TLS certificates valid and not expiring within 30 days,High
+Infrastructure Readiness,CDN cache rules cover the new assets; invalidation strategy defined,Medium
+Infrastructure Readiness,Firewall rules and security groups allow the new services ports,High
+Infrastructure Readiness,All required secrets (API keys / DB passwords / OAuth secrets) exist in the secret manager,High
+Database Migrations,Migrations ran in staging mirroring production data volume,High
+Database Migrations,Migrations are backward-compatible — old app + new schema and new app + old schema both work,High
+Database Migrations,A tested down-migration or manual SQL rollback exists for each migration,High
+Database Migrations,Tables with 10M+ rows use an online tool (gh-ost / pt-online-schema-change) or batched updates,High
+Database Migrations,A database backup was taken right before the migration window,High
+Database Migrations,Estimated migration runtime fits inside the maintenance window,Medium
+Database Migrations,Migrations are idempotent — safe to re-run after a partial failure,Medium
+Database Migrations,Dependent migrations run in the correct order,Medium
+Configuration Management,Every required environment variable is set in production,High
+Configuration Management,Configuration was schema-validated before the deploy,High
+Configuration Management,No secrets hardcoded in code / config files / the repository,High
+Configuration Management,Logging level is INFO or WARN — not DEBUG,Low
+Configuration Management,API rate limits match production traffic — not development defaults,Medium
+Configuration Management,CORS allows only the expected origins — no wildcard,High
+Configuration Management,Configuration is versioned and can be rolled back,Medium
+Health Checks and Readiness,/health or /healthz endpoint returns 200 only when the service is actually healthy,High
+Health Checks and Readiness,A readiness probe gates traffic until the service is ready,High
+Health Checks and Readiness,A liveness probe restarts unresponsive containers,Medium
+Health Checks and Readiness,The health check verifies critical dependencies — DB / cache / queue — and returns non-200 if any is down,Medium
+Health Checks and Readiness,The service starts and passes readiness within the expected window (typically 30-60s),Medium
+Health Checks and Readiness,On SIGTERM the service stops accepting requests / drains in-flight ones / exits cleanly,Medium
+Rollback Procedures,A rollback plan is documented with exact steps — not just revert the deploy,High
+Rollback Procedures,The rollback was tested in staging or a previous deployment — never first-run during an incident,High
+Rollback Procedures,The rollback can execute within 5 minutes of the decision,High
+Rollback Procedures,Database rollback is prepared for any migration that ran,High
+Rollback Procedures,The previous version image or build artifact is still available,High
+Rollback Procedures,Rollback criteria are written down: error rate > 1% / p95 > 5s / critical flow broken,High
+Rollback Procedures,The communication plan covers who to notify and what to say,Medium
+Rollback Procedures,Partial rollback is possible when multiple services ship together,High
+Monitoring and Alerting,Dashboards (Grafana / Datadog / CloudWatch) include the new metrics and service names,Medium
+Monitoring and Alerting,Alerts cover error rate / response time / CPU / memory / disk — and page the on-call,High
+Monitoring and Alerting,Alert thresholds fit production traffic — no fatigue / no missed incidents,Medium
+Monitoring and Alerting,The on-call team knows the deploy is happening and can respond,Medium
+Monitoring and Alerting,Logs reach the aggregation system (ELK / Splunk / Datadog Logs) — not only local files,Medium
+Monitoring and Alerting,Distributed tracing (Jaeger / Zipkin / Datadog APM) covers the new services,Low
+Monitoring and Alerting,Synthetic checks monitor the critical user flows,Medium
+Monitoring and Alerting,Error tracking (Sentry / Rollbar / Bugsnag) is active on the new version,Medium
+Security Verification,SAST / DAST / dependency scans passed — no known critical vulnerabilities,High
+Security Verification,Authentication and authorization work correctly in production after the deploy,High
+Security Verification,All traffic is HTTPS; HTTP redirects to HTTPS,High
+Security Verification,Security headers present: CSP / HSTS / X-Frame-Options / X-Content-Type-Options,Medium
+Security Verification,Secrets do not leak into logs / error messages / API responses,High
+Security Verification,Rate limiting protects authentication and API endpoints from brute force,High
+Security Verification,WAF rules are updated for the new endpoints,Medium
+Performance Validation,A performance baseline (response time / throughput / resource usage) exists from before the deploy,Medium
+Performance Validation,Post-deploy metrics are compared against that baseline,High
+Performance Validation,A staging load test passed for performance-sensitive changes,Medium
+Performance Validation,Database query performance is verified after migrations — no missing indexes,Medium
+Performance Validation,Memory usage stays stable — watch for OOM for 24 hours,Medium
+Performance Validation,CDN cache hit rate holds after the deploy,Low
+Post-Deployment Smoke Tests,Critical flows — login / search / checkout / payment — verified in production,High
+Post-Deployment Smoke Tests,Key API endpoints return 200 with correct data,High
+Post-Deployment Smoke Tests,The 5xx error rate stays within the normal range,High
+Post-Deployment Smoke Tests,Scheduled jobs and background workers are processing tasks,Medium
+Post-Deployment Smoke Tests,Email and push notifications still deliver,Medium
+Post-Deployment Smoke Tests,Third-party integrations (payment gateway / email service / SMS) respond correctly,Medium

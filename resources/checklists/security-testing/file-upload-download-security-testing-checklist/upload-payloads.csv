@@ -1,0 +1,21 @@
+id,category,payload,expected_result,owasp_ref
+P-01,extension,file.php.jpg,Rejected or stored as .jpg after server-side rename,WSTG-UP-01
+P-02,extension,file.jpg.php,Rejected — double extension,WSTG-UP-01
+P-03,extension,file.PHP,Rejected or normalized — case-insensitive check,WSTG-UP-01
+P-04,null-byte,file.php%00.jpg,Rejected — null byte truncation blocked,WSTG-UP-01
+P-05,mime-spoof,.jpg file + Content-Type application/x-php,Rejected — MIME mismatch,WSTG-UP-02
+P-06,mime-spoof,.png file + Content-Type text/html,Rejected — MIME mismatch,WSTG-UP-02
+P-07,magic-bytes,.jpg extension + %PDF-1.4 magic bytes,Rejected — content/type mismatch,WSTG-UP-03
+P-08,magic-bytes,.jpg extension + <?php payload,Rejected — magic bytes detect PHP,WSTG-UP-03
+P-09,traversal,../../etc/passwd as filename,Rejected — name sanitized,WSTG-UP-04
+P-10,traversal,..\..\windows\system32\drivers\etc\hosts as filename,Rejected — backslash traversal blocked,WSTG-UP-04
+P-11,traversal,%2e%2e%2f%2e%2e%2fetc%2fpasswd in download param,400/404 — encoded traversal blocked,WSTG-UP-04
+P-12,size,file > max_size_limit,413 or clear rejection,WSTG-UP-05
+P-13,archive,zip with ../evil.jsp entry (zip slip),Rejected — extraction confined,WSTG-UP-06
+P-14,svg,svg file containing <script>alert(1)</script>,Sanitized or served as image only,WSTG-UP-07
+P-15,html,uploaded .html served inline as text/html,Served as text/plain — no stored XSS,WSTG-UP-07
+P-16,malware,EICAR test string in .txt file,Rejected by AV scan (ClamAV flags eicar),WSTG-UP-08
+P-17,authz,download file of another user via ID,403 — ownership enforced,CWE-639
+P-18,authz,download without session token,401/redirect — no anonymous access,CWE-306
+P-19,download,request file by absolute path /etc/passwd,400/404 — ID-based access only,WSTG-UP-04
+P-20,content-disposition,download .html file,Content-Disposition: attachment — no inline render,OWASP-SH

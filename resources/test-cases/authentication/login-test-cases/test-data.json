@@ -1,0 +1,29 @@
+{
+  "validUser": {
+    "username": "qa_user_001",
+    "password": "SecurePass123!",
+    "expected": "dashboard"
+  },
+  "lockedUser": {
+    "username": "locked_user",
+    "password": "SecurePass123!",
+    "expected": "account locked message"
+  },
+  "invalidUser": {
+    "username": "nonexistent_999",
+    "password": "SecurePass123!",
+    "expected": "generic invalid credentials error"
+  },
+  "edgeCases": {
+    "unicodePassword": "Pássw0rd🔒",
+    "paddedUsername": " qa_user_001 ",
+    "longPassword": "A1!xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "openRedirectParam": "?redirect=https://evil.example"
+  },
+  "injectionPayloads": [
+    "' OR '1'='1",
+    "admin'--",
+    "'; DROP TABLE users; --",
+    "<script>alert(1)</script>"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "slug": "rest-api-test-cases",
+  "title": "REST API Test Cases: HTTP & Security",
+  "type": "test-cases",
+  "topic": "api-testing",
+  "difficulty": "intermediate",
+  "tools": ["pytest", "requests", "Postman", "Newman", "REST-assured"],
+  "description": "Runnable REST API contract test suite: pytest + requests specs, a Postman/Newman collection and Gherkin scenarios covering CRUD, error handling, security and performance cases from the QAPractices guide.",
+  "source": "https://qapractices.com/test-cases/rest-api-test-cases/"
+}

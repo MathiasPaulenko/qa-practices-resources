@@ -1,0 +1,7 @@
+viewport,width,height,dpr,test_focus
+Desktop XL,1920,1080,1x,Full sidebar / data table / charts
+Desktop,1440,900,1x,Collapsed sidebar / modal dialogs
+Tablet landscape,1024,768,2x (iPad Air),Touch targets / split layout
+Tablet portrait,768,1024,2x (iPad Air),Stacked panels / font sizing
+Mobile large,390,844,3x (iPhone 15 Pro),Bottom nav / safe-area insets
+Mobile small,360,740,3x (Galaxy S24),Scroll snap / fixed header

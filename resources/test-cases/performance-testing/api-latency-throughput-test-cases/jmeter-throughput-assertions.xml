@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- JMeter throughput + duration assertions for the API latency & throughput
+     test cases. Embed inside a Thread Group alongside an HTTP Request sampler.
+     Docs: https://jmeter.apache.org/usermanual/component_reference.html -->
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
+  <hashTree>
+    <!-- Limits total executions to the configured throughput (requests/minute). -->
+    <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+      <intProp name="ThroughputController.style">1</intProp>
+      <boolProp name="ThroughputController.perThread">false</boolProp>
+      <intProp name="ThroughputController.maxThroughput">1000</intProp>
+      <FloatProperty>
+        <name>ThroughputController.percentThroughput</name>
+        <value>100.0</value>
+        <savedValue>0.0</savedValue>
+      </FloatProperty>
+    </ThroughputController>
+    <hashTree/>
+    <!-- Fails any sampler that takes longer than the SLA budget (ms). -->
+    <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+      <stringProp name="DurationAssertion.duration">500</stringProp>
+    </DurationAssertion>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

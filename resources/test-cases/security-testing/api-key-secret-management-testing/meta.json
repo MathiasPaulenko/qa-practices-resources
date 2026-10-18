@@ -1,0 +1,10 @@
+{
+  "id": "api-key-secret-management-testing",
+  "slug": "api-key-secret-management-testing",
+  "title": "API Key & Secret Management Testing Companion",
+  "description": "Runnable Flask lab for the API Key & Secret Management Testing resource: a TaskFlow-style key issuer where only SHA-256 hashes are stored, plus a pytest suite that executes scope enforcement, one-time reveal, revocation, rotation grace, expiry, rate limiting, IP allowlists and audit-log hygiene from TC001 to TC013.",
+  "type": "test-cases",
+  "topic": "security-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "app.py", "tests/__init__.py", "tests/test_api_keys.py"]
+}

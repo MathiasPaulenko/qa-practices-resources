@@ -1,0 +1,21 @@
+id,section,scenario,test_data,expected_result,automation,priority
+TC-01,Positive,Valid login with correct credentials,"user: qa_user_001 / pass: SecurePass123!",Logged in; redirected to /dashboard; session cookie set,Playwright 1.49,High
+TC-02,Positive,Login with Remember Me,"user: qa_user_001 / pass: SecurePass123!",Still logged in after browser reopen,Playwright 1.49,Medium
+TC-03,Positive,Login via Enter key,"user: qa_user_001 / pass: SecurePass123!",Same result as clicking Login,Playwright 1.49,Medium
+TC-04,Positive,Case-insensitive username,"user: QA_USER_001 / pass: SecurePass123!",Login succeeds (username normalized),Playwright 1.49,Low
+TC-05,Negative,Invalid username,"user: nonexistent_999 / pass: SecurePass123!",Generic invalid-credentials error; not logged in,Playwright 1.49,High
+TC-06,Negative,Invalid password,"user: qa_user_001 / pass: WrongPass123",Generic invalid-credentials error; not logged in,Playwright 1.49,High
+TC-07,Negative,Username only,"user: qa_user_001 / pass: empty",Password-required validation; no request sent,Playwright 1.49,High
+TC-08,Negative,Password only,"user: empty / pass: SecurePass123!",Username-required validation; no request sent,Playwright 1.49,High
+TC-09,Security,SQL injection in username,"user: ' OR '1'='1 / pass: anything",Login fails; no bypass; no SQL error leaked,OWASP ZAP 2.15 / Playwright 1.49,Critical
+TC-10,Security,XSS in username field,"user: <script>alert(1)</script>",Payload escaped; no script executes,OWASP ZAP 2.15,High
+TC-11,Security,Account lockout after 5 failed attempts,"user: qa_user_001 / pass: WrongPass123 ×5",Account locks; valid creds rejected while locked,Playwright 1.49 loop,High
+TC-12,Security,User enumeration via error/timing,valid vs invalid usernames,Identical generic error + comparable timing,pytest 8.3 + time,High
+TC-13,Security,Rate limiting / CAPTCHA,N/A,429 or CAPTCHA after N rapid failures,Playwright 1.49 loop,High
+TC-14,Security,Open redirect via redirect param,"?redirect=https://evil.example",Redirect rejected or confined internally,OWASP ZAP 2.15,Critical
+TC-15,Security,Session cookie security flags,N/A,"HttpOnly / Secure / SameSite set; no session in URL",Browser devtools / pytest 8.3,Critical
+TC-16,Session/UX,Session timeout after idle,logged-in user,Redirect to login or 401 after lifetime expires,Playwright 1.49,Medium
+TC-17,Session/UX,Logout invalidates the session,logged-in user,Protected route redirects to login; old cookie rejected,Playwright 1.49,High
+TC-18,Session/UX,Concurrent sessions per policy,"same user / two devices",Policy enforced — both live or A invalidated,Playwright 1.49 two contexts,Medium
+TC-19,Session/UX,Password masking and field controls,N/A,Masked by default; visibility toggle works,Playwright 1.49,Low
+TC-20,Session/UX,Mobile login UX,375px viewport,Keyboard opens on focus; autofill works; targets ≥44px,Playwright 1.49 mobile project,Medium

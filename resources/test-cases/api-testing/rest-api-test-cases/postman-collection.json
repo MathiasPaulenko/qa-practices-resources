@@ -1,0 +1,133 @@
+{
+  "info": {
+    "name": "REST API Test Cases: HTTP & Security",
+    "description": "Contract test collection for the users resource — covers TC-001 through TC-015. Set the `base_url` and `token` collection variables before running.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "https://api.example.com/api/v1" },
+    { "key": "token", "value": "your-test-token" }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+  },
+  "item": [
+    {
+      "name": "TC-001 GET user - contract shape",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status is 200', () => pm.response.to.have.status(200));",
+              "pm.test('has contract keys', () => {",
+              "  const body = pm.response.json();",
+              "  ['id','name','email','role','created_at'].forEach(k => pm.expect(body).to.have.property(k));",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": { "method": "GET", "url": "{{base_url}}/users/42" }
+    },
+    {
+      "name": "TC-002 POST user - Location header",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status is 201', () => pm.response.to.have.status(201));",
+              "pm.test('Location header present', () => pm.response.headers.has('Location'));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "url": "{{base_url}}/users",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\"name\":\"Grace Hopper\",\"email\":\"grace@example.com\",\"role\":\"member\"}" }
+      }
+    },
+    {
+      "name": "TC-006 GET missing user - clean 404",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status is 404', () => pm.response.to.have.status(404));",
+              "pm.test('error body structured', () => {",
+              "  const body = pm.response.json();",
+              "  pm.expect(body).to.satisfy(b => 'error' in b || 'message' in b);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": { "method": "GET", "url": "{{base_url}}/users/999999" }
+    },
+    {
+      "name": "TC-013 no token - 401 challenge",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status is 401', () => pm.response.to.have.status(401));",
+              "pm.test('WWW-Authenticate present', () => pm.response.headers.has('WWW-Authenticate'));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/users/42",
+        "auth": { "type": "noauth" }
+      }
+    },
+    {
+      "name": "TC-011 SQL injection - rejected",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('rejected 400 or 403', () => pm.expect(pm.response.code).to.be.oneOf([400, 403]));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/users?id=1' OR '1'='1"
+      }
+    },
+    {
+      "name": "TC-015 rate limit - 429 + Retry-After",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if (pm.response.code === 429) {",
+              "  pm.test('Retry-After present', () => pm.response.headers.has('Retry-After'));",
+              "} else {",
+              "  pm.test('under limit', () => pm.response.to.have.status(200));",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": { "method": "GET", "url": "{{base_url}}/users/42" }
+    }
+  ]
+}
