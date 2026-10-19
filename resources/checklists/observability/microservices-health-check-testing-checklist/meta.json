@@ -1,0 +1,10 @@
+{
+  "id": "microservices-health-check-testing-checklist",
+  "slug": "microservices-health-check-testing-checklist",
+  "title": "Microservices Health Check Testing Companion",
+  "description": "Runnable stdlib-only Python health-check service (liveness/readiness separation, critical vs non-critical dependencies, circuit breaker, SIGTERM drain, gateway aggregation) with a pytest suite mapped to the Microservices Health Check Testing Checklist resource.",
+  "type": "checklists",
+  "topic": "observability",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "health_check.py", "tests/__init__.py", "tests/test_health_check.py"]
+}

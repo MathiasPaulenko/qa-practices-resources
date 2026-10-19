@@ -1,0 +1,10 @@
+{
+  "id": "testing-in-production",
+  "slug": "testing-in-production",
+  "title": "Testing in Production Companion",
+  "description": "Argo Rollouts canary manifests (Rollout + AnalysisTemplate with a Prometheus error-rate gate) and the kubectl commands to promote or abort the rollout, mapped to the How to Test in Production Safely guide.",
+  "type": "documentation",
+  "topic": "deployment-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "rollout.yaml", "analysis-template.yaml", "canary-commands.sh"]
+}

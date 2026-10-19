@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: canary-health
+spec:
+  metrics:
+    - name: error-rate
+      interval: 1m
+      failureLimit: 2
+      provider:
+        prometheus:
+          address: http://prometheus.monitoring:9090
+          query: |
+            sum(rate(http_requests_total{app="checkout-api",status=~"5.."}[5m]))
+              / sum(rate(http_requests_total{app="checkout-api"}[5m])) < 0.01
