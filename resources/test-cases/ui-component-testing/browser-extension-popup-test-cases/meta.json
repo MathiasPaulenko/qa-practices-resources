@@ -1,0 +1,10 @@
+{
+  "id": "browser-extension-popup-test-cases",
+  "slug": "browser-extension-popup-test-cases",
+  "title": "Browser Extension Popup Test Cases Companion",
+  "description": "Minimal Manifest V3 save-for-later extension (manifest, popup page, background service worker) plus a Playwright 1.48 spec that loads it in a persistent context and verifies popup rendering, saving and state persistence across reopens.",
+  "type": "test-cases",
+  "topic": "ui-component-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "package.json", "popup-persistence.spec.ts", "extension/manifest.json", "extension/popup.html", "extension/popup.js", "extension/background.js"]
+}

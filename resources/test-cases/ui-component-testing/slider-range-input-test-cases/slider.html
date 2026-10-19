@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RangeSlider Pro — slider test fixture</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 640px; margin: 2rem auto; }
+  .row { margin: 1.5rem 0; }
+  .tooltip { display: inline-block; background: #111827; color: #fff;
+             padding: 2px 8px; border-radius: 4px; font-size: 12px; }
+  label { display: block; margin-bottom: .25rem; }
+  input[type="number"] { width: 6rem; }
+</style>
+</head>
+<body>
+<h1>RangeSlider Pro — test fixture</h1>
+<p>Manual fixture for the slider test cases: single-handle slider
+   (min=0, max=1000, step=5) with live tooltip, linked numeric input
+   and a dual-handle emulation.</p>
+
+<div class="row">
+  <label for="price">Price filter ($0–$1,000, step $5)</label>
+  <input id="price" type="range" min="0" max="1000" step="5" value="500" style="width:100%">
+  <span class="tooltip" id="tip">$500</span>
+</div>
+
+<div class="row">
+  <label for="priceInput">Linked input</label>
+  <input id="priceInput" type="number" min="0" max="1000" step="5" value="500">
+  <span id="err" role="alert" style="color:#b91c1c"></span>
+</div>
+
+<div class="row">
+  <label>Dual handle (min / max)</label>
+  <input id="low"  type="range" min="0" max="1000" step="5" value="50"  style="width:48%">
+  <input id="high" type="range" min="0" max="1000" step="5" value="500" style="width:48%">
+  <div>Selected range: <strong id="range">$50 – $500</strong> (minGap = 10)</div>
+</div>
+
+<script>
+const GAP = 10;
+const slider = document.getElementById('price');
+const tip = document.getElementById('tip');
+const input = document.getElementById('priceInput');
+const err = document.getElementById('err');
+const low = document.getElementById('low');
+const high = document.getElementById('high');
+const range = document.getElementById('range');
+
+slider.addEventListener('input', () => {
+  tip.textContent = '$' + slider.value;
+  input.value = slider.value;
+  err.textContent = '';
+});
+
+input.addEventListener('change', () => {
+  const v = Number(input.value);
+  if (Number.isNaN(v)) { err.textContent = 'numeric value required'; input.value = slider.value; return; }
+  if (v < 0 || v > 1000) { err.textContent = 'value outside 0-1000'; input.value = slider.value; return; }
+  slider.value = v;
+  tip.textContent = '$' + slider.value;
+  err.textContent = '';
+});
+
+function syncRange(changed) {
+  let l = Number(low.value), h = Number(high.value);
+  if (h - l < GAP) {
+    if (changed === low) { l = h - GAP; low.value = l; }
+    else { h = l + GAP; high.value = h; }
+  }
+  range.textContent = '$' + l + ' – $' + h;
+}
+low.addEventListener('input', () => syncRange(low));
+high.addEventListener('input', () => syncRange(high));
+</script>
+</body>
+</html>

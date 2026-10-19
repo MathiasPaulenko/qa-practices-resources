@@ -1,0 +1,10 @@
+{
+  "id": "skeleton-loading-placeholder-test-cases",
+  "slug": "skeleton-loading-placeholder-test-cases",
+  "title": "Skeleton Loading Placeholder Test Cases Companion",
+  "description": "Runnable stdlib-only Python skeleton-lifecycle state machine (mount, minimum display time, shimmer/reduced-motion, success-error-timeout exits, retry, ARIA contract) with a pytest suite mapped to the Skeleton Loading Placeholder Test Cases resource.",
+  "type": "test-cases",
+  "topic": "ui-component-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "skeleton_states.py", "tests/__init__.py", "tests/test_skeleton_states.py"]
+}

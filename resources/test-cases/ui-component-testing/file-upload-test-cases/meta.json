@@ -1,0 +1,10 @@
+{
+  "id": "file-upload-test-cases",
+  "slug": "file-upload-test-cases",
+  "title": "File Upload Test Cases Companion",
+  "description": "DocDrop 2.3 demo upload widget (drop zone, queue, progress, cancel/retry/remove) plus a Playwright 1.48 spec covering the picker path, client-side rejection, server error states and queue cleanup.",
+  "type": "test-cases",
+  "topic": "ui-component-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "package.json", "file-upload-ui.spec.ts", "upload-demo/index.html", "upload-demo/upload.js"]
+}

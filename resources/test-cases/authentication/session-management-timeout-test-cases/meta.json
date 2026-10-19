@@ -1,0 +1,10 @@
+{
+  "id": "session-management-timeout-test-cases",
+  "slug": "session-management-timeout-test-cases",
+  "title": "Session Management and Timeout Test Cases Companion",
+  "description": "Runnable stdlib-only Python session store for the Session Management Test Cases resource: injectable clock, 30-minute idle timeout, 8-hour absolute limit, 15-minute access tokens, refresh rotation with single-flight concurrency, logout/password-change/lockout invalidation and cookie flags, covered by 16 pytest tests mapped to TC-001-TC-029.",
+  "type": "test-cases",
+  "topic": "authentication",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "session_store.py", "tests/__init__.py", "tests/test_session_store.py"]
+}

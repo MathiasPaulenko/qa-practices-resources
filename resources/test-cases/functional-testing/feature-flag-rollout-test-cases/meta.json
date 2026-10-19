@@ -1,0 +1,10 @@
+{
+  "id": "feature-flag-rollout-test-cases",
+  "slug": "feature-flag-rollout-test-cases",
+  "title": "Feature Flag Rollout Test Cases Companion",
+  "description": "Runnable stdlib-only Python flag evaluator mirroring OpenFeature-style evaluation order (enabled, prerequisites, user and segment targeting, deterministic sha256 percentage buckets) with a pytest suite mapped to TC-004 through TC-023 of the Feature Flag Rollout Test Cases resource.",
+  "type": "test-cases",
+  "topic": "functional-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "flag_eval.py", "tests/__init__.py", "tests/test_flag_eval.py", "tests/find_bucket.py"]
+}

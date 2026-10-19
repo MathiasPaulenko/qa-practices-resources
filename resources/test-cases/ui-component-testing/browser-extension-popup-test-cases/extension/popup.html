@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TabSaver</title>
+  <style>
+    body {
+      width: 360px;
+      margin: 0;
+      padding: 16px;
+      font-family: -apple-system, "Segoe UI", sans-serif;
+      font-size: 14px;
+      color: #1e293b;
+    }
+    h1 { font-size: 16px; margin: 0 0 12px; }
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 6px 8px;
+      margin-bottom: 8px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+    }
+    button {
+      padding: 8px 12px;
+      border: 0;
+      border-radius: 4px;
+      background: #2563eb;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:disabled { background: #94a3b8; cursor: not-allowed; }
+    .saved-toast { display: none; margin-top: 8px; color: #16a34a; }
+    ul { list-style: none; padding: 0; margin: 12px 0 0; max-height: 260px; overflow-y: auto; }
+    li.saved-item { padding: 6px 0; border-bottom: 1px solid #e2e8f0; }
+    li.saved-item small { color: #64748b; display: block; }
+    label.toggle { display: flex; gap: 6px; align-items: center; margin-top: 10px; font-size: 13px; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0f172a; color: #e2e8f0; }
+      input { background: #1e293b; color: #e2e8f0; border-color: #475569; }
+      li.saved-item { border-color: #334155; }
+    }
+  </style>
+</head>
+<body>
+  <h1>TabSaver</h1>
+  <input id="note" type="text" maxlength="140" placeholder="Add a note (optional)" aria-label="Note">
+  <button id="save" data-testid="save-page-btn">Save page</button>
+  <p id="toast" class="saved-toast" role="status">Saved</p>
+  <ul id="saved-list" aria-label="Saved pages"></ul>
+  <label class="toggle">
+    <input type="checkbox" id="compact-view"> Compact view
+  </label>
+  <script src="popup.js"></script>
+</body>
+</html>

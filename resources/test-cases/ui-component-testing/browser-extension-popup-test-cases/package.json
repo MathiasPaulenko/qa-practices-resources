@@ -1,0 +1,10 @@
+{
+  "name": "browser-extension-popup-test-cases",
+  "private": true,
+  "scripts": {
+    "test": "playwright test popup-persistence.spec.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}

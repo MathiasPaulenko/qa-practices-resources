@@ -1,0 +1,10 @@
+{
+  "name": "file-upload-test-cases",
+  "private": true,
+  "scripts": {
+    "test": "playwright test file-upload-ui.spec.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}

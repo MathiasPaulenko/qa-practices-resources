@@ -1,0 +1,38 @@
+{
+  "title": "API Backward Compatibility — Runnable Companion",
+  "title_es": "Compatibilidad Backward de API — Companion Ejecutable",
+  "description": "Stdlib mock server implementing the TaskFlow 2025-01 and 2026-07 contracts (header-based versioning, deprecation/sunset headers, 410 retirement) plus a pytest 8.3 suite covering the 16 backward-compatibility test cases from qapractices.com.",
+  "description_es": "Mock server stdlib que implementa los contratos TaskFlow 2025-01 y 2026-07 (versionado por header, headers de deprecación/sunset, retiro con 410) más una suite pytest 8.3 que cubre los 16 casos de prueba de compatibilidad backward de qapractices.com.",
+  "type": "test-cases",
+  "topic": "api-testing",
+  "slug": "api-backward-compatibility-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/api-backward-compatibility-test-cases/",
+    "https://qapractices.com/es/test-cases/api-backward-compatibility-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "api-backward-compatibility",
+    "api-versioning",
+    "deprecation-header",
+    "sunset-header",
+    "rfc-8594",
+    "rfc-9745",
+    "pytest",
+    "mock-server",
+    "api-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "mock_server.py",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_version_negotiation.py",
+    "tests/test_field_compatibility.py",
+    "tests/test_deprecation_sunset.py",
+    "tests/test_contract_stability.py"
+  ],
+  "created": "2026-10-19",
+  "lastUpdated": "2026-10-19"
+}

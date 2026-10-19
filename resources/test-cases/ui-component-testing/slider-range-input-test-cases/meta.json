@@ -1,0 +1,33 @@
+{
+  "title": "Slider Range Input Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Slider Range Input — Companion Ejecutable",
+  "description": "Stdlib mock of the fictional RangeSlider Pro API (products filter, slider value validation, dual-handle gap check, preferences) plus a pytest 8.3 suite and a static slider fixture for the cases on qapractices.com.",
+  "description_es": "Mock stdlib de la API ficticia de RangeSlider Pro (filtro de productos, validación de valor del slider, chequeo de gap dual-handle, preferencias) más una suite pytest 8.3 y un fixture estático de slider para los casos de qapractices.com.",
+  "type": "test-cases",
+  "topic": "ui-component-testing",
+  "slug": "slider-range-input-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/slider-range-input-test-cases/",
+    "https://qapractices.com/es/test-cases/slider-range-input-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "slider-testing",
+    "range-input-testing",
+    "dual-handle-testing",
+    "mock-server",
+    "pytest",
+    "requests"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "mock_server.py",
+    "slider.html",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_sliders_api.py"
+  ],
+  "run": "pytest tests/ -v",
+  "requirements": "Python 3.10+"
+}

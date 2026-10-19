@@ -1,0 +1,10 @@
+{
+  "id": "digital-signature-verification-test-cases",
+  "slug": "digital-signature-verification-test-cases",
+  "title": "Digital Signature Verification Test Cases Companion",
+  "description": "OpenSSL 3.x verification commands (RSA-2048, ECDSA P-256, Ed25519, detached CMS, OCSP, RFC 3161) plus a pytest suite that executes the tamper-detection, wrong-key, corrupted-signature, empty-document and curve-mismatch cases from the Digital Signature Verification Test Cases resource.",
+  "type": "test-cases",
+  "topic": "security-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "openssl-verify.sh", "tamper-detection-test.py"]
+}
