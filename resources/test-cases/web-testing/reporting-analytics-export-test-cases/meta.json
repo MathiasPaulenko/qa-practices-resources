@@ -1,0 +1,35 @@
+{
+  "title": "Reporting & Analytics Export Testing — Runnable Companion",
+  "title_es": "Testing de Exportación de Reportes — Companion Ejecutable",
+  "description": "Stdlib validators for report export artifacts (CSV BOM, row counts, filename sanitization, async status contract) plus a pytest 8.3 suite covering the export test cases on qapractices.com.",
+  "description_es": "Validadores stdlib para artefactos de exportación de reportes (BOM CSV, conteo de filas, sanitización de nombres, contrato de estado asíncrono) más una suite pytest 8.3 que cubre los casos de prueba de exportación de qapractices.com.",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "slug": "reporting-analytics-export-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/reporting-analytics-export-test-cases/",
+    "https://qapractices.com/es/test-cases/reporting-analytics-export-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "export-testing",
+    "csv-validation",
+    "utf-8-bom",
+    "filename-sanitization",
+    "async-export",
+    "pytest",
+    "stdlib"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "export_checks.py",
+    "requirements.txt",
+    "fixtures/report_q2.csv",
+    "fixtures/export_status_queued.json",
+    "fixtures/export_status_completed.json",
+    "tests/test_export_checks.py"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-20"
+}

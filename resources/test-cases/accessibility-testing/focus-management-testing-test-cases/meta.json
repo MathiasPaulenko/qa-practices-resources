@@ -1,0 +1,10 @@
+{
+  "id": "focus-management-testing-test-cases",
+  "slug": "focus-management-testing-test-cases",
+  "title": "Focus Management Test Cases Companion",
+  "description": "Runnable stdlib-only Python focus-order contract model (DOM tab sequence, positive tabindex hijack detection, skip links, modal trap and return-to-trigger, removed-node fallbacks, tabindex=-1 script focus) with a pytest suite mapped to the Focus Management Test Cases resource.",
+  "type": "test-cases",
+  "topic": "accessibility-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "focus_model.py", "tests/__init__.py", "tests/test_focus_model.py"]
+}

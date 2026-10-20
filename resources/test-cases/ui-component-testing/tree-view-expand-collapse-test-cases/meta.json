@@ -1,0 +1,34 @@
+{
+  "title": "Tree View Expand/Collapse Testing — Runnable Companion",
+  "title_es": "Testing de Vista de Árbol — Companion Ejecutable",
+  "description": "Stdlib Python model of tree view logic (expand/collapse, lazy load with retryable errors, keyboard navigation, checkbox cascade, circular-drop validation, ancestor-preserving search) plus a pytest 8.3 suite covering the test cases on qapractices.com.",
+  "description_es": "Modelo Python stdlib de la lógica de una vista de árbol (expandir/colapsar, lazy load con errores reintentables, navegación por teclado, cascade de checkboxes, validación de drops circulares, búsqueda con ancestros) más una suite pytest 8.3 que cubre los casos de prueba de qapractices.com.",
+  "type": "test-cases",
+  "topic": "ui-component-testing",
+  "slug": "tree-view-expand-collapse-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/tree-view-expand-collapse-test-cases/",
+    "https://qapractices.com/es/test-cases/tree-view-expand-collapse-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "tree-view-testing",
+    "expand-collapse",
+    "lazy-loading",
+    "keyboard-navigation",
+    "checkbox-cascade",
+    "drag-and-drop",
+    "pytest",
+    "stdlib"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "tree_model.py",
+    "requirements.txt",
+    "fixtures/tree.json",
+    "tests/test_tree_model.py"
+  ],
+  "difficulty": "advanced",
+  "lastUpdated": "2026-10-20"
+}

@@ -1,0 +1,11 @@
+id,feature,bc,dh,ci,au,et
+TC-001,Checkout payment,3,3,2,3,3
+TC-002,User login,3,2,2,3,3
+TC-007,Admin dashboard,2,3,2,2,2
+TC-003,Search results,2,1,2,3,3
+TC-005,Data export CSV,2,2,1,2,1
+TC-006,Newsletter signup,1,1,1,3,3
+TC-004,Profile update,1,1,1,2,2
+TC-008,Password reset,3,1,1,3,3
+TC-009,Cart persistence,2,1,1,3,3
+TC-010,Locale switching,1,1,1,1,2

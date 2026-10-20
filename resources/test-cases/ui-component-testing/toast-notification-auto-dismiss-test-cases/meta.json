@@ -1,0 +1,10 @@
+{
+  "id": "toast-notification-auto-dismiss-test-cases",
+  "slug": "toast-notification-auto-dismiss-test-cases",
+  "title": "Toast Notification Auto-dismiss Test Cases Companion",
+  "description": "Runnable stdlib-only Python toast-lifecycle state machine (auto-dismiss timing, pause-on-hover resume-from-remaining, stacking cap, FIFO queue, dedup, priority preemption, manual and action exits) with a pytest suite mapped to the Toast Notification Test Cases resource.",
+  "type": "test-cases",
+  "topic": "ui-component-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "toast_lifecycle.py", "tests/__init__.py", "tests/test_toast_lifecycle.py"]
+}

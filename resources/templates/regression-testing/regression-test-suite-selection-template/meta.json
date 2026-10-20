@@ -1,0 +1,27 @@
+{
+  "title": "Regression Test Suite Selection Template: Companion Scorer",
+  "title_es": "Plantilla de Selección de Suite de Regresión: Scorer Companion",
+  "description": "Stdlib Python scorer that reads a CSV of test cases rated on five 0-3 criteria and writes a tier assignment plan (T0-T3) matching the template's weighted formula.",
+  "description_es": "Script Python de stdlib que lee un CSV de casos de prueba puntuados en cinco criterios 0-3 y escribe un plan de asignación de tiers (T0-T3) con la fórmula ponderada de la plantilla.",
+  "type": "templates",
+  "topic": "regression-testing",
+  "slug": "regression-test-suite-selection-template",
+  "source_urls": [
+    "https://qapractices.com/templates/regression-test-suite-selection-template/",
+    "https://qapractices.com/es/templates/regression-test-suite-selection-template/"
+  ],
+  "language": "python",
+  "tags": [
+    "regression-testing",
+    "test-selection",
+    "risk-based-testing",
+    "pytest",
+    "csv",
+    "template"
+  ],
+  "files": [
+    "regression_selector.py",
+    "test_cases.csv",
+    "tests/test_selector.py"
+  ]
+}

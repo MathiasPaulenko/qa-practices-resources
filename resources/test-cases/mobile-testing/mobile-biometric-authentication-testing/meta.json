@@ -1,0 +1,10 @@
+{
+  "id": "mobile-biometric-authentication-testing",
+  "slug": "mobile-biometric-authentication-testing",
+  "title": "Mobile Biometric Authentication Testing Companion",
+  "description": "Runnable stdlib-only Python model of the biometric auth state machine from the Mobile Biometric Authentication Test Cases resource: match attempts, OS lockout after five failures, device credential fallback, enrollment-change key invalidation and session expiry, covered by 16 pytest tests mapped to TC-001-TC-010.",
+  "type": "test-cases",
+  "topic": "mobile-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "biometric_auth.py", "tests/__init__.py", "tests/test_biometric_auth.py"]
+}

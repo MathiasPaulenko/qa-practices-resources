@@ -1,0 +1,24 @@
+[
+  {
+    "id": "docs",
+    "label": "Documents",
+    "children": [
+      {
+        "id": "work",
+        "label": "Work",
+        "children": [
+          {
+            "id": "reports",
+            "label": "Reports",
+            "children": [
+              { "id": "q1", "label": "report-q1.pdf" },
+              { "id": "q2", "label": "report-q2.pdf" }
+            ]
+          }
+        ]
+      },
+      { "id": "personal", "label": "Personal" },
+      { "id": "projects", "label": "Projects", "lazy": true }
+    ]
+  }
+]

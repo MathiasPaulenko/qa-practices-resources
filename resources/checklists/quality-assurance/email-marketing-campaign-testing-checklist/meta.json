@@ -1,0 +1,30 @@
+{
+  "title": "Email Marketing Campaign Testing Checklist — Runnable Companion",
+  "title_es": "Checklist de Pruebas de Campañas de Email Marketing — Compañero Ejecutable",
+  "description": "Dependency-free Node script for pre-send checks on exported campaign HTML: unresolved merge tags, links without UTMs, missing alt text, Gmail clipping, and absent unsubscribe.",
+  "description_es": "Script de Node sin dependencias para verificaciones pre-envío sobre el HTML de campaña exportado: merge tags sin resolver, enlaces sin UTM, alt text faltante, clipping de Gmail y unsubscribe ausente.",
+  "type": "checklists",
+  "topic": "quality-assurance",
+  "slug": "email-marketing-campaign-testing-checklist",
+  "source_urls": [
+    "https://qapractices.com/checklists/email-marketing-campaign-testing-checklist/",
+    "https://qapractices.com/es/checklists/email-marketing-campaign-testing-checklist/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "email-marketing",
+    "email-testing",
+    "deliverability",
+    "utm",
+    "merge-tags",
+    "pre-send-checks"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "check-email-html.js",
+    "meta.json"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-20"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "file-compression-download-test-cases",
+  "slug": "file-compression-download-test-cases",
+  "title": "File Compression & Download Test Cases Companion",
+  "description": "Runnable stdlib-only Python lab for the File Compression & Download Test Cases resource: deterministic zip creation, manifest SHA-256 verification, HTTP Range semantics (206/416) and zip-bomb/path-traversal guards, covered by pytest tests mapped to TC-001-TC-030.",
+  "type": "test-cases",
+  "topic": "functional-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "archive_lab.py", "tests/__init__.py", "tests/test_downloads.py"]
+}

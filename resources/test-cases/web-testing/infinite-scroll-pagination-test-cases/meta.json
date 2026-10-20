@@ -1,0 +1,10 @@
+{
+  "slug": "infinite-scroll-pagination-test-cases",
+  "title": "Infinite Scroll Pagination Test Cases: TaskFlow Example",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "difficulty": "intermediate",
+  "tools": ["pytest"],
+  "description": "Pure-stdlib paginated feed simulator: PaginatedAPI + ScrollFeed model the infinite-scroll lifecycle — page fetches, client dedupe by id, hasMore termination, error/retry — with pytest cases mapped to the QAPractices test cases.",
+  "source": "https://qapractices.com/test-cases/infinite-scroll-pagination-test-cases/"
+}

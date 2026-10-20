@@ -1,0 +1,10 @@
+{
+  "slug": "cors-preflight-request-test-cases",
+  "title": "CORS Preflight Request Test Cases: Headers, Methods",
+  "type": "test-cases",
+  "topic": "api-testing",
+  "difficulty": "advanced",
+  "tools": ["pytest"],
+  "description": "Pure-stdlib CORS preflight evaluator: models the browser checks for simple requests, origin tuples, method/header allow-lists, credentials vs wildcard, null origin and Max-Age caching — runnable pytest suite mapped to the QAPractices test cases.",
+  "source": "https://qapractices.com/test-cases/cors-preflight-request-test-cases/"
+}

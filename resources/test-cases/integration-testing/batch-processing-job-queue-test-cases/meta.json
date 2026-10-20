@@ -1,0 +1,27 @@
+{
+  "title": "Batch Processing and Job Queue Test Cases: Companion Lab",
+  "title_es": "Casos de Prueba de Procesamiento por Lotes y Colas: Lab Companion",
+  "description": "In-memory stdlib job queue modeling the full lifecycle (queued, processing, retrying, dead_lettered, cancelled) with idempotency keys, retries, DLQ and replay. Pytest suite mirrors TC-001 through TC-037.",
+  "description_es": "Cola de jobs en memoria solo stdlib que modela el ciclo de vida completo (queued, processing, retrying, dead_lettered, cancelled) con claves de idempotencia, reintentos, DLQ y replay. La suite pytest replica TC-001 a TC-037.",
+  "type": "test-cases",
+  "topic": "integration-testing",
+  "slug": "batch-processing-job-queue-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/batch-processing-job-queue-test-cases/",
+    "https://qapractices.com/es/test-cases/batch-processing-job-queue-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "batch-processing",
+    "job-queue",
+    "dead-letter-queue",
+    "idempotency",
+    "retry-logic",
+    "pytest",
+    "test-cases"
+  ],
+  "files": [
+    "job_queue.py",
+    "tests/test_job_queue.py"
+  ]
+}

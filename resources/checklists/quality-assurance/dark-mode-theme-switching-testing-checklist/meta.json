@@ -1,0 +1,30 @@
+{
+  "title": "Dark Mode and Theme Switching Testing Checklist — Runnable Companion",
+  "title_es": "Checklist de Pruebas de Dark Mode y Cambio de Tema — Compañero Ejecutable",
+  "description": "Playwright 1.48+ spec covering theme resolution order, persistence, FOIT detection, and toggle behavior for dark mode implementations.",
+  "description_es": "Spec de Playwright 1.48+ que cubre orden de resolución del tema, persistencia, detección de FOIT y comportamiento del toggle en implementaciones de dark mode.",
+  "type": "checklists",
+  "topic": "quality-assurance",
+  "slug": "dark-mode-theme-switching-testing-checklist",
+  "source_urls": [
+    "https://qapractices.com/checklists/dark-mode-theme-switching-testing-checklist/",
+    "https://qapractices.com/es/checklists/dark-mode-theme-switching-testing-checklist/"
+  ],
+  "language": "typescript",
+  "tags": [
+    "dark-mode",
+    "theme-switching",
+    "playwright",
+    "foit",
+    "prefers-color-scheme",
+    "visual-regression"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "dark-mode.spec.ts",
+    "meta.json"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-20"
+}
