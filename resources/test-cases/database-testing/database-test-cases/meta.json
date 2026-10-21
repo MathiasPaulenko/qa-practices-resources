@@ -1,0 +1,16 @@
+{
+  "title": "Database Test Cases: SQL, Integrity & Performance",
+  "title_es": "Casos de Prueba de Base de Datos: Integridad y Rendimiento",
+  "description": "Runnable companion for the 35-case database test suite: seed schema, validation queries and a parameterized injection test.",
+  "description_es": "Companion ejecutable de la suite de 35 casos de base de datos: esquema de semilla, consultas de validación y test de inyección parametrizada.",
+  "type": "test-cases",
+  "topic": "database-testing",
+  "slug": "database-test-cases",
+  "language": "en",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-21",
+  "sourceUrl": "https://qapractices.com/test-cases/database-test-cases",
+  "sourceUrl_es": "https://qapractices.com/es/test-cases/database-test-cases",
+  "items": 35,
+  "formats": ["sql", "py", "md"]
+}

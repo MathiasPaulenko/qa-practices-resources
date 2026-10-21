@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Badge Fixture — Notification Center</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 24px; }
+  .bell { position: relative; display: inline-block; font-size: 28px; }
+  .badge-count {
+    position: absolute; top: -6px; right: -10px;
+    min-width: 18px; height: 18px; padding: 0 4px;
+    border-radius: 9px; background: #dc2626; color: #fff;
+    font-size: 11px; font-weight: bold; line-height: 18px;
+    text-align: center;
+  }
+  .badge-count.pulse { animation: pulse 300ms ease-out; }
+  @keyframes pulse { 50% { transform: scale(1.3); } }
+  @media (prefers-reduced-motion: reduce) { .badge-count.pulse { animation: none; } }
+  ul { margin-top: 16px; padding-left: 0; list-style: none; }
+  li { padding: 6px 8px; border-bottom: 1px solid #e2e8f0; }
+  li.unread { font-weight: bold; }
+</style>
+</head>
+<body>
+
+<span class="bell">
+  <button id="bell" aria-label="Notifications" aria-haspopup="true">🔔</button>
+  <span id="badge" data-testid="badge-count" class="badge-count" hidden></span>
+</span>
+<button id="markAll">Mark all as read</button>
+<ul id="list" aria-label="Notification list"></ul>
+
+<script>
+  // Minimal client model mirroring badge_engine.py:
+  // server holds the truth, each tab holds a rendered view, and a
+  // BroadcastChannel keeps open tabs on the same count.
+  const state = { unread: 0, items: [] };
+  const seen = new Set();
+  const chan = new BroadcastChannel('notifications');
+  const badge = document.getElementById('badge');
+  const list = document.getElementById('list');
+
+  function render() {
+    const n = state.unread;
+    badge.hidden = n === 0;
+    badge.textContent = n > 99 ? '99+' : String(n);
+    badge.classList.remove('pulse');
+    void badge.offsetWidth;
+    badge.classList.add('pulse');
+    document.getElementById('bell')
+      .setAttribute('aria-label', n + ' unread notifications');
+    list.innerHTML = '';
+    state.items.forEach(i => {
+      const li = document.createElement('li');
+      li.textContent = i.text;
+      if (!i.read) li.className = 'unread';
+      list.appendChild(li);
+    });
+  }
+
+  function push(id, text) {
+    if (seen.has(id)) return;      // dedup by message id
+    seen.add(id);
+    state.items.push({ id, text, read: false });
+    state.unread++;
+    render();
+    chan.postMessage('refresh');
+  }
+
+  window.pushNotification = push;
+  window.addEventListener('notif:push', e => push(e.detail.id, e.detail.text));
+  chan.onmessage = () => render(); // peer tab changed state — re-render view
+
+  document.getElementById('markAll').addEventListener('click', () => {
+    state.items.forEach(i => (i.read = true));
+    state.unread = 0;
+    render();
+    chan.postMessage('refresh');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "title": "Tooltip Hover Focus Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Tooltips Hover/Focus — Companion Ejecutable",
+  "description": "Stdlib Python model of the FormPilot tooltip lifecycle (show/hide delays, Escape suppression, auto-flip positioning, ARIA contract) plus a pytest 8.3 suite and a static HTML fixture for the cases on qapractices.com.",
+  "description_es": "Modelo en Python stdlib del ciclo de vida del tooltip de FormPilot (retardos de aparición/ocultación, supresión por Escape, posicionamiento auto-flip, contrato ARIA) más una suite pytest 8.3 y un fixture HTML estático para los casos de qapractices.com.",
+  "type": "test-cases",
+  "topic": "ui-component-testing",
+  "slug": "tooltip-hover-focus-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/tooltip-hover-focus-test-cases/",
+    "https://qapractices.com/es/test-cases/tooltip-hover-focus-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "tooltip-testing",
+    "ui-component-testing",
+    "accessibility-testing",
+    "auto-flip-positioning",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "tooltip_engine.py",
+    "tooltip.html",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_tooltip_engine.py"
+  ],
+  "run": "pytest tests/ -v",
+  "requirements": "Python 3.10+"
+}

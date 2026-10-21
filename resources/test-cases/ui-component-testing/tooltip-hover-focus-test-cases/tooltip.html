@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FormPilot — tooltip test fixture</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 720px; margin: 2rem auto; }
+  .row { margin: 3rem 0; }
+  .trig { cursor: default; }
+  .sidebar { width: 160px; white-space: nowrap; overflow: hidden;
+             text-overflow: ellipsis; border: 1px solid #e5e7eb; padding: .5rem; }
+  .tooltip { position: fixed; display: none; max-width: 240px; background: #111827;
+             color: #f9fafb; padding: 6px 10px; border-radius: 6px; font-size: 12.5px;
+             z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,.25); }
+  .tooltip::after { content: ""; position: absolute; border: 5px solid transparent; }
+  .tooltip[data-side="top"]::after { top: 100%; left: 50%; margin-left: -5px; border-top-color: #111827; }
+  .tooltip[data-side="bottom"]::after { bottom: 100%; left: 50%; margin-left: -5px; border-bottom-color: #111827; }
+  .tooltip[data-side="left"]::after { left: 100%; top: 50%; margin-top: -5px; border-left-color: #111827; }
+  .tooltip[data-side="right"]::after { right: 100%; top: 50%; margin-top: -5px; border-right-color: #111827; }
+  @media (prefers-reduced-motion: no-preference) {
+    .tooltip { transition: opacity .2s; }
+  }
+  .edge { position: fixed; top: 8px; left: 8px; }
+  .right-edge { position: fixed; top: 50%; right: 10px; }
+  button[disabled] + .tip-wrap { display: inline-block; }
+</style>
+</head>
+<body>
+<h1>FormPilot — tooltip test fixture</h1>
+<p>Manual fixture for the tooltip test cases: showDelay=500ms, hideDelay=300ms,
+   position=auto, maxWidth=240px. Open in any browser or point Playwright at it.</p>
+
+<div class="row">
+  <label>Password rules
+    <button class="trig" data-tip="Required field — users can't submit without it"
+            aria-label="Field help" type="button">ⓘ</button>
+  </label>
+</div>
+
+<div class="row">
+  <button class="trig" data-tip="Delete this field" aria-label="Delete" type="button">🗑</button>
+  <button class="trig" data-tip="Duplicate this field" aria-label="Duplicate" type="button">⧉</button>
+</div>
+
+<div class="row">
+  <span class="tip-wrap" data-tip="3 validations pending" tabindex="0"
+        role="button" aria-label="Publish — disabled, 3 validations pending">
+    <button disabled type="button">Publish</button>
+  </span>
+</div>
+
+<div class="row">
+  <div class="sidebar trig" data-tip="Allowed file extensions for upload">Allowed file ext…</div>
+</div>
+
+<div class="row">
+  <button class="trig edge" data-tip="Flips to bottom — no room above"
+          aria-label="Top edge help" type="button">ⓘ</button>
+  <button class="trig right-edge" data-tip="Flips to left — no room on the right"
+          aria-label="Right edge help" type="button">ⓘ</button>
+</div>
+
+<script>
+const SHOW_DELAY = 500, HIDE_DELAY = 300, GAP = 4;
+let tip = null, showT = null, hideT = null, activeTrig = null, suppress = false;
+let uid = 0;
+
+function mount(trig) {
+  if (!trig.dataset.tip) return;               // TC-016: empty content, no mount
+  if (!tip) {
+    tip = document.createElement('div');
+    tip.className = 'tooltip';
+    tip.id = 'fp-tip-' + (++uid);
+    tip.setAttribute('role', 'tooltip');
+    tip.innerHTML = trig.dataset.tip;
+    tip.addEventListener('pointerenter', () => clearTimeout(hideT));
+    tip.addEventListener('pointerleave', () => scheduleHide());
+    document.body.appendChild(tip);
+  } else {
+    tip.innerHTML = trig.dataset.tip;
+  }
+  trig.setAttribute('aria-describedby', tip.id);
+  position(trig);
+  tip.style.display = 'block';
+  activeTrig = trig;
+}
+
+function position(trig) {
+  const r = trig.getBoundingClientRect();
+  tip.style.display = 'block';
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  const trySides = ['top', 'bottom', 'left', 'right'];
+  for (const side of trySides) {
+    let x, y;
+    const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    if (side === 'top')    { x = cx - w / 2; y = r.top - GAP - h; }
+    if (side === 'bottom') { x = cx - w / 2; y = r.bottom + GAP; }
+    if (side === 'left')   { x = r.left - GAP - w; y = cy - h / 2; }
+    if (side === 'right')  { x = r.right + GAP; y = cy - h / 2; }
+    if (x >= 0 && y >= 0 && x + w <= innerWidth && y + h <= innerHeight) {
+      tip.dataset.side = side;
+      tip.style.left = x + 'px'; tip.style.top = y + 'px';
+      return;
+    }
+  }
+  tip.dataset.side = 'top';
+  tip.style.left = Math.max(0, Math.min(innerWidth - w, r.left + r.width / 2 - w / 2)) + 'px';
+  tip.style.top = Math.max(0, Math.min(innerHeight - h, r.top - GAP - h)) + 'px';
+}
+
+function unmount() {
+  if (tip) {
+    tip.remove();
+    tip = null;
+  }
+  if (activeTrig) activeTrig.removeAttribute('aria-describedby');
+  activeTrig = null;
+}
+
+function scheduleShow(trig) {
+  clearTimeout(hideT); clearTimeout(showT);
+  if (suppress) return;
+  showT = setTimeout(() => mount(trig), SHOW_DELAY);
+}
+
+function scheduleHide() {
+  clearTimeout(showT); clearTimeout(hideT);
+  if (!tip) return;
+  hideT = setTimeout(unmount, HIDE_DELAY);
+}
+
+function instantExit() {
+  clearTimeout(showT); clearTimeout(hideT);
+  unmount();
+}
+
+document.querySelectorAll('[data-tip]').forEach(t => {
+  t.addEventListener('pointerenter', () => scheduleShow(t));
+  t.addEventListener('pointerleave', () => { suppress = false; tip ? scheduleHide() : clearTimeout(showT); });
+  t.addEventListener('focus', () => { suppress = false; scheduleShow(t); });
+  t.addEventListener('blur', () => tip ? scheduleHide() : clearTimeout(showT));
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && tip) {
+    e.stopPropagation();        // tooltip closes; the modal behind stays open
+    suppress = true;
+    instantExit();
+  }
+}, true);
+
+document.addEventListener('scroll', instantExit, true);
+</script>
+</body>
+</html>
