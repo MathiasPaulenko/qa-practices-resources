@@ -1,0 +1,75 @@
+# Argo Rollouts 1.8 — canary rollout matching the checklist stages
+# Requires: Argo Rollouts 1.8 + Istio 1.27 VirtualService "payments-api"
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: payments-api
+  namespace: prod
+spec:
+  replicas: 8
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: payments-api
+  strategy:
+    canary:
+      canaryService: payments-api-canary
+      stableService: payments-api-stable
+      trafficRouting:
+        istio:
+          virtualService:
+            name: payments-api
+      # Stage gates mirror the checklist: 5 → 10 → 25 → 50 → 100
+      steps:
+        - setWeight: 5
+        - pause: { duration: 30m }
+        - analysis:
+            templates:
+              - templateName: payments-api-health
+            args:
+              - name: stage
+                value: "1"
+        - setWeight: 10
+        - pause: { duration: 1h }
+        - analysis:
+            templates:
+              - templateName: payments-api-health
+            args:
+              - name: stage
+                value: "2"
+        - setWeight: 25
+        - pause: { duration: 2h }
+        - analysis:
+            templates:
+              - templateName: payments-api-health
+            args:
+              - name: stage
+                value: "3"
+        - setWeight: 50
+        - pause: { duration: 2h }
+        - analysis:
+            templates:
+              - templateName: payments-api-health
+            args:
+              - name: stage
+                value: "4"
+        - setWeight: 100
+  template:
+    metadata:
+      labels:
+        app: payments-api
+    spec:
+      containers:
+        - name: payments-api
+          image: registry.local/payments-api:3.3.0
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8080
+            periodSeconds: 5
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi

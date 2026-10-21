@@ -1,0 +1,33 @@
+{
+  "title": "Canary Release Testing Checklist — Runnable Companion",
+  "title_es": "Checklist de Testing de Canary Release — Companion Ejecutable",
+  "description": "Argo Rollouts 1.8 manifests and a Node gate evaluator implementing the stage-gate rules from the QAPractices canary release checklist: baseline deltas, absolute floors, minimum request volume and fail-closed missing data.",
+  "description_es": "Manifiestos de Argo Rollouts 1.8 y evaluador de gates en Node que implementa las reglas por etapa del checklist de canary release de QAPractices: deltas contra baseline, suelos absolutos, volumen mínimo de peticiones y datos ausentes = fallo.",
+  "type": "templates",
+  "topic": "release-management",
+  "slug": "canary-release-testing-checklist-template",
+  "source_urls": [
+    "https://qapractices.com/templates/canary-release-testing-checklist-template/",
+    "https://qapractices.com/es/templates/canary-release-testing-checklist-template/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "canary-deployment",
+    "argo-rollouts",
+    "progressive-delivery",
+    "rollback",
+    "prometheus",
+    "kubernetes",
+    "node"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "rollout.yaml",
+    "analysis-template.yaml",
+    "evaluate-stage.mjs",
+    "tests/evaluate-stage.test.mjs"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-21"
+}

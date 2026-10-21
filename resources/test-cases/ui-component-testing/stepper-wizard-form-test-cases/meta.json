@@ -1,0 +1,30 @@
+{
+  "title": "Stepper Wizard Form — Runnable Companion",
+  "title_es": "Stepper Wizard Form — Companion Ejecutable",
+  "description": "Dependency-free stepper wizard state machine (per-step validation gates, conditional skip logic, back-nav data retention, edit-from-review jumps, prerequisite-gated deep links, draft serialize/restore with TTL, idempotent submit) plus a node:test suite mapping the stepper form cases on qapractices.com.",
+  "description_es": "Máquina de estados de stepper sin dependencias (gates de validación por paso, lógica de salto condicional, retención de datos al volver, saltos de edición desde revisión, deep links con gate de prerrequisitos, serialize/restore de borrador con TTL, envío idempotente) más una suite node:test que mapea los casos de stepper de qapractices.com.",
+  "type": "test-cases",
+  "topic": "ui-component-testing",
+  "slug": "stepper-wizard-form-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/stepper-wizard-form-test-cases/",
+    "https://qapractices.com/es/test-cases/stepper-wizard-form-test-cases/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "stepper-wizard",
+    "multi-step-form",
+    "skip-logic",
+    "state-persistence",
+    "wizard-testing",
+    "node-test"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "stepper-form.mjs",
+    "tests/stepper-form.test.mjs"
+  ],
+  "run": "node --test tests/*.test.mjs",
+  "requirements": "Node.js 20+"
+}

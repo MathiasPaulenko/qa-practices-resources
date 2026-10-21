@@ -1,0 +1,30 @@
+{
+  "title": "Time-Dependent Testing — Runnable Companion",
+  "title_es": "Testing Dependiente del Tiempo — Companion Ejecutable",
+  "description": "Dependency-free time-testing primitives in Node.js: injectable fake clock, TTL cache with absolute vs sliding expiration, month-end cron rules, deadline propagation, and real DST fold detection against America/New_York — plus a node:test suite covering every boundary the guide describes.",
+  "description_es": "Primitivos de testing de tiempo sin dependencias en Node.js: reloj falso inyectable, caché TTL con expiración absolute vs sliding, reglas cron de fin de mes, propagación de deadline y detección real del fold de DST contra America/New_York — más una suite node:test que cubre cada límite que describe la guía.",
+  "type": "documentation",
+  "topic": "functional-testing",
+  "slug": "time-dependent-testing",
+  "source_urls": [
+    "https://qapractices.com/documentation/time-dependent-testing/",
+    "https://qapractices.com/es/documentation/time-dependent-testing/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "time-testing",
+    "ttl-cache",
+    "fake-clock",
+    "cron",
+    "dst",
+    "node-test"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "time-testing.mjs",
+    "tests/time-testing.test.mjs"
+  ],
+  "run": "node --test tests/time-testing.test.mjs",
+  "requirements": "Node.js 20+"
+}

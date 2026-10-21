@@ -1,0 +1,29 @@
+{
+  "title": "Cookie Consent Banner Testing — Runnable Companion",
+  "title_es": "Testing del Banner de Consentimiento — Companion Ejecutable",
+  "description": "Dependency-free consent-gate model (vendor registry per category, versioned consent scope, GPC auto-reject, serialization for session persistence) plus a node:test suite covering banner display, script gating, granular categories, withdrawal, GPC, version-bump re-prompts and new-vendor scope — mapping the cases on qapractices.com.",
+  "description_es": "Modelo de consent-gate sin dependencias (registro de vendors por categoría, scope de consentimiento versionado, auto-rechazo GPC, serialización para persistencia de sesión) más una suite node:test cubriendo display del banner, gateo de scripts, categorías granulares, retiro, GPC, re-prompts por bump de versión y scope de vendors nuevos — mapeando los casos de qapractices.com.",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "slug": "cookie-consent-banner-testing-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/cookie-consent-banner-testing-test-cases/",
+    "https://qapractices.com/es/test-cases/cookie-consent-banner-testing-test-cases/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "consent-banner",
+    "cookie-consent",
+    "gdpr",
+    "gpc",
+    "node-test"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "consent-gate.mjs",
+    "tests/consent-gate.test.mjs"
+  ],
+  "run": "node --test tests/*.test.mjs",
+  "requirements": "Node.js 20+"
+}

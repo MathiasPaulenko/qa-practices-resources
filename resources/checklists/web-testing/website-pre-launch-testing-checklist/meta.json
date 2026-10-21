@@ -1,0 +1,31 @@
+{
+  "title": "Website Pre-Launch Testing Checklist — Runnable Companion",
+  "title_es": "Checklist de Pruebas Pre-Lanzamiento — Companion Ejecutable",
+  "description": "Zero-dependency Node checker running the go-live items from the QAPractices pre-launch checklist against a URL: security headers, noindex leaks, meta tags, canonical and robots.txt, with High/Medium/Low risk gating.",
+  "description_es": "Verificador en Node sin dependencias que ejecuta los ítems de go-live del checklist de pre-lanzamiento de QAPractices contra una URL: headers de seguridad, fugas de noindex, meta tags, canonical y robots.txt, con gateo por riesgo High/Medium/Low.",
+  "type": "checklists",
+  "topic": "web-testing",
+  "slug": "website-pre-launch-testing-checklist",
+  "source_urls": [
+    "https://qapractices.com/checklists/website-pre-launch-testing-checklist/",
+    "https://qapractices.com/es/checklists/website-pre-launch-testing-checklist/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "pre-launch",
+    "go-live",
+    "seo-audit",
+    "security-headers",
+    "noindex",
+    "robots-txt",
+    "node"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "pre-launch-check.mjs",
+    "tests/pre-launch-check.test.mjs"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-21"
+}

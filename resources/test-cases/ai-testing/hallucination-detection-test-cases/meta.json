@@ -1,0 +1,31 @@
+{
+  "title": "Hallucination Detection Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Detección de Alucinaciones — Companion Ejecutable",
+  "description": "Stdlib Python model of the claim-level hallucination detection pipeline (atomic claim extraction, source coverage scoring, numeric contradiction checks, ship-or-review decision) plus a pytest 8.3 suite mapping the cases on qapractices.com.",
+  "description_es": "Modelo en Python stdlib del pipeline de detección de alucinaciones a nivel de afirmación (extracción de afirmaciones atómicas, score de cobertura contra fuentes, checks de contradicción numérica, decisión ship/review) más una suite pytest 8.3 que mapea los casos de qapractices.com.",
+  "type": "test-cases",
+  "topic": "ai-testing",
+  "slug": "hallucination-detection-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/hallucination-detection-test-cases/",
+    "https://qapractices.com/es/test-cases/hallucination-detection-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "hallucination-testing",
+    "ai-testing",
+    "rag-fidelity",
+    "source-attribution",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "claim_verifier.py",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_claim_verifier.py"
+  ],
+  "run": "pytest tests/ -v",
+  "requirements": "Python 3.10+"
+}

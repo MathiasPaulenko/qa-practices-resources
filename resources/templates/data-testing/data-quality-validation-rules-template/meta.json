@@ -1,0 +1,30 @@
+{
+  "title": "Data Quality Validation Rules Template — Runnable Companion",
+  "title_es": "Plantilla de Reglas de Validación de Calidad de Datos — Companion Ejecutable",
+  "description": "Dependency-free Python runner that executes the eight check types from the data quality rules register (completeness, uniqueness, format, range, referential integrity, consistency, business rules, weighted DQ score, zero-row load gate) against an in-memory SQLite dataset, plus a unittest suite verifying every check detects its seeded defect.",
+  "description_es": "Runner Python sin dependencias que ejecuta los ocho tipos de checks del registro de reglas de calidad de datos (completitud, unicidad, formato, rango, integridad referencial, consistencia, reglas de negocio, score DQ ponderado, gate de carga cero filas) sobre un dataset SQLite en memoria, más una suite unittest que verifica que cada check detecta su defecto sembrado.",
+  "type": "templates",
+  "topic": "data-testing",
+  "slug": "data-quality-validation-rules-template",
+  "source_urls": [
+    "https://qapractices.com/templates/data-quality-validation-rules-template/",
+    "https://qapractices.com/es/templates/data-quality-validation-rules-template/"
+  ],
+  "language": "python",
+  "tags": [
+    "data-quality",
+    "validation-rules",
+    "sqlite",
+    "etl-testing",
+    "data-testing",
+    "unittest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "dq_runner.py",
+    "tests/test_dq_runner.py"
+  ],
+  "run": "python -m unittest discover tests -v",
+  "requirements": "Python 3.9+ (standard library only)"
+}

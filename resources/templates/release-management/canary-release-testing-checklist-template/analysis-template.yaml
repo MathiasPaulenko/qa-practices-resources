@@ -1,0 +1,53 @@
+# Argo Rollouts AnalysisTemplate — health gate per stage
+# successCondition fails the gate when: missing data, error rate above
+# baseline + 0.5%, or p95 latency above baseline + 50ms.
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: payments-api-health
+  namespace: prod
+spec:
+  args:
+    - name: stage
+  metrics:
+    - name: canary-request-volume
+      interval: 1m
+      count: 5
+      # Missing data must count as a failed gate, never as a pass.
+      successCondition: result[0] >= 1000
+      failureLimit: 1
+      provider:
+        prometheus:
+          address: http://prometheus.prod:9090
+          query: |
+            sum(rate(http_requests_total{app="payments-api",version="canary"}[5m])) * 300
+    - name: error-rate-delta
+      interval: 1m
+      count: 5
+      # Canary error rate may exceed the stable baseline by at most 0.5%.
+      successCondition: result[0] <= 0.005
+      failureLimit: 2
+      provider:
+        prometheus:
+          address: http://prometheus.prod:9090
+          query: |
+            sum(rate(http_requests_total{app="payments-api",version="canary",status=~"5.."}[5m]))
+              /
+            sum(rate(http_requests_total{app="payments-api",version="canary"}[5m]))
+              -
+            sum(rate(http_requests_total{app="payments-api",version="stable",status=~"5.."}[5m]))
+              /
+            sum(rate(http_requests_total{app="payments-api",version="stable"}[5m]))
+    - name: p95-latency-delta
+      interval: 1m
+      count: 5
+      # p95 delta in seconds (50ms = 0.05s).
+      successCondition: result[0] <= 0.05
+      failureLimit: 2
+      provider:
+        prometheus:
+          address: http://prometheus.prod:9090
+          query: |
+            histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{app="payments-api",version="canary"}[5m])) by (le))
+              -
+            histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{app="payments-api",version="stable"}[5m])) by (le))

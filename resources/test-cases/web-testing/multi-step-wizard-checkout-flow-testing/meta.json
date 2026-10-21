@@ -1,0 +1,29 @@
+{
+  "title": "Multi-Step Wizard / Checkout Flow — Runnable Companion",
+  "title_es": "Wizard Multi-Paso / Flujo de Checkout — Companion Ejecutable",
+  "description": "Dependency-free wizard state machine (per-step validation gates, back-nav data retention, draft serialize/restore, server-side prerequisite gating, idempotent submit) plus a node:test suite mapping the checkout-flow cases on qapractices.com.",
+  "description_es": "Máquina de estados de wizard sin dependencias (gates de validación por paso, retención de datos al volver, serialize/restore de borrador, gate de prerrequisitos del lado del servidor, submit idempotente) más una suite node:test que mapea los casos de flujo de checkout de qapractices.com.",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "slug": "multi-step-wizard-checkout-flow-testing",
+  "source_urls": [
+    "https://qapractices.com/test-cases/multi-step-wizard-checkout-flow-testing/",
+    "https://qapractices.com/es/test-cases/multi-step-wizard-checkout-flow-testing/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "checkout-flow",
+    "multi-step-form",
+    "state-persistence",
+    "wizard-testing",
+    "node-test"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "wizard-flow.mjs",
+    "tests/wizard-flow.test.mjs"
+  ],
+  "run": "node --test tests/*.test.mjs",
+  "requirements": "Node.js 20+"
+}
