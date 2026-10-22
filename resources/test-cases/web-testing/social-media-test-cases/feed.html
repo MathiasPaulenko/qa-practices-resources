@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Social Feed Fixture</title>
+</head>
+<body>
+<article data-testid="post" data-post-id="p-1042">
+  <p>Shipping v2.4 today — changelog in comments</p>
+  <button id="like" aria-label="Like">♡ Like</button>
+  <span data-testid="like-count">0</span>
+  <form id="comment-form">
+    <input id="comment-input" placeholder="Write a comment" aria-label="Write a comment">
+    <button type="submit">Comment</button>
+  </form>
+  <ul id="comments"></ul>
+  <p id="post-error" hidden>This post is no longer available.</p>
+</article>
+<script>
+const likeBtn = document.getElementById('like');
+const count = document.querySelector('[data-testid="like-count"]');
+const liked = { p1042: false };
+
+// Likes are deduped on an event flag, not on render — mirrors the server
+// contract of "one like per user per post".
+likeBtn.addEventListener('click', async () => {
+  if (liked.p1042) return;
+  const res = await fetch('/api/posts/p-1042/like', { method: 'POST' })
+    .catch(() => ({ ok: true }));
+  if (!res.ok && res.status !== undefined) return;
+  liked.p1042 = true;
+  count.textContent = '1';
+  likeBtn.textContent = '♥ Liked';
+});
+
+document.getElementById('comment-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const input = document.getElementById('comment-input');
+  const res = await fetch('/api/posts/p-1042', { method: 'GET' })
+    .catch(() => ({ status: 200 }));
+  if (res.status === 410 || res.status === 404) {
+    document.getElementById('post-error').hidden = false;
+    return;
+  }
+  const li = document.createElement('li');
+  li.textContent = input.value;
+  document.getElementById('comments').appendChild(li);
+  input.value = '';
+});
+</script>
+</body>
+</html>

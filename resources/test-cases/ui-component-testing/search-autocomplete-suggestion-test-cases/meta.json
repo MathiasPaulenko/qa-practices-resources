@@ -1,0 +1,32 @@
+{
+  "title": "Search Autocomplete Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Autocompletado — Companion Ejecutable",
+  "description": "Stdlib Python model of a debounced autocomplete (min-length gate, TTL cache, latest-query-wins guard, dedup, recents, highlight) plus a pytest 8.3 suite and a static HTML fixture implementing the real ARIA combobox for the cases on qapractices.com.",
+  "description_es": "Modelo en Python stdlib de un autocompletado con debounce (puerta de longitud mínima, caché TTL, guardia última-query-gana, dedup, recientes, resaltado) más una suite pytest 8.3 y un fixture HTML estático que implementa el combobox ARIA real para los casos de qapractices.com.",
+  "type": "test-cases",
+  "topic": "ui-component-testing",
+  "slug": "search-autocomplete-suggestion-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/search-autocomplete-suggestion-test-cases/",
+    "https://qapractices.com/es/test-cases/search-autocomplete-suggestion-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "autocomplete-testing",
+    "debounce",
+    "ui-component-testing",
+    "aria-combobox",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "autocomplete_engine.py",
+    "autocomplete.html",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_autocomplete_engine.py"
+  ],
+  "run": "pytest tests/ -v",
+  "requirements": "Python 3.10+"
+}

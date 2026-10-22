@@ -1,0 +1,10 @@
+{
+  "id": "content-moderation-filter-test-cases",
+  "slug": "content-moderation-filter-test-cases",
+  "title": "Content Moderation Filter Test Cases Companion",
+  "description": "Runnable pytest suite for the Content Moderation Filter Test Cases resource: a rule-based reference moderate() with NFKC normalization, homoglyph and leet-speak handling, word-boundary matching — covering profanity detection, Scunthorpe false positives, bypass attempts and threshold determinism across 24 tests.",
+  "type": "test-cases",
+  "topic": "functional-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "tests/conftest.py", "tests/test_content_moderation.py"]
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autocomplete fixture — QAPractices companion</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 560px; margin: 2rem auto; }
+  .combo { position: relative; }
+  input[type="search"] { width: 100%; padding: .6rem .9rem; font-size: 1rem; }
+  [role="listbox"] { position: absolute; left: 0; right: 0; margin: 2px 0 0; padding: 0;
+    list-style: none; border: 1px solid #cbd5e1; background: #fff; z-index: 10; }
+  [role="option"] { padding: .55rem .9rem; cursor: pointer; min-height: 24px; }
+  [role="option"][aria-selected="true"], [role="option"]:hover { background: #dbeafe; }
+  .status, .error, .empty { padding: .55rem .9rem; color: #475569; }
+  .error { color: #b91c1c; }
+  mark { background: #fde68a; }
+</style>
+</head>
+<body>
+<h1>Autocomplete fixture</h1>
+<p>Debounce 300ms, min length 3, cache TTL 60s, latest-query-wins. Latency is
+   controlled per query via <code>FAKE_LATENCY</code> below.</p>
+
+<div class="combo">
+  <input id="q" type="search" role="combobox" aria-expanded="false"
+         aria-autocomplete="list" aria-controls="sug" autocomplete="off"
+         placeholder="Type to search…">
+  <ul id="sug" role="listbox" hidden></ul>
+  <div id="status" role="status" aria-live="polite" class="status"></div>
+</div>
+
+<script>
+// --- fake API ------------------------------------------------------------
+const DATASET = ['apple', 'application', 'appetizer', 'apple pie', 'red apple',
+  'banana', 'orange', 'C++', 'node.js', 'john wick', 'john.doe'];
+const FAKE_LATENCY = (q) => (q === 'a' ? 600 : 120); // slow first letter, fast rest
+
+function fakeApi(q) {
+  const ql = q.toLowerCase();
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (q === '__fail__') return reject(new Error('HTTP 500'));
+      resolve(DATASET.filter((s) => s.toLowerCase().includes(ql)));
+    }, FAKE_LATENCY(q));
+  });
+}
+
+// --- component ------------------------------------------------------------
+const input = document.getElementById('q');
+const list = document.getElementById('sug');
+const statusEl = document.getElementById('status');
+const DEBOUNCE = 300, MIN_LEN = 3, TTL = 60_000, MAX_ITEMS = 10;
+
+const cache = new Map();   // query -> { at, items }
+let token = 0;             // latest-query-wins guard
+let debounceTimer = null;
+let active = -1;           // index of the active option
+
+function openList(items) {
+  list.innerHTML = '';
+  active = -1;
+  items.forEach((s, i) => {
+    const li = document.createElement('li');
+    li.id = 'opt-' + i;
+    li.setAttribute('role', 'option');
+    li.setAttribute('aria-selected', 'false');
+    const idx = s.toLowerCase().indexOf(input.value.toLowerCase());
+    li.innerHTML = idx >= 0 && input.value
+      ? s.slice(0, idx) + '<mark>' + s.slice(idx, idx + input.value.length) + '</mark>' + s.slice(idx + input.value.length)
+      : s;
+    li.addEventListener('mousedown', (e) => { e.preventDefault(); choose(s); });
+    list.appendChild(li);
+  });
+  list.hidden = false;
+  input.setAttribute('aria-expanded', 'true');
+  statusEl.textContent = items.length
+    ? items.length + ' suggestions'
+    : '';
+}
+
+function closeList() {
+  list.hidden = true;
+  list.innerHTML = '';
+  input.setAttribute('aria-expanded', 'false');
+  input.removeAttribute('aria-activedescendant');
+  active = -1;
+}
+
+function renderEmpty() {
+  list.hidden = false;
+  list.innerHTML = '<li class="empty" role="option" aria-disabled="true">No results — try different keywords</li>';
+  input.setAttribute('aria-expanded', 'true');
+  statusEl.textContent = 'No results';
+}
+
+async function fetchSuggestions(q) {
+  const hit = cache.get(q);
+  if (hit && hit.at + TTL > Date.now()) { openList(hit.items); statusEl.textContent = hit.items.length + ' suggestions (cached)'; return; }
+  const mine = ++token;
+  statusEl.textContent = 'Searching…';
+  try {
+    const raw = await fakeApi(q);
+    if (mine !== token) return;               // stale response — drop it
+    const items = [...new Map(raw.map((s) => [s.trim().toLowerCase(), s.trim()])).values()].slice(0, MAX_ITEMS);
+    cache.set(q, { at: Date.now(), items });
+    items.length ? openList(items) : renderEmpty();
+  } catch {
+    if (mine !== token) return;
+    list.hidden = false;
+    list.innerHTML = '<li class="error" role="option" aria-disabled="true">Search temporarily unavailable</li>';
+    statusEl.textContent = 'Search error';
+  }
+}
+
+input.addEventListener('input', () => {
+  clearTimeout(debounceTimer);
+  const q = input.value;
+  if (q.length < MIN_LEN) { closeList(); statusEl.textContent = q ? 'Type at least 3 characters' : showRecents(); return; }
+  debounceTimer = setTimeout(() => fetchSuggestions(q), DEBOUNCE);
+});
+
+input.addEventListener('focus', () => { if (!input.value) showRecents(); });
+
+function showRecents() {
+  const recents = JSON.parse(localStorage.getItem('qap-recents') || '[]').slice(0, 5);
+  if (recents.length) { openList(recents); statusEl.textContent = 'Recent searches'; }
+}
+
+function choose(value) {
+  input.value = value;
+  closeList();
+  const recents = JSON.parse(localStorage.getItem('qap-recents') || '[]');
+  localStorage.setItem('qap-recents', JSON.stringify([value, ...recents.filter((r) => r !== value)].slice(0, 5)));
+  statusEl.textContent = 'Search submitted: ' + value;
+}
+
+input.addEventListener('keydown', (e) => {
+  const opts = list.querySelectorAll('[role="option"]:not([aria-disabled])');
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (!opts.length) return;
+    active = e.key === 'ArrowDown' ? Math.min(active + 1, opts.length - 1) : Math.max(active - 1, 0);
+    opts.forEach((o, i) => o.setAttribute('aria-selected', String(i === active)));
+    input.setAttribute('aria-activedescendant', opts[active].id);
+  } else if (e.key === 'Enter' && active >= 0) {
+    e.preventDefault();
+    choose(opts[active].textContent);
+  } else if (e.key === 'Escape') {
+    closeList();
+  }
+});
+
+document.addEventListener('click', (e) => { if (!e.target.closest('.combo')) closeList(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "title": "Functional Testing Checklist — Runnable Companion",
+  "title_es": "Checklist de Testing Funcional — Companion Ejecutable",
+  "description": "The 139-item functional checklist from qapractices.com as machine-readable CSV with risk tags, plus a runnable login-form HTML fixture, a Playwright 1.48 spec (boundary + login happy path) and a pytest 8.3 contract test over a bundled API response sample.",
+  "description_es": "El checklist funcional de 139 ítems de qapractices.com como CSV legible por máquina con marcas de riesgo, más un fixture HTML de formulario de login ejecutable, una spec Playwright 1.48 (frontera + login feliz) y un test de contrato pytest 8.3 sobre una respuesta API incluida.",
+  "type": "checklists",
+  "topic": "functional-testing",
+  "slug": "functional-testing-checklist",
+  "source_urls": [
+    "https://qapractices.com/checklists/functional-testing-checklist/",
+    "https://qapractices.com/es/checklists/functional-testing-checklist/"
+  ],
+  "language": "python",
+  "tags": [
+    "functional-testing",
+    "checklist",
+    "input-validation",
+    "contract-testing",
+    "playwright",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "checklist-items.csv",
+    "login-form.html",
+    "functional.spec.ts",
+    "fixtures/profile-response.json",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_contract.py"
+  ],
+  "run": "pytest tests/ -v",
+  "requirements": "Python 3.10+; opcionalmente Playwright 1.48 para functional.spec.ts",
+  "lastUpdated": "2026-10-22"
+}

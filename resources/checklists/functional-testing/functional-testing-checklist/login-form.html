@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QA Practices — Functional Testing Fixture</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 28rem; margin: 2rem auto; padding: 0 1rem; }
+    label { display: block; margin-top: 1rem; font-weight: 600; }
+    input { width: 100%; padding: .5rem; margin-top: .25rem; box-sizing: border-box; }
+    button { margin-top: 1.25rem; padding: .6rem 1.2rem; cursor: pointer; }
+    .error { color: #b91c1c; font-size: .85rem; margin-top: .25rem; display: none; }
+    .error.visible { display: block; }
+    #welcome { margin-top: 1.5rem; padding: .75rem; background: #dcfce7; display: none; }
+  </style>
+</head>
+<body>
+  <h1>Sign in</h1>
+  <form id="login-form" novalidate>
+    <label for="email">Email</label>
+    <input id="email" data-testid="email" type="email" autocomplete="off" required>
+
+    <label for="password">Password</label>
+    <input id="password" data-testid="password" type="password" required>
+
+    <label for="age">Age</label>
+    <input id="age" data-testid="age" type="number" min="18" max="120">
+    <p id="age-error" class="error" data-testid="age-error">You must be at least 18.</p>
+
+    <button type="submit" data-testid="login-button">Sign in</button>
+    <button type="button" data-testid="save">Save profile</button>
+  </form>
+  <div id="welcome" data-testid="welcome">Welcome back.</div>
+
+  <script>
+    const form = document.getElementById('login-form');
+    const age = document.getElementById('age');
+    const ageError = document.getElementById('age-error');
+    const welcome = document.getElementById('welcome');
+
+    function validateAge() {
+      const v = age.value === '' ? null : Number(age.value);
+      const bad = v !== null && (isNaN(v) || v < 18);
+      ageError.classList.toggle('visible', bad);
+      return !bad;
+    }
+
+    document.querySelector('[data-testid="save"]').addEventListener('click', validateAge);
+    age.addEventListener('change', validateAge);
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!validateAge()) return;
+      const email = document.getElementById('email').value;
+      if (email.includes('@')) {
+        welcome.textContent = 'Welcome back.';
+        welcome.style.display = 'block';
+        history.pushState({}, 'Dashboard', 'login-form.html?dashboard');
+      }
+    });
+  </script>
+</body>
+</html>

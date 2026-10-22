@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QA Practices — Responsive Image Fixture</title>
+  <link rel="preload" as="image" href="img/hero-800.svg" imagesrcset="img/hero-400.svg 400w, img/hero-800.svg 800w, img/hero-1600.svg 1600w" imagesizes="100vw">
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 1rem; }
+    figure { margin: 0 0 1rem; }
+    img { max-width: 100%; display: block; }
+    .spacer { height: 2200px; background: repeating-linear-gradient(#f1f5f9, #f1f5f9 40px, #e2e8f0 40px, #e2e8f0 80px); }
+  </style>
+</head>
+<body>
+  <h1>Responsive image fixture</h1>
+
+  <figure>
+    <img id="hero"
+         data-testid="hero"
+         src="img/hero-800.svg"
+         srcset="img/hero-400.svg 400w, img/hero-800.svg 800w, img/hero-1600.svg 1600w"
+         sizes="100vw"
+         width="800" height="400"
+         loading="eager" fetchpriority="high"
+         alt="Hero banner">
+  </figure>
+
+  <figure>
+    <picture data-testid="art">
+      <source media="(min-width:1024px)" srcset="img/wide.svg">
+      <source media="(min-width:600px)" srcset="img/square.svg">
+      <img src="img/narrow.svg" width="600" height="400" alt="Art-directed card">
+    </picture>
+  </figure>
+
+  <figure>
+    <img data-testid="broken"
+         src="img/missing-404.webp"
+         width="400" height="200"
+         alt="Intentionally missing image">
+  </figure>
+
+  <div class="spacer" aria-hidden="true"></div>
+
+  <figure>
+    <img id="lazy-img"
+         data-testid="lazy-img"
+         src="img/lazy-bottom.svg"
+         width="600" height="400"
+         loading="lazy"
+         alt="Below-the-fold image">
+  </figure>
+</body>
+</html>

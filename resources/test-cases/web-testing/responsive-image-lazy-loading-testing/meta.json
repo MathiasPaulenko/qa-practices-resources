@@ -1,0 +1,42 @@
+{
+  "title": "Responsive Image & Lazy Loading Testing — Runnable Companion",
+  "title_es": "Casos de Prueba de Imágenes Responsive y Lazy Load — Companion Ejecutable",
+  "description": "HTML fixture exercising srcset/sizes selection, picture art direction, eager/LCP vs lazy loading, preload with imagesrcset, and a broken-image case — plus a Playwright 1.48 spec and a pytest 8.3 suite asserting the fixture's markup contracts for the cases on qapractices.com.",
+  "description_es": "Fixture HTML que ejercita selección srcset/sizes, art direction con picture, carga eager/LCP vs lazy, preload con imagesrcset y un caso de imagen rota — más una spec Playwright 1.48 y una suite pytest 8.3 que afirma los contratos de markup del fixture para los casos de qapractices.com.",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "slug": "responsive-image-lazy-loading-testing",
+  "source_urls": [
+    "https://qapractices.com/test-cases/responsive-image-lazy-loading-testing/",
+    "https://qapractices.com/es/test-cases/responsive-image-lazy-loading-testing/"
+  ],
+  "language": "python",
+  "tags": [
+    "responsive-images",
+    "srcset",
+    "lazy-loading",
+    "lcp",
+    "cls",
+    "playwright",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "picture.html",
+    "responsive.spec.ts",
+    "img/hero-400.svg",
+    "img/hero-800.svg",
+    "img/hero-1600.svg",
+    "img/square.svg",
+    "img/wide.svg",
+    "img/narrow.svg",
+    "img/lazy-bottom.svg",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_fixture.py"
+  ],
+  "run": "pytest tests/ -v",
+  "requirements": "Python 3.10+; opcionalmente Playwright 1.48 para responsive.spec.ts",
+  "lastUpdated": "2026-10-22"
+}

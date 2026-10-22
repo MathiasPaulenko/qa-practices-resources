@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.schemaguard.io/v1/schemas/order-create",
+  "title": "order-create",
+  "type": "object",
+  "required": ["customerId", "items", "shippingAddress"],
+  "additionalProperties": false,
+  "properties": {
+    "customerId": { "type": "string", "minLength": 1 },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 50,
+      "items": {
+        "type": "object",
+        "required": ["productId", "quantity"],
+        "properties": {
+          "productId": { "type": "string" },
+          "quantity": { "type": "integer", "minimum": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "shippingAddress": { "$ref": "#/$defs/address" },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" }
+      },
+      "additionalProperties": false
+    },
+    "priority": { "enum": ["standard", "express", "overnight"] },
+    "giftMessage": { "type": ["string", "null"] },
+    "couponCode": { "type": "string", "minLength": 3, "maxLength": 20 },
+    "loyaltyPoints": { "type": "number", "minimum": 0, "maximum": 10000 },
+    "phone": { "type": "string", "pattern": "^\\+?[1-9]\\d{1,14}$" },
+    "discount": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "number", "minimum": 0 }
+      ]
+    },
+    "payment": { "$ref": "#/$defs/payment" },
+    "metadata": { "type": "object" },
+    "channel": { "enum": ["b2b", "b2c"] },
+    "taxId": { "type": "string" },
+    "poNumber": { "type": "string" }
+  },
+  "if": {
+    "properties": { "channel": { "const": "b2b" } },
+    "required": ["channel"]
+  },
+  "then": { "required": ["taxId"] },
+  "$defs": {
+    "address": {
+      "type": "object",
+      "required": ["street", "city", "zipCode"],
+      "properties": {
+        "street": { "type": "string" },
+        "city": { "type": "string" },
+        "zipCode": { "type": "string" },
+        "coordinates": { "$ref": "#/$defs/geo" }
+      },
+      "additionalProperties": false
+    },
+    "geo": {
+      "type": "object",
+      "properties": {
+        "lat": { "type": "number" },
+        "lng": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "payment": {
+      "type": "object",
+      "oneOf": [
+        {
+          "properties": {
+            "type": { "const": "credit_card" },
+            "cardNumber": { "type": "string" }
+          },
+          "required": ["cardNumber"]
+        },
+        {
+          "properties": {
+            "type": { "const": "bank_transfer" },
+            "iban": { "type": "string" }
+          },
+          "required": ["iban"]
+        }
+      ]
+    }
+  }
+}

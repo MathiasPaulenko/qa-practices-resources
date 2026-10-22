@@ -1,0 +1,21 @@
+{
+  "title": "Canary Rollback Decision — Runnable Companion",
+  "title_es": "Decisión de Rollback Canary — Companion Ejecutable",
+  "description": "Stdlib Python evaluator implementing the rollback trigger rules and decision matrix from the QAPractices canary deployment template: error rate, latency, crashes, timeout and business-metric severity.",
+  "description_es": "Evaluador en Python stdlib que implementa los triggers de rollback y la matriz de decisión de la plantilla canary de QAPractices: error rate, latencia, crashes, timeout y severidad de métricas de negocio.",
+  "type": "templates",
+  "topic": "release-management",
+  "slug": "canary-deployment-testing-rollback-template",
+  "source_urls": [
+    "https://qapractices.com/templates/canary-deployment-testing-rollback-template/",
+    "https://qapractices.com/es/templates/canary-deployment-testing-rollback-template/"
+  ],
+  "language": "python",
+  "tags": [
+    "canary-deployment",
+    "rollback",
+    "progressive-delivery",
+    "pytest",
+    "qa"
+  ]
+}

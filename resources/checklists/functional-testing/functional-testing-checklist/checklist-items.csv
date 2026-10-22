@@ -1,0 +1,140 @@
+id,area,item,risk
+1,1. Input Validation,Empty required input rejected,High
+2,1. Input Validation,Minimum length enforced,Medium
+3,1. Input Validation,Maximum length enforced,Medium
+4,1. Input Validation,Whitespace handled,Low
+5,1. Input Validation,Special characters accepted safely,Medium
+6,1. Input Validation,HTML/script injected into fields is sanitized,High
+7,1. Input Validation,SQLi patterns rejected or escaped,High
+8,1. Input Validation,Emoji and supplementary-plane characters stored,Low
+9,1. Input Validation,Rich-text paste does not smuggle formatting,Low
+10,1. Input Validation,Non-numeric input rejected,Medium
+11,1. Input Validation,Negative values per spec,Medium
+12,1. Input Validation,Zero handled correctly,Medium
+13,1. Input Validation,Decimal precision honored,Medium
+14,1. Input Validation,Minimum value enforced,Medium
+15,1. Input Validation,Maximum value enforced,Medium
+16,1. Input Validation,Localized number formats parsed,Low
+17,1. Input Validation,Scientific notation rejected on non-scientific fields,Low
+18,1. Input Validation,Date picker returns the expected format,Medium
+19,1. Input Validation,Manual entry validated against the format,Medium
+20,1. Input Validation,Past dates per business rule,Medium
+21,1. Input Validation,Future dates per business rule,Medium
+22,1. Input Validation,February 29 works on leap years,Medium
+23,1. Input Validation,Timezone conversion correct,High
+24,1. Input Validation,Date ranges validated,Medium
+25,1. Input Validation,Impossible dates rejected,Medium
+26,1. Input Validation,File type enforced server-side,High
+27,1. Input Validation,Maximum size enforced,Medium
+28,1. Input Validation,Empty file rejected,Medium
+29,1. Input Validation,Special characters in filenames handled,Medium
+30,1. Input Validation,Duplicate filenames resolved per spec,Medium
+31,1. Input Validation,Corrupted files rejected gracefully,Medium
+32,1. Input Validation,Concurrent uploads of the same file deduplicate,High
+33,2. Output Verification,Displayed values match the data source,High
+34,2. Output Verification,Large numbers formatted,Low
+35,2. Output Verification,Currency shown with correct symbol and precision,Medium
+36,2. Output Verification,Dates render in the user's locale,Medium
+37,2. Output Verification,Null and empty values have a placeholder,Medium
+38,2. Output Verification,Long text truncates or wraps,Low
+39,2. Output Verification,"Special characters render as text, not entities",Medium
+40,2. Output Verification,Sorting is actually ordered,Medium
+41,2. Output Verification,Empty state shown for zero results,Low
+42,2. Output Verification,Single-item list renders,Low
+43,2. Output Verification,Page size honored,Medium
+44,2. Output Verification,First/last page boundaries work,Medium
+45,2. Output Verification,Page-number jump lands correctly,Low
+46,2. Output Verification,Total count is accurate,Medium
+47,2. Output Verification,Each sortable column sorts both ways,Medium
+48,2. Output Verification,Filters return the right subset,Medium
+49,2. Output Verification,Combined filters intersect correctly,Medium
+50,3. Navigation and Routing,Every menu link resolves,High
+51,3. Navigation and Routing,Breadcrumbs link to real parents,Low
+52,3. Navigation and Routing,Back button preserves state,Medium
+53,3. Navigation and Routing,Forward button works after back,Low
+54,3. Navigation and Routing,Direct URL access loads each valid route,High
+55,3. Navigation and Routing,Invalid URLs get a real 404,Medium
+56,3. Navigation and Routing,Redirects land correctly,Medium
+57,3. Navigation and Routing,Deep links reach the specific state,Medium
+58,3. Navigation and Routing,Navigation during loading is safe,Low
+59,3. Navigation and Routing,Keyboard navigation follows a logical order,Medium
+60,4. Forms and Submissions,Required indicators visible before submit,Low
+61,4. Forms and Submissions,Inline validation fires per spec,Medium
+62,4. Forms and Submissions,Submit stays disabled until valid,Low
+63,4. Forms and Submissions,Submit disabled during submission,High
+64,4. Forms and Submissions,Input preserved on failed submission,Medium
+65,4. Forms and Submissions,Cancel clears and exits cleanly,Low
+66,4. Forms and Submissions,Reset returns every field to initial values,Low
+67,4. Forms and Submissions,Browser autofill does not override user input,Low
+68,4. Forms and Submissions,Success shows a confirmation,Medium
+69,4. Forms and Submissions,Success redirects correctly,Medium
+70,4. Forms and Submissions,Field errors appear next to their fields,Medium
+71,4. Forms and Submissions,Server errors surface a friendly message,Medium
+72,4. Forms and Submissions,Timeout handled gracefully,Medium
+73,4. Forms and Submissions,Offline submission detected,Medium
+74,4. Forms and Submissions,Duplicate POST detection works,High
+75,5. Business Rules and Logic,Calculations verified against known cases,High
+76,5. Business Rules and Logic,Calculations handle edge inputs,Medium
+77,5. Business Rules and Logic,Conditional logic fires exactly,High
+78,5. Business Rules and Logic,State transitions follow the workflow,High
+79,5. Business Rules and Logic,Invalid transitions blocked,High
+80,5. Business Rules and Logic,RBAC enforced on every action,High
+81,5. Business Rules and Logic,Concurrent edits resolved,High
+82,5. Business Rules and Logic,Date/time-dependent rules tested across zones,Medium
+83,5. Business Rules and Logic,Currency conversion uses the right rate and rounding,High
+84,5. Business Rules and Logic,Overlapping promotions apply per spec,Medium
+85,6. Error Handling,JavaScript errors do not crash the page,Medium
+86,6. Error Handling,Failed API calls offer retry,Medium
+87,6. Error Handling,Loading states shown on async work,Low
+88,6. Error Handling,Error messages are human-readable,Low
+89,6. Error Handling,Errors say what to do next,Low
+90,6. Error Handling,400 explains which input failed,Medium
+91,6. Error Handling,401 routes to authentication,High
+92,6. Error Handling,403 says it is a permissions problem,High
+93,6. Error Handling,404 is helpful,Medium
+94,6. Error Handling,500 shows a generic page,High
+95,6. Error Handling,502/503/504 explain temporary unavailability,Medium
+96,6. Error Handling,429 tells the user when to retry,Medium
+97,7. Integration Points,"Requests carry the right method, headers and body",High
+98,7. Integration Points,Responses parsed for success and error shapes,Medium
+99,7. Integration Points,Auth tokens attached to authenticated calls,High
+100,7. Integration Points,Token refresh works on expiry,High
+101,7. Integration Points,API timeout produces a user message,Medium
+102,7. Integration Points,4xx/5xx do not crash the client,Medium
+103,7. Integration Points,Pagination cursors handled,Medium
+104,7. Integration Points,Webhooks verified end to end,Medium
+105,7. Integration Points,Third-party outage does not block core flows,High
+106,7. Integration Points,Failures degrade gracefully,Medium
+107,7. Integration Points,OAuth flow completes,High
+108,7. Integration Points,Payment states covered,High
+109,7. Integration Points,Email failures logged and retried,Medium
+110,7. Integration Points,CDN failure falls back to origin,Medium
+111,8. Data Integrity,What the user entered is what got saved,High
+112,8. Data Integrity,What was saved is what is retrieved,High
+113,8. Data Integrity,Retries do not duplicate records,High
+114,8. Data Integrity,Session timeout does not lose unsaved data,Medium
+115,8. Data Integrity,Deletes leave no orphans,High
+116,8. Data Integrity,Soft deletes behave,Medium
+117,8. Data Integrity,Audit trail covers critical actions,High
+118,8. Data Integrity,Sensitive data masked in logs and responses,High
+119,9. Session and State,Login establishes a valid session,High
+120,9. Session and State,Logout really logs out,High
+121,9. Session and State,Session timeout redirects to login with return URL,Medium
+122,9. Session and State,Multi-tab behavior per spec,Low
+123,9. Session and State,State survives intra-app navigation,Medium
+124,9. Session and State,State cleared on logout,Medium
+125,9. Session and State,Concurrent sessions handled per spec,Medium
+126,10. Accessibility Basics,Every interactive element is keyboard-reachable,Medium
+127,10. Accessibility Basics,Focus order follows the visual layout,Low
+128,10. Accessibility Basics,Form inputs have associated labels,Medium
+129,10. Accessibility Basics,Error messages announced to assistive tech,High
+130,10. Accessibility Basics,Color is not the only status signal,Medium
+131,10. Accessibility Basics,Buttons and links describe their action,Low
+132,Checks Everyone Skips,Apostrophes and hyphens in name fields,Medium
+133,Checks Everyone Skips,Unicode outside the BMP,Medium
+134,Checks Everyone Skips,Session expires mid-form,High
+135,Checks Everyone Skips,Back button after a successful submit,High
+136,Checks Everyone Skips,Offline mid-submission,High
+137,Checks Everyone Skips,File at exactly the size limit,Medium
+138,Checks Everyone Skips,Same record open in two tabs,High
+139,Checks Everyone Skips,Copy-paste from a spreadsheet into a text field,Low

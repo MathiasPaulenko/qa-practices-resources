@@ -1,0 +1,32 @@
+{
+  "title": "AI Agent Conversation Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Conversación de Agentes de IA — Companion Ejecutable",
+  "description": "Deterministic stdlib Python model of an LLM agent turn pipeline (guardrails, intent classification, tool calls, session context, loop detection) plus a pytest 8.3 suite mapping the conversation test cases on qapractices.com.",
+  "description_es": "Modelo determinista en Python stdlib del pipeline de turno de un agente LLM (guardrails, clasificación de intención, tool calls, contexto de sesión, detección de bucles) más una suite pytest 8.3 que mapea los casos de qapractices.com.",
+  "type": "test-cases",
+  "topic": "ai-testing",
+  "slug": "ai-agent-conversation-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/ai-agent-conversation-test-cases/",
+    "https://qapractices.com/es/test-cases/ai-agent-conversation-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "ai-agent-testing",
+    "llm-testing",
+    "prompt-injection",
+    "context-retention",
+    "tool-use",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "agent_simulator.py",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_agent_simulator.py"
+  ],
+  "run": "pytest tests/ -v",
+  "requirements": "Python 3.10+"
+}

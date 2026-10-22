@@ -1,0 +1,10 @@
+{
+  "id": "subscription-billing-test-cases",
+  "slug": "subscription-billing-test-cases",
+  "title": "Subscription Billing Test Cases Companion",
+  "description": "Runnable pytest suite for the Subscription and Billing Test Cases resource: integer-cent proration, dunning schedules, webhook idempotency and trial/cancel lifecycle rules — 16 tests covering the boundary cases billing engines get wrong.",
+  "type": "test-cases",
+  "topic": "ecommerce-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "tests/conftest.py", "tests/test_billing.py"]
+}

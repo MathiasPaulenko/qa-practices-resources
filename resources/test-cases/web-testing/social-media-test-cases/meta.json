@@ -1,0 +1,32 @@
+{
+  "title": "Social Media Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Redes Sociales — Companion Ejecutable",
+  "description": "Stdlib Python model of the social feed state machine (visibility scopes, like idempotency, comment-on-deleted races, two-way block, silent mute, report dedup, DM threads, scope-aware search) plus a pytest 8.3 suite and a static HTML fixture for the cases on qapractices.com.",
+  "description_es": "Modelo en Python stdlib de la máquina de estados del feed social (alcances de visibilidad, likes idempotentes, carreras comentario-sobre-borrado, bloqueo bidireccional, mute silencioso, dedup de reportes, hilos de DM, búsqueda consciente del alcance) más una suite pytest 8.3 y un fixture HTML estático para los casos de qapractices.com.",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "slug": "social-media-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/social-media-test-cases/",
+    "https://qapractices.com/es/test-cases/social-media-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "social-media-testing",
+    "feed-testing",
+    "content-moderation-testing",
+    "idempotency",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "social_feed.py",
+    "feed.html",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_social_feed.py"
+  ],
+  "run": "pytest tests/ -v",
+  "requirements": "Python 3.10+"
+}
