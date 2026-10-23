@@ -1,0 +1,165 @@
+{
+  "info": {
+    "name": "SOAP NumberConversion — dataaccess demo",
+    "description": "SOAP API testing collection for the QAPractices guide 'SOAP API Testing with Postman'. Hits the free public demo service at www.dataaccess.com. Swap the URL and operation for your own WSDL.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "NumberToWords — happy path",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Random input per run; Collection Runner/Newman CSV overrides it",
+              "if (pm.iterationData.get(\"ubiNum\")) {",
+              "  pm.environment.set(\"ubiNum\", pm.iterationData.get(\"ubiNum\"));",
+              "}",
+              "if (!pm.environment.get(\"ubiNum\")) {",
+              "  pm.environment.set(\"ubiNum\", Math.floor(Math.random() * 10000));",
+              "}"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const response = xml2Json(pm.response.text());",
+              "const body = response[\"soap:Envelope\"][\"soap:Body\"];",
+              "",
+              "pm.test(\"Status code is 200\", () => {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Content-Type is XML\", () => {",
+              "  pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"xml\");",
+              "});",
+              "",
+              "pm.test(\"Response contains no SOAP Fault\", () => {",
+              "  const faultKey = Object.keys(body).find((k) => k.endsWith(\":Fault\") || k === \"Fault\");",
+              "  pm.expect(faultKey, `unexpected SOAP Fault: ${faultKey}`).to.be.undefined;",
+              "});",
+              "",
+              "pm.test(\"NumberToWords returns a text value\", () => {",
+              "  const opResponse = body[\"m:NumberToWordsResponse\"] ?? Object.values(body)[0];",
+              "  const result = opResponse[\"m:NumberToWordsResult\"] ?? Object.values(opResponse)[0];",
+              "  pm.expect(result).to.be.a(\"string\").and.to.have.length.above(0);",
+              "});",
+              "",
+              "pm.test(\"Response time is under 2 seconds\", () => {",
+              "  pm.expect(pm.response.responseTime).to.be.below(2000);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "text/xml; charset=utf-8" },
+          { "key": "SOAPAction", "value": "" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>{{ubiNum}}</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+          "options": { "raw": { "language": "xml" } }
+        },
+        "url": {
+          "raw": "http://www.dataaccess.com/webservicesserver/numberconversion.wso",
+          "protocol": "http",
+          "host": ["www", "dataaccess", "com"],
+          "path": ["webservicesserver", "numberconversion.wso"]
+        }
+      }
+    },
+    {
+      "name": "NumberToWords — missing element triggers fault",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Returns a SOAP Fault for malformed input\", () => {",
+              "  const response = xml2Json(pm.response.text());",
+              "  const body = response[\"soap:Envelope\"][\"soap:Body\"];",
+              "  const faultKey = Object.keys(body).find((k) => k.endsWith(\":Fault\") || k === \"Fault\");",
+              "  pm.expect(faultKey, \"expected a SOAP Fault but got a normal response\").to.exist;",
+              "",
+              "  const fault = body[faultKey];",
+              "  console.log(\"Fault code:\", fault[\"faultcode\"] ?? fault[\"m:faultcode\"]);",
+              "  console.log(\"Fault string:\", fault[\"faultstring\"] ?? fault[\"m:faultstring\"]);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "text/xml; charset=utf-8" },
+          { "key": "SOAPAction", "value": "" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <!-- ubiNum intentionally omitted to trigger a server-side fault -->\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+          "options": { "raw": { "language": "xml" } }
+        },
+        "url": {
+          "raw": "http://www.dataaccess.com/webservicesserver/numberconversion.wso",
+          "protocol": "http",
+          "host": ["www", "dataaccess", "com"],
+          "path": ["webservicesserver", "numberconversion.wso"]
+        }
+      }
+    },
+    {
+      "name": "Protected operation — WS-Security UsernameToken",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Template request: point it at YOUR service and fill the environment.",
+              "// The demo service does not require WS-Security, so this request",
+              "// is meant as a starting point for the security test matrix in the guide.",
+              "pm.test(\"Response received\", () => {",
+              "  pm.expect(pm.response.code).to.be.oneOf([200, 400, 401, 403, 500]);",
+              "});",
+              "",
+              "pm.test(\"Fault handling works on auth errors\", () => {",
+              "  const response = xml2Json(pm.response.text());",
+              "  const body = response[\"soap:Envelope\"][\"soap:Body\"];",
+              "  const faultKey = Object.keys(body).find((k) => k.endsWith(\":Fault\") || k === \"Fault\");",
+              "  if (faultKey) {",
+              "    console.log(\"Auth fault returned as expected:\", body[faultKey]);",
+              "  }",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "text/xml; charset=utf-8" },
+          { "key": "SOAPAction", "value": "" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Header>\n    <wsse:Security xmlns:wsse=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd\"\n                   soap:mustUnderstand=\"1\">\n      <wsse:UsernameToken>\n        <wsse:Username>{{soap_username}}</wsse:Username>\n        <wsse:Password Type=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText\">{{soap_password}}</wsse:Password>\n      </wsse:UsernameToken>\n    </wsse:Security>\n  </soap:Header>\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>{{ubiNum}}</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+          "options": { "raw": { "language": "xml" } }
+        },
+        "url": {
+          "raw": "{{soap_endpoint}}",
+          "host": ["{{soap_endpoint}}"]
+        }
+      }
+    }
+  ]
+}

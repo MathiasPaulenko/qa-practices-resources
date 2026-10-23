@@ -1,0 +1,29 @@
+{
+  "title": "SOAP API Testing with Postman Companion",
+  "title_es": "Companion de Pruebas de APIs SOAP con Postman",
+  "description": "Runnable Postman collection, environment and Newman script for testing a real public SOAP service (dataaccess NumberConversion) from the QAPractices guide.",
+  "description_es": "Colección Postman, environment y script de Newman ejecutables para probar un servicio SOAP público real (dataaccess NumberConversion) de la guía de QAPractices.",
+  "type": "documentation",
+  "topic": "api-testing",
+  "slug": "soap-api-testing-postman",
+  "source_urls": [
+    "https://qapractices.com/documentation/soap-api-testing-postman/",
+    "https://qapractices.com/es/documentation/soap-api-testing-postman/"
+  ],
+  "language": "json",
+  "tags": [
+    "soap-testing",
+    "postman",
+    "newman",
+    "wsdl",
+    "xml-testing",
+    "ws-security"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "numberconversion-soap.postman_collection.json",
+    "soap-demo.postman_environment.json",
+    "run-newman.sh"
+  ]
+}
