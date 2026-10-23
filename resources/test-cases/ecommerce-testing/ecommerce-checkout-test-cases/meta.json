@@ -1,0 +1,16 @@
+{
+  "title": "E-commerce Checkout Test Cases — Runnable Cart-to-Order Engine",
+  "title_es": "Casos de Prueba de Checkout E-commerce — Motor ejecutable de carrito a orden",
+  "description": "A stdlib Python cart-to-order state machine plus a 17-test pytest suite mapped to TC-001..TC-016: cart math, coupon rules, free-shipping thresholds, cart merge, idempotent order placement and confirmation email.",
+  "description_es": "Máquina de estados carrito→orden en Python stdlib más una suite pytest de 17 tests mapeada a TC-001..TC-016: cálculo del carrito, reglas de cupón, umbral de envío gratis, fusión de carrito, place-order idempotente y email de confirmación.",
+  "type": "test-cases",
+  "topic": "ecommerce-testing",
+  "slug": "ecommerce-checkout-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/ecommerce-checkout-test-cases/",
+    "https://qapractices.com/es/test-cases/ecommerce-checkout-test-cases/"
+  ],
+  "language": "multi",
+  "tags": ["ecommerce", "checkout", "cart", "idempotency", "pytest", "stripe"],
+  "files": ["README.md", "README.es.md", "checkout_flow.py", "requirements.txt", "tests/test_checkout_flow.py"]
+}

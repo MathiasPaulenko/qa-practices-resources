@@ -1,0 +1,29 @@
+{
+  "title": "QA Onboarding Checklist — Runnable Companion",
+  "title_es": "Checklist de Onboarding QA — Companion Ejecutable",
+  "description": "Week-1 environment verification script and first-ticket issue template for the QAPractices QA onboarding checklist: Node/Git/Python/Docker/Playwright checks plus a GitHub issue form.",
+  "description_es": "Script de verificación del entorno de la semana 1 y plantilla de primer ticket de la checklist de onboarding QA de QAPractices: checks de Node/Git/Python/Docker/Playwright más un issue form de GitHub.",
+  "type": "templates",
+  "topic": "qa-management",
+  "slug": "qa-onboarding-checklist-template",
+  "source_urls": [
+    "https://qapractices.com/templates/qa-onboarding-checklist-template/",
+    "https://qapractices.com/es/templates/qa-onboarding-checklist-template/"
+  ],
+  "language": "bash",
+  "tags": [
+    "qa-onboarding",
+    "new-hire-checklist",
+    "environment-setup",
+    "bash",
+    "github-issue-template"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "env-check.sh",
+    "first-ticket.yml"
+  ],
+  "difficulty": "beginner",
+  "lastUpdated": "2026-10-23"
+}

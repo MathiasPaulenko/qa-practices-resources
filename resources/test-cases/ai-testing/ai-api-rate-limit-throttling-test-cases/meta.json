@@ -1,0 +1,33 @@
+{
+  "title": "AI API Rate Limit & Throttling Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba para Rate Limits y Throttling en APIs de IA — Companion Ejecutable",
+  "description": "Stdlib fake AI provider with per-key + per-model RPM/TPM buckets, Retry-After and x-ratelimit-* headers, plus a client backoff harness and a 17-test pytest suite mapped to the resource's TC IDs.",
+  "description_es": "Fake provider de IA en stdlib con buckets RPM/TPM por key + modelo, Retry-After y headers x-ratelimit-*, más un harness de backoff del cliente y una suite pytest de 17 tests mapeados a los TC del recurso.",
+  "type": "test-cases",
+  "topic": "ai-testing",
+  "slug": "ai-api-rate-limit-throttling-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/ai-api-rate-limit-throttling-test-cases/",
+    "https://qapractices.com/es/test-cases/ai-api-rate-limit-throttling-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "rate-limit",
+    "throttling",
+    "retry-after",
+    "backoff",
+    "token-quota",
+    "pytest",
+    "ai-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "fake_provider.py",
+    "client.py",
+    "requirements.txt",
+    "tests/test_rate_limits.py"
+  ],
+  "run": "pytest tests/ -q",
+  "requirements": "Python 3.10+, pytest 8.x, requests 2.31+"
+}

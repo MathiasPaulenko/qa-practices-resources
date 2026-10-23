@@ -1,0 +1,36 @@
+{
+  "title": "CSV Import Column Mapping Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Mapeo de Columnas en Import CSV — Companion Ejecutable",
+  "description": "Real CSV fixtures (UTF-8 BOM, semicolon, tab, ragged, empty, headers-only) plus a stdlib parser-check module and a pytest suite covering delimiter detection, BOM stripping, auto-mapping, column-count and email validation.",
+  "description_es": "Fixtures CSV reales (BOM UTF-8, punto y coma, tab, ragged, vacío, solo-headers) más un módulo de chequeos stdlib y una suite pytest que cubre detección de delimitador, eliminación de BOM, auto-mapping, conteo de columnas y validación de emails.",
+  "type": "test-cases",
+  "topic": "functional-testing",
+  "slug": "csv-import-column-mapping-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/csv-import-column-mapping-test-cases/",
+    "https://qapractices.com/es/test-cases/csv-import-column-mapping-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "csv-import",
+    "column-mapping",
+    "pytest",
+    "encoding",
+    "functional-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "csv_checks.py",
+    "fixtures/taskflow_team.csv",
+    "fixtures/taskflow_utf8_bom.csv",
+    "fixtures/taskflow_semicolon.csv",
+    "fixtures/taskflow_tab.tsv",
+    "fixtures/taskflow_empty.csv",
+    "fixtures/taskflow_headers_only.csv",
+    "fixtures/taskflow_ragged.csv",
+    "tests/test_csv_checks.py"
+  ],
+  "run": "pytest tests/ -q",
+  "requirements": "Python 3.10+, pytest 8.x"
+}

@@ -1,0 +1,32 @@
+{
+  "title": "Dark Mode and Theme Switching Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Dark Mode y Cambio de Tema — Companion Ejecutable",
+  "description": "Dependency-free theme-resolution model (stored preference → prefers-color-scheme → default, corrupted-value fallback), WCAG 2.2 contrast-ratio math, and a hardcoded-hex scanner — plus a node:test suite mapping the executable cases on qapractices.com.",
+  "description_es": "Modelo de resolución de tema sin dependencias (preferencia guardada → prefers-color-scheme → por defecto, con fallback ante valores corruptos), matemática de ratio de contraste WCAG 2.2 y un scanner de hex hardcodeados — más una suite node:test que mapea los casos ejecutables de qapractices.com.",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "slug": "dark-mode-theme-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/dark-mode-theme-test-cases/",
+    "https://qapractices.com/es/test-cases/dark-mode-theme-test-cases/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "dark-mode",
+    "theme-switching",
+    "wcag-contrast",
+    "prefers-color-scheme",
+    "css-tokens",
+    "node-test"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "contrast.mjs",
+    "theme.mjs",
+    "scan-hardcoded.mjs",
+    "tests/dark-mode.test.mjs"
+  ],
+  "run": "node --test tests/*.test.mjs",
+  "requirements": "Node.js 20+"
+}

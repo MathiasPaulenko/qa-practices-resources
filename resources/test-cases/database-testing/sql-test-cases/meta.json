@@ -1,0 +1,10 @@
+{
+  "id": "sql-test-cases",
+  "slug": "sql-test-cases",
+  "title": "SQL Test Cases Companion",
+  "description": "UrbanThreads seed schema, the sp_CreateOrder stored procedure and the runnable queries behind TC-001 through TC-007 (MySQL 8.x dialect with PostgreSQL 16 notes): injection payloads, transaction rollback, concurrency, keyset pagination and index validation.",
+  "type": "test-cases",
+  "topic": "database-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "seed.sql", "sp_create_order.sql", "test_queries.sql"]
+}

@@ -1,0 +1,22 @@
+name: Onboarding First Ticket
+description: First independent task for a new QA engineer
+title: "[Onboarding] "
+labels: ["onboarding", "qa"]
+body:
+  - type: textarea
+    attributes:
+      label: Goal
+      value: Verify the login form validates email format.
+  - type: checkboxes
+    attributes:
+      label: Acceptance criteria
+      options:
+        - label: Test case written in team format
+        - label: Exploratory session notes attached
+        - label: Bug report created if a defect is found
+  - type: dropdown
+    attributes:
+      label: Reviewer
+      options:
+        - Senior QA
+        - QA Lead

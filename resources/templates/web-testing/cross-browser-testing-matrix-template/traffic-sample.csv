@@ -1,0 +1,9 @@
+os,browser,version,viewport,device,traffic_share
+Windows 11,Chrome,Latest,1920x1080,Desktop,42.5
+macOS 14,Safari,Latest,1440x900,Desktop,11.2
+iOS 17,Safari,Latest,390x844,Mobile (iPhone 15),18.7
+Android 14,Chrome,Latest,360x800,Mobile (Pixel 8),14.1
+Windows 11,Edge,Latest,1920x1080,Desktop,5.3
+Windows 11,Firefox,Latest,1920x1080,Desktop,3.9
+Android 14,Samsung Internet,Latest,360x800,Mobile (Galaxy S24),2.8
+Windows 11,Opera,Latest,1920x1080,Desktop,1.5

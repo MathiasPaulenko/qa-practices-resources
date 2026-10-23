@@ -1,0 +1,16 @@
+{
+  "slug": "cross-browser-testing-matrix-template",
+  "type": "templates",
+  "topic": "web-testing",
+  "title": "Cross-Browser Testing Matrix Template — Companion",
+  "description": "CSV browser matrix plus a script that assigns P1-P4 priorities from real traffic-share numbers.",
+  "url": "https://qapractices.com/templates/cross-browser-testing-matrix-template/",
+  "files": [
+    "browser-matrix-template.csv",
+    "priority_calculator.py",
+    "traffic-sample.csv",
+    "test_priority_calculator.py"
+  ],
+  "language": "python",
+  "requires": "python >= 3.8, pytest (tests only)"
+}

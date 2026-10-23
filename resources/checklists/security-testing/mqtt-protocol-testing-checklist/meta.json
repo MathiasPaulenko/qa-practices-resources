@@ -1,0 +1,29 @@
+{
+  "title": "MQTT Protocol Testing Checklist — Runnable Companion",
+  "title_es": "Checklist de Testing de Protocolo MQTT — Companion Ejecutable",
+  "description": "Dependency-free MQTT semantics model (wildcard matching, QoS downgrade, retained store, session persistence, LWT triggering, clientID takeover) plus a pytest suite mapping the checklist sections on qapractices.com.",
+  "description_es": "Modelo de semántica MQTT sin dependencias (matching de wildcards, downgrade de QoS, store de retenidos, persistencia de sesión, disparo de LWT, takeover de clientID) más una suite pytest que mapea las secciones de la checklist de qapractices.com.",
+  "type": "checklists",
+  "topic": "security-testing",
+  "slug": "mqtt-protocol-testing-checklist",
+  "source_urls": [
+    "https://qapractices.com/checklists/mqtt-protocol-testing-checklist/",
+    "https://qapractices.com/es/checklists/mqtt-protocol-testing-checklist/"
+  ],
+  "language": "python",
+  "tags": [
+    "mqtt",
+    "iot-testing",
+    "protocol-testing",
+    "qos",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "mqtt_model.py",
+    "tests/test_mqtt_checklist.py"
+  ],
+  "run": "pytest tests/ -q",
+  "requirements": "Python 3.10+, pytest 8.x"
+}

@@ -1,0 +1,33 @@
+{
+  "title": "Geofencing Location Alert Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba: Geofencing y Alertas de Ubicación — Companion Ejecutable",
+  "description": "Stdlib Python geofence primitives — haversine with antimeridian wrap, circle + ray-casting polygon containment, drift debounce, dwell timer and per-geofence cooldown — with a pytest suite mapped to TC-004/013/016/018/021/022/024/029.",
+  "description_es": "Primitivas de geofence en Python stdlib — haversine con wrap de antimeridiano, contención circular + poligonal ray-casting, debounce de drift, timer de dwell y cooldown por geofence — con suite pytest mapeada a TC-004/013/016/018/021/022/024/029.",
+  "type": "test-cases",
+  "topic": "mobile-testing",
+  "slug": "geofencing-location-alert-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/geofencing-location-alert-test-cases/",
+    "https://qapractices.com/es/test-cases/geofencing-location-alert-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "geofencing",
+    "haversine",
+    "point-in-polygon",
+    "gps-drift",
+    "dwell",
+    "cooldown",
+    "pytest",
+    "mobile-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "geofence.py",
+    "requirements.txt",
+    "tests/test_geofence.py"
+  ],
+  "run": "pytest tests/ -q",
+  "requirements": "Python 3.10+, pytest 8.x"
+}

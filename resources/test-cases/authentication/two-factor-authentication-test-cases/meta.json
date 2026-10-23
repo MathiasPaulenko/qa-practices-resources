@@ -1,0 +1,10 @@
+{
+  "id": "two-factor-authentication-test-cases",
+  "slug": "two-factor-authentication-test-cases",
+  "title": "Two-Factor Authentication Test Cases Companion",
+  "description": "Dependency-free TOTP service (RFC 6238, single-use codes, 5-attempt lockout, configurable drift, backup codes) plus a pytest suite mapped to the resource's TC-001 through TC-013 cases.",
+  "type": "test-cases",
+  "topic": "authentication",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "totp_service.py", "test_two_factor.py"]
+}

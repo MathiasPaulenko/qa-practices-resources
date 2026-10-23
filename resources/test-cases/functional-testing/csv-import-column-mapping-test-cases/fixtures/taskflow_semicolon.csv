@@ -1,0 +1,7 @@
+Name;Email;Phone;Department;Role;StartDate
+Juan Pérez;juan.perez@taskflow.io;+1 555 0101;Engineering;Developer;15/07/2024
+María López;maria.lopez@taskflow.io;+1 555 0102;Design;UX Researcher;01/08/2024
+Søren Nielsen;soren.nielsen@taskflow.io;+45 20 12 34 56;Engineering;Backend;22/07/2024
+José García;jose.garcia@taskflow.io;+52 55 1234 5678;QA;Tester;05/09/2024
+北京;beijing.li@taskflow.io;+86 138 0000 0000;Product;Product Manager;12/08/2024
+"Pérez; Juan";juan.perez.externo@taskflow.io;+54 11 1234-5678;"Buenos Aires; Argentina";DevOps;20/07/2024

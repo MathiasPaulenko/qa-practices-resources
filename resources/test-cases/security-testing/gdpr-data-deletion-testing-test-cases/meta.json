@@ -1,0 +1,37 @@
+{
+  "title": "GDPR Data Deletion Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Eliminación de Datos GDPR — Companion Ejecutable",
+  "description": "Stdlib sqlite3 erasure engine modelling GDPR Article 17 propagation: cascade delete, cache/index cleanup, tombstone replay on restore, legal hold deferral, third-party outbox, audit trail and consent withdrawal — plus a pytest 8.3 suite mapped to the TC ids of the resource.",
+  "description_es": "Motor de supresión en sqlite3 stdlib que modela la propagación del Artículo 17 GDPR: borrado en cascada, limpieza de caché/índice, replay de tombstones tras restore, retención legal, buzón a terceros, rastro de auditoría y retirada de consentimiento — con una suite pytest 8.3 mapeada a los ids de TC del recurso.",
+  "type": "test-cases",
+  "topic": "security-testing",
+  "slug": "gdpr-data-deletion-testing-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/gdpr-data-deletion-testing-test-cases/",
+    "https://qapractices.com/es/test-cases/gdpr-data-deletion-testing-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "gdpr",
+    "right-to-erasure",
+    "article-17",
+    "data-deletion",
+    "cascade-delete",
+    "tombstone-replay",
+    "legal-hold",
+    "anonymization",
+    "audit-trail",
+    "pytest",
+    "sqlite3"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "erasure_engine.py",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_erasure_cases.py"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-23"
+}
