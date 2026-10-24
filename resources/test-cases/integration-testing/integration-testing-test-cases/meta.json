@@ -1,0 +1,17 @@
+{
+  "title": "Integration Testing Test Cases: 10 Scenarios",
+  "title_es": "Casos de Prueba de Integración: 10 Escenarios",
+  "description": "Runnable integration test examples: API-to-database checks, service-to-service calls, payment gateways, message queues, webhooks, and failure propagation.",
+  "description_es": "Ejemplos ejecutables de tests de integración: API a base de datos, llamadas entre servicios, pasarelas de pago, colas de mensajes, webhooks y propagación de fallos.",
+  "type": "test-cases",
+  "topic": "integration-testing",
+  "slug": "integration-testing-test-cases",
+  "language": "en",
+  "version": "1.0.0",
+  "lastUpdated": "2026-10-24",
+  "sourceUrl": "https://qapractices.com/test-cases/integration-testing-test-cases",
+  "sourceUrl_es": "https://qapractices.com/es/test-cases/integration-testing-test-cases",
+  "testCases": 10,
+  "edgeCases": 6,
+  "formats": ["md", "py", "ts", "yml"]
+}

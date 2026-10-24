@@ -1,0 +1,18 @@
+# docker-compose.yml — app + postgres for integration runs
+services:
+  app:
+    image: myapp:latest
+    environment:
+      DATABASE_URL: postgres://db:5432/test
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: test
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
