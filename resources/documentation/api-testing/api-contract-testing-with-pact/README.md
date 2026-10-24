@@ -66,3 +66,7 @@ The scripts follow the contract testing flow:
 ## License
 
 MIT — free to use, modify, and distribute.
+
+## Local broker
+
+`docker-compose.yml` spins up a local Pact Broker on Postgres 16: `docker compose up -d pact-broker` (http://localhost:9292). Handy for the consumer/provider scripts before wiring a shared broker.

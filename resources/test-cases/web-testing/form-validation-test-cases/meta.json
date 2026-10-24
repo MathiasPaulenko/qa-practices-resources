@@ -1,0 +1,10 @@
+{
+  "id": "form-validation-test-cases",
+  "slug": "form-validation-test-cases",
+  "title": "Form Validation Test Cases Companion",
+  "description": "Runnable demo form plus a shared Zod 3.23 schema and a Playwright 1.49 suite that exercises the 123 form validation cases: required fields, length and type rules, email, password, phone, dates, numbers, file uploads (magic-byte spoofing fixture), XSS payloads and WCAG checks.",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "package.json", "demo-form.html", "schema.js", "form-validation.spec.ts", "fixtures/payload.exe"]
+}

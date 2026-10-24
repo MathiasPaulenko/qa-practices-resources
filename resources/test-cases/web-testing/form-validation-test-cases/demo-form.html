@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form Validation Demo</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 32rem; margin: 2rem auto; }
+    label { display: block; margin-top: 1rem; font-weight: 600; }
+    .error { color: #b91c1c; font-size: .875rem; }
+    [aria-invalid="true"] { border-color: #b91c1c; }
+  </style>
+</head>
+<body>
+  <h1>Registration</h1>
+  <form id="registration" novalidate>
+    <label for="name">Name (required)</label>
+    <input id="name" name="name" required maxlength="120" aria-describedby="name-error">
+    <p class="error" id="name-error" hidden>This field is required</p>
+
+    <label for="email">Email (required)</label>
+    <input id="email" name="email" type="email" required autocomplete="email" aria-describedby="email-error">
+    <p class="error" id="email-error" hidden>Enter a valid email</p>
+
+    <label for="password">Password (min 12)</label>
+    <input id="password" name="password" type="password" required minlength="12" autocomplete="new-password" aria-describedby="password-error">
+    <p class="error" id="password-error" hidden>At least 12 characters</p>
+
+    <label for="attachment">Attachment (PDF only, 5 MB max)</label>
+    <input id="attachment" name="attachment" type="file" accept=".pdf" aria-describedby="attachment-error">
+    <p class="error" id="attachment-error" hidden>Only PDF files up to 5 MB</p>
+
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    const form = document.getElementById('registration');
+    const mark = (input, ok) => {
+      input.setAttribute('aria-invalid', String(!ok));
+      document.getElementById(input.id + '-error').hidden = ok;
+      return ok;
+    };
+    // magic-byte check: PDF starts with %PDF; rejects renamed executables (MZ)
+    const isPdf = (file) => new Promise((res) => {
+      const r = new FileReader();
+      r.onload = () => res(new TextDecoder().decode(r.result.slice(0, 4)) === '%PDF');
+      r.readAsArrayBuffer(file.slice(0, 4));
+    });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      let ok = true;
+      ok = mark(name, name.value.trim().length > 0) && ok;
+      ok = mark(email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) && ok;
+      ok = mark(password, password.value.length >= 12) && ok;
+      const f = attachment.files[0];
+      ok = mark(attachment, !f || (f.size <= 5 * 1024 * 1024 && await isPdf(f))) && ok;
+      if (ok) form.insertAdjacentHTML('afterend', '<p>Form submitted.</p>');
+    });
+    for (const input of form.querySelectorAll('input')) {
+      input.addEventListener('input', () => mark(input, input.checkValidity()));
+    }
+  </script>
+</body>
+</html>
