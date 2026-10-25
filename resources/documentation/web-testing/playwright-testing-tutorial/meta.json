@@ -1,0 +1,36 @@
+{
+  "title": "Playwright Testing Tutorial — Runnable Companion",
+  "title_es": "Tutorial de Playwright Testing — Companion Ejecutable",
+  "description": "Runnable Playwright starter project matching the QAPractices tutorial: playwright.config.ts with three browser projects, the first-test and locators specs from Steps 3-4, a network-mocking spec from Step 7, and the GitHub Actions workflow from Step 10.",
+  "description_es": "Proyecto Playwright ejecutable del tutorial de QAPractices: playwright.config.ts con tres proyectos de navegador, los specs de primer test y localizadores de los Pasos 3-4, un spec de mockeo de red del Paso 7 y el workflow de GitHub Actions del Paso 10.",
+  "type": "documentation",
+  "topic": "web-testing",
+  "slug": "playwright-testing-tutorial",
+  "source_urls": [
+    "https://qapractices.com/documentation/playwright-testing-tutorial/",
+    "https://qapractices.com/es/documentation/playwright-testing-tutorial/"
+  ],
+  "language": "typescript",
+  "tags": [
+    "playwright",
+    "e2e-testing",
+    "typescript",
+    "locators",
+    "network-mocking",
+    "ci"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "package.json",
+    "playwright.config.ts",
+    "tests/first-test.spec.ts",
+    "tests/locators.spec.ts",
+    "tests/network-mock.spec.ts",
+    ".github/workflows/playwright.yml"
+  ],
+  "run": "npm install && npx playwright install --with-deps && npx playwright test",
+  "requirements": "Node.js 20+",
+  "difficulty": "beginner",
+  "lastUpdated": "2026-10-25"
+}

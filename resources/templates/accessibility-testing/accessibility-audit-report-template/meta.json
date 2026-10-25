@@ -1,0 +1,29 @@
+{
+  "title": "Accessibility Audit Report Template — Companion",
+  "title_es": "Plantilla de Informe de Auditoría de Accesibilidad — Companion",
+  "description": "Downloadable WCAG audit report files for the QAPractices accessibility audit report template: blank report scaffold (scope, methodology, findings by severity, remediation roadmap, sign-off) plus a completed sample after a fictional WCAG 2.2 Level AA audit.",
+  "description_es": "Archivos descargables de informe de auditoría WCAG de la plantilla de informe de auditoría de accesibilidad de QAPractices: informe en blanco (alcance, metodología, hallazgos por severidad, plan de remediación, firmas) más una muestra completada tras una auditoría ficticia de WCAG 2.2 Nivel AA.",
+  "type": "templates",
+  "topic": "accessibility-testing",
+  "slug": "accessibility-audit-report-template",
+  "source_urls": [
+    "https://qapractices.com/templates/accessibility-audit-report-template/",
+    "https://qapractices.com/es/templates/accessibility-audit-report-template/"
+  ],
+  "language": "markdown",
+  "tags": [
+    "accessibility",
+    "wcag-2.2",
+    "audit-report",
+    "wcag-em",
+    "remediation-plan"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "accessibility-audit-report.md",
+    "accessibility-audit-report-sample.md"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-10-25"
+}
