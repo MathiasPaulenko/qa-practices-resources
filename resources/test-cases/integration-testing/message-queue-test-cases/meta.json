@@ -1,0 +1,17 @@
+{
+  "title": "Message Queue Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Message Queue — Companion Ejecutable",
+  "description": "Local RabbitMQ + DLQ lab matching the QAPractices test cases: docker-compose, ordering test and retry/DLQ test with pika.",
+  "description_es": "Laboratorio local de RabbitMQ + DLQ del recurso de QAPractices: docker-compose, test de ordenamiento y test de retry/DLQ con pika.",
+  "type": "test-cases",
+  "topic": "integration-testing",
+  "slug": "message-queue-test-cases",
+  "source_urls": ["https://qapractices.com/test-cases/message-queue-test-cases/","https://qapractices.com/es/test-cases/message-queue-test-cases/"],
+  "language": "python",
+  "tags": ["rabbitmq","kafka","dlq","pika","message-ordering","docker"],
+  "files": ["README.md","README.es.md","docker-compose.yml","ordering_test.py","dlq_test.py","requirements.txt"],
+  "run": "docker compose up -d && pip install -r requirements.txt && python ordering_test.py && python dlq_test.py",
+  "requirements": "Docker, Python 3.11+",
+  "difficulty": "advanced",
+  "lastUpdated": "2026-10-25"
+}
