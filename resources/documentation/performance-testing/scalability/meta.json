@@ -1,0 +1,17 @@
+{
+  "id": "scalability",
+  "slug": "scalability",
+  "title": "Scalability Testing Companion",
+  "description": "Runnable k6 v2.3 stepped-load script, Kubernetes HPA (autoscaling/v2) manifest and observation script for the QAPractices scalability testing guide.",
+  "type": "documentation",
+  "topic": "performance-testing",
+  "languages": ["en", "es"],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "meta.json",
+    "scalability-test.js",
+    "hpa.yaml",
+    "observe-scaling.sh"
+  ]
+}

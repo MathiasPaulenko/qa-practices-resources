@@ -1,0 +1,8 @@
+{
+  "version": "2.4.1",
+  "minimum": "2.3.0",
+  "url": "https://updates.example.com/v2.4.1/my-app.dmg",
+  "signature": "sha256:abc123.",
+  "releaseNotes": "https://example.com/releases/2.4.1",
+  "force": false
+}

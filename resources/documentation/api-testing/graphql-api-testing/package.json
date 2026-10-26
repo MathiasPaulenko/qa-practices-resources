@@ -1,0 +1,16 @@
+{
+  "name": "graphql-api-testing-companion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Runnable tests for the GraphQL API Testing guide on qapractices.com",
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "devDependencies": {
+    "graphql": "^16.11.0",
+    "graphql-ws": "^6.0.0",
+    "jest": "^30.0.0",
+    "supertest": "^7.1.0",
+    "ws": "^8.18.0"
+  }
+}

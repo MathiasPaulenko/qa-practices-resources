@@ -2,9 +2,9 @@
   "id": "two-factor-authentication-test-cases",
   "slug": "two-factor-authentication-test-cases",
   "title": "Two-Factor Authentication Test Cases Companion",
-  "description": "Dependency-free TOTP service (RFC 6238, single-use codes, 5-attempt lockout, configurable drift, backup codes) plus a pytest suite mapped to the resource's TC-001 through TC-013 cases.",
+  "description": "Dependency-free TOTP service (RFC 6238, single-use codes, 5-attempt lockout, configurable drift, backup codes), a WebAuthn ceremony simulator and a 2FA login gateway, plus pytest suites mapped to the resource's TC-001 through TC-016 cases.",
   "type": "test-cases",
   "topic": "authentication",
   "languages": ["en", "es"],
-  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "totp_service.py", "test_two_factor.py"]
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "totp_service.py", "webauthn_service.py", "login_gateway.py", "test_two_factor.py", "test_webauthn.py", "test_login_gateway.py"]
 }

@@ -1,0 +1,25 @@
+{
+  "title": "How to Test WebSocket Connections — Runnable Companion",
+  "title_es": "Cómo Probar Conexiones WebSocket — Companion Ejecutable",
+  "description": "Runnable WebSocket lab from the QAPractices guide: echo/broadcast server (ws 8.x), Jest 29 suite covering connect/echo/lifecycle/reconnect, and a k6 load script.",
+  "description_es": "Lab WebSocket ejecutable de la guía de QAPractices: servidor echo/broadcast (ws 8.x), suite Jest 29 con connect/echo/lifecycle/reconnect y script de carga k6.",
+  "type": "documentation",
+  "topic": "api-testing",
+  "slug": "how-to-test-websocket-connections",
+  "source_urls": [
+    "https://qapractices.com/documentation/how-to-test-websocket-connections/",
+    "https://qapractices.com/es/documentation/how-to-test-websocket-connections/"
+  ],
+  "language": "javascript",
+  "tags": ["websocket", "ws", "jest", "k6", "real-time-testing", "reconnection", "load-testing"],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "package.json",
+    "server.js",
+    "tests/client.test.js",
+    "k6-load.js"
+  ],
+  "difficulty": "beginner",
+  "lastUpdated": "2026-10-26"
+}

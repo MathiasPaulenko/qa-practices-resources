@@ -1,0 +1,30 @@
+{
+  "topic": "api-testing",
+  "version": "1.0.0",
+  "license": "MIT",
+  "title": "GraphQL API Testing: Companion Tests",
+  "tags": [
+    "graphql",
+    "jest",
+    "supertest",
+    "graphql-ws",
+    "graphql-inspector",
+    "contract-testing"
+  ],
+  "author": "Mathias Paulenko",
+  "type": "documentation",
+  "requirements": [
+    "Node.js 20+",
+    "Jest 30.x",
+    "supertest 7.x",
+    "graphql 16.11+",
+    "graphql-ws 6.x and ws 8.18+",
+    "@graphql-inspector/cli 7.x (for the schema diff script)"
+  ],
+  "description": "Runnable Jest + supertest tests for the GraphQL API Testing guide: query and mutation lifecycle, error contract assertions, APQ persisted queries, a graphql-ws subscription test and a schema-diff CI script.",
+  "slug": "graphql-api-testing",
+  "titleEs": "Testing de APIs GraphQL: Tests Companion",
+  "createdAt": "2026-10-26",
+  "updatedAt": "2026-10-26",
+  "descriptionEs": "Tests ejecutables con Jest + supertest para la guia de testing de APIs GraphQL: ciclo de vida de queries y mutations, aserciones del contrato de errores, persisted queries APQ, un test de subscription con graphql-ws y un script de diff de schema para CI."
+}

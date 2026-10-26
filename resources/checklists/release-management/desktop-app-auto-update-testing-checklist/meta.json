@@ -1,0 +1,15 @@
+{
+  "resourceType": "checklists",
+  "slug": "desktop-app-auto-update-testing-checklist",
+  "title": "Desktop App Auto-Update Testing Checklist — Companion",
+  "description": "Runnable companion for the Desktop App Auto-Update Testing Checklist: a sample update manifest, a semantic version comparison script, and a curl+jq smoke test for the update feed.",
+  "type": "checklists",
+  "topic": "release-management",
+  "companionVersion": "1.0.0",
+  "files": [
+    "config/update_manifest.json",
+    "tests/version_check.py",
+    "scripts/feed_smoke.sh",
+    "requirements.txt"
+  ]
+}

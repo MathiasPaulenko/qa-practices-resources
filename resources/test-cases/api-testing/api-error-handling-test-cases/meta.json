@@ -1,0 +1,10 @@
+{
+  "slug": "api-error-handling-test-cases",
+  "title": "API Error Handling Test Cases: 4xx, 5xx & Contracts",
+  "type": "test-cases",
+  "topic": "api-testing",
+  "difficulty": "intermediate",
+  "tools": ["pytest", "requests", "jsonschema", "k6"],
+  "description": "Runnable pytest suite asserting the API error contract: RFC 9457 problem-details payloads, auth challenge headers, 405 Allow, 429 Retry-After and the JSON Schema every error body must match. Companion to the QAPractices guide.",
+  "source": "https://qapractices.com/test-cases/api-error-handling-test-cases/"
+}
