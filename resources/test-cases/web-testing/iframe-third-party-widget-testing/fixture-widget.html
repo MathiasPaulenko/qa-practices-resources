@@ -1,0 +1,13 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Chat Widget</title></head>
+<body>
+  <p id="status">widget ready</p>
+  <button id="send">Send message to parent</button>
+  <script>
+    // Widget posts to parent; targetOrigin is '*' only for the file:// demo —
+    // real widgets must send the explicit parent origin (see TC-02).
+    document.getElementById('send').addEventListener('click', () => {
+      parent.postMessage({ type: 'widget-event', payload: 'clicked' }, '*');
+    });
+  </script>
+</body></html>

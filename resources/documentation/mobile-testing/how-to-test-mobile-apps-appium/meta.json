@@ -1,0 +1,18 @@
+{
+  "title": "Mobile Apps with Appium — pytest Project Companion",
+  "title_es": "Apps Móviles con Appium — Companion de Proyecto pytest",
+  "description": "Minimal runnable Appium + pytest project matching the guide: UiAutomator2 conftest, three selector-strategy tests (accessibility id, resource-id, XPath), and a GitHub Actions emulator job — skips cleanly until an APK path is set.",
+  "description_es": "Proyecto mínimo ejecutable Appium + pytest según la guía: conftest UiAutomator2, tres tests de estrategias de selectores (accessibility id, resource-id, XPath) y un job de GitHub Actions con emulador — salta limpio hasta setear el APK.",
+  "type": "documentation",
+  "topic": "mobile-testing",
+  "slug": "how-to-test-mobile-apps-appium",
+  "source_urls": [
+    "https://qapractices.com/documentation/how-to-test-mobile-apps-appium/",
+    "https://qapractices.com/es/documentation/how-to-test-mobile-apps-appium/"
+  ],
+  "language": "python",
+  "tags": ["appium", "mobile-testing", "pytest", "uiautomator2", "android-emulator", "ci"],
+  "files": ["README.md", "README.es.md", "requirements.txt", "tests/conftest.py", "tests/test_first_appium_test.py", ".github/workflows/appium-ci.yml"],
+  "run": "appium --port 4723 & pip install -r requirements.txt && pytest tests/ -v",
+  "requirements": "Python 3.10+, Appium server 2.x, Android emulator + APK under test"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "responsive-design-test-cases",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "playwright test responsive.spec.ts" },
+  "devDependencies": { "@playwright/test": "1.48.0" }
+}

@@ -1,0 +1,13 @@
+{
+  "to": ["ana.martinez@taskflow.io"],
+  "from": "noreply@taskflow.io",
+  "template_id": "task-assigned",
+  "template_data": {
+    "user_name": "Ana Martínez",
+    "task_name": "Draft requirements document",
+    "project_name": "Q3 Launch",
+    "due_date": "2026-07-30",
+    "task_url": "https://app.taskflow.io/es/tasks/TF-1234",
+    "assigner_name": "Luis Herrera"
+  }
+}

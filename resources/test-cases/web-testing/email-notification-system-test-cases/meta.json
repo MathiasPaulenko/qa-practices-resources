@@ -1,0 +1,15 @@
+{
+  "title": "Email Notification System Test Cases: Companion Files",
+  "slug": "email-notification-system-test-cases",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "category": "web-testing",
+  "description": "Runnable artifacts for transactional email notification testing: a SendGrid API v3 send script, the task-assigned template payload, a Mailpit-based delivery check and a Playwright spec skeleton for notification preferences.",
+  "language": ["en", "es"],
+  "files": [
+    "sendgrid/send-test-email.sh",
+    "sendgrid/task-assigned-payload.json",
+    "playwright/taskflow-notifications.spec.ts",
+    "scripts/mailpit-delivery-check.sh"
+  ]
+}

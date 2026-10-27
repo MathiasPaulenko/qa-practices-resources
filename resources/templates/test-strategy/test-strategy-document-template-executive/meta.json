@@ -1,0 +1,13 @@
+{
+  "title": "Test Strategy Document Template (Executive Level): Companion",
+  "slug": "test-strategy-document-template-executive",
+  "type": "templates",
+  "topic": "test-strategy",
+  "category": "test-strategy",
+  "description": "A fully completed executive test strategy sample (NovaBank Mobile Relaunch) plus a condensed one-pager version for quick steering-committee sign-off.",
+  "language": ["en", "es"],
+  "files": [
+    "test-strategy-executive-sample.md",
+    "test-strategy-executive-one-pager.md"
+  ]
+}

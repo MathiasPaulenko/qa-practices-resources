@@ -1,0 +1,7 @@
+Workflow,Category,Recommendation,Why it fits,Trade-off to check
+Shared collections and public API docs,GUI client,Postman v11,Collaboration and published documentation in one platform,Cloud workspace and export workflow
+REST plus several protocols,GUI client,Insomnia 10.x with Inso CLI 3.x,One client for REST GraphQL gRPC and WebSocket needs,Account sync and Git options
+Plain-text collections reviewed in Git,GUI client and CLI,Bruno 1.x,Filesystem collections and built-in bru runner,Governance and integration requirements
+Java service test suite,Code-first library,REST Assured 5.5.x,HTTP assertions within Java test runners,Java setup and library maintenance
+Readable BDD-style API checks,Code-first framework,Karate 2.x,Feature files express API scenarios,Framework conventions and team learning
+Existing JavaScript or TypeScript suite,HTTP client plus test runner,Axios 1.x with Jest or Vitest,Reuse the app client in automated checks,Axios needs a separate runner and assertions

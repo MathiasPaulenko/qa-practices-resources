@@ -1,0 +1,17 @@
+# LitmusChaos 3.x — delete a random pod of the payments deployment.
+# Requires: LitmusChaos installed on the cluster and the litmus-admin
+# ServiceAccount in the target namespace.
+# Apply: kubectl apply -f chaosengine-pod-delete.yaml
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChaosEngine
+metadata:
+  name: payments-pod-delete
+  namespace: litmus
+spec:
+  appinfo:
+    appns: production
+    applabel: app=payments
+    appkind: deployment
+  chaosServiceAccount: litmus-admin
+  experiments:
+    - name: pod-delete

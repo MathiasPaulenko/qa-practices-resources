@@ -1,0 +1,15 @@
+{
+  "title": "Failover Testing Guide: Companion Files",
+  "slug": "failover-testing-guide",
+  "type": "documentation",
+  "topic": "devops-testing",
+  "category": "devops-testing",
+  "description": "Runnable failover testing artifacts: a LitmusChaos 3.x ChaosEngine pod-delete manifest, a PostgreSQL replication-lag query, a load balancer health-check polling loop and a DR drill runbook script.",
+  "language": ["en", "es"],
+  "files": [
+    "litmus/chaosengine-pod-delete.yaml",
+    "postgres/replication-lag.sql",
+    "scripts/lb-healthcheck-poll.sh",
+    "scripts/dr-drill-runbook.sh"
+  ]
+}

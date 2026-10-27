@@ -1,0 +1,6 @@
+risk_area,likelihood_1_5,impact_1_5,score,priority,mitigation_tests,owner
+New payment gateway,4,5,20,Critical,"E2E purchase flow, edge cases, refund flow",Ana
+Updated product search,3,4,12,High,"Cross-browser regression, relevance checks",Luis
+New wishlist feature,3,3,9,Medium,"Happy path, edge cases, persistence",Ana
+Updated footer links,1,2,2,Low,Visual check,Luis
+Internal API refactor,3,2,6,Medium,"Contract tests, deferred to next sprint",Marta

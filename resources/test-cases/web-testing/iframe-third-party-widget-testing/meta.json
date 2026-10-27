@@ -1,0 +1,18 @@
+{
+  "title": "iframe & Third-Party Widget Testing — Playwright Companion",
+  "title_es": "Testing de iframes y Widgets de Terceros — Companion Playwright",
+  "description": "Runnable iframe security fixtures (sandboxed widget, forged postMessage origin, hostile clickjacking embed) plus Playwright 1.48 specs for TC-01/02/07 — loads via file://, no server needed.",
+  "description_es": "Fixtures ejecutables de seguridad iframe (widget en sandbox, origen de postMessage forjado, embed hostil de clickjacking) más specs Playwright 1.48 para TC-01/02/07 — carga vía file://, sin servidor.",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "slug": "iframe-third-party-widget-testing",
+  "source_urls": [
+    "https://qapractices.com/test-cases/iframe-third-party-widget-testing/",
+    "https://qapractices.com/es/test-cases/iframe-third-party-widget-testing/"
+  ],
+  "language": "typescript",
+  "tags": ["iframe", "postmessage", "sandbox", "clickjacking", "playwright", "cross-origin"],
+  "files": ["README.md", "README.es.md", "fixture-widget.html", "fixture-host.html", "hostile-embed.html", "iframe.spec.ts", "package.json"],
+  "run": "npm install && npx playwright test iframe.spec.ts",
+  "requirements": "Node.js 20+, Playwright 1.48"
+}

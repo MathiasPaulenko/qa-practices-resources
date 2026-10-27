@@ -1,0 +1,7 @@
+{
+  "name": "iframe-third-party-widget-testing",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "playwright test iframe.spec.ts" },
+  "devDependencies": { "@playwright/test": "1.48.0" }
+}

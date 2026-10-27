@@ -1,0 +1,31 @@
+{
+  "title": "Database Testing Queries \u00e2\u20ac\u201d Runnable SQLite Companion",
+  "title_es": "Queries de Testing de Base de Datos \u00e2\u20ac\u201d Companion Ejecutable en SQLite",
+  "description": "Runnable sqlite3 fixture: users/orders/order_items schema with constraints plus the AI-generated test queries (UNIQUE violation, FK enforcement, orphan detection, CHECK constraint, total consistency) so you can see exactly what each check asserts.",
+  "description_es": "Fixture sqlite3 ejecutable: esquema users/orders/order_items con constraints m\u00c3\u00a1s las queries de test generadas por IA (violaci\u00c3\u00b3n UNIQUE, enforcement de FK, detecci\u00c3\u00b3n de hu\u00c3\u00a9rfanos, CHECK, consistencia de totales) para ver exactamente qu\u00c3\u00a9 asserta cada check.",
+  "type": "prompts",
+  "topic": "database-testing",
+  "slug": "ai-prompt-database-testing-queries",
+  "source_urls": [
+    "https://qapractices.com/prompts/ai-prompt-database-testing-queries/",
+    "https://qapractices.com/es/prompts/ai-prompt-database-testing-queries/"
+  ],
+  "language": "sql",
+  "tags": [
+    "database-testing",
+    "sql",
+    "sqlite",
+    "constraint-testing",
+    "foreign-key",
+    "ai-prompt"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "schema.sql",
+    "test-queries.sql",
+    "run_tests.py"
+  ],
+  "run": "python run_tests.py",
+  "requirements": "Python 3.8+ (stdlib sqlite3)"
+}

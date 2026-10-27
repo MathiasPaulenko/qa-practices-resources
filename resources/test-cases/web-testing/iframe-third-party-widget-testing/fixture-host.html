@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Host Page — iframe fixture</title></head>
+<body>
+  <h1>Checkout</h1>
+  <p id="log"></p>
+  <!-- TC-03/TC-07: sandboxed + titled iframe -->
+  <iframe id="chat-widget" data-testid="widget" title="Chat widget"
+          sandbox="allow-scripts" src="./fixture-widget.html"></iframe>
+  <script>
+    // TC-02: validate event.origin before processing.
+    // file:// iframes report origin 'null' — allow it for the demo; in
+    // production list the real widget origin instead.
+    const TRUSTED_ORIGINS = ['null', 'https://widgets.vendor-a.com'];
+    window.addEventListener('message', (event) => {
+      if (!TRUSTED_ORIGINS.includes(event.origin)) {
+        document.getElementById('log').textContent = 'rejected:' + event.origin;
+        return;
+      }
+      document.getElementById('log').textContent = 'accepted:' + event.data.type;
+    });
+    window.forgeMessage = (origin, data) => {
+      const e = new MessageEvent('message', { data, origin });
+      window.dispatchEvent(e);
+    };
+  </script>
+</body></html>

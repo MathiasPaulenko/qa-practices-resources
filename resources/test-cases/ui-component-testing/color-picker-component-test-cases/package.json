@@ -1,0 +1,13 @@
+{
+  "name": "color-picker-component-test-cases",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test color-utils.test.mjs",
+    "test:e2e": "playwright test color-picker.spec.ts"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.0",
+    "@playwright/test": "1.48.0"
+  }
+}

@@ -1,0 +1,8 @@
+test_group,tc_range,real_device,emulator_simulator,device_farm,notes
+Installation and Launch,TC-MA-001..005,required,partial,required,Store install/update paths need real devices or farm
+UI,TC-MA-006..010,required,ok,required,Safe area and touch targets need physical screens
+Functionality,TC-MA-011..015,required,ok,required,Camera/GPS/push permissions vary per device
+Device-Specific,TC-MA-016..020,required,no,required,Biometrics and deep links fail on emulators
+Performance,TC-MA-021..025,required,no,required,Battery/memory/thermal only measurable on hardware
+Security,TC-MA-026..030,required,no,required,Root detection keystore and TLS need real devices
+Accessibility,TC-MA-031..035,required,partial,optional,Screen readers work on simulators; switch/voice need devices

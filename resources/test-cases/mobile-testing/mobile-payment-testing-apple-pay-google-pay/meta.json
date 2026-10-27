@@ -1,0 +1,14 @@
+{
+  "title": "Mobile Payment Test Cases: Companion Files",
+  "slug": "mobile-payment-testing-apple-pay-google-pay",
+  "type": "test-cases",
+  "topic": "mobile-testing",
+  "category": "mobile-testing",
+  "description": "Runnable artifacts for mobile payment testing: an Apple verifyReceipt validation script, a PAN-in-logs security check and a sandbox environment setup checklist for Apple Pay, Google Pay and in-app purchases.",
+  "language": ["en", "es"],
+  "files": [
+    "python/apple_receipt_validation.py",
+    "python/pan_in_logs_test.py",
+    "scripts/sandbox-setup-checklist.md"
+  ]
+}

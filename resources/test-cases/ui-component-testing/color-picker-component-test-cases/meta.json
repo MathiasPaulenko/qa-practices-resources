@@ -1,0 +1,18 @@
+{
+  "title": "Color Picker Component Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Color Picker — Companion Ejecutable",
+  "description": "Playwright 1.48 + axe-core 4.10 spec for color picker components (hex input, invalid input, clipboard, a11y scan) plus stdlib Node utilities for hex parsing/validation and the WCAG 2.x contrast ratio, with a node:test suite.",
+  "description_es": "Spec de Playwright 1.48 + axe-core 4.10 para el componente color picker (input hex, input inválido, portapapeles, escaneo a11y) más utilidades Node stdlib para parseo/validación hex y el ratio de contraste WCAG 2.x, con suite node:test.",
+  "type": "test-cases",
+  "topic": "ui-component-testing",
+  "slug": "color-picker-component-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/color-picker-component-test-cases/",
+    "https://qapractices.com/es/test-cases/color-picker-component-test-cases/"
+  ],
+  "language": "javascript",
+  "tags": ["color-picker-testing", "hex-input-testing", "accessibility-testing", "playwright", "axe-core", "wcag-contrast"],
+  "files": ["README.md", "README.es.md", "color-utils.js", "color-utils.test.mjs", "color-picker.spec.ts", "package.json"],
+  "run": "node --test color-utils.test.mjs",
+  "requirements": "Node.js 20+; Playwright 1.48 for the e2e spec"
+}

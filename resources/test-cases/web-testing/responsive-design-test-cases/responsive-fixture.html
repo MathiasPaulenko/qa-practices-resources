@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Responsive fixture</title>
+<style>
+  body { margin: 0; font-family: sans-serif; }
+  .desktop-nav { display: none; }
+  .hamburger { display: inline-block; min-width: 44px; min-height: 44px; }
+  .table-wrap { overflow-x: auto; }
+  @media (min-width: 768px) {
+    .desktop-nav { display: flex; }
+    .hamburger { display: none; }
+  }
+</style></head>
+<body>
+  <button class="hamburger" data-testid="hamburger" aria-label="Menu">☰</button>
+  <nav class="desktop-nav"><a href="#">Home</a> <a href="#">About</a></nav>
+  <div class="table-wrap">
+    <table><tr><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th><th>H</th></tr>
+      <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td></tr></table>
+  </div>
+</body></html>

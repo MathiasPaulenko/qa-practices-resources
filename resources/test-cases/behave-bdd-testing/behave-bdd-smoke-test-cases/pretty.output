@@ -1,0 +1,29 @@
+Feature: Behave smoke wiring checks # features/smoke.feature:1
+
+  @smoke
+  Scenario: before_all flag is available in steps  # features/smoke.feature:4
+    Given the smoke context is initialized         # features/steps/smoke_steps.py:6
+
+  @smoke
+  Scenario: Data table is parsed and passed into a step  # features/smoke.feature:8
+    Given the following users exist                      # features/steps/smoke_steps.py:11
+      | name  | role   |
+      | Alice | admin  |
+      | Bob   | reader |
+
+  @smoke
+  Scenario Outline: Login with multiple users -- @1.1   # features/smoke.feature:20
+    Given I log in as "admin" with role "valid"         # features/steps/smoke_steps.py:18
+
+  @smoke
+  Scenario Outline: Login with multiple users -- @1.2   # features/smoke.feature:21
+    Given I log in as "editor" with role "valid"        # features/steps/smoke_steps.py:18
+
+  @smoke
+  Scenario Outline: Login with multiple users -- @1.3   # features/smoke.feature:22
+    Given I log in as "reader" with role "valid"        # features/steps/smoke_steps.py:18
+
+  @regression
+  Scenario: Full login flow (skipped by smoke runs)  # features/smoke.feature:25
+    Given a full login flow placeholder              # features/steps/smoke_steps.py:23
+

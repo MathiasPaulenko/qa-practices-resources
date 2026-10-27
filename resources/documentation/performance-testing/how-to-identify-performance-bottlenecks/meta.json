@@ -1,0 +1,14 @@
+{
+  "title": "Identify Performance Bottlenecks: Companion Files",
+  "slug": "how-to-identify-performance-bottlenecks",
+  "type": "documentation",
+  "topic": "performance-testing",
+  "category": "performance-testing",
+  "description": "Runnable artifacts for bottleneck diagnosis: a k6 load-isolation script, a pg_stat_statements slow-query query and a web-vitals RUM collection snippet.",
+  "language": ["en", "es"],
+  "files": [
+    "scripts/k6-load-isolation.js",
+    "scripts/pg_stat_statements-top-queries.sql",
+    "scripts/web-vitals-rum.js"
+  ]
+}

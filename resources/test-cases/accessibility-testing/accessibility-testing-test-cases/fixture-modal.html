@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Focus trap fixture</title></head>
+<body>
+  <main>
+    <h1>Checkout</h1>
+    <button id="open-modal">Open modal</button>
+    <div id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+      <h2 id="modal-title">Confirm order</h2>
+      <input id="coupon" placeholder="Coupon">
+      <button id="cancel">Cancel</button>
+      <button id="confirm">Confirm</button>
+    </div>
+    <script>
+      const modal = document.getElementById('modal');
+      const trigger = document.getElementById('open-modal');
+      const focusables = 'button, input, [tabindex]';
+      trigger.addEventListener('click', () => {
+        modal.hidden = false;
+        modal.querySelector(focusables).focus();
+      });
+      modal.addEventListener('keydown', (e) => {
+        const els = [...modal.querySelectorAll(focusables)];
+        const first = els[0], last = els[els.length - 1];
+        if (e.key === 'Escape') { modal.hidden = true; trigger.focus(); }
+        if (e.key === 'Tab') {
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      });
+      document.getElementById('cancel').addEventListener('click', () => { modal.hidden = true; trigger.focus(); });
+    </script>
+  </main>
+</body>
+</html>

@@ -1,0 +1,18 @@
+name: JMeter v1 Load Test
+on:
+  workflow_dispatch:
+jobs:
+  jmeter:
+    runs-on: [self-hosted, load-test]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run JMeter non-GUI
+        run: |
+          set -e
+          jmeter -n -t jmeter/v1-payments.jmx -l results.jtl -e -o report/ \
+            -JinfluxdbUrl=http://influxdb.novapay-sandbox:8086/write?db=jmeter
+          ./scripts/assert-jtl.sh results.jtl 0.005
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jmeter-report
+          path: report/

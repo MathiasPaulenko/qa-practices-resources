@@ -1,0 +1,18 @@
+{
+  "title": "Responsive Design Test Cases — Playwright Companion",
+  "title_es": "Casos de Prueba de Diseño Responsive — Companion Playwright",
+  "description": "Runnable responsive fixture (768px breakpoint with hamburger/desktop nav and an overflowing table) plus a Playwright 1.48 viewport-matrix spec for TC-01/05/06/10 — loads via file://, no server needed.",
+  "description_es": "Fixture responsive ejecutable (breakpoint de 768px con nav hamburguesa/escritorio y tabla con overflow) más una spec de matriz de viewports de Playwright 1.48 para TC-01/05/06/10 — carga vía file://, sin servidor.",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "slug": "responsive-design-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/responsive-design-test-cases/",
+    "https://qapractices.com/es/test-cases/responsive-design-test-cases/"
+  ],
+  "language": "typescript",
+  "tags": ["responsive-design", "breakpoints", "viewport", "playwright", "mobile-testing"],
+  "files": ["README.md", "README.es.md", "responsive-fixture.html", "responsive.spec.ts", "package.json"],
+  "run": "npm install && npx playwright test responsive.spec.ts",
+  "requirements": "Node.js 20+, Playwright 1.48"
+}

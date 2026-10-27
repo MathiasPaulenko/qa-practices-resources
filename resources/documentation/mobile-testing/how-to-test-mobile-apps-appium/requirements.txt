@@ -1,0 +1,2 @@
+appium-python-client==4.2.0
+pytest==8.3.0

@@ -1,0 +1,9 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Hostile embed (TC-04)</title></head>
+<body>
+  <!-- Hostile overlay for the clickjacking case: with file:// pages the frame
+       renders (no X-Frame-Options exists on file://), which lets you verify the
+       overlay mechanics; on a real host the frame must come back empty/blocked. -->
+  <button onclick="alert('clicked the wrong button')">Claim prize</button>
+  <iframe src="./fixture-host.html" style="position:fixed;top:0;left:0;width:100%;height:100%;opacity:0"></iframe>
+</body></html>

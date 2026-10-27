@@ -1,0 +1,18 @@
+{
+  "title": "Accessibility Testing Test Cases — Playwright + axe-core Companion",
+  "title_es": "Casos de Prueba de Accesibilidad — Companion Playwright + axe-core",
+  "description": "Runnable focus-trap fixture (accessible modal with keyboard trap handling) plus a Playwright 1.48 spec asserting the WCAG keyboard and axe-core checks from the resource — loads via file://, no server needed.",
+  "description_es": "Fixture ejecutable de trampa de foco (modal accesible con manejo de teclado) más una spec de Playwright 1.48 que asserta los checks WCAG de teclado y axe-core del recurso — carga vía file://, sin servidor.",
+  "type": "test-cases",
+  "topic": "accessibility-testing",
+  "slug": "accessibility-testing-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/accessibility-testing-test-cases/",
+    "https://qapractices.com/es/test-cases/accessibility-testing-test-cases/"
+  ],
+  "language": "typescript",
+  "tags": ["accessibility-testing", "wcag", "focus-management", "axe-core", "playwright", "aria"],
+  "files": ["README.md", "README.es.md", "fixture-modal.html", "a11y.spec.ts", "package.json"],
+  "run": "npm install && npx playwright test a11y.spec.ts",
+  "requirements": "Node.js 20+, Playwright 1.48, @axe-core/playwright 4.10"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Best API Testing Tools: Selection Companion",
+  "slug": "best-api-testing-tools",
+  "type": "documentation",
+  "topic": "api-testing",
+  "category": "api-testing",
+  "description": "A local Postman/Newman smoke-test fixture and a workflow-based selection matrix for choosing API testing tools.",
+  "language": ["en", "es"],
+  "files": [
+    "postman/api-smoke.postman_collection.json",
+    "postman/local.postman_environment.json",
+    "scripts/mock_api.py",
+    "decision-matrix.csv"
+  ]
+}
