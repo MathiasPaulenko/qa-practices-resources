@@ -1,0 +1,29 @@
+{
+  "title": "Chat Messaging Feature Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Chat y Mensajería — Companion Ejecutable",
+  "description": "WebSocket delivery assertion script (Node 20 + ws) and curl collection implementing the QAPractices chat test cases: send/receive round-trip, reconnection sync, typing indicator timeout and read-receipt assertions.",
+  "description_es": "Script de verificación de entrega WebSocket (Node 20 + ws) y colección curl que implementa los casos de prueba de chat de QAPractices: envío/recepción, sincronización tras reconexión, timeout del indicador de escritura y confirmación de lectura.",
+  "type": "test-cases",
+  "topic": "web-testing",
+  "slug": "chat-messaging-feature-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/chat-messaging-feature-test-cases/",
+    "https://qapractices.com/es/test-cases/chat-messaging-feature-test-cases/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "chat",
+    "websocket",
+    "real-time",
+    "message-delivery",
+    "offline-sync",
+    "node"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "delivery-assertions.mjs",
+    "send-message.sh",
+    "package.json"
+  ]
+}

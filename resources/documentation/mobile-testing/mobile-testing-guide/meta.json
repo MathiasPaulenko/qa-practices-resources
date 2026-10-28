@@ -1,0 +1,28 @@
+{
+  "title": "Mobile Testing Guide — Runnable Companion",
+  "title_es": "Guía de Pruebas Móviles — Companion Ejecutable",
+  "description": "Tiered device matrix (CSV) and smoke-test runner implementing the QAPractices mobile testing guide: Tier 1/2/3 device selection plus Gradle+Espresso and xcodebuild smoke commands.",
+  "description_es": "Matriz de dispositivos por niveles (CSV) y runner de smoke tests que implementa la guía de pruebas móviles de QAPractices: selección Tier 1/2/3 más comandos smoke Gradle+Espresso y xcodebuild.",
+  "type": "documentation",
+  "topic": "mobile-testing",
+  "slug": "mobile-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/mobile-testing-guide/",
+    "https://qapractices.com/es/documentation/mobile-testing-guide/"
+  ],
+  "language": "bash",
+  "tags": [
+    "mobile-testing",
+    "device-matrix",
+    "appium",
+    "espresso",
+    "xcuitest",
+    "smoke-test"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "device-matrix.csv",
+    "run-smoke-tests.sh"
+  ]
+}

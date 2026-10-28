@@ -1,0 +1,11 @@
+username,password
+loadtest.user01@test-domain.local,LoadTest01!
+loadtest.user02@test-domain.local,LoadTest02!
+loadtest.user03@test-domain.local,LoadTest03!
+loadtest.user04@test-domain.local,LoadTest04!
+loadtest.user05@test-domain.local,LoadTest05!
+loadtest.user06@test-domain.local,LoadTest06!
+loadtest.user07@test-domain.local,LoadTest07!
+loadtest.user08@test-domain.local,LoadTest08!
+loadtest.user09@test-domain.local,LoadTest09!
+loadtest.user10@test-domain.local,LoadTest10!

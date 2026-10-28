@@ -1,0 +1,30 @@
+{
+  "title": "JMeter Elements Cheat Sheet — Runnable Companion",
+  "title_es": "Cheat Sheet de Elementos de JMeter — Companion Ejecutable",
+  "description": "Runnable JMeter 5.6.3 test plan implementing the cheat sheet's common patterns: login once and reuse the token, CSV-driven users, realistic think time, and a headless runner script.",
+  "description_es": "Test plan ejecutable de JMeter 5.6.3 que implementa los patrones comunes del cheat sheet: login una vez y reutilización del token, usuarios desde CSV, think time realista y script de ejecución headless.",
+  "type": "documentation",
+  "topic": "performance-testing",
+  "slug": "jmeter-elements-cheat-sheet",
+  "source_urls": [
+    "https://qapractices.com/documentation/jmeter-elements-cheat-sheet/",
+    "https://qapractices.com/es/documentation/jmeter-elements-cheat-sheet/"
+  ],
+  "language": "jmx",
+  "tags": [
+    "jmeter",
+    "load-testing",
+    "performance-testing",
+    "jmx",
+    "csv-data-set",
+    "json-extractor",
+    "think-time"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "login-token-pattern.jmx",
+    "users.csv",
+    "run-load-test.sh"
+  ]
+}

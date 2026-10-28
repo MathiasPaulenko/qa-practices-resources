@@ -27,10 +27,11 @@
     "tests/first-test.spec.ts",
     "tests/locators.spec.ts",
     "tests/network-mock.spec.ts",
+    "tests/auth-fixture.spec.ts",
     ".github/workflows/playwright.yml"
   ],
   "run": "npm install && npx playwright install --with-deps && npx playwright test",
   "requirements": "Node.js 20+",
   "difficulty": "beginner",
-  "lastUpdated": "2026-10-25"
+  "lastUpdated": "2026-10-28"
 }

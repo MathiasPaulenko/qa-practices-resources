@@ -1,0 +1,10 @@
+tier,device,os_version,audience_share_pct,environment,test_cadence,owner
+1,iPhone 16,iOS 26,24.1,simulator+real,every release,QA lead
+1,Pixel 9,Android 16,11.8,emulator+real,every release,QA lead
+1,Galaxy A55,Android 15,8.3,real,every release,QA lead
+2,iPhone 13,iOS 25,9.7,real,pre-release,QA
+2,Galaxy S23,Android 15,4.2,device farm,pre-release,QA
+2,Moto G84,Android 14,3.1,device farm,weekly,QA
+3,iPhone SE 3,iOS 26,1.9,real,monthly,QA
+3,Galaxy Z Flip6,Android 15,0.6,device farm,monthly,QA
+3,Redmi Note 13,Android 14,2.4,device farm,monthly,QA

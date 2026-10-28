@@ -1,0 +1,73 @@
+services:
+  selenium-hub:
+    image: selenium/hub:4.47.0
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+    environment:
+      - SE_SESSION_REQUEST_TIMEOUT=300
+      - SE_SESSION_RETRY_INTERVAL=5
+      - SE_MAX_SESSIONS=10
+      - SE_NODE_MAX_SESSIONS=5
+    networks:
+      - selenium-grid
+
+  chrome-node:
+    image: selenium/node-chrome:4.47.0
+    container_name: chrome-node
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=3
+      - SE_NODE_SESSION_TIMEOUT=300
+      - SE_VNC_NO_PASSWORD=1
+      - SE_SCREEN_WIDTH=1920
+      - SE_SCREEN_HEIGHT=1080
+    shm_size: 2gb
+    networks:
+      - selenium-grid
+
+  firefox-node:
+    image: selenium/node-firefox:4.47.0
+    container_name: firefox-node
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=3
+      - SE_NODE_SESSION_TIMEOUT=300
+      - SE_VNC_NO_PASSWORD=1
+      - SE_SCREEN_WIDTH=1920
+      - SE_SCREEN_HEIGHT=1080
+    shm_size: 2gb
+    networks:
+      - selenium-grid
+
+  edge-node:
+    image: selenium/node-edge:4.47.0
+    container_name: edge-node
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=2
+      - SE_NODE_SESSION_TIMEOUT=300
+      - SE_VNC_NO_PASSWORD=1
+      - SE_SCREEN_WIDTH=1920
+      - SE_SCREEN_HEIGHT=1080
+    shm_size: 2gb
+    networks:
+      - selenium-grid
+
+networks:
+  selenium-grid:
+    driver: bridge

@@ -11,6 +11,7 @@ Runnable starter project for the [Playwright Testing Tutorial: Setup, Selectors,
 | `tests/first-test.spec.ts` | Step 3 — title assertion on playwright.dev |
 | `tests/locators.spec.ts` | Step 4 — role, text and test-id locators |
 | `tests/network-mock.spec.ts` | Step 7 — `page.route` interception with a stubbed JSON response |
+| `tests/auth-fixture.spec.ts` | Auth via API + token injection fixture, and `toHaveScreenshot` visual regression |
 | `.github/workflows/playwright.yml` | Step 10 — CI job with browser install, sharding and report artifact |
 
 ## Usage

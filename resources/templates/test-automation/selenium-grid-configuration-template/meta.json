@@ -1,0 +1,25 @@
+{
+  "title": "Selenium Grid Configuration Template — Companion",
+  "title_es": "Plantilla de Configuración de Selenium Grid — Companion",
+  "description": "Ready-to-run Docker Compose file for the QAPractices Selenium Grid configuration template: a hub plus Chrome, Firefox, and Edge nodes with event bus ports, session limits, and shared memory sized for stable parallel runs.",
+  "description_es": "Archivo Docker Compose listo para correr de la plantilla de configuración de Selenium Grid de QAPractices: un hub más nodos de Chrome, Firefox y Edge con puertos de event bus, límites de sesiones y memoria compartida para ejecuciones paralelas estables.",
+  "type": "templates",
+  "topic": "test-automation",
+  "slug": "selenium-grid-configuration-template",
+  "source_urls": [
+    "https://qapractices.com/templates/selenium-grid-configuration-template/",
+    "https://qapractices.com/es/templates/selenium-grid-configuration-template/"
+  ],
+  "language": "yaml",
+  "tags": [
+    "selenium-grid",
+    "docker-compose",
+    "parallel-testing",
+    "webdriver",
+    "test-infrastructure"
+  ],
+  "files": [
+    "docker-compose.yml",
+    "grid-health-check.sh"
+  ]
+}

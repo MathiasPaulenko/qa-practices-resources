@@ -11,6 +11,7 @@ Proyecto inicial ejecutable del [Tutorial de Playwright: Setup, Selectores y Ass
 | `tests/first-test.spec.ts` | Paso 3 — assertion de título en playwright.dev |
 | `tests/locators.spec.ts` | Paso 4 — localizadores por rol, texto y test-id |
 | `tests/network-mock.spec.ts` | Paso 7 — intercepción con `page.route` y respuesta JSON simulada |
+| `tests/auth-fixture.spec.ts` | Fixture de auth por API con inyección de token, y visual regression con `toHaveScreenshot` |
 | `.github/workflows/playwright.yml` | Paso 10 — job de CI con instalación de navegadores, sharding y artefacto de reporte |
 
 ## Uso
