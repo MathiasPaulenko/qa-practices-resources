@@ -1,0 +1,38 @@
+meta {
+  name: Checkout
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/checkout
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{authToken}}
+}
+
+body:json {
+  {
+    "cartId": "{{cartId}}",
+    "paymentMethodId": "pm_card_visa"
+  }
+}
+
+vars:post-response {
+  transactionId: res.body.transactionId
+}
+
+tests {
+  test('status is 201', function() {
+    expect(res.status).to.equal(201);
+  });
+  test('transactionId is present', function() {
+    expect(res.body).to.have.property('transactionId');
+  });
+  test('responds in under 400ms', function() {
+    expect(res.responseTime).to.be.below(400);
+  });
+}

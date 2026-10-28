@@ -1,0 +1,49 @@
+name: API contract tests
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  bru-contract-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Bruno CLI
+        run: npm install -g @usebruno/cli@2.13.0
+
+      - name: Run checkout contract suite
+        run: bru run api-tests/checkout --env staging --output results.json
+        working-directory: resources/documentation/api-testing/postman-vs-insomnia-vs-bruno
+        env:
+          authToken: ${{ secrets.PAYFUSE_STAGING_TOKEN }}
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bru-results
+          path: resources/documentation/api-testing/postman-vs-insomnia-vs-bruno/results.json
+
+  newman-contract-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Newman
+        run: npm install -g newman@6.2.1
+
+      - name: Run equivalent Postman collection
+        run: newman run postman/checkout-contract.postman_collection.json --reporters cli,json --reporter-json-export newman-results.json
+        working-directory: resources/documentation/api-testing/postman-vs-insomnia-vs-bruno
+        env:
+          authToken: ${{ secrets.PAYFUSE_STAGING_TOKEN }}

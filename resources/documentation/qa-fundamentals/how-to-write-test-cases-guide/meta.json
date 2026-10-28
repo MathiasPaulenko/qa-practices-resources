@@ -1,0 +1,21 @@
+{
+  "slug": "how-to-write-test-cases-guide",
+  "type": "documentation",
+  "topic": "qa-fundamentals",
+  "title": "How to Write Test Cases — Nimbus Cart Suite",
+  "titleEs": "Cómo Escribir Casos de Prueba — Suite Nimbus Cart",
+  "description": "Companion for the How to Write Test Cases guide: the complete Nimbus Cart 3.2.6 Express Checkout test case suite as an importable CSV (TC-EC-02-001..005, TC-EC-03-001..003) plus the reusable test case template.",
+  "descriptionEs": "Companion de la guía Cómo Escribir Casos de Prueba: la suite completa del Pago Express de Nimbus Cart 3.2.6 en CSV importable (TC-EC-02-001..005, TC-EC-03-001..003) más la plantilla de caso reutilizable.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-10-28",
+  "tools": {
+    "format": "CSV (TestRail/Xray import)",
+    "template": "Markdown"
+  },
+  "files": [
+    "nimbus-cart-3-2-6-test-cases.csv",
+    "test-case-template.md",
+    "README.md",
+    "README.es.md"
+  ]
+}

@@ -1,0 +1,31 @@
+meta {
+  name: Create Cart
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/carts
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{authToken}}
+}
+
+vars:post-response {
+  cartId: res.body.cartId
+}
+
+tests {
+  test('status is 201', function() {
+    expect(res.status).to.equal(201);
+  });
+  test('cartId is present', function() {
+    expect(res.body).to.have.property('cartId');
+  });
+  test('responds in under 400ms', function() {
+    expect(res.responseTime).to.be.below(400);
+  });
+}

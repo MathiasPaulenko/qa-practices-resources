@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "payfuse-checkout",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

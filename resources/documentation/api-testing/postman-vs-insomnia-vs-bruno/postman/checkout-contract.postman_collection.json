@@ -1,0 +1,154 @@
+{
+  "info": {
+    "name": "PayFuse Checkout Contract Tests",
+    "description": "Equivalent Postman collection for the checkout contract-test flow: create cart, add item, checkout, partial refund. Compare with the .bru files in api-tests/checkout to see the Git-diff trade-off.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Cart",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{authToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/carts",
+          "host": ["{{baseUrl}}"],
+          "path": ["carts"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status is 201', () => {",
+              "  pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test('cartId is present', () => {",
+              "  const json = pm.response.json();",
+              "  pm.expect(json).to.have.property('cartId');",
+              "  pm.environment.set('cartId', json.cartId);",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Add Item",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{authToken}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/carts/{{cartId}}/items",
+          "host": ["{{baseUrl}}"],
+          "path": ["carts", "{{cartId}}", "items"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productId\": 42,\n  \"quantity\": 1\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('stock is available', () => {",
+              "  pm.expect(pm.response.json().stockSufficient).to.eql(true);",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Checkout",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{authToken}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/checkout",
+          "host": ["{{baseUrl}}"],
+          "path": ["checkout"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cartId\": \"{{cartId}}\",\n  \"paymentMethodId\": \"pm_card_visa\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status is 201', () => {",
+              "  pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test('transactionId is present', () => {",
+              "  const json = pm.response.json();",
+              "  pm.expect(json).to.have.property('transactionId');",
+              "  pm.environment.set('transactionId', json.transactionId);",
+              "});"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Partial Refund",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{authToken}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/refunds",
+          "host": ["{{baseUrl}}"],
+          "path": ["refunds"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"transactionId\": \"{{transactionId}}\",\n  \"amount\": 500,\n  \"reason\": \"requested_by_customer\"\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('status is 201', () => {",
+              "  pm.response.to.have.status(201);",
+              "});",
+              "",
+              "pm.test('refund is accepted', () => {",
+              "  pm.expect(pm.response.json().status).to.eql('succeeded');",
+              "});"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://staging.payfuse.internal/api/v1"
+    }
+  ]
+}

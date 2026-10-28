@@ -1,0 +1,24 @@
+{
+  "slug": "docker-container-testing-guide",
+  "type": "documentation",
+  "topic": "devops-testing",
+  "title": "Docker Container Testing Guide",
+  "titleEs": "Guía de Testing de Contenedores Docker",
+  "description": "Runnable companion for the Docker Container Testing Guide: a Compose test stack (postgres + app under test) with real healthchecks, depends_on service_healthy ordering, resource limits and a verification script that exercises the seven testing areas.",
+  "descriptionEs": "Companion ejecutable de la Guía de Testing de Contenedores Docker: stack Compose (postgres + app bajo test) con healthchecks reales, orden depends_on service_healthy, límites de recursos y un script de verificación que ejercita las siete áreas de testing.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-10-28",
+  "tools": {
+    "docker-engine": "29.x",
+    "docker-compose": "v2",
+    "postgres": "15"
+  },
+  "files": [
+    "docker-compose.test.yml",
+    "app/Dockerfile",
+    "app/server.js",
+    "scripts/verify-stack.sh",
+    "README.md",
+    "README.es.md"
+  ]
+}

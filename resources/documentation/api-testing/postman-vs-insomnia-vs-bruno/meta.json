@@ -1,0 +1,30 @@
+{
+  "slug": "postman-vs-insomnia-vs-bruno",
+  "type": "documentation",
+  "topic": "api-testing",
+  "title": "Postman vs Insomnia vs Bruno",
+  "titleEs": "Postman vs Insomnia vs Bruno",
+  "description": "Runnable companion for the Postman vs Insomnia vs Bruno decision guide: a Bruno checkout contract-test collection (create cart, add item, checkout, refund) runnable with bru run, the equivalent Postman collection, a staging environment and a GitHub Actions workflow.",
+  "descriptionEs": "Companion ejecutable de la guía Postman vs Insomnia vs Bruno: colección Bruno de tests de contrato de checkout (crear carrito, agregar ítem, checkout, reembolso) lista para bru run, la colección Postman equivalente, un entorno staging y un workflow de GitHub Actions.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-10-28",
+  "tools": {
+    "bruno": "2.x",
+    "@usebruno/cli": "2.13.x",
+    "postman": "v11",
+    "newman": "6.x",
+    "node": "20 LTS"
+  },
+  "files": [
+    "api-tests/checkout/bruno.json",
+    "api-tests/checkout/create-cart.bru",
+    "api-tests/checkout/add-item.bru",
+    "api-tests/checkout/checkout.bru",
+    "api-tests/checkout/refund.bru",
+    "api-tests/checkout/environments/staging.bru",
+    "postman/checkout-contract.postman_collection.json",
+    ".github/workflows/api-contract-tests.yml",
+    "README.md",
+    "README.es.md"
+  ]
+}

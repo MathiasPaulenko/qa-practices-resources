@@ -1,0 +1,32 @@
+meta {
+  name: Add Item
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/carts/{{cartId}}/items
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{authToken}}
+}
+
+body:json {
+  {
+    "productId": 42,
+    "quantity": 1
+  }
+}
+
+vars:pre-request {
+  cartId: bru.getVar('cartId')
+}
+
+tests {
+  test('stock is available', function() {
+    expect(res.body.stockSufficient).to.equal(true);
+  });
+}

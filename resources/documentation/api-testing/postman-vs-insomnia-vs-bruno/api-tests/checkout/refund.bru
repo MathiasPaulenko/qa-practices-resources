@@ -1,0 +1,39 @@
+meta {
+  name: Partial Refund
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/refunds
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{authToken}}
+}
+
+body:json {
+  {
+    "transactionId": "{{transactionId}}",
+    "amount": 500,
+    "reason": "requested_by_customer"
+  }
+}
+
+vars:pre-request {
+  transactionId: bru.getVar('transactionId')
+}
+
+tests {
+  test('status is 201', function() {
+    expect(res.status).to.equal(201);
+  });
+  test('refund is accepted', function() {
+    expect(res.body.status).to.equal('succeeded');
+  });
+  test('responds in under 600ms', function() {
+    expect(res.responseTime).to.be.below(600);
+  });
+}
