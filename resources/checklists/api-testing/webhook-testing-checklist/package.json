@@ -1,0 +1,15 @@
+{
+  "name": "webhook-testing-checklist-companion",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Runnable companion for the Webhook Testing Checklist: signature verification, a minimal receiver with deduplication and a node:test suite.",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node receiver.mjs",
+    "send": "node send-test-webhook.mjs",
+    "test": "node --test"
+  }
+}

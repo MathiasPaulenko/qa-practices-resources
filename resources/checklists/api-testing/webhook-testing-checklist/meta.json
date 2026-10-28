@@ -1,0 +1,16 @@
+{
+  "resourceType": "checklists",
+  "slug": "webhook-testing-checklist",
+  "title": "Webhook Testing Checklist: Delivery, Payload & Signatures",
+  "description": "Runnable companion for the Webhook Testing Checklist: a Standard-Webhooks-style HMAC signature verifier, a minimal receiver with event-ID deduplication, a signing test client and a node:test suite for tamper, replay and duplicate scenarios.",
+  "type": "checklists",
+  "topic": "api-testing",
+  "companionVersion": "1.0.0",
+  "files": [
+    "webhook-verify.mjs",
+    "receiver.mjs",
+    "send-test-webhook.mjs",
+    "tests/verify.test.mjs",
+    "package.json"
+  ]
+}
