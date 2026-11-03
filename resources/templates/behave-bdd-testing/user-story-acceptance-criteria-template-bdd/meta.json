@@ -1,0 +1,28 @@
+{
+  "title": "BDD Acceptance Criteria Template for User Stories",
+  "title_es": "Plantilla de Criterios de Aceptación BDD (Gherkin)",
+  "description": "Filled .feature file with Given-When-Then acceptance criteria for a promo-code checkout story, including a Scenario Outline.",
+  "description_es": "Archivo .feature rellenado con criterios de aceptación Given-When-Then para una historia de código promocional en el checkout, incluyendo un Scenario Outline.",
+  "type": "templates",
+  "topic": "behave-bdd-testing",
+  "slug": "user-story-acceptance-criteria-template-bdd",
+  "source_urls": [
+    "https://qapractices.com/templates/user-story-acceptance-criteria-template-bdd/",
+    "https://qapractices.com/es/templates/user-story-acceptance-criteria-template-bdd/"
+  ],
+  "language": "gherkin",
+  "tags": [
+    "bdd",
+    "gherkin",
+    "cucumber",
+    "behave",
+    "acceptance-criteria",
+    "feature-file",
+    "scenario-outline"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "promo-code-checkout.feature"
+  ]
+}

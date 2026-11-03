@@ -1,0 +1,10 @@
+{
+  "id": "invoice-billing-history-test-cases",
+  "slug": "invoice-billing-history-test-cases",
+  "title": "Invoice and Billing History Test Cases Companion",
+  "description": "Runnable validation snippets for the Invoice and Billing History Test Cases resource: proration SQL check, pdfplumber PDF text assertion and a Playwright invoice-download spec.",
+  "type": "test-cases",
+  "topic": "ecommerce-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "sql/proration-validation.sql", "tests/test_invoice_pdf.py", "tests/invoice-download.spec.ts"]
+}

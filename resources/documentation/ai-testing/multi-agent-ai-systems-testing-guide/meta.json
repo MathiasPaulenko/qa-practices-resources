@@ -1,0 +1,33 @@
+{
+  "title": "Multi-Agent AI Systems Testing Guide — Runnable Companion",
+  "title_es": "Guía de Testing de Sistemas Multi-Agente AI — Companion Ejecutable",
+  "description": "Pure-Python agent fixtures plus a pytest 8.3 suite covering message validation, orchestrator retries, Byzantine voting, quorum, tool isolation, deadlock detection and swarm stability from the QAPractices guide.",
+  "description_es": "Fixtures de agentes en Python puro más una suite pytest 8.3 que cubre validación de mensajes, reintentos del orquestador, votación bizantina, quorum, aislamiento de herramientas, detección de deadlocks y estabilidad del enjambre de la guía de QAPractices.",
+  "type": "documentation",
+  "topic": "ai-testing",
+  "slug": "multi-agent-ai-systems-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/multi-agent-ai-systems-testing-guide/",
+    "https://qapractices.com/es/documentation/multi-agent-ai-systems-testing-guide/"
+  ],
+  "language": "python",
+  "tags": [
+    "multi-agent-testing",
+    "ai-agent",
+    "agent-orchestration",
+    "consensus-testing",
+    "emergent-behavior",
+    "deadlock-detection",
+    "pytest",
+    "message-bus"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "agent_kit.py",
+    "requirements.txt",
+    "tests/test_multi_agent.py"
+  ],
+  "difficulty": "advanced",
+  "lastUpdated": "2026-11-03"
+}
