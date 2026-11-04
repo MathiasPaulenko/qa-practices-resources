@@ -1,0 +1,9 @@
+{
+  "dlcId": "season-pass-1",
+  "title": "Season Pass 1",
+  "requiredBaseVersion": "1.4.0",
+  "platforms": ["PC", "PS5", "XSX"],
+  "regions": ["US", "EU", "JP"],
+  "dependencies": ["base-game"],
+  "exclusiveWith": []
+}

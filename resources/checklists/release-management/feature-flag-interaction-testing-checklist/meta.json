@@ -1,0 +1,31 @@
+{
+  "title": "Feature Flag Interaction Testing — Runnable Companion",
+  "title_es": "Testing de Interacción de Feature Flags — Companion Ejecutable",
+  "description": "Runnable companion for the feature flag checklist: flag config with targeting and dependencies, an exhaustive 2^n combination matrix test (pytest), and a kill-switch propagation simulation showing why stale caches break kills.",
+  "description_es": "Companion ejecutable del checklist de feature flags: config de flags con targeting y dependencias, test de matriz de combinaciones 2^n exhaustivo (pytest) y simulación de propagación de kill switch que muestra por qué los caches stale rompen el kill.",
+  "type": "checklists",
+  "topic": "release-management",
+  "slug": "feature-flag-interaction-testing-checklist",
+  "source_urls": [
+    "https://qapractices.com/checklists/feature-flag-interaction-testing-checklist/",
+    "https://qapractices.com/es/checklists/feature-flag-interaction-testing-checklist/"
+  ],
+  "language": "python",
+  "tags": [
+    "feature-flags",
+    "kill-switch",
+    "rollout-testing",
+    "pytest",
+    "combinatorial-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "flag-config.json",
+    "flag_matrix_test.py",
+    "kill_switch_sim.py",
+    "requirements.txt"
+  ],
+  "run": "pytest flag_matrix_test.py -v && python kill_switch_sim.py",
+  "requirements": "Python 3.10+, pytest>=8.0"
+}

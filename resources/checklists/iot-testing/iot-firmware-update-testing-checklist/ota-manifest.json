@@ -1,0 +1,17 @@
+{
+  "deviceModel": "thermostat-v2",
+  "version": "3.1.4",
+  "minVersion": "3.0.0",
+  "url": "https://ota.example.com/firmwares/thermostat-3.1.4.bin",
+  "size": 4194304,
+  "checksum": {
+    "algorithm": "sha256",
+    "value": "9f2b1c4d7e3a8f0b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4a3b"
+  },
+  "signature": "MEUCIQD8x3fA9kL2pQ7vN4sR6tY1wE0oI5uJ8mK3nB7cV9zG2hAiEAqF4dC6sL9mP2xR5vT8yU1wA3bN6kJ7gH0fD4eS5cW8",
+  "rollout": {
+    "channel": "stable",
+    "stages": [5, 25, 100],
+    "minBatteryPercent": 50
+  }
+}

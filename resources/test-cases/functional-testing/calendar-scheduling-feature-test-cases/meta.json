@@ -1,0 +1,32 @@
+{
+  "title": "Calendar and Scheduling Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Calendario y Eventos — Companion Ejecutable",
+  "description": "Small scheduling library (UTC storage, overlap/conflict detection with warn-vs-block policy, DST-gap handling, monthly day-31 recurrence) plus a pytest 8.3 suite mapping the 33 cases on qapractices.com.",
+  "description_es": "Librería mínima de programación (almacenamiento UTC, detección de superposiciones/conflictos con política aviso-o-bloqueo, manejo de gaps de DST, recurrencia mensual día 31) más una suite pytest 8.3 que mapea los 33 casos de qapractices.com.",
+  "type": "test-cases",
+  "topic": "functional-testing",
+  "slug": "calendar-scheduling-feature-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/calendar-scheduling-feature-test-cases/",
+    "https://qapractices.com/es/test-cases/calendar-scheduling-feature-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "calendar-testing",
+    "conflict-detection",
+    "dst-transition-testing",
+    "timezone-testing",
+    "icalendar-testing",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "scheduler.py",
+    "requirements.txt",
+    "tests/conftest.py",
+    "tests/test_scheduler.py"
+  ],
+  "run": "pytest tests/ -v",
+  "requirements": "Python 3.10+"
+}

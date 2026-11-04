@@ -1,0 +1,31 @@
+{
+  "title": "JMeter Performance Testing Tutorial — Runnable Companion",
+  "title_es": "Tutorial de JMeter Performance Testing — Companion Ejecutable",
+  "description": "Runnable companion for the JMeter tutorial: a users.csv fixture for CSV Data Set parameterization, a non-GUI run script with the tutorial's exact flags, and a results-analysis checklist covering error rate, percentiles and throughput.",
+  "description_es": "Companion ejecutable del tutorial de JMeter: un fixture users.csv para la parametrización CSV Data Set, un script de corrida non-GUI con los flags exactos del tutorial y un checklist de análisis de resultados con error rate, percentiles y throughput.",
+  "type": "documentation",
+  "topic": "performance-testing",
+  "slug": "jmeter-performance-testing-tutorial",
+  "source_urls": [
+    "https://qapractices.com/documentation/jmeter-performance-testing-tutorial/",
+    "https://qapractices.com/es/documentation/jmeter-performance-testing-tutorial/"
+  ],
+  "language": "bash",
+  "tags": [
+    "jmeter",
+    "load-testing",
+    "performance-testing",
+    "csv-data-set",
+    "non-gui"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "users.csv",
+    "run-load-test.sh",
+    "results-checklist.md",
+    "meta.json"
+  ],
+  "run": "JMETER_HOME=/path/to/apache-jmeter-5.6.3 ./run-load-test.sh test-plan.jmx",
+  "requirements": "Apache JMeter 5.6.3, bash, Java 8+ (17 recommended)"
+}

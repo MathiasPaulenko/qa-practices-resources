@@ -1,0 +1,29 @@
+{
+  "title": "Registration Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Registro — Companion Ejecutable",
+  "description": "Runnable companion for the registration test cases: a Playwright spec covering the happy path plus four validation failures, and a JSON fixture with the SQLi/XSS/unicode/tempmail payloads used across the 30 cases.",
+  "description_es": "Companion ejecutable de los casos de prueba de registro: un spec de Playwright que cubre el camino feliz más cuatro fallos de validación, y un fixture JSON con los payloads SQLi/XSS/unicode/tempmail usados en los 30 casos.",
+  "type": "test-cases",
+  "topic": "authentication",
+  "slug": "registration-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/registration-test-cases/",
+    "https://qapractices.com/es/test-cases/registration-test-cases/"
+  ],
+  "language": "typescript",
+  "tags": [
+    "registration-testing",
+    "playwright",
+    "form-validation",
+    "signup-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "registration.spec.ts",
+    "registration-data.json",
+    "meta.json"
+  ],
+  "run": "BASE_URL=http://localhost:3000 npx playwright test registration.spec.ts",
+  "requirements": "@playwright/test 1.48+"
+}

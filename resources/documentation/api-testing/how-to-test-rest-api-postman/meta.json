@@ -1,0 +1,23 @@
+{
+  "slug": "how-to-test-rest-api-postman",
+  "type": "documentation",
+  "topic": "api-testing",
+  "title": "How to Test REST APIs with Postman",
+  "titleEs": "Cómo Probar APIs REST con Postman Paso a Paso",
+  "description": "Companion resources for the How to Test REST APIs with Postman guide. Includes a ready-to-run Postman collection, environment files, and data-driven test data.",
+  "descriptionEs": "Recursos complementarios para la guía Cómo Probar APIs REST con Postman. Incluye una colección de Postman lista para ejecutar, archivos de entorno y datos para testing data-driven.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-11-04",
+  "tools": {
+    "postman": "v11",
+    "newman": "6.x",
+    "node": "20 LTS"
+  },
+  "files": [
+    "collections/user-api-tests.postman_collection.json",
+    "environments/staging.postman_environment.json",
+    "data/test-data.json",
+    "README.md",
+    "README.es.md"
+  ]
+}

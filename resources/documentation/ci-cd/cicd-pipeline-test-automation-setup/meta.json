@@ -1,0 +1,31 @@
+{
+  "title": "CI/CD Test Automation Pipeline Setup",
+  "title_es": "Configuración de pipeline CI/CD para automatización de pruebas",
+  "description": "Copy-paste CI configs matching the setup guide: GitHub Actions workflow with sharded Playwright E2E, declarative Jenkinsfile and .gitlab-ci.yml with JUnit reporting.",
+  "description_es": "Configs de CI listas para copiar correspondientes a la guía de configuración: workflow de GitHub Actions con E2E de Playwright en shards, Jenkinsfile declarativo y .gitlab-ci.yml con reportes JUnit.",
+  "type": "documentation",
+  "topic": "ci-cd",
+  "slug": "cicd-pipeline-test-automation-setup",
+  "source_urls": [
+    "https://qapractices.com/documentation/cicd-pipeline-test-automation-setup/",
+    "https://qapractices.com/es/documentation/cicd-pipeline-test-automation-setup/"
+  ],
+  "language": "yaml",
+  "tags": [
+    "ci-cd",
+    "github-actions",
+    "jenkins",
+    "gitlab-ci",
+    "playwright",
+    "junit",
+    "allure"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "pipeline-setup/.github/workflows/test-pipeline.yml",
+    "pipeline-setup/.github/workflows/e2e-sharded.yml",
+    "pipeline-setup/Jenkinsfile",
+    "pipeline-setup/.gitlab-ci.yml"
+  ]
+}

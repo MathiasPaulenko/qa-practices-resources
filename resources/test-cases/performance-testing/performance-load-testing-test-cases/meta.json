@@ -1,0 +1,31 @@
+{
+  "title": "Performance and Load Test Cases — Runnable k6 Companion",
+  "title_es": "Casos de Prueba de Carga y Rendimiento — Companion k6 Ejecutable",
+  "description": "k6 0.55 scripts matching the load-profile cases on qapractices.com: ramp-up/steady/spike/ramp-down stages with p95/p99 and error-rate thresholds, plus a constant-arrival-rate capacity variant and a soak configuration.",
+  "description_es": "Scripts de k6 0.55 que corresponden a los casos de perfil de carga de qapractices.com: etapas ramp-up/estable/spike/ramp-down con thresholds de p95/p99 y tasa de error, más una variante de tasa de llegada constante y una configuración soak.",
+  "type": "test-cases",
+  "topic": "performance-testing",
+  "slug": "performance-load-testing-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/performance-load-testing-test-cases/",
+    "https://qapractices.com/es/test-cases/performance-load-testing-test-cases/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "k6",
+    "load-testing",
+    "stress-testing",
+    "soak-testing",
+    "performance-testing",
+    "slo-thresholds"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "load-profile.js",
+    "capacity-arrival-rate.js",
+    "soak-test.js"
+  ],
+  "run": "k6 run load-profile.js",
+  "requirements": "k6 0.55+"
+}

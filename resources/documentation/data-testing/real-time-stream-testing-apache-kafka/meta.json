@@ -1,0 +1,22 @@
+{
+  "slug": "real-time-stream-testing-apache-kafka",
+  "type": "documentation",
+  "topic": "data-testing",
+  "title": "Kafka Testing Guide: Real-Time Streams",
+  "titleEs": "Guía de Testing de Kafka: Streams en Tiempo Real",
+  "description": "Companion resources for the Kafka Testing Guide: docker-compose with broker + schema registry and a JUnit integration test with Testcontainers.",
+  "descriptionEs": "Recursos complementarios para la Guía de Testing de Kafka: docker-compose con broker + schema registry y un test de integración JUnit con Testcontainers.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-11-04",
+  "tools": {
+    "cp-kafka": "7.6.0",
+    "testcontainers": "1.x",
+    "junit": "5.x",
+    "java": "21",
+    "maven": "3.9"
+  },
+  "files": [
+    "docker-compose.yml",
+    "KafkaOffsetResumeTest.java"
+  ]
+}

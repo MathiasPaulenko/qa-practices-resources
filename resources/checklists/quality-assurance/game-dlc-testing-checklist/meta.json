@@ -1,0 +1,31 @@
+{
+  "title": "Game DLC Testing — Runnable Companion",
+  "title_es": "Testing de DLC de Juegos — Companion Ejecutable",
+  "description": "Runnable companion for the game DLC checklist: a DLC manifest with real validation rules (pytest) and an entitlement-flow simulation showing the classic refund bug where the in-game unlock flag survives a revoked purchase.",
+  "description_es": "Companion ejecutable del checklist de DLC: un manifest de DLC con reglas de validación reales (pytest) y una simulación del flujo de entitlement que muestra el bug clásico del reembolso donde el flag de desbloqueo sobrevive a la compra revocada.",
+  "type": "checklists",
+  "topic": "quality-assurance",
+  "slug": "game-dlc-testing-checklist",
+  "source_urls": [
+    "https://qapractices.com/checklists/game-dlc-testing-checklist/",
+    "https://qapractices.com/es/checklists/game-dlc-testing-checklist/"
+  ],
+  "language": "python",
+  "tags": [
+    "dlc-testing",
+    "entitlement-testing",
+    "game-testing",
+    "manifest-validation",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "dlc-manifest.json",
+    "manifest_validator_test.py",
+    "entitlement_flow.py",
+    "requirements.txt"
+  ],
+  "run": "pytest manifest_validator_test.py -v && python entitlement_flow.py",
+  "requirements": "Python 3.10+, pytest>=8.0"
+}

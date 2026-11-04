@@ -1,0 +1,54 @@
+pipeline {
+    agent any
+    tools {
+        nodejs 'Node20'
+    }
+    options {
+        timeout(time: 30, unit: 'MINUTES')
+        disableConcurrentBuilds()
+    }
+    stages {
+        stage('Install') {
+            steps {
+                sh 'npm ci'
+            }
+        }
+        stage('Lint') {
+            steps {
+                sh 'npm run lint'
+            }
+        }
+        stage('Unit Tests') {
+            steps {
+                sh 'npm test -- --coverage'
+            }
+            post {
+                always {
+                    junit 'test-results/*.xml'
+                    publishHTML([
+                        reportDir: 'coverage',
+                        reportFiles: 'index.html',
+                        reportName: 'Coverage Report'
+                    ])
+                }
+            }
+        }
+        stage('E2E Tests') {
+            steps {
+                sh 'npx playwright test'
+            }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'playwright-report/**'
+                }
+            }
+        }
+    }
+    post {
+        failure {
+            emailext subject: 'Build Failed: ${JOB_NAME} #${BUILD_NUMBER}',
+                body: 'Check Jenkins for details: ${BUILD_URL}',
+                to: "${env.QA_TEAM_EMAIL}" // set in Jenkins credentials or global env
+        }
+    }
+}

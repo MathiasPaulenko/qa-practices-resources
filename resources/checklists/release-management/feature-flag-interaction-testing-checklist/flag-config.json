@@ -1,0 +1,16 @@
+{
+  "newCheckout": {
+    "enabled": true,
+    "targeting": { "percentage": 50, "platform": ["web"] },
+    "dependencies": ["payment_v2"],
+    "conflicts": ["legacyCheckout"]
+  },
+  "payment_v2": {
+    "enabled": true,
+    "targeting": { "percentage": 100 }
+  },
+  "legacyCheckout": {
+    "enabled": false,
+    "targeting": { "percentage": 0 }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "Webhook Integration Testing Plan — Runnable Companion",
+  "title_es": "Plan de Testing de Integración Webhook — Companion Ejecutable",
+  "description": "Runnable companion for the webhook testing plan template: a Stripe-style HMAC signature verifier with node:test cases (valid, tampered, expired, wrong secret) and a retry/DLQ simulator showing the backoff schedule and dead letter transition.",
+  "description_es": "Companion ejecutable de la plantilla de plan de webhooks: un verificador de firma HMAC estilo Stripe con casos node:test (válida, alterada, expirada, secret incorrecto) y un simulador de retry/DLQ que muestra el backoff y la transición a dead letter.",
+  "type": "templates",
+  "topic": "api-testing",
+  "slug": "webhook-integration-testing-plan-template",
+  "source_urls": [
+    "https://qapractices.com/templates/webhook-integration-testing-plan-template/",
+    "https://qapractices.com/es/templates/webhook-integration-testing-plan-template/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "webhook-testing",
+    "hmac-signature",
+    "retry-logic",
+    "dead-letter-queue",
+    "node"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "verify-signature.test.js",
+    "retry-simulator.js",
+    "payload.sample.json",
+    "meta.json"
+  ],
+  "run": "node --test verify-signature.test.js && node retry-simulator.js",
+  "requirements": "Node.js 18+ (node:test built in, no dependencies)"
+}

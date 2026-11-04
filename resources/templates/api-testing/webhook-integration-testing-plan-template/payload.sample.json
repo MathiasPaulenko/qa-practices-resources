@@ -1,0 +1,21 @@
+{
+  "event_id": "evt_abc123def456",
+  "event_type": "payment.succeeded",
+  "created_at": "2026-11-04T10:30:00Z",
+  "api_version": "2026-07-01",
+  "data": {
+    "object": {
+      "id": "pay_xyz789",
+      "amount": 4999,
+      "currency": "USD",
+      "status": "succeeded",
+      "customer_id": "cus_abc123",
+      "payment_method": "card",
+      "card_last4": "4242",
+      "card_brand": "visa",
+      "metadata": {
+        "order_id": "ord_12345"
+      }
+    }
+  }
+}

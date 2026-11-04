@@ -1,0 +1,10 @@
+{
+  "valid": { "email": "qa.user@mail.test", "password": "SecurePass123!" },
+  "duplicate": { "email": "existing.user@mail.test" },
+  "invalidFormat": { "email": "invalid-email" },
+  "weak": { "password": "Pass1" },
+  "sqli": { "email": "' OR '1'='1@mail.test" },
+  "xss": { "name": "<script>alert('xss')</script>" },
+  "unicode": { "email": "user@例え.com" },
+  "tempmail": { "email": "qa.user@tempmail.com" }
+}

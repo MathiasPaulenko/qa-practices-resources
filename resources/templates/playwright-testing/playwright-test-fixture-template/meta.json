@@ -1,0 +1,24 @@
+{
+  "slug": "playwright-test-fixture-template",
+  "type": "templates",
+  "topic": "playwright-testing",
+  "title": "Playwright Test Fixture Template",
+  "titleEs": "Plantilla de Fixtures para Tests de Playwright",
+  "description": "Companion resources for the Playwright Test Fixture Template: runnable fixture files, global setup, config and an example spec.",
+  "descriptionEs": "Recursos complementarios para la Plantilla de Fixtures de Playwright: archivos de fixtures ejecutables, global setup, config y un spec de ejemplo.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-11-04",
+  "tools": {
+    "@playwright/test": "1.x",
+    "typescript": "5.x",
+    "node": "20 LTS"
+  },
+  "files": [
+    "fixtures/base.fixture.ts",
+    "fixtures/data.fixture.ts",
+    "fixtures/page.fixture.ts",
+    "global-setup.ts",
+    "auth.spec.ts",
+    "playwright.config.ts"
+  ]
+}

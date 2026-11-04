@@ -1,0 +1,31 @@
+{
+  "title": "Flaky Test Prevention Checklist — Runnable Companion",
+  "title_es": "Checklist de Prevención de Tests Flaky — Companion Ejecutable",
+  "description": "Runnable companion for the flaky test prevention checklist: a Playwright auto-waiting spec (the anti-sleep pattern), a repeat-until-failure loop script that proves determinism, and a quarantine workflow template with SLA.",
+  "description_es": "Companion ejecutable del checklist anti-flaky: un spec de Playwright con auto-waiting (el patrón anti-sleep), un script loop que corre un spec hasta que falla para probar determinismo, y una plantilla de workflow de cuarentena con SLA.",
+  "type": "checklists",
+  "topic": "ci-cd",
+  "slug": "flaky-test-prevention-checklist",
+  "source_urls": [
+    "https://qapractices.com/checklists/flaky-test-prevention-checklist/",
+    "https://qapractices.com/es/checklists/flaky-test-prevention-checklist/"
+  ],
+  "language": "typescript",
+  "tags": [
+    "flaky-tests",
+    "test-reliability",
+    "playwright",
+    "ci-cd",
+    "quarantine-workflow"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "auto-wait.spec.ts",
+    "repeat-until-failure.sh",
+    "quarantine-workflow.md",
+    "meta.json"
+  ],
+  "run": "./repeat-until-failure.sh login.spec.ts 20",
+  "requirements": "@playwright/test 1.48+, bash"
+}

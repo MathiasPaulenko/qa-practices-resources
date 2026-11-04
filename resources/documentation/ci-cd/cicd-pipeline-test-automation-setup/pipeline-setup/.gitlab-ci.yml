@@ -1,0 +1,36 @@
+stages:
+  - lint
+  - test
+  - e2e
+  - deploy
+
+lint:
+  stage: lint
+  image: node:20
+  script:
+    - npm ci
+    - npm run lint
+
+unit-test:
+  stage: test
+  image: node:20
+  script:
+    - npm ci
+    - npm test -- --coverage
+  artifacts:
+    reports:
+      junit: test-results/*.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml
+
+e2e-test:
+  stage: e2e
+  image: mcr.microsoft.com/playwright:v1.45.0-jammy
+  script:
+    - npm ci
+    - npx playwright test
+  artifacts:
+    when: always
+    paths:
+      - playwright-report/
