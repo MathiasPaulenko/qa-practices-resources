@@ -1,0 +1,22 @@
+{
+  "id": "feature-flags-testing-guide",
+  "slug": "feature-flags-testing-guide",
+  "title": "Feature Flags Testing Guide Companion",
+  "description": "Runnable Jest 29 + MSW 2.x lab for the Feature Flags Testing Guide: a stdlib flag evaluator (boolean, env-var, targeting rules, deterministic sha256 percentage buckets) plus suites for flag states, segmentation boundaries, rollout determinism and flag-service failure handling.",
+  "type": "documentation",
+  "topic": "devops-testing",
+  "languages": ["en", "es"],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "meta.json",
+    "package.json",
+    "jest.config.js",
+    "featureFlags.js",
+    "launchdarkly-example.js",
+    "tests/featureFlags.test.js",
+    "tests/segmentation.test.js",
+    "tests/rollout.test.js",
+    "tests/flags-api.test.mjs"
+  ]
+}

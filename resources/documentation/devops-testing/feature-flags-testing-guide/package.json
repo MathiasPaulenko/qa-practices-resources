@@ -1,0 +1,13 @@
+{
+  "name": "feature-flags-testing-guide-companion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Runnable companion for the Feature Flags Testing Guide (qapractices.com)",
+  "scripts": {
+    "test": "jest --verbose && node --test tests/flags-api.test.mjs"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "msw": "^2.6.0"
+  }
+}

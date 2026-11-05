@@ -1,0 +1,34 @@
+{
+  "title": "JMeter Load Testing Script Template — Companion",
+  "title_es": "Plantilla de Script de Pruebas de Carga en JMeter — Companion",
+  "description": "Runnable JMeter 5.6.3 files for the QAPractices load testing script template: a loadtest.jmx test plan, a users.csv data file and a jmeter-load-test.yml Taurus wrapper to execute the same scenario locally or in CI.",
+  "description_es": "Archivos ejecutables de JMeter 5.6.3 para la plantilla de script de pruebas de carga de QAPractices: un plan de pruebas loadtest.jmx, un archivo de datos users.csv y un wrapper de Taurus jmeter-load-test.yml para ejecutar el mismo escenario en local o en CI.",
+  "type": "templates",
+  "topic": "performance-testing",
+  "slug": "load-testing-script-template-jmeter",
+  "source_urls": [
+    "https://qapractices.com/templates/load-testing-script-template-jmeter/",
+    "https://qapractices.com/es/templates/load-testing-script-template-jmeter/"
+  ],
+  "language": "xml",
+  "tags": [
+    "jmeter",
+    "load-testing",
+    "performance-testing",
+    "taurus",
+    "ci"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "loadtest.jmx",
+    "users.csv",
+    "jmeter-load-test.yml"
+  ],
+  "tools": [
+    { "name": "Apache JMeter", "version": "5.6.3" },
+    { "name": "Taurus", "version": "1.16" }
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-11-05"
+}

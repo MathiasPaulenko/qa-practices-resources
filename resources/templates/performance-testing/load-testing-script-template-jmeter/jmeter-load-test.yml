@@ -1,0 +1,27 @@
+name: Load Test
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  load-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download JMeter
+        run: |
+          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
+          tar -xzf apache-jmeter-5.6.3.tgz
+      - name: Run Load Test
+        run: |
+          apache-jmeter-5.6.3/bin/jmeter -n -t loadtest.jmx \
+            -JbaseUrl=${{ vars.STAGING_BASE_URL }} \
+            -JapiKey=${{ secrets.API_KEY }} \
+            -l results.jtl \
+            -e -o report/
+      - name: Upload Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: jmeter-report
+          path: report/

@@ -1,0 +1,14 @@
+{
+  "title": "AI Agent Testing Guide: Companion Files",
+  "slug": "ai-agent-testing",
+  "type": "documentation",
+  "topic": "ai-testing",
+  "category": "ai-testing",
+  "description": "Runnable pytest examples for testing AI agents: LLM output schema validation with citations and agent trace replay assertions.",
+  "language": ["en", "es"],
+  "files": [
+    "tests/test_llm_output_eval.py",
+    "tests/test_agent_trace.py",
+    "tests/requirements.txt"
+  ]
+}
