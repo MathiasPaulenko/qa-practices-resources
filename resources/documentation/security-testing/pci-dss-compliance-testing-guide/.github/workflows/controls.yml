@@ -1,0 +1,24 @@
+name: controls
+
+on:
+  push:
+    paths:
+      - 'resources/documentation/security-testing/pci-dss-compliance-testing-guide/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install
+        run: pip install -r requirements.txt
+        working-directory: resources/documentation/security-testing/pci-dss-compliance-testing-guide
+      - name: Unit tests
+        run: pytest tests/ -v
+        working-directory: resources/documentation/security-testing/pci-dss-compliance-testing-guide
+      - name: PAN sweep on sample logs
+        run: python -m controls.pan_sweep sample_logs/
+        working-directory: resources/documentation/security-testing/pci-dss-compliance-testing-guide

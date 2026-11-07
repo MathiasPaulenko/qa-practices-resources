@@ -1,0 +1,24 @@
+{
+  "title": "Performance Testing Fundamentals — Runnable Examples",
+  "title_es": "Pruebas de Rendimiento: Fundamentos — Ejemplos ejecutables",
+  "description": "Runnable versions of the article's examples: a Lighthouse performance budget, a zero-dependency budget checker for Lighthouse JSON reports, a web-vitals RUM collector, and a GitHub Actions budget gate.",
+  "description_es": "Versiones ejecutables de los ejemplos del artículo: un presupuesto de rendimiento para Lighthouse, un verificador de presupuestos sin dependencias para reportes JSON de Lighthouse, un colector RUM con web-vitals y un gate de presupuesto en GitHub Actions.",
+  "type": "documentation",
+  "topic": "performance-testing",
+  "slug": "performance-testing",
+  "source_urls": [
+    "https://qapractices.com/documentation/performance-testing/",
+    "https://qapractices.com/es/documentation/performance-testing/"
+  ],
+  "language": "multi",
+  "tags": ["performance-testing", "lighthouse", "performance-budget", "web-vitals", "github-actions", "rum"],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "lighthouse-budget.json",
+    "check-budget.js",
+    "sample-report.json",
+    "web-vitals-collector.js",
+    "github-actions/perf.yml"
+  ]
+}

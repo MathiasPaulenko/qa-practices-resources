@@ -1,0 +1,24 @@
+# Bespoken 2.x end-to-end tests for an Alexa skill.
+# Drives a virtual Alexa device over real audio — the whole chain
+# (wake word, ASR, NLU, skill) is exercised, not just the endpoint.
+# Run: bst test bespoken/testing.yml
+# Requires a deployed skill and `bst` configured (https://bespoken.io/).
+configuration:
+  locale: en-US
+  voiceId: Matthew
+
+---
+- test: Launch and welcome
+- "open list manager":
+  - prompt: "*welcome*list*"
+- test: AddItemIntent, all slots in one utterance
+- "add oat milk to my shopping list":
+  - prompt: "*oat milk*added*"
+- test: Slot elicitation across turns
+- "add something to my list":
+  - prompt: "*what*add*"
+- "oat milk":
+  - prompt: "*oat milk*added*"
+- test: Unknown command hits the fallback
+- "blorptastic banana rocket":
+  - prompt: "*didn't get that*"

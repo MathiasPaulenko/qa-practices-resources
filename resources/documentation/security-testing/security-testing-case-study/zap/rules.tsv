@@ -1,0 +1,9 @@
+# OWASP ZAP alert filtering — passed via rules_file_name to action-full-scan.
+# Format: <ruleId>\t<THRESHOLD>\t<comment>
+# Thresholds: IGNORE | FAIL | WARN | PASS | INFO
+# Rule IDs: https://www.zaproxy.org/docs/alerts/
+10015	IGNORE	Re-examine Cache-control Directives — noise on JSON APIs
+10020	WARN	X-Frame-Options Header Not Set — keep visible, not blocking
+10027	IGNORE	Information Disclosure - Suspicious Comments — dev TODOs only
+10038	IGNORE	Content Security Policy Header — handled at CDN layer
+90022	WARN	Application Error Disclosure — review, don't fail nightly

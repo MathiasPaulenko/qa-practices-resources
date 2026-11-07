@@ -1,0 +1,8 @@
+# .pre-commit-config.yaml — blocks secrets before they reach git history.
+# Install: pipx install pre-commit && pre-commit install
+# Requires: https://pre-commit.com
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.28.0
+    hooks:
+      - id: gitleaks

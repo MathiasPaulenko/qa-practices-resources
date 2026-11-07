@@ -1,0 +1,33 @@
+{
+  "title": "Webhook Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Webhooks — Companion Ejecutable",
+  "description": "Deterministic stdlib Python model of a webhook delivery (Stripe-style HMAC signing, signature verification with timestamp tolerance, dedup, ordering) plus a pytest 8.3 suite mapping TC-01..TC-12 from qapractices.com — retries with backoff, dead-letter queue and TLS endpoint validation included.",
+  "description_es": "Modelo determinista en Python stdlib de una entrega webhook (firma HMAC estilo Stripe, verificación con tolerancia de timestamp, dedup, ordenamiento) más una suite pytest 8.3 que mapea los TC-01..TC-12 de qapractices.com — reintentos con backoff, cola dead-letter y validación TLS de endpoints incluidos.",
+  "type": "test-cases",
+  "topic": "api-testing",
+  "slug": "webhook-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/webhook-test-cases/",
+    "https://qapractices.com/es/test-cases/webhook-test-cases/"
+  ],
+  "language": "python",
+  "tags": [
+    "webhooks",
+    "hmac",
+    "signature-verification",
+    "idempotency",
+    "retry-logic",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "webhook_pipeline.py",
+    "requirements.txt",
+    "fixtures/signed-event.json",
+    "tests/conftest.py",
+    "tests/test_webhook_cases.py"
+  ],
+  "run": "pytest tests/ -v",
+  "requirements": "Python 3.10+"
+}

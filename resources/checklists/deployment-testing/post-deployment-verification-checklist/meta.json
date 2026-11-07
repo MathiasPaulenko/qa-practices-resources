@@ -1,0 +1,34 @@
+{
+  "resourceType": "checklists",
+  "slug": "post-deployment-verification-checklist",
+  "title": "Post-Deployment Verification Checklist",
+  "title_es": "Checklist de Verificación Post-Deploy",
+  "description": "Runnable companion for the Post-Deployment Verification Checklist: curl+jq health check script, k6 smoke test and Playwright spec for the 0-2h post-deploy window.",
+  "description_es": "Companion ejecutable del Checklist de Verificación Post-Deploy: script de health check con curl+jq, smoke test con k6 y spec de Playwright para la ventana 0-2h post-deploy.",
+  "type": "checklists",
+  "topic": "deployment-testing",
+  "companionVersion": "1.0.0",
+  "source_urls": [
+    "https://qapractices.com/checklists/post-deployment-verification-checklist/",
+    "https://qapractices.com/es/checklists/post-deployment-verification-checklist/"
+  ],
+  "language": "bash, javascript, typescript",
+  "tags": [
+    "post-deployment",
+    "deployment-verification",
+    "health-check",
+    "smoke-test",
+    "k6",
+    "playwright",
+    "rollback"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "health-check.sh",
+    "smoke-test.js",
+    "post-deployment-verification.spec.ts"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-11-06"
+}

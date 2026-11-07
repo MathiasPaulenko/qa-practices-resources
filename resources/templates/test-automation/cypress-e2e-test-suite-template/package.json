@@ -1,0 +1,19 @@
+{
+  "name": "cypress-e2e-test-suite-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cypress 16 E2E suite scaffold — companion to qapractices.com/templates/cypress-e2e-test-suite-template",
+  "devDependencies": {
+    "@cypress/grep": "^7.0.0",
+    "cypress": "^16.2.1",
+    "cypress-mochawesome-reporter": "^5.0.0"
+  },
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:smoke": "cypress run --env grepTags=smoke",
+    "cy:run:regression": "cypress run --env grepTags=regression",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:firefox": "cypress run --browser firefox"
+  }
+}

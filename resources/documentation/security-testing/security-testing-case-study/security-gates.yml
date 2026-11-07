@@ -1,0 +1,65 @@
+# .github/workflows/security-gates.yml
+# Copy to .github/workflows/ in your repository. Illustrative config from the
+# SecureBank case study: https://qapractices.com/documentation/security-testing-case-study/
+name: security-gates
+
+on:
+  pull_request: {}
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 2 * * *'   # nightly DAST at 02:00 UTC
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  sast-sca:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Semgrep (SAST)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: pipx run semgrep==1.184.0 ci --config p/owasp-top-ten --config p/security-audit
+        env:
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
+
+      - name: Snyk (SCA)
+        uses: snyk/actions/node@master
+        with:
+          args: --severity-threshold=high
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      - name: SonarQube analysis
+        uses: sonarsource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+      - name: Quality gate — fail on Critical/High
+        uses: sonarsource/sonarqube-quality-gate-action@v1
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          scanMetadataReportFile: target/sonar/report-task.txt
+
+  dast-nightly:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      # Full scan with auth context: spider -> ajax spider -> active scan,
+      # then triage rules in .zap/rules.tsv downgrade known noise.
+      - name: ZAP Full Scan (authenticated)
+        uses: zaproxy/action-full-scan@v0.13.0
+        with:
+          target: 'https://staging.securebank.internal/api'
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-n zap/securebank.context -a'

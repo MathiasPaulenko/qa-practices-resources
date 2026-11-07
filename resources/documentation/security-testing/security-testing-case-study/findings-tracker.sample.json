@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "description": "Single tracker for findings from SAST, SCA, DAST and penetration tests. dedupKey merges repeat sightings of the same issue instead of creating duplicates.",
+  "slaHours": { "critical": 24, "high": 168, "medium": 720, "low": null },
+  "pipelineGates": { "pullRequest": ["critical", "high"], "nightly": [], "release": ["critical", "high"] },
+  "findings": [
+    {
+      "id": "SEC-2026-0142",
+      "source": "zap-full-scan",
+      "title": "Broken access control on /api/v1/accounts/{id}/transactions",
+      "severity": "critical",
+      "owasp": "API1:2023 BOLA",
+      "dedupKey": "zap:bola:accounts-transactions",
+      "owner": "payments-team",
+      "slaHours": 24,
+      "status": "open",
+      "firstSeen": "2026-11-02T02:14:00Z",
+      "lastSeen": "2026-11-06T02:14:00Z"
+    },
+    {
+      "id": "SEC-2026-0138",
+      "source": "gitleaks",
+      "title": "AWS access key in config/staging.yaml",
+      "severity": "high",
+      "owasp": null,
+      "dedupKey": "gitleaks:aws-access-key:config/staging.yaml",
+      "owner": "platform-team",
+      "slaHours": 168,
+      "status": "remediated",
+      "firstSeen": "2026-10-28T11:03:00Z",
+      "remediatedAt": "2026-10-28T16:40:00Z",
+      "remediation": "Key rotated, moved to AWS Secrets Manager, history purged with BFG"
+    },
+    {
+      "id": "SEC-2026-0129",
+      "source": "semgrep",
+      "title": "SQL string concatenation in TransactionRepository.java:214",
+      "severity": "high",
+      "owasp": "A03:2021 Injection",
+      "dedupKey": "semgrep:java-sql-concat:TransactionRepository:214",
+      "owner": "payments-team",
+      "slaHours": 168,
+      "status": "fixed",
+      "firstSeen": "2026-10-21T09:47:00Z",
+      "remediatedAt": "2026-10-23T14:22:00Z",
+      "remediation": "Replaced with parameterized JPA query"
+    },
+    {
+      "id": "SEC-2026-0117",
+      "source": "snyk",
+      "title": "lodash <4.17.21 prototype pollution (SNYK-JS-LODASH-567746)",
+      "severity": "medium",
+      "owasp": "A06:2021 Vulnerable Components",
+      "dedupKey": "snyk:SNYK-JS-LODASH-567746",
+      "owner": "frontend-team",
+      "slaHours": 720,
+      "status": "fixed",
+      "firstSeen": "2026-10-14T13:20:00Z",
+      "remediatedAt": "2026-10-15T10:05:00Z",
+      "remediation": "Bumped lodash to 4.17.21 via npm audit fix"
+    }
+  ]
+}

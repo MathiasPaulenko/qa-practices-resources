@@ -1,0 +1,31 @@
+{
+  "description": "Platform certification requirements for DLC releases. TRC/XR/Lotcheck details are confidential partner docs; this file tracks the check categories and the store-side entitlement tests that most often block submission.",
+  "platforms": {
+    "playstation": {
+      "program": "TRC (Technical Requirements Checklist)",
+      "checks": ["TRC compliance", "DLC entitlement check (PSN store test)", "purchase flow", "offline entitlement verification", "store listing correctness", "age rating update", "file size limits", "download/install", "uninstall/reinstall"],
+      "common_first_failure": "Entitlement check on sandbox store"
+    },
+    "xbox": {
+      "program": "XR (Xbox Requirements)",
+      "checks": ["XR compliance", "DLC entitlement check (Xbox store test)", "purchase flow", "offline entitlement verification", "store listing correctness", "age rating update", "file size limits", "download/install", "uninstall/reinstall"],
+      "common_first_failure": "XR-122: offline entitlement verification"
+    },
+    "nintendo": {
+      "program": "Lotcheck",
+      "checks": ["Lotcheck compliance", "DLC entitlement check (eShop test)", "purchase flow", "store listing correctness", "age rating update", "file size limits", "download/install", "uninstall/reinstall"],
+      "common_first_failure": "Save data handling on content removal"
+    },
+    "pc_steam": {
+      "program": "Steamworks DLC",
+      "checks": ["Steam DLC integration", "entitlement via Steam API", "depot configuration", "store page", "download/install", "uninstall/reinstall"],
+      "common_first_failure": "Depot not marked as DLC dependency"
+    },
+    "pc_epic": {
+      "program": "Epic Store DLC",
+      "checks": ["Epic DLC integration", "entitlement via EOS", "store page", "download/install", "uninstall/reinstall"],
+      "common_first_failure": "Entitlement not granted in dev sandbox"
+    }
+  },
+  "sign_off_rule": "No sign-off while Critical/High certification defects are open without a documented decision."
+}

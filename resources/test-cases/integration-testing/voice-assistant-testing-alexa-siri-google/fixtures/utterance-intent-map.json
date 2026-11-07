@@ -1,0 +1,7 @@
+[
+  { "utterance": "add milk to my list",        "intent": "AddItemIntent", "slots": { "item": "milk" } },
+  { "utterance": "put oat milk on the list",   "intent": "AddItemIntent", "slots": { "item": "oat milk" } },
+  { "utterance": "what's on my list",          "intent": "GetListIntent", "slots": {} },
+  { "utterance": "I need milk",                "intent": "AddItemIntent", "slots": { "item": "milk" } },
+  { "utterance": "banana rocket",              "intent": "AMAZON.FallbackIntent", "slots": {} }
+]

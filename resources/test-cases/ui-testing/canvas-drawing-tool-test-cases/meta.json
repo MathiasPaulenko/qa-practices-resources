@@ -1,0 +1,18 @@
+{
+  "title": "Canvas Drawing Tool Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Dibujo Canvas — Companion Ejecutable",
+  "description": "Playwright 1.49 spec for HTML5 canvas drawing tools (mouse stroke, touch stroke, undo history, PNG export download) against a runnable pointer-events fixture, plus a Pillow pixel check for exported canvases.",
+  "description_es": "Spec de Playwright 1.49 para herramientas de dibujo canvas HTML5 (trazo mouse, trazo touch, historial undo, download de export PNG) contra un fixture ejecutable de pointer events, más un chequeo de píxeles con Pillow para exports.",
+  "type": "test-cases",
+  "topic": "ui-testing",
+  "slug": "canvas-drawing-tool-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/canvas-drawing-tool-test-cases/",
+    "https://qapractices.com/es/test-cases/canvas-drawing-tool-test-cases/"
+  ],
+  "language": "typescript",
+  "tags": ["canvas-testing", "playwright", "pointer-events", "pixel-assertion", "undo-redo", "touch-testing"],
+  "files": ["README.md", "README.es.md", "canvas-drawing.spec.ts", "canvas_export_check.py", "fixture/canvas-draw.html", "package.json"],
+  "run": "npx playwright test canvas-drawing.spec.ts",
+  "requirements": "Node.js 20+; Playwright 1.49 for the spec; Python 3.11 + Pillow for the export check"
+}

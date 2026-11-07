@@ -1,0 +1,23 @@
+{
+  "validProduct": {
+    "name": "Wireless Headphones",
+    "sku": "WH-001",
+    "price": 79.99,
+    "category": "electronics",
+    "stock": 150
+  },
+  "outOfStock": {
+    "name": "Gaming Mouse",
+    "sku": "GM-002",
+    "price": 49.99,
+    "category": "electronics",
+    "stock": 0
+  },
+  "invalidProduct": {
+    "name": "",
+    "sku": "INVALID",
+    "price": -10,
+    "category": "",
+    "stock": -5
+  }
+}

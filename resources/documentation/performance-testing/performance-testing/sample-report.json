@@ -1,0 +1,35 @@
+{
+  "fetchTime": "2026-11-07T10:00:00.000Z",
+  "requestedUrl": "https://staging.your-app.example/",
+  "audits": {
+    "resource-summary": {
+      "id": "resource-summary",
+      "details": {
+        "items": [
+          { "resourceType": "document", "requestCount": 1, "transferSize": 42100 },
+          { "resourceType": "stylesheet", "requestCount": 4, "transferSize": 58300 },
+          { "resourceType": "script", "requestCount": 14, "transferSize": 389000 },
+          { "resourceType": "image", "requestCount": 9, "transferSize": 412000 },
+          { "resourceType": "font", "requestCount": 3, "transferSize": 88400 },
+          { "resourceType": "media", "requestCount": 0, "transferSize": 0 },
+          { "resourceType": "other", "requestCount": 6, "transferSize": 31200 },
+          { "resourceType": "third-party", "requestCount": 11, "transferSize": 204000 },
+          { "resourceType": "total", "requestCount": 48, "transferSize": 1225000 }
+        ]
+      }
+    },
+    "third-party-summary": {
+      "id": "third-party-summary",
+      "details": {
+        "items": [
+          { "entity": { "text": "Google Analytics" }, "transferSize": 45000 },
+          { "entity": { "text": "Intercom" }, "transferSize": 262000 },
+          { "entity": { "text": "Google Fonts" }, "transferSize": 88000 }
+        ]
+      }
+    },
+    "largest-contentful-paint": { "id": "largest-contentful-paint", "numericValue": 3100 },
+    "interactive": { "id": "interactive", "numericValue": 2800 },
+    "cumulative-layout-shift": { "id": "cumulative-layout-shift", "numericValue": 0.08 }
+  }
+}

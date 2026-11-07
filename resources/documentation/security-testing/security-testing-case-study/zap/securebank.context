@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- OWASP ZAP scan context template for authenticated DAST.
+     Load with: cmd_options: '-n zap/securebank.context -a' in action-full-scan.
+     This is a minimal template — export a real context from ZAP Desktop
+     (Session properties -> Context -> Export) after recording a login. -->
+<configuration>
+  <context>
+    <name>SecureBank Staging</name>
+    <desc>Authenticated scan context for staging.securebank.internal</desc>
+    <inscope>true</inscope>
+    <incregexes>https://staging\.securebank\.internal/api/.*</incregexes>
+    <authentication>
+      <type>5</type>
+      <strategy>json</strategy>
+      <loginurl>https://staging.securebank.internal/api/v1/auth/login</loginurl>
+      <loginbody>{"username":"${username}","password":"${password}"}</loginbody>
+      <loggedin>"token":</loggedin>
+      <loggedout>401|403</loggedout>
+    </authentication>
+    <sessionmanagement>
+      <type>1</type>
+      <strategy>http-auth-token</strategy>
+      <header>Authorization</header>
+      <prefix>Bearer</prefix>
+    </sessionmanagement>
+    <users>
+      <user id="1">
+        <name>qa-dast-scanner</name>
+        <credentials username="qa-dast-scanner" password="${DAST_PASSWORD}"/>
+      </user>
+    </users>
+    <forceduser>1</forceduser>
+    <tech>
+      <include>Language.Java;WS;Db</include>
+      <exclude>OS.MacOS;OS.Windows</exclude>
+    </tech>
+  </context>
+</configuration>

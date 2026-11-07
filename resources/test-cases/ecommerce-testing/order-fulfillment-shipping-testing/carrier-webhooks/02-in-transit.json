@@ -1,0 +1,13 @@
+{
+  "event_id": "evt_8f3k2m2transit",
+  "event_type": "tracking_update",
+  "tracking_number": "1Z999AA10123456784",
+  "carrier": "UPS",
+  "shipment_id": "shp_44120",
+  "order_id": "ORD-100482",
+  "status": "in_transit",
+  "status_detail": "Departed facility",
+  "location": "Memphis, TN, US",
+  "occurred_at": "2026-11-03T02:47:00Z",
+  "received_at": "2026-11-03T02:47:09Z"
+}

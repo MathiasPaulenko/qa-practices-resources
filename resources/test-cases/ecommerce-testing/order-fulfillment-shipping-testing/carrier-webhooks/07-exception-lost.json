@@ -1,0 +1,14 @@
+{
+  "event_id": "evt_8f3k2m7lost",
+  "event_type": "tracking_update",
+  "tracking_number": "1Z999AA10123456784",
+  "carrier": "UPS",
+  "shipment_id": "shp_44120",
+  "order_id": "ORD-100482",
+  "status": "exception",
+  "status_detail": "Package lost in transit — trace opened",
+  "location": "Louisville, KY, US",
+  "occurred_at": "2026-11-04T11:20:00Z",
+  "received_at": "2026-11-04T11:20:14Z",
+  "exception_code": "LOST_IN_TRANSIT"
+}

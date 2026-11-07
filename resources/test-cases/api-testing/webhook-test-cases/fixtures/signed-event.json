@@ -1,0 +1,6 @@
+{
+  "body": "{\"id\":\"evt_001\",\"type\":\"payment.succeeded\",\"created\":1731500000,\"data\":{\"object_id\":\"obj_1\",\"amount\":4999}}",
+  "secret": "whsec_test_9f8d",
+  "header": "Webhook-Signature: t=<unix_ts>,v1=<hmac_sha256(secret, \"<t>.<body>\")>",
+  "note": "Generate the header with: python -c \"from webhook_pipeline import sign; print(sign(open('body.bin','rb').read(), 'whsec_test_9f8d', <unix_ts>))\""
+}

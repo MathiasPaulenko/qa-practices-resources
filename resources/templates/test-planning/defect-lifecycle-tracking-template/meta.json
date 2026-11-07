@@ -1,0 +1,21 @@
+{
+  "title": "Defect Lifecycle Tracking — Workflow Files",
+  "title_es": "Seguimiento del Ciclo de Vida de Defectos — Archivos de workflow",
+  "description": "Machine-readable versions of the template's workflow: a JIRA-style states/transitions/required-fields JSON and an SLA targets file with breach escalation actions and quality indicator thresholds.",
+  "description_es": "Versiones machine-readable del workflow de la plantilla: un JSON de estados/transiciones/campos obligatorios estilo JIRA y un archivo de objetivos SLA con acciones de escalación y umbrales de calidad.",
+  "type": "templates",
+  "topic": "test-planning",
+  "slug": "defect-lifecycle-tracking-template",
+  "source_urls": [
+    "https://qapractices.com/templates/defect-lifecycle-tracking-template/",
+    "https://qapractices.com/es/templates/defect-lifecycle-tracking-template/"
+  ],
+  "language": "multi",
+  "tags": ["defect-tracking", "jira-workflow", "bug-triage", "defect-lifecycle", "sla", "defect-metrics"],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "jira-workflow.json",
+    "sla-targets.json"
+  ]
+}

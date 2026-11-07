@@ -1,0 +1,26 @@
+{
+  "admin": {
+    "email": "admin@yourapp.test",
+    "password": "AdminPass123!",
+    "role": "admin",
+    "name": "Admin User"
+  },
+  "standard": {
+    "email": "user@yourapp.test",
+    "password": "UserPass123!",
+    "role": "user",
+    "name": "Standard User"
+  },
+  "locked": {
+    "email": "locked@yourapp.test",
+    "password": "LockedPass123!",
+    "role": "locked",
+    "name": "Locked User"
+  },
+  "newUser": {
+    "email": "newuser_12345@yourapp.test",
+    "password": "NewUserPass123!",
+    "name": "New Test User",
+    "role": "user"
+  }
+}

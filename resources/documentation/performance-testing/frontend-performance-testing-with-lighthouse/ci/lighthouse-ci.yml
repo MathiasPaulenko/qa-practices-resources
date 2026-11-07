@@ -1,0 +1,21 @@
+# GitHub Actions workflow: Lighthouse CI gate on pull requests.
+# Place at .github/workflows/lighthouse-ci.yml and point collect.url
+# at your deployed preview/staging URLs.
+name: Lighthouse CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Audit preview URLs
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./ci/lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true

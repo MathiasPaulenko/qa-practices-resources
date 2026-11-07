@@ -1,0 +1,30 @@
+{
+  "slug": "containerized-applications-testing",
+  "type": "documentation",
+  "topic": "deployment-testing",
+  "title": "How to Test Containerized Applications",
+  "titleEs": "Cómo Probar Aplicaciones Containerizadas",
+  "description": "Runnable companion for the containerized applications testing guide: a Compose smoke stack (postgres + app + curl probe), Kubernetes manifests with liveness/readiness probes, a kubectl smoke script and a CI gate that builds, scans with Trivy and smoke-tests.",
+  "descriptionEs": "Companion ejecutable de la guía de testing de aplicaciones containerizadas: stack smoke Compose (postgres + app + probe curl), manifiestos Kubernetes con liveness/readiness probes, script smoke con kubectl y una puerta de CI que compila, escanea con Trivy y corre el smoke test.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-11-07",
+  "tools": {
+    "docker-engine": "29.x",
+    "docker-compose": "v2",
+    "postgres": "17",
+    "trivy": "0.76.x",
+    "curlimages/curl": "8.23.0",
+    "kubernetes": "1.36+"
+  },
+  "files": [
+    "docker-compose.test.yml",
+    "app/Dockerfile",
+    "app/server.js",
+    "k8s/deployment.yaml",
+    "k8s/service.yaml",
+    "scripts/smoke-k8s.sh",
+    ".github/workflows/container-tests.yml",
+    "README.md",
+    "README.es.md"
+  ]
+}

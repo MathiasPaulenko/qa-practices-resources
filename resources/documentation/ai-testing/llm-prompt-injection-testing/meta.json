@@ -1,0 +1,37 @@
+{
+  "title": "LLM Prompt Injection Testing — Runnable Companion",
+  "title_es": "Pruebas de Inyección de Prompts en LLM — Companion Ejecutable",
+  "description": "Red-teaming harness for LLM apps: adversarial prompt dataset tagged by vector (direct, indirect, encoding, multilingual, tool misuse), a probe runner classifying refusal/leakage/tool-call signals, and a pytest 9.2 suite asserting per-vector thresholds against a mock endpoint.",
+  "description_es": "Harness de red-teaming para apps LLM: dataset de prompts adversarios por vector (directos, indirectos, codificación, multilingüe, tool misuse), un runner de sondas que clasifica señales de rechazo/filtrado/tool-call, y una suite pytest 9.2 que afirma umbrales por vector contra un endpoint mock.",
+  "type": "documentation",
+  "topic": "ai-testing",
+  "slug": "llm-prompt-injection-testing",
+  "source_urls": [
+    "https://qapractices.com/documentation/llm-prompt-injection-testing/",
+    "https://qapractices.com/es/documentation/llm-prompt-injection-testing/"
+  ],
+  "language": "python",
+  "tags": [
+    "prompt-injection",
+    "llm-security",
+    "red-teaming",
+    "llm-testing",
+    "jailbreak",
+    "pytest",
+    "requests",
+    "adversarial-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "meta.json",
+    "requirements.txt",
+    "mock_target.py",
+    "dataset/adversarial-prompts.yaml",
+    "redteam/runner.py",
+    "tests/test_redteam.py",
+    ".github/workflows/redteam.yml"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-11-07"
+}

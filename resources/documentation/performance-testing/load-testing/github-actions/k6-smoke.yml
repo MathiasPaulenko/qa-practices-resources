@@ -1,0 +1,21 @@
+name: k6 smoke load test
+
+on:
+  pull_request:
+
+jobs:
+  smoke-load:
+    runs-on: ubuntu-latest
+    steps:
+      - name: k6 smoke load test (20 VUs, 60s)
+        run: |
+          docker run --rm -i grafana/k6:2.3.0 run - <<'EOF'
+          import http from 'k6/http';
+          export const options = { vus: 20, duration: '60s',
+            thresholds: { http_req_failed: ['rate<0.01'],
+                          http_req_duration: ['p(95)<1000'] } };
+          export default function () {
+            // Placeholder: point BASE_URL at your staging environment
+            http.get('https://staging.example.com/health');
+          }
+          EOF

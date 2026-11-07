@@ -1,0 +1,39 @@
+{
+  "name": "Defect Lifecycle Tracking Workflow",
+  "description": "JIRA-style defect workflow: statuses, status categories, transitions and required fields per transition. Import or reproduce in any tracker that supports custom workflows.",
+  "statuses": [
+    { "name": "To Do", "category": "To Do", "maps_to": ["New", "Triaged", "Open"] },
+    { "name": "In Progress", "category": "In Progress", "maps_to": ["In Progress"] },
+    { "name": "In Review", "category": "In Progress", "maps_to": ["In Review"] },
+    { "name": "Ready for Test", "category": "In Progress", "maps_to": ["Ready for Test"] },
+    { "name": "Done", "category": "Done", "maps_to": ["Verified"] },
+    { "name": "Closed", "category": "Done", "maps_to": ["Closed"] },
+    { "name": "Reopened", "category": "In Progress", "maps_to": ["Reopened"] },
+    { "name": "Rejected", "category": "Done", "maps_to": ["Rejected"] },
+    { "name": "Duplicate", "category": "Done", "maps_to": ["Duplicate"] },
+    { "name": "Backlog", "category": "To Do", "maps_to": ["Deferred"] }
+  ],
+  "transitions": [
+    { "id": "create", "from": null, "to": "To Do", "label": "Create", "required_fields": ["Summary", "Description", "Severity", "Environment"] },
+    { "id": "triage", "from": "To Do", "to": "To Do", "label": "Triage", "required_fields": ["Priority", "Assignee", "Component"] },
+    { "id": "reject", "from": "To Do", "to": "Rejected", "label": "Reject", "required_fields": ["Rejection Reason"] },
+    { "id": "duplicate", "from": "To Do", "to": "Duplicate", "label": "Mark Duplicate", "required_fields": ["Original Defect ID"] },
+    { "id": "assign", "from": "To Do", "to": "To Do", "label": "Assign", "required_fields": ["Assignee"] },
+    { "id": "start", "from": "To Do", "to": "In Progress", "label": "Start", "required_fields": [] },
+    { "id": "submit-pr", "from": "In Progress", "to": "In Review", "label": "Submit PR", "required_fields": ["PR Link", "Fix Description"] },
+    { "id": "changes-requested", "from": "In Review", "to": "In Progress", "label": "Request Changes", "required_fields": ["Review Comments"] },
+    { "id": "deploy-fix", "from": "In Review", "to": "Ready for Test", "label": "Deploy Fix", "required_fields": ["Build Number", "Deployed To"] },
+    { "id": "verify", "from": "Ready for Test", "to": "Done", "label": "Verify", "required_fields": ["Verified By", "Verification Date"] },
+    { "id": "reopen-test", "from": "Ready for Test", "to": "Reopened", "label": "Reopen (fix failed)", "required_fields": ["Reopen Reason", "Updated Repro Steps"] },
+    { "id": "reopen-regression", "from": "Done", "to": "Reopened", "label": "Reopen (regression)", "required_fields": ["Regression Details"] },
+    { "id": "auto-close", "from": "Done", "to": "Closed", "label": "Auto-close after 48h", "required_fields": ["Closure Date"], "automation": "Close if no regression linked within 48 hours" },
+    { "id": "reinvestigate", "from": "Reopened", "to": "In Progress", "label": "Re-investigate", "required_fields": ["Reopen Comments"] },
+    { "id": "defer", "from": "To Do", "to": "Backlog", "label": "Defer", "required_fields": ["Deferred To Release", "Reason"], "actor": "Product Owner" },
+    { "id": "reprioritize", "from": "Backlog", "to": "To Do", "label": "Re-prioritize", "required_fields": ["Re-prioritization Reason"] }
+  ],
+  "automation_rules": [
+    { "when": "issue reaches Ready for Test", "condition": "Build Number is empty", "then": "block transition with error" },
+    { "when": "issue stays in Done for 48h", "condition": "no regression defect linked", "then": "transition to Closed" },
+    { "when": "SLA reaches 80% of target", "condition": "issue still open", "then": "notify assignee and QA Lead" }
+  ]
+}

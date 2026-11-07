@@ -1,0 +1,12 @@
+{
+  "name": "lighthouse-audit-example",
+  "private": true,
+  "description": "Lighthouse 12 + Puppeteer 24 audit script for frontend performance testing",
+  "scripts": {
+    "audit": "node lighthouse-audit.js"
+  },
+  "dependencies": {
+    "lighthouse": "^12.3.0",
+    "puppeteer": "^24.0.0"
+  }
+}

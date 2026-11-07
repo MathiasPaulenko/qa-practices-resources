@@ -1,0 +1,40 @@
+{
+  "title": "Order Fulfillment & Shipping Test Cases — Carrier Webhook Fixtures + Replay Script",
+  "title_es": "Casos de Prueba de Fulfillment y Envíos — Fixtures de webhooks de carrier + script de reenvío",
+  "description": "Carrier-style tracking webhook payloads (happy path, out-of-order, duplicate, lost and damaged exceptions) plus a replay script and a pytest suite for idempotency and ordering rules from the fulfillment test cases resource.",
+  "description_es": "Payloads de webhooks de tracking estilo carrier (camino feliz, desordenados, duplicados y excepciones de perdido/dañado) más un script de reenvío y una suite pytest para las reglas de idempotencia y orden del recurso de casos de prueba de fulfillment.",
+  "type": "test-cases",
+  "topic": "ecommerce-testing",
+  "slug": "order-fulfillment-shipping-testing",
+  "source_urls": [
+    "https://qapractices.com/test-cases/order-fulfillment-shipping-testing/",
+    "https://qapractices.com/es/test-cases/order-fulfillment-shipping-testing/"
+  ],
+  "language": "multi",
+  "tags": [
+    "fulfillment",
+    "shipping",
+    "webhooks",
+    "carrier-api",
+    "tracking",
+    "idempotency",
+    "ecommerce",
+    "pytest",
+    "test-data"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "carrier-webhooks/01-label-created.json",
+    "carrier-webhooks/02-in-transit.json",
+    "carrier-webhooks/03-out-for-delivery.json",
+    "carrier-webhooks/04-delivered.json",
+    "carrier-webhooks/05-out-of-order-late-ofd.json",
+    "carrier-webhooks/06-duplicate-in-transit.json",
+    "carrier-webhooks/07-exception-lost.json",
+    "carrier-webhooks/08-exception-damaged.json",
+    "scripts/order_tracking_sim.py",
+    "scripts/replay_webhooks.py",
+    "scripts/test_webhook_edges.py"
+  ]
+}

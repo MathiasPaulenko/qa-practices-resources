@@ -1,0 +1,21 @@
+{
+  "title": "Game DLC Testing Plan — Data Files",
+  "title_es": "Plan de Pruebas de DLC — Archivos de datos",
+  "description": "Machine-readable test matrices for the DLC testing plan: a save-compatibility scenario matrix covering install/uninstall/rollback directions and a per-platform certification requirements file (TRC/XR/Lotcheck/store entitlement).",
+  "description_es": "Matrices de prueba machine-readable para el plan de pruebas de DLC: una matriz de compatibilidad de saves que cubre install/uninstall/rollback y un archivo de requisitos de certificación por plataforma (TRC/XR/Lotcheck/entitlement).",
+  "type": "templates",
+  "topic": "test-planning",
+  "slug": "game-dlc-testing-plan-template",
+  "source_urls": [
+    "https://qapractices.com/templates/game-dlc-testing-plan-template/",
+    "https://qapractices.com/es/templates/game-dlc-testing-plan-template/"
+  ],
+  "language": "multi",
+  "tags": ["dlc-testing", "game-testing", "save-compatibility", "platform-certification", "test-plan"],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "save-compatibility-matrix.json",
+    "certification-requirements.json"
+  ]
+}

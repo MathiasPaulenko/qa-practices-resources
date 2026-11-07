@@ -1,0 +1,20 @@
+{
+  "slug": "data-quality-testing-guide",
+  "type": "documentation",
+  "topic": "data-testing",
+  "title": "Data Quality Guide: Accuracy, Completeness & Consistency",
+  "titleEs": "Guía de Calidad de Datos: Precisión y Consistencia",
+  "description": "Companion resources for the Data Quality Guide: runnable SQL integrity checks (orphans, duplicates, profiling, reconciliation) and a Python jsonschema validator.",
+  "descriptionEs": "Recursos complementarios para la Guía de Calidad de Datos: checks SQL de integridad ejecutables (huérfanos, duplicados, profiling, reconciliación) y un validador Python con jsonschema.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-11-07",
+  "tools": {
+    "postgresql": "15+",
+    "python": "3.11+",
+    "jsonschema": "4.x"
+  },
+  "files": [
+    "integrity_checks.sql",
+    "schema_validation.py"
+  ]
+}

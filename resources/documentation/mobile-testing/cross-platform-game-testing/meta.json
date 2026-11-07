@@ -1,0 +1,18 @@
+{
+  "id": "cross-platform-game-testing",
+  "slug": "cross-platform-game-testing",
+  "title": "Cross-Platform Game Testing Companion",
+  "description": "Runnable utilities for the Cross-Platform Game Testing Guide: a Python frame-time analyzer (avg fps, 1% low, stutter count) with a sample capture, a pre-cert submission checklist in YAML covering suspend/resume, input, storage, localization, storefront and achievements, and an adb thermal-monitoring script for sustained mobile sessions.",
+  "type": "documentation",
+  "topic": "mobile-testing",
+  "languages": ["en", "es"],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "meta.json",
+    "frame_time_report.py",
+    "frame_times_sample.csv",
+    "cert-checklist.yaml",
+    "thermal_log.sh"
+  ]
+}

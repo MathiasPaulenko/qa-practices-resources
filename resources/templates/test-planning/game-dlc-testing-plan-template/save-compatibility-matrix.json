@@ -1,0 +1,22 @@
+{
+  "description": "Save compatibility test matrix for DLC releases. Every row is a scenario that must pass before sign-off; the uninstall and rollback directions catch the corruption bugs players actually report.",
+  "scenarios": [
+    { "id": "SAVE-01", "scenario": "Load base save, no DLC", "save_version": "base", "dlc_installed": false, "expected": "Loads normally; no DLC content referenced", "category": "backward_compat" },
+    { "id": "SAVE-02", "scenario": "Load base save, with DLC", "save_version": "base", "dlc_installed": true, "expected": "Loads; DLC content becomes accessible; progress preserved", "category": "upgrade_path" },
+    { "id": "SAVE-03", "scenario": "Load DLC save, no DLC", "save_version": "dlc", "dlc_installed": false, "expected": "Graceful handling: clear message or save marked incompatible; never crash or corrupt", "category": "downgrade_path" },
+    { "id": "SAVE-04", "scenario": "Load DLC save, with DLC", "save_version": "dlc", "dlc_installed": true, "expected": "Loads; all DLC progress and items present", "category": "happy_path" },
+    { "id": "SAVE-05", "scenario": "Load save mid-DLC quest", "save_version": "dlc_mid_quest", "dlc_installed": true, "expected": "Quest state restored exactly; quest items and flags intact", "category": "state_integrity" },
+    { "id": "SAVE-06", "scenario": "Cross-platform save", "save_version": "dlc", "dlc_installed": true, "expected": "Save transfers between PC and console with DLC data intact", "category": "cross_platform" },
+    { "id": "SAVE-07", "scenario": "Uninstall DLC, load base save", "save_version": "base", "dlc_installed": false, "expected": "Save still loads; no phantom DLC references; no crash", "category": "uninstall_path" },
+    { "id": "SAVE-08", "scenario": "Rollback to pre-DLC save after uninstall", "save_version": "base_old", "dlc_installed": false, "expected": "Rollback works; no leftover DLC quest entries or items", "category": "uninstall_path" }
+  ],
+  "checklist": [
+    "Base game saves load with DLC installed",
+    "DLC-specific saves load correctly",
+    "Save without DLC does not corrupt with DLC installed",
+    "Save rollback works if DLC uninstalled",
+    "Cloud saves sync correctly with DLC data",
+    "Save file size increase within limits",
+    "No save data loss during DLC install/uninstall"
+  ]
+}

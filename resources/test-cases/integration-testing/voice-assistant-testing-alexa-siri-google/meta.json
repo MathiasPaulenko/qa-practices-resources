@@ -1,0 +1,34 @@
+{
+  "title": "Voice Assistant Testing (Alexa, Siri, Google) — Runnable Companion",
+  "title_es": "Casos de Prueba de Asistentes de Voz (Alexa, Siri, Google) — Companion Ejecutable",
+  "description": "Deterministic stdlib Python model of the voice request pipeline (wake word, ASR with noise/accent degradation, NLU intent+slots, dialog with corrections and fallback limits, voice history) plus a pytest 8.3 suite mapping the test cases on qapractices.com, a Bespoken 2.x e2e file and an utterance-to-intent fixture.",
+  "description_es": "Modelo determinista en Python stdlib del pipeline de voz (wake word, ASR con degradación por ruido/acento, NLU de intents y slots, diálogo con correcciones y límite de fallbacks, historial de voz) más una suite pytest 8.3 que mapea los casos de qapractices.com, un archivo e2e de Bespoken 2.x y un fixture frase→intent.",
+  "type": "test-cases",
+  "topic": "integration-testing",
+  "slug": "voice-assistant-testing-alexa-siri-google",
+  "source_urls": [
+    "https://qapractices.com/test-cases/voice-assistant-testing-alexa-siri-google/",
+    "https://qapractices.com/es/test-cases/voice-assistant-testing-alexa-siri-google/"
+  ],
+  "language": "python",
+  "tags": [
+    "voice-assistant",
+    "alexa",
+    "nlu-testing",
+    "intent-recognition",
+    "wake-word",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "voice_pipeline_simulator.py",
+    "requirements.txt",
+    "bespoken/testing.yml",
+    "fixtures/utterance-intent-map.json",
+    "tests/conftest.py",
+    "tests/test_voice_pipeline.py"
+  ],
+  "run": "pytest tests/ -v",
+  "requirements": "Python 3.10+"
+}

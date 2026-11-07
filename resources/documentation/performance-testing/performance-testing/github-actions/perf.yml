@@ -1,0 +1,20 @@
+name: Performance budget
+on:
+  pull_request:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lighthouse CI with budget
+        run: |
+          npm install -g @lhci/cli@0.14.x
+          lhci autorun --budget-path=./lighthouse-budget.json
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      # No-token alternative for quick gating:
+      # - name: Budget check on a saved report
+      #   run: |
+      #     npx lighthouse https://staging.your-app.example --output=json --output-path=./report.json
+      #     node check-budget.js ./report.json ./lighthouse-budget.json

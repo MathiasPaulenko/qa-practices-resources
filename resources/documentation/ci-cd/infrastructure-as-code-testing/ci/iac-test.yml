@@ -1,0 +1,40 @@
+# GitHub Actions: three-job IaC gate (validate -> security -> plan).
+# Place at .github/workflows/iac-test.yml — the security job uploads
+# SARIF so Checkov findings land in the GitHub Security tab.
+name: IaC Tests
+on:
+  pull_request:
+    paths:
+      - 'terraform/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+      - run: terraform fmt -check -recursive
+      - run: terraform init -backend=false
+      - run: terraform validate
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install "checkov>=3.2,<4"
+      - run: checkov -d terraform/ --framework terraform -o sarif --output-file-path checkov.sarif
+      - uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: checkov.sarif
+
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+      - run: terraform init
+      - run: terraform plan -out=tfplan
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tfplan
+          path: tfplan

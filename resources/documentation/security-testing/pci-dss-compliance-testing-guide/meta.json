@@ -1,0 +1,40 @@
+{
+  "title": "PCI DSS Compliance Testing — Runnable Controls Kit",
+  "title_es": "Testing de Compliance PCI DSS — Kit de Controles Ejecutable",
+  "description": "Pre-assessment controls verification for PCI DSS v4.0: Luhn-validated PAN sweep for requirement 3, TLS 1.2+ probe and cipher evaluation for requirement 4, segmentation reachability test for requirement 11.4.5, and a runner that packages results into a dated evidence file for the assessor.",
+  "description_es": "Verificación de controles pre-assessment para PCI DSS v4.0: barrido de PAN con validación Luhn para el requerimiento 3, sonda TLS 1.2+ y evaluación de ciphers para el 4, test de alcanzabilidad de segmentación para el 11.4.5, y un runner que empaqueta resultados en un archivo de evidencia fechado para el assessor.",
+  "type": "documentation",
+  "topic": "security-testing",
+  "slug": "pci-dss-compliance-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/pci-dss-compliance-testing-guide/",
+    "https://qapractices.com/es/documentation/pci-dss-compliance-testing-guide/"
+  ],
+  "language": "python",
+  "tags": [
+    "pci-dss",
+    "compliance-testing",
+    "luhn",
+    "pan-detection",
+    "tls-testing",
+    "network-segmentation",
+    "evidence-pack",
+    "pytest"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "meta.json",
+    "requirements.txt",
+    "controls.yaml",
+    "runner.py",
+    "controls/pan_sweep.py",
+    "controls/tls_check.py",
+    "controls/segmentation_check.py",
+    "tests/test_controls.py",
+    "sample_logs/app.log",
+    ".github/workflows/controls.yml"
+  ],
+  "difficulty": "advanced",
+  "lastUpdated": "2026-11-07"
+}

@@ -1,0 +1,29 @@
+name: llm-redteam
+
+on:
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1" # weekly baseline
+
+jobs:
+  prompt-injection:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+        working-directory: resources/documentation/ai-testing/llm-prompt-injection-testing
+      - name: Run red-team dataset
+        run: pytest tests/ -v --tb=short
+        working-directory: resources/documentation/ai-testing/llm-prompt-injection-testing
+        env:
+          LLM_ENDPOINT: http://localhost:8000/chat
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: redteam-report
+          path: resources/documentation/ai-testing/llm-prompt-injection-testing/redteam-report.json
+          if-no-files-found: ignore

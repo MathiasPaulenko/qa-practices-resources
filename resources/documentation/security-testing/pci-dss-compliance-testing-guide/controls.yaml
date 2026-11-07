@@ -1,0 +1,11 @@
+# Evidence pack targets — replace with real CDE-facing hosts before each
+# quarterly run. The PAN sweep also runs over log/dump exports.
+pan_paths:
+  - ./sample_logs
+
+tls_targets:
+  - host: staging-cde.internal
+    port: 443
+
+segmentation_targets:
+  - host: cde-app-01.internal

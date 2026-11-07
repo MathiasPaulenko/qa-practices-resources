@@ -1,0 +1,13 @@
+{
+  "event_id": "evt_8f3k2m1label",
+  "event_type": "tracking_update",
+  "tracking_number": "1Z999AA10123456784",
+  "carrier": "UPS",
+  "shipment_id": "shp_44120",
+  "order_id": "ORD-100482",
+  "status": "label_created",
+  "status_detail": "Shipping label created; awaiting carrier pickup",
+  "location": "New York, NY, US",
+  "occurred_at": "2026-11-02T09:14:00Z",
+  "received_at": "2026-11-02T09:14:12Z"
+}

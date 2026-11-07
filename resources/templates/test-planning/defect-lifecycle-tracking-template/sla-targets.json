@@ -1,0 +1,22 @@
+{
+  "description": "Resolution SLA targets per severity plus breach escalation actions. Adjust the hours to your measured baseline before enforcing.",
+  "sla_targets": [
+    { "severity": "Critical", "time_to_assign_hours": 1, "time_to_fix_hours": 4, "time_to_verify_hours": 2, "total_cycle_hours": 7 },
+    { "severity": "High", "time_to_assign_hours": 4, "time_to_fix_hours": 24, "time_to_verify_hours": 8, "total_cycle_hours": 36 },
+    { "severity": "Medium", "time_to_assign_business_days": 1, "time_to_fix_hours": 72, "time_to_verify_business_days": 1, "total_cycle_business_days": 5 },
+    { "severity": "Low", "time_to_assign_business_days": 3, "time_to_fix": "next release", "time_to_verify": "next release", "total_cycle": "next release" }
+  ],
+  "breach_actions": [
+    { "level": "warning", "condition": "SLA at 80% of target", "action": "Notify assignee and QA Lead" },
+    { "level": "breach", "condition": "SLA exceeded", "action": "Escalate to Dev Lead and QA Lead" },
+    { "level": "critical_breach", "condition": "Critical/High SLA exceeded by 2x", "action": "Escalate to Engineering Manager and Product Owner" },
+    { "level": "release_risk", "condition": "Critical defects open near release", "action": "Convene release readiness meeting" }
+  ],
+  "quality_indicator_targets": {
+    "rejection_rate_max": 0.10,
+    "reopen_rate_max": 0.05,
+    "duplicate_rate_max": 0.08,
+    "sla_compliance_min": 0.90,
+    "production_escape_rate_max": 0.05
+  }
+}

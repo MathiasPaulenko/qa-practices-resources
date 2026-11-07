@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Canvas Drawing Fixture</title>
+<style>canvas{border:1px solid #333;touch-action:none}button{margin:4px}</style>
+</head>
+<body>
+<canvas id="drawing-canvas" width="600" height="400"></canvas>
+<button id="undo">Undo</button>
+<button id="export">Export PNG</button>
+<a id="download" hidden>download</a>
+<script>
+const canvas = document.getElementById('drawing-canvas');
+const ctx = canvas.getContext('2d');
+const history = [];
+let drawing = false;
+
+function snapshot() { history.push(ctx.getImageData(0, 0, canvas.width, canvas.height)); }
+snapshot();
+
+canvas.addEventListener('pointerdown', e => { drawing = true; ctx.beginPath(); ctx.moveTo(e.offsetX, e.offsetY); });
+canvas.addEventListener('pointermove', e => {
+  if (!drawing) return;
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.stroke();
+});
+['pointerup', 'pointercancel'].forEach(t => canvas.addEventListener(t, () => {
+  if (drawing) { drawing = false; snapshot(); }
+}));
+
+document.getElementById('undo').addEventListener('click', () => {
+  if (history.length > 1) { history.pop(); ctx.putImageData(history[history.length - 1], 0, 0); }
+});
+
+document.getElementById('export').addEventListener('click', () => {
+  const a = document.getElementById('download');
+  a.href = canvas.toDataURL('image/png');
+  a.download = 'canvas.png';
+  a.hidden = false;
+  a.click();
+});
+</script>
+</body>
+</html>

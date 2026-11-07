@@ -1,0 +1,11 @@
+{
+  "name": "canvas-drawing-tool-test-cases",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test canvas-drawing.spec.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.49.0"
+  }
+}

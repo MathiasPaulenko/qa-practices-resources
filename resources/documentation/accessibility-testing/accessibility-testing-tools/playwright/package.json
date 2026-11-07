@@ -1,0 +1,13 @@
+{
+  "name": "a11y-tools-playwright",
+  "private": true,
+  "version": "1.0.0",
+  "description": "axe-core + Playwright examples for the accessibility-testing-tools guide",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.49.0"
+  }
+}

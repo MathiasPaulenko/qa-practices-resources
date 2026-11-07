@@ -1,0 +1,27 @@
+services:
+  app:
+    build: ./app
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: db
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: qa
+      POSTGRES_PASSWORD: qa
+      POSTGRES_DB: app
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U qa -d app"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  smoke:
+    image: curlimages/curl:8.23.0
+    depends_on:
+      app:
+        condition: service_healthy
+    command: ["-sf", "--retry", "10", "--retry-delay", "2", "http://app:8080/health"]

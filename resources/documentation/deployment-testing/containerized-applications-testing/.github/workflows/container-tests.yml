@@ -1,0 +1,15 @@
+name: container-tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t app:${{ github.sha }} ./app
+      - name: Scan for critical CVEs
+        run: docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:0.76.2 image --severity CRITICAL --exit-code 1 app:${{ github.sha }}
+      - name: Smoke test the stack
+        run: docker compose -f docker-compose.test.yml up --abort-on-container-exit
+      - name: Tear down
+        if: always()
+        run: docker compose -f docker-compose.test.yml down -v

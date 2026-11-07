@@ -1,0 +1,25 @@
+# Pre-submission certification checklist for multi-platform game builds.
+# Maps to the "Certification and Store Compliance" section of the guide.
+certification:
+  suspend_resume:
+    - Suspend during save operation
+    - Suspend during level load
+    - Suspend during online play / matchmaking
+    - Resume after extended sleep (12h+)
+  input:
+    - Controller disconnect mid-gameplay pauses or prompts, never crashes
+    - Controller reconnect restores input without restart
+    - User/profile switch mid-session handled or explicitly blocked
+  storage:
+    - Save attempt on full storage shows localized error
+    - Corrupted save loads recoverable error, not a crash
+    - Save file size within platform limit
+  errors_and_localization:
+    - Every error message localized in every shipped language
+    - Offline mode works for content that does not need the network
+  storefront:
+    - IAP/DLC purchases validated on the platform sandbox environment
+    - IAP restore flow works
+    - Declared ESRB/PEGI/IARC rating matches actual content
+  achievements:
+    - No trophy/achievement path can become permanently unobtainable
