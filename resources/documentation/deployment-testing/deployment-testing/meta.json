@@ -1,0 +1,13 @@
+{
+  "resourceType": "documentation",
+  "slug": "deployment-testing",
+  "title": "Deployment Testing: Pipeline and Environment Validation",
+  "description": "Runnable companion for the Deployment Testing guide: a post-deploy smoke script that asserts response bodies (not just 200s), and a timed rollback drill that re-verifies the previous version.",
+  "type": "documentation",
+  "topic": "deployment-testing",
+  "companionVersion": "1.0.0",
+  "files": [
+    "scripts/post-deploy-smoke.sh",
+    "scripts/rollback-drill.sh"
+  ]
+}

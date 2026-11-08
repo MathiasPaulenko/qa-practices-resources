@@ -1,0 +1,10 @@
+{
+  "id": "image-cropping-resizing-test-cases",
+  "slug": "image-cropping-resizing-test-cases",
+  "title": "Image Cropping and Resizing Test Cases Companion",
+  "description": "Runnable Pillow-based crop/resize pipeline (EXIF normalization, bounds and min-size clamping, aspect-ratio lock, zoom coordinate mapping, alpha-aware export, animated GIF frame cropping, batch resize) with a pytest suite mapped to the Image Cropping and Resizing Test Cases resource, plus a Playwright spec and a Gherkin feature for the browser flow.",
+  "type": "test-cases",
+  "topic": "ui-component-testing",
+  "languages": ["en", "es"],
+  "files": ["README.md", "README.es.md", "meta.json", "requirements.txt", "pytest.ini", "image_pipeline.py", "tests/__init__.py", "tests/test_image_pipeline.py", "crop-preset.spec.ts", "crop.feature"]
+}

@@ -1,0 +1,13 @@
+{
+  "resourceType": "checklists",
+  "slug": "rate-limiting-throttling-testing-checklist",
+  "title": "Rate Throttling & Limiting: Backpressure & Circuit Breaker",
+  "description": "Runnable companion for the Rate Limiting & Throttling Testing Checklist: a burst script that provokes 429s and finds the limit boundary, and a header verifier that asserts Retry-After and X-RateLimit-* presence on the 429 response.",
+  "type": "checklists",
+  "topic": "api-testing",
+  "companionVersion": "1.0.0",
+  "files": [
+    "scripts/provoke-429.sh",
+    "scripts/verify-rate-limit-headers.sh"
+  ]
+}

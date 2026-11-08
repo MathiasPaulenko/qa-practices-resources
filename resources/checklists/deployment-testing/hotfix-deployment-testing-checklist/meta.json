@@ -1,0 +1,13 @@
+{
+  "resourceType": "checklists",
+  "slug": "hotfix-deployment-testing-checklist",
+  "title": "Hotfix Deployment Testing Checklist: Fast & Safe",
+  "description": "Runnable companion for the Hotfix Deployment Testing Checklist: a scope guard that verifies the hotfix branch only contains the fix, and a post-deploy verifier that checks health, version and latency.",
+  "type": "checklists",
+  "topic": "deployment-testing",
+  "companionVersion": "1.0.0",
+  "files": [
+    "scripts/hotfix-scope-check.sh",
+    "scripts/post-deploy-verify.sh"
+  ]
+}
