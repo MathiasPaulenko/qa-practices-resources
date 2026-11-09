@@ -1,0 +1,202 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-postman-collection-testing-template",
+    "name": "API Test Collection",
+    "description": "Template collection from the QAPractices Postman Collection Testing template. Folder layout, environment variables and pm.test scripts ready for Newman.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "https://api.staging.acme-shop.io" },
+    { "key": "api_version", "value": "v2" },
+    { "key": "auth_token", "value": "" },
+    { "key": "refresh_token", "value": "" },
+    { "key": "user_id", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "00_Authentication",
+      "item": [
+        {
+          "name": "Login_Valid",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{admin_email}}\",\n  \"password\": \"{{admin_password}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/{{api_version}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["{{api_version}}", "auth", "login"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has auth token\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"token\");",
+                  "    pm.expect(jsonData.token).to.be.a(\"string\");",
+                  "    pm.expect(jsonData.token.length).to.be.above(10);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 2 seconds\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                  "});",
+                  "",
+                  "const jsonData = pm.response.json();",
+                  "pm.environment.set(\"auth_token\", jsonData.token);",
+                  "pm.environment.set(\"refresh_token\", jsonData.refreshToken);"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "Login_Data_Driven",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/{{api_version}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["{{api_version}}", "auth", "login"]
+            }
+          },
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.environment.set(\"email\", pm.iterationData.get(\"email\"));",
+                  "pm.environment.set(\"password\", pm.iterationData.get(\"password\"));"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const expectedStatus = parseInt(pm.iterationData.get(\"expected_status\"));",
+                  "const expectedError = pm.iterationData.get(\"expected_error\");",
+                  "",
+                  "pm.test(\"Status code matches expected\", function () {",
+                  "    pm.response.to.have.status(expectedStatus);",
+                  "});",
+                  "",
+                  "if (expectedError) {",
+                  "    pm.test(\"Error message matches expected\", function () {",
+                  "        const jsonData = pm.response.json();",
+                  "        pm.expect(jsonData.error).to.include(expectedError);",
+                  "    });",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "01_Users",
+      "item": [
+        {
+          "name": "GET_User_By_ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/{{api_version}}/users/{{user_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["{{api_version}}", "users", "{{user_id}}"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response has user object\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"id\");",
+                  "    pm.expect(jsonData).to.have.property(\"email\");",
+                  "    pm.expect(jsonData).to.have.property(\"role\");",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is under 1 second\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "04_Negative_Tests",
+      "item": [
+        {
+          "name": "Unauthorized_Access",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/{{api_version}}/users/42",
+              "host": ["{{base_url}}"],
+              "path": ["{{api_version}}", "users", "42"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {",
+                  "    pm.response.to.have.status(401);",
+                  "});",
+                  "",
+                  "pm.test(\"Error message is present\", function () {",
+                  "    const jsonData = pm.response.json();",
+                  "    pm.expect(jsonData).to.have.property(\"error\");",
+                  "    pm.expect(jsonData.error).to.include(\"auth\");",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+email,password,expected_status,expected_error
+admin@acme-shop.io,AdminPass123!,200,
+user@acme-shop.io,UserPass123!,200,
+admin@acme-shop.io,wrongpassword,401,Invalid credentials
+admin@acme-shop.io,,400,Password required
+nonexistent@acme-shop.io,AnyPass123!,401,User not found
+,,400,Email and password required
+admin@acme-shop.io,short,400,Password too short

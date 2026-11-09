@@ -1,0 +1,30 @@
+{
+  "title": "Postman Collection Testing Template Companion",
+  "title_es": "Companion de la Plantilla de Testing de Colecciones Postman",
+  "description": "Runnable Postman collection, staging environment, CSV data file and GitHub Actions workflow implementing the folder structure and Newman setup from the QAPractices template.",
+  "description_es": "Colección Postman, entorno de staging, archivo de datos CSV y workflow de GitHub Actions ejecutables que implementan la estructura de carpetas y la configuración de Newman de la plantilla de QAPractices.",
+  "type": "templates",
+  "topic": "api-testing",
+  "slug": "postman-collection-testing-template",
+  "source_urls": [
+    "https://qapractices.com/templates/postman-collection-testing-template/",
+    "https://qapractices.com/es/templates/postman-collection-testing-template/"
+  ],
+  "language": "json",
+  "tags": [
+    "postman",
+    "newman",
+    "collection-runner",
+    "data-driven-testing",
+    "rest-api",
+    "ci-cd"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "api-test-collection.postman_collection.json",
+    "staging.postman_environment.json",
+    "login_test_data.csv",
+    "newman-ci.yml"
+  ]
+}

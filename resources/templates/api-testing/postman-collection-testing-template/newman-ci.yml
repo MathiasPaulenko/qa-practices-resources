@@ -1,0 +1,33 @@
+name: API Tests
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main]
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Newman
+        run: |
+          npm install -g newman@6
+          npm install -g newman-reporter-htmlextra@1
+      - name: Run API collection
+        run: |
+          newman run collections/api-test-collection.postman_collection.json \
+            -e environments/staging.postman_environment.json \
+            -d data/login_test_data.csv \
+            -r cli,htmlextra \
+            --reporter-htmlextra-export reports/api-test-report.html
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-reports
+          path: reports/
