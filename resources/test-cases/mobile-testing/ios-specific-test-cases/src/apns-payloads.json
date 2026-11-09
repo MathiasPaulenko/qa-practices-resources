@@ -1,0 +1,41 @@
+{
+  "alert_push": {
+    "aps": {
+      "alert": {
+        "title": "Order shipped",
+        "body": "Your order #123 is on its way."
+      },
+      "badge": 3,
+      "sound": "default"
+    },
+    "deep_link": "/orders/123"
+  },
+  "silent_push_tc004": {
+    "aps": {
+      "content-available": 1
+    },
+    "sync_type": "orders_refresh"
+  },
+  "badge_decrement_tc011": {
+    "aps": {
+      "alert": {
+        "title": "New message",
+        "body": "You have a new reply."
+      },
+      "badge": 2,
+      "sound": "default"
+    },
+    "deep_link": "/inbox"
+  },
+  "time_sensitive_tc012": {
+    "aps": {
+      "alert": {
+        "title": "Payment failed",
+        "body": "Action required to keep your subscription."
+      },
+      "interruption-level": "time-sensitive",
+      "sound": "default"
+    },
+    "deep_link": "/billing"
+  }
+}
