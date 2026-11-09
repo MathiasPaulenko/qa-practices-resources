@@ -1,0 +1,25 @@
+{
+  "slug": "postman-interview-questions",
+  "type": "documentation",
+  "topic": "api-testing",
+  "title": "Top 20 Postman Interview Questions: FinFlow Payments API",
+  "titleEs": "Top 20 Preguntas de Entrevista Postman: API FinFlow",
+  "description": "Companion resources for the Top 20 Postman Interview Questions guide. Includes the FinFlow-Payments-v3 collection, a staging environment, 120-row payment test data, refund edge cases and a GitHub Actions Newman workflow.",
+  "descriptionEs": "Recursos complementarios de la guía Top 20 Preguntas de Entrevista Postman. Incluye la colección FinFlow-Payments-v3, un environment de staging, datos de pagos de 120 filas, edge cases de reembolso y un workflow de GitHub Actions con Newman.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-11-09",
+  "tools": {
+    "postman": "v11",
+    "newman": "6.2",
+    "node": "20 LTS"
+  },
+  "files": [
+    "collections/FinFlow-Payments-v3.json",
+    "environments/staging.json",
+    "data/payments-test-data.csv",
+    "data/refunds-edge-cases.json",
+    ".github/workflows/api-tests.yml",
+    "README.md",
+    "README.es.md"
+  ]
+}

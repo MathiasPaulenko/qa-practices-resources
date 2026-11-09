@@ -1,0 +1,38 @@
+[
+  {
+    "amount": 150.00,
+    "reason": "duplicate-charge",
+    "processorCode": "RFN-2025-OK",
+    "expectedStatus": 201
+  },
+  {
+    "amount": 150.00,
+    "reason": "duplicate-charge-retry",
+    "processorCode": "RFN-2025-OK",
+    "expectedStatus": 201
+  },
+  {
+    "amount": 0.50,
+    "reason": "partial-refund-minimum",
+    "processorCode": "RFN-2025-OK",
+    "expectedStatus": 201
+  },
+  {
+    "amount": 99999.99,
+    "reason": "amount-exceeds-payment",
+    "processorCode": "RFN-2025-RETRY",
+    "expectedStatus": 422
+  },
+  {
+    "amount": -10.00,
+    "reason": "negative-amount",
+    "processorCode": "ERR-AMOUNT",
+    "expectedStatus": 422
+  },
+  {
+    "amount": 75.25,
+    "reason": "expired-correlation-id",
+    "processorCode": "RFN-2025-RETRY",
+    "expectedStatus": 422
+  }
+]

@@ -1,0 +1,278 @@
+{
+  "info": {
+    "_postman_id": "8f3b1c4e-9a2d-4f6e-b5c7-1d2e3f4a5b6c",
+    "name": "FinFlow-Payments-v3",
+    "description": "Companion collection for the Top 20 Postman Interview Questions resource. Payments API folders: Auth, Payments, Refunds, Webhooks. Collection-level pre-request script computes the X-Request-Signature HMAC header.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "api_version",
+      "value": "v3"
+    },
+    {
+      "key": "merchant_id",
+      "value": "mch_finflow_001"
+    },
+    {
+      "key": "merchant_secret",
+      "value": "change-me-in-environment",
+      "type": "secret"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "// Collection-level: compute X-Request-Signature HMAC for every call",
+          "const merchantSecret = pm.collectionVariables.get('merchant_secret');",
+          "const correlationId = pm.variables.get('correlation_id') || pm.environment.get('correlation_id') || '';",
+          "const body = pm.request.body && pm.request.body.raw ? pm.request.body.raw : '';",
+          "const payload = pm.request.method + pm.request.url.toString() + body + correlationId;",
+          "const signature = CryptoJS.HmacSHA256(payload, merchantSecret).toString(CryptoJS.enc.Hex);",
+          "pm.request.headers.upsert({ key: 'X-Request-Signature', value: signature });",
+          "",
+          "// Correlation ID for idempotent retries",
+          "if (!pm.environment.get('correlation_id')) {",
+          "  pm.environment.set('correlation_id', pm.variables.replaceIn('{{$randomUUID}}'));",
+          "}",
+          "pm.request.headers.upsert({ key: 'X-Correlation-Id', value: pm.environment.get('correlation_id') });",
+          "pm.request.headers.upsert({ key: 'X-Request-Time', value: new Date().toISOString() });",
+          "",
+          "// Refresh JWT when expired (see Debugging scenario note)",
+          "const expiry = parseInt(pm.environment.get('token_expiry') || '0', 10);",
+          "if (!pm.environment.get('auth_token') || Date.now() > expiry) {",
+          "  console.log('auth_token missing or expired — run Auth > POST /auth/login first');",
+          "}"
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "POST /auth/login — login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchant_id\": \"{{merchant_id}}\",\n  \"api_key\": \"{{api_key}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', () => {",
+                  "  pm.response.to.have.status(200)",
+                  "})",
+                  "",
+                  "pm.test('JWT extracted and stored', () => {",
+                  "  const json = pm.response.json()",
+                  "  pm.expect(json.access_token).to.exist",
+                  "  pm.environment.set('auth_token', json.access_token)",
+                  "  const expiresIn = json.expires_in || 900",
+                  "  pm.environment.set('token_expiry', Date.now() + expiresIn * 1000)",
+                  "})"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Payments",
+      "item": [
+        {
+          "name": "POST /v3/payments — createPayment",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": {{amount}},\n  \"currency\": \"{{currency}}\",\n  \"idempotency_key\": \"{{correlation_id}}\",\n  \"merchant_id\": \"{{merchant_id}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/v3/payments",
+              "host": ["{{base_url}}"],
+              "path": ["v3", "payments"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Expected HTTP status', () => {",
+                  "  const expected = parseInt(pm.iterationData.get('expectedStatus') || '201', 10)",
+                  "  pm.response.to.have.status(expected)",
+                  "})",
+                  "",
+                  "pm.test('processorCode present', () => {",
+                  "  const json = pm.response.json()",
+                  "  pm.expect(json.processorCode).to.exist",
+                  "  const expectedCode = pm.iterationData.get('processorCode')",
+                  "  if (expectedCode) {",
+                  "    pm.expect(json.processorCode).to.eql(expectedCode)",
+                  "  }",
+                  "})",
+                  "",
+                  "pm.test('Response time under 600ms SLA', () => {",
+                  "  pm.expect(pm.response.responseTime).to.below(600)",
+                  "})",
+                  "",
+                  "if (pm.response.code === 201) {",
+                  "  pm.collectionVariables.set('payment_id', pm.response.json().payment_id)",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "response": []
+        },
+        {
+          "name": "GET /v3/payments/{payment_id} — getPayment",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v3/payments/{{payment_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["v3", "payments", "{{payment_id}}"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Status code is 200', () => {",
+                  "  pm.response.to.have.status(200)",
+                  "})",
+                  "pm.test('Payment matches chained id', () => {",
+                  "  pm.expect(pm.response.json().payment_id).to.eql(pm.collectionVariables.get('payment_id'))",
+                  "})"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Refunds",
+      "item": [
+        {
+          "name": "POST /v3/refunds — createRefund",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{auth_token}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment_id\": \"{{payment_id}}\",\n  \"amount\": {{amount}},\n  \"reason\": \"{{reason}}\",\n  \"correlation_id\": \"{{correlation_id}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/v3/refunds",
+              "host": ["{{base_url}}"],
+              "path": ["v3", "refunds"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Refund accepted', () => {",
+                  "  pm.expect([201, 202]).to.include(pm.response.code)",
+                  "})",
+                  "",
+                  "pm.test('idempotency_key persisted', () => {",
+                  "  const json = pm.response.json()",
+                  "  pm.expect(json.idempotency_key).to.eql(pm.environment.get('correlation_id'))",
+                  "})",
+                  "",
+                  "pm.test('retryCount does not exceed 3', () => {",
+                  "  const json = pm.response.json()",
+                  "  pm.expect(json.retryCount || 0).to.be.at.most(3)",
+                  "})",
+                  "",
+                  "pm.test('processorCode is expected', () => {",
+                  "  const expectedCode = pm.iterationData.get('processorCode') || 'RFN-2025-OK'",
+                  "  pm.expect(pm.response.json().processorCode).to.eql(expectedCode)",
+                  "})"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "item": [
+        {
+          "name": "POST /v3/webhooks/processor — receiveEvent",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Webhook-Signature", "value": "{{webhook_signature}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event\": \"payment.settled\",\n  \"payment_id\": \"{{payment_id}}\",\n  \"occurred_at\": \"{{$isoTimestamp}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/v3/webhooks/processor",
+              "host": ["{{base_url}}"],
+              "path": ["v3", "webhooks", "processor"]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Webhook acknowledged', () => {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 204])",
+                  "})"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    }
+  ]
+}

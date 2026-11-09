@@ -1,0 +1,45 @@
+{
+  "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+  "name": "FinFlow Staging",
+  "values": [
+    {
+      "key": "base_url",
+      "value": "https://staging-api.finflow.example",
+      "enabled": true
+    },
+    {
+      "key": "api_key",
+      "value": "staging-key",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+      "key": "payment_processor_url",
+      "value": "https://processor.finflow.example",
+      "enabled": true
+    },
+    {
+      "key": "auth_token",
+      "value": "",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+      "key": "token_expiry",
+      "value": "0",
+      "enabled": true
+    },
+    {
+      "key": "correlation_id",
+      "value": "",
+      "enabled": true
+    },
+    {
+      "key": "webhook_signature",
+      "value": "whsec_staging_placeholder",
+      "type": "secret",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment"
+}

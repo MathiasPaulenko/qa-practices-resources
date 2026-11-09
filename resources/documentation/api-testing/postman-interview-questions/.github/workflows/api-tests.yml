@@ -1,0 +1,36 @@
+name: API Tests
+
+on:
+  pull_request:
+    branches: [staging]
+  schedule:
+    - cron: '0 3 * * *'
+
+jobs:
+  postman-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Newman
+        run: npm install -g newman@6 newman-reporter-htmlextra
+
+      - name: Run API Tests
+        run: |
+          newman run collections/FinFlow-Payments-v3.json \
+            -e environments/staging.json \
+            -d data/payments-test-data.csv \
+            --reporters cli,junit,htmlextra \
+            --reporter-junit-export reports/junit.xml \
+            --reporter-htmlextra-export reports/report.html
+
+      - name: Upload Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-report
+          path: reports/
