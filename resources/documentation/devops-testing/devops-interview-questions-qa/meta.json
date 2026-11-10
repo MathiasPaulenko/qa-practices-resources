@@ -1,0 +1,18 @@
+{
+  "resourceType": "documentation",
+  "slug": "devops-interview-questions-qa",
+  "title": "Top 20 DevOps Interview Questions",
+  "description": "Runnable config files from the DevOps QA interview guide: GitHub Actions pipeline with coverage gate, Compose v2 test stack, Kubernetes regression Job, test Dockerfile, Terraform + Terratest and a dependency-free retry loop.",
+  "type": "documentation",
+  "topic": "devops-testing",
+  "companionVersion": "1.0.0",
+  "files": [
+    "ci-pipeline.yml",
+    "compose.test.yml",
+    "Dockerfile.test",
+    "k8s-regression-job.yaml",
+    "retry-flaky.sh",
+    "terraform/main.tf",
+    "terratest/infra_test.go"
+  ]
+}

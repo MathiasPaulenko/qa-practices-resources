@@ -1,0 +1,26 @@
+# compose.test.yml — Compose v2 spec, no top-level 'version' key (obsolete, prints a warning)
+# Companion file for: https://qapractices.com/documentation/devops-interview-questions-qa
+# Run: docker compose -f compose.test.yml up --abort-on-container-exit --exit-code-from app
+services:
+  app:
+    build: .
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - REDIS_HOST=redis
+    depends_on:
+      - postgres
+      - redis
+    command: npm run test:integration
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: testdb
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+    tmpfs:
+      - /var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine

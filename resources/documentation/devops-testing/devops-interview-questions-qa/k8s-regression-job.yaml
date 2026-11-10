@@ -1,0 +1,23 @@
+# Kubernetes Job — run the regression suite to completion (Q7)
+# Companion file for: https://qapractices.com/documentation/devops-interview-questions-qa
+# Apply: kubectl apply -f k8s-regression-job.yaml
+# Watch: kubectl logs -f job/regression-tests
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: regression-tests
+spec:
+  parallelism: 3
+  template:
+    spec:
+      containers:
+      - name: test-runner
+        image: myregistry/test-runner:latest
+        command: ["npm", "run", "test:regression"]
+        env:
+        - name: TEST_ENV
+          value: "staging"
+        - name: API_URL
+          value: "https://staging-api.example.com"  # Placeholder: point at your staging API
+      restartPolicy: Never
+  backoffLimit: 1

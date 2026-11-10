@@ -1,0 +1,45 @@
+# GitHub Actions — unit → integration → e2e with a coverage gate (Q3)
+# Companion file for: https://qapractices.com/documentation/devops-interview-questions-qa
+name: CI Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm test -- --coverage
+      - name: Check coverage
+        run: |
+          COVERAGE=$(cat coverage/coverage-summary.json | jq '.total.lines.pct')
+          if [ "$COVERAGE" -lt 80 ]; then
+            echo "Coverage below 80%"
+            exit 1
+          fi
+
+  integration-tests:
+    needs: unit-tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: test
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run test:integration
+
+  e2e-tests:
+    needs: integration-tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run test:e2e

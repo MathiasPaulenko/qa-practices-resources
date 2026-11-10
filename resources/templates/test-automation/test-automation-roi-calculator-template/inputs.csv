@@ -1,0 +1,16 @@
+input,value
+manual_cases,500
+minutes_per_case,10
+runs_per_release,2
+releases_per_year,24
+manual_rate,40
+production_defects_per_year,60
+cost_per_defect,2000
+escape_reduction_pct,40
+cases_to_automate,400
+setup_hours,400
+automation_rate,65
+tool_licenses_annual,6000
+infrastructure_annual,4000
+maintenance_hours_annual,100
+one_time_tool_cost,10000

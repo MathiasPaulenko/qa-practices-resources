@@ -1,6 +1,6 @@
 # Ejemplo de carrito con Behave vs pytest-bdd
 
-Esta carpeta contiene el mismo escenario Gherkin de carrito de compras implementado con **Behave 1.2.6** y **pytest-bdd 7.x**.
+Esta carpeta contiene el mismo escenario Gherkin de carrito de compras implementado con **Behave 1.3.x** y **pytest-bdd 9.x**.
 
 Es el proyecto complementario de:
 

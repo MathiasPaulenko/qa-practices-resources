@@ -1,0 +1,861 @@
+{
+  "standard": "PCI DSS v4.0.1",
+  "items": [
+    {
+      "section": "Cardholder Data Protection",
+      "item": "PAN masked when displayed — first 6/last 4 digits maximum (Req 3.3)",
+      "requirement": "Req 3.3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Cardholder Data Protection",
+      "item": "PAN never stored in plain text — database, logs, caches, backups (Req 3.4)",
+      "requirement": "Req 3.4",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Cardholder Data Protection",
+      "item": "Full PAN never appears in error messages",
+      "requirement": "Req 3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Cardholder Data Protection",
+      "item": "Full PAN never appears in API responses",
+      "requirement": "Req 3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Cardholder Data Protection",
+      "item": "Full PAN never present in page source or DOM",
+      "requirement": "Req 3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Cardholder Data Protection",
+      "item": "Cardholder name not stored alongside PAN without encryption",
+      "requirement": "Req 3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Cardholder Data Protection",
+      "item": "Expiration date not stored alongside PAN without encryption",
+      "requirement": "Req 3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Cardholder Data Protection",
+      "item": "CVV/CVC never stored after authorization (Req 3.2.1)",
+      "requirement": "Req 3.2.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Cardholder Data Protection",
+      "item": "Track and magnetic-stripe data never stored after authorization (Req 3.2.1)",
+      "requirement": "Req 3.2.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Cardholder Data Protection",
+      "item": "Sensitive authentication data never retained post-authorization, even encrypted (Req 3.2.1)",
+      "requirement": "Req 3.2.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Cardholder Data Protection",
+      "item": "Cardholder data retention and disposal policy exists and is enforced (Req 3.1)",
+      "requirement": "Req 3.1",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Encryption & Transmission",
+      "item": "Stored PAN encrypted with strong cryptography — AES-256 or equivalent (Req 3.5)",
+      "requirement": "Req 3.5",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Encryption & Transmission",
+      "item": "Encryption keys managed in a KMS or HSM (Req 3.6-3.7)",
+      "requirement": "Req 3.6-3.7",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Encryption & Transmission",
+      "item": "Key rotation policy defined and actually executed",
+      "requirement": "Req 3.5-3.7, 4.2",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Encryption & Transmission",
+      "item": "Keys separated per environment — dev, staging, production",
+      "requirement": "Req 3.5-3.7, 4.2",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Encryption & Transmission",
+      "item": "No hardcoded keys in source code",
+      "requirement": "Req 3.5-3.7, 4.2",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Encryption & Transmission",
+      "item": "No keys committed to version control",
+      "requirement": "Req 3.5-3.7, 4.2",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Encryption & Transmission",
+      "item": "No keys held in plain-text environment variables",
+      "requirement": "Req 3.5-3.7, 4.2",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Encryption & Transmission",
+      "item": "TLS 1.2+ enforced on every payment-data transmission (Req 4.2.1)",
+      "requirement": "Req 4.2.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Encryption & Transmission",
+      "item": "Weak cipher suites and protocol downgrade rejected",
+      "requirement": "Req 3.5-3.7, 4.2",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Encryption & Transmission",
+      "item": "Certificate pinning on payment API calls from mobile apps",
+      "requirement": "Req 3.5-3.7, 4.2",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Encryption & Transmission",
+      "item": "HSM used for key operations where applicable",
+      "requirement": "Req 3.5-3.7, 4.2",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Tokenization",
+      "item": "Tokens replace PAN anywhere persistence is needed",
+      "requirement": "Req 3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Tokenization",
+      "item": "Tokens irreversible — PAN cannot be derived back",
+      "requirement": "Req 3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Tokenization",
+      "item": "Token-to-PAN mapping vault isolated and access-controlled",
+      "requirement": "Req 3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Tokenization",
+      "item": "Token format reveals no PAN digits beyond allowed first 6/last 4",
+      "requirement": "Req 3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Tokenization",
+      "item": "Tokens domain-specific — not reusable across merchants or channels",
+      "requirement": "Req 3",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Tokenization",
+      "item": "Token expiration enforced where applicable",
+      "requirement": "Req 3",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Tokenization",
+      "item": "Token lifecycle tested: issue, rotate, revoke",
+      "requirement": "Req 3",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Tokenization",
+      "item": "Network tokens (Apple Pay, Google Pay) supported where offered",
+      "requirement": "Req 3",
+      "risk": "Low",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Payment Flow",
+      "item": "Payment form served over HTTPS only",
+      "requirement": "Req 4, 6.4.3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Payment Flow",
+      "item": "Card inputs never pre-filled or echoed back",
+      "requirement": "Req 4, 6.4.3",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Payment Flow",
+      "item": "Sensitive inputs use autocomplete=\"off\" or new-password",
+      "requirement": "Req 4, 6.4.3",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Payment Flow",
+      "item": "Card data posts directly to the processor, not through app servers",
+      "requirement": "Req 4, 6.4.3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Payment Flow",
+      "item": "If card data does transit app servers, it's tokenized at the first hop",
+      "requirement": "Req 4, 6.4.3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Payment Flow",
+      "item": "3-D Secure / SCA enforced where required",
+      "requirement": "Req 4, 6.4.3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Payment Flow",
+      "item": "Payment intent validated server-side before capture",
+      "requirement": "Req 4, 6.4.3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Payment Flow",
+      "item": "Idempotency keys on payment requests",
+      "requirement": "Req 4, 6.4.3",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Payment Flow",
+      "item": "Duplicate-payment prevention verified under retries and double-clicks",
+      "requirement": "Req 4, 6.4.3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Payment Flow",
+      "item": "Refunds validated against the original transaction",
+      "requirement": "Req 4, 6.4.3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Payment Flow",
+      "item": "Every script on the payment page inventoried, authorized and integrity-checked (Req 6.4.3)",
+      "requirement": "Req 6.4.3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Access Control & Authentication",
+      "item": "MFA required for all access into the cardholder data environment (Req 8.4.2)",
+      "requirement": "Req 8.4.2",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Access Control & Authentication",
+      "item": "Role-based access on payment admin functions (Req 7.2)",
+      "requirement": "Req 7.2",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Access Control & Authentication",
+      "item": "Least privilege enforced — access limited to job need (Req 7.1)",
+      "requirement": "Req 7.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Access Control & Authentication",
+      "item": "No shared or group accounts on payment systems (Req 8.2.2)",
+      "requirement": "Req 8.2.2",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Access Control & Authentication",
+      "item": "Cardholder data access restricted to authorized personnel only",
+      "requirement": "Req 7, 8, 9",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Access Control & Authentication",
+      "item": "User access and privileges reviewed at least every 6 months (Req 7.2.4)",
+      "requirement": "Req 7.2.4",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Access Control & Authentication",
+      "item": "Inactive accounts removed or disabled within 90 days (Req 8.2.6)",
+      "requirement": "Req 8.2.6",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Access Control & Authentication",
+      "item": "Sessions require re-authentication after 15 minutes idle (Req 8.2.8)",
+      "requirement": "Req 8.2.8",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Access Control & Authentication",
+      "item": "Lockout after no more than 10 invalid attempts, held at least 30 minutes or until identity is verified (Req 8.3.4)",
+      "requirement": "Req 8.3.4",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Access Control & Authentication",
+      "item": "Physical access to payment infrastructure controlled where on-premise (Req 9)",
+      "requirement": "Req 9",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Network Security",
+      "item": "Cardholder systems on an isolated network segment (Req 1.3)",
+      "requirement": "Req 1.3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Network Security",
+      "item": "Firewall rules restrict traffic to and from the CDE (Req 1.2-1.4)",
+      "requirement": "Req 1.2-1.4",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Network Security",
+      "item": "No direct internet access from payment databases (Req 1.3.1)",
+      "requirement": "Req 1.3.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Network Security",
+      "item": "Payment API endpoints behind a WAF",
+      "requirement": "Req 1",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Network Security",
+      "item": "DDoS protection on payment endpoints",
+      "requirement": "Req 1",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Network Security",
+      "item": "IDS/IPS active on the CDE perimeter",
+      "requirement": "Req 1",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Network Security",
+      "item": "Segmentation verified by penetration test — no lateral movement (Req 11.4)",
+      "requirement": "Req 11.4",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Network Security",
+      "item": "Remote access to payment systems requires VPN or equivalent",
+      "requirement": "Req 1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Network Security",
+      "item": "Only required ports and services open on payment servers",
+      "requirement": "Req 1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Logging & Monitoring",
+      "item": "All payment transactions logged (Req 10.2.1)",
+      "requirement": "Req 10.2.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Logging & Monitoring",
+      "item": "Every access to cardholder data logged (Req 10.2.1)",
+      "requirement": "Req 10.2.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Logging & Monitoring",
+      "item": "Admin actions on payment systems logged",
+      "requirement": "Req 10",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Logging & Monitoring",
+      "item": "Log entries include user ID, timestamp, event type and resource (Req 10.2.2)",
+      "requirement": "Req 10.2.2",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Logging & Monitoring",
+      "item": "Logs sent to a centralized, tamper-resistant store (Req 10.3)",
+      "requirement": "Req 10.3",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Logging & Monitoring",
+      "item": "Audit log history kept at least 12 months — last 3 months immediately available (Req 10.5.1)",
+      "requirement": "Req 10.5.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Logging & Monitoring",
+      "item": "Automated alerts on suspicious payment activity",
+      "requirement": "Req 10",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Logging & Monitoring",
+      "item": "Automated alerts on unauthorized access attempts",
+      "requirement": "Req 10",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Logging & Monitoring",
+      "item": "Log review process runs on a defined schedule (Req 10.4.1)",
+      "requirement": "Req 10.4.1",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Logging & Monitoring",
+      "item": "Time synchronized across systems via NTP (Req 10.6)",
+      "requirement": "Req 10.6",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Vulnerability Management",
+      "item": "External scans by an Approved Scanning Vendor at least quarterly and after significant change (Req 11.3.2)",
+      "requirement": "Req 11.3.2",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Vulnerability Management",
+      "item": "Internal vulnerability scans at least quarterly, with rescans after fixes (Req 11.3.1)",
+      "requirement": "Req 11.3.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Vulnerability Management",
+      "item": "Penetration testing at least annually and after significant changes (Req 11.4)",
+      "requirement": "Req 11.4",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Vulnerability Management",
+      "item": "Critical vulnerabilities remediated within the defined timeline",
+      "requirement": "Req 5, 6.3, 11",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Vulnerability Management",
+      "item": "High-risk vulnerabilities remediated within the defined timeline",
+      "requirement": "Req 5, 6.3, 11",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Vulnerability Management",
+      "item": "Security patches applied according to ranked priority (Req 6.3.1)",
+      "requirement": "Req 6.3.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Vulnerability Management",
+      "item": "Dependency and SCA scanning in the CI pipeline",
+      "requirement": "Req 5, 6.3, 11",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Vulnerability Management",
+      "item": "No known exploitable vulnerabilities in payment libraries",
+      "requirement": "Req 5, 6.3, 11",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Vulnerability Management",
+      "item": "File-integrity monitoring on payment systems",
+      "requirement": "Req 5, 6.3, 11",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Vulnerability Management",
+      "item": "Malware detection deployed on all in-scope systems (Req 5)",
+      "requirement": "Req 5",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Vulnerability Management",
+      "item": "Change- and tamper-detection alerting on payment pages, checked at least weekly (Req 11.6.1)",
+      "requirement": "Req 11.6.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Development",
+      "item": "Secure-coding training for anyone touching payment code (Req 6.2.2)",
+      "requirement": "Req 6.2.2",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Development",
+      "item": "Code review required on payment-system changes",
+      "requirement": "Req 6",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Development",
+      "item": "SAST running in the pipeline for payment code",
+      "requirement": "Req 6",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Development",
+      "item": "DAST run against payment endpoints",
+      "requirement": "Req 6",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Development",
+      "item": "Dependency vulnerabilities checked before deploy",
+      "requirement": "Req 6",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Development",
+      "item": "Separation of duties — the author can't deploy their own change to production",
+      "requirement": "Req 6",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Development",
+      "item": "Test data uses test card numbers only — never real PANs",
+      "requirement": "Req 6",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Development",
+      "item": "Production cardholder data never copied to test or staging",
+      "requirement": "Req 6",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Development",
+      "item": "Change management covers payment systems (Req 6.5)",
+      "requirement": "Req 6.5",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Secure Development",
+      "item": "Emergency change path documented and tested",
+      "requirement": "Req 6",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Compliance Validation",
+      "item": "Correct SAQ type identified and completed",
+      "requirement": "Req 12",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Compliance Validation",
+      "item": "Attestation of Compliance obtained where applicable",
+      "requirement": "Req 12",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Compliance Validation",
+      "item": "PCI scope documented — what's in, what's out and why (Req 12.2)",
+      "requirement": "Req 12.2",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Compliance Validation",
+      "item": "Segmentation testing confirms scope boundaries",
+      "requirement": "Req 12",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Compliance Validation",
+      "item": "Third-party processors' compliance verified via their AoC (Req 12.8.4)",
+      "requirement": "Req 12.8.4",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Compliance Validation",
+      "item": "Written agreements define which requirements each vendor owns (Req 12.8.2)",
+      "requirement": "Req 12.8.2",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Compliance Validation",
+      "item": "Incident response plan covers payment-data breaches (Req 12.10.1)",
+      "requirement": "Req 12.10.1",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Compliance Validation",
+      "item": "Incident response plan tested at least annually",
+      "requirement": "Req 12",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Compliance Validation",
+      "item": "Periodic data discovery confirms no unknown PAN storage",
+      "requirement": "Req 12",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Compliance Validation",
+      "item": "Compliance gaps tracked as remediation items with owners and dates",
+      "requirement": "Req 12",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Negative & Edge Case Checks",
+      "item": "Failed payment that retries — PAN must not land in error logs or request dumps",
+      "requirement": "",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Negative & Edge Case Checks",
+      "item": "CVV submitted with wrong length or non-numeric characters — rejected before any storage",
+      "requirement": "",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Negative & Edge Case Checks",
+      "item": "TLS downgrade attempt (SSLv3, TLS 1.0/1.1) against the payment endpoint — connection refused",
+      "requirement": "",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Negative & Edge Case Checks",
+      "item": "Replayed payment webhook with a valid signature format — rejected as duplicate",
+      "requirement": "",
+      "risk": "High",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Negative & Edge Case Checks",
+      "item": "Double-submit on the payment button — one charge, one order",
+      "requirement": "",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    },
+    {
+      "section": "Negative & Edge Case Checks",
+      "item": "PAN pasted into a non-payment field — search box, support note, name field — caught or masked",
+      "requirement": "",
+      "risk": "Medium",
+      "evidence": "",
+      "status": ""
+    }
+  ]
+}

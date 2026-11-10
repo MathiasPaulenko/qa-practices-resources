@@ -1,6 +1,6 @@
 # Behave vs pytest-bdd Cart Example
 
-This folder contains the same shopping-cart Gherkin scenario implemented with both **Behave 1.2.6** and **pytest-bdd 7.x**.
+This folder contains the same shopping-cart Gherkin scenario implemented with both **Behave 1.3.x** and **pytest-bdd 9.x**.
 
 It is the companion project for:
 

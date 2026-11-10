@@ -1,0 +1,24 @@
+{
+    "topic": "test-automation",
+    "version": "1.0.0",
+    "license": "MIT",
+    "title": "Test Automation ROI Calculator Companion",
+    "tags": [
+        "test-automation-roi",
+        "roi-calculator",
+        "cost-benefit-analysis",
+        "qa-metrics",
+        "python"
+    ],
+    "author": "Mathias Paulenko",
+    "type": "templates",
+    "requirements": [
+        "Python 3.10+"
+    ],
+    "description": "Runnable Python version of the ROI calculator template: manual cost eliminated, defect prevention value, payback period, first-year ROI and a ±20% sensitivity table, driven by a fillable inputs CSV.",
+    "slug": "test-automation-roi-calculator-template",
+    "titleEs": "Calculadora ROI de Automatización Companion",
+    "createdAt": "2026-11-10",
+    "updatedAt": "2026-11-10",
+    "descriptionEs": "Versión ejecutable en Python de la plantilla de calculadora ROI: costo manual eliminado, valor de prevención de defectos, payback, ROI del primer año y tabla de sensibilidad ±20%, alimentada por un CSV de inputs."
+}

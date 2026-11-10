@@ -1,8 +1,8 @@
 {
   "title": "Behave vs pytest-bdd Cart Example",
   "title_es": "Ejemplo de carrito con Behave vs pytest-bdd",
-  "description": "Side-by-side runnable examples of the same shopping-cart Gherkin scenario in Behave 1.2.6 and pytest-bdd 7.x.",
-  "description_es": "Ejemplos ejecutables lado a lado del mismo escenario Gherkin de carrito de compras en Behave 1.2.6 y pytest-bdd 7.x.",
+  "description": "Side-by-side runnable examples of the same shopping-cart Gherkin scenario in Behave 1.3.x and pytest-bdd 9.x.",
+  "description_es": "Ejemplos ejecutables lado a lado del mismo escenario Gherkin de carrito de compras en Behave 1.3.x y pytest-bdd 9.x.",
   "type": "documentation",
   "topic": "behave-bdd-testing",
   "slug": "behave-vs-pytest-bdd",

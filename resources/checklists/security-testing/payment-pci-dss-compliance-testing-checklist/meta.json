@@ -1,0 +1,14 @@
+{
+  "resourceType": "checklists",
+  "slug": "payment-pci-dss-compliance-testing-checklist",
+  "title": "Payment PCI-DSS Compliance Testing Checklist",
+  "description": "Exportable companion for the PCI DSS v4.0.1 testing checklist: all 107 requirement-mapped items in CSV and JSON plus a stdlib PAN-leak log scanner.",
+  "type": "checklists",
+  "topic": "security-testing",
+  "companionVersion": "1.0.0",
+  "files": [
+    "checklist.csv",
+    "checklist.json",
+    "pan_log_check.py"
+  ]
+}

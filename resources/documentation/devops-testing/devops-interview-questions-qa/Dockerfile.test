@@ -1,0 +1,8 @@
+# Minimal test image (Q4)
+# Companion file for: https://qapractices.com/documentation/devops-interview-questions-qa
+FROM node:20-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY .
+CMD ["npm", "test"]
