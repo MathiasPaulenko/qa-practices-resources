@@ -1,0 +1,18 @@
+# Helm test Pod — place under my-chart/templates/tests/test-connection.yaml.
+# `helm test my-release` runs it; helm.sh/helm 3.14+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include \"my-chart.fullname\" . }}-test-connection"
+  labels:
+    {{- include "my-chart.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  restartPolicy: Never
+  containers:
+    - name: wget
+      image: busybox:1.36
+      command: ["wget", "-q", "-O", "-", "--timeout=5"]
+      args:
+        - "{{ include \"my-chart.fullname\" . }}:{{ .Values.service.port }}"

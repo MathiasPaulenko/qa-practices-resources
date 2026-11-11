@@ -1,0 +1,14 @@
+{
+  "id": "cloud-storage-testing-checklist",
+  "type": "checklists",
+  "topic": "security-testing",
+  "slug": "cloud-storage-testing-checklist",
+  "title": "Cloud Storage Testing Checklist (S3/Azure Blob)",
+  "titleEs": "Checklist de Testing de Cloud Storage (S3/Azure Blob)",
+  "description": "Verification scripts for cloud storage testing: S3 HTTPS-only bucket policy, boto3 upload/download encryption check and Azure Blob anonymous-access audit.",
+  "version": "1.0.0",
+  "lastUpdated": "2026-11-11",
+  "resourceUrl": "https://qapractices.com/checklists/cloud-storage-testing-checklist",
+  "resourceUrlEs": "https://qapractices.com/es/checklists/cloud-storage-testing-checklist",
+  "tools": ["boto3 1.34+", "azure-cli 2.60+", "aws-cli"]
+}

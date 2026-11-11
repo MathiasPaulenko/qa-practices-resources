@@ -1,0 +1,15 @@
+{
+  "resourceType": "documentation",
+  "slug": "kubernetes-testing-guide",
+  "title": "Kubernetes Testing Guide: Containerized Apps & Cluster",
+  "description": "Runnable manifests and scripts from the Kubernetes testing guide: hardened Deployment with startup/liveness/readiness probes and preStop, a Kind CI cluster bootstrap, a fortio HPA load test and a Helm test Pod.",
+  "type": "documentation",
+  "topic": "devops-testing",
+  "companionVersion": "1.0.0",
+  "files": [
+    "pod-with-probes.yaml",
+    "kind-ci-cluster.sh",
+    "hpa-load-test.sh",
+    "helm-test-pod.yaml"
+  ]
+}
