@@ -1,0 +1,15 @@
+{
+  "resourceType": "checklists",
+  "slug": "api-mocking-and-stubbing-testing-checklist",
+  "title": "API Mocking and Stubbing Testing Checklist — Runnable Companion",
+  "description": "Ready-to-run WireMock 3.13.2 setup: stub mapping for a user endpoint, Docker Compose service and a Python consumer test validating the mock contract.",
+  "type": "checklists",
+  "topic": "api-testing",
+  "companionVersion": "1.0.0",
+  "files": [
+    "mappings/get-user-123.json",
+    "docker-compose.yml",
+    "tests/test_mock_consumer.py",
+    "requirements.txt"
+  ]
+}

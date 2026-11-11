@@ -1,0 +1,12 @@
+{
+  "title": "Threat Modeling for QA Engineers: Companion Files",
+  "slug": "threat-modeling-for-qa-engineers",
+  "type": "documentation",
+  "topic": "security-testing",
+  "category": "security-testing",
+  "description": "Runnable PyTM 1.3 threat model for a checkout service: trust boundaries, data flows, and generated STRIDE threat report with DFD output.",
+  "language": ["en", "es"],
+  "files": [
+    "threat_model.py"
+  ]
+}

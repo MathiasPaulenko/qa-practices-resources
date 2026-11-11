@@ -1,0 +1,19 @@
+{
+  "title": "WASM Testing — Minimal Suite",
+  "title_es": "Testing WASM — Suite Mínima",
+  "description": "Minimal runnable WebAssembly test suite: a WAT module compiled with wabt plus Node.js smoke checks for binary validation, instantiation, exports and linear-memory growth.",
+  "description_es": "Suite de testing WebAssembly mínima y ejecutable: un módulo WAT compilado con wabt más smoke checks en Node.js para validación binaria, instanciación, exports y crecimiento de memoria lineal.",
+  "type": "documentation",
+  "topic": "functional-testing",
+  "slug": "wasm-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/wasm-testing-guide",
+    "https://qapractices.com/es/documentation/wasm-testing-guide"
+  ],
+  "language": "javascript",
+  "tags": ["webassembly", "wasm", "wabt", "nodejs", "testing"],
+  "files": [
+    "add.wat",
+    "test-wasm.mjs"
+  ]
+}

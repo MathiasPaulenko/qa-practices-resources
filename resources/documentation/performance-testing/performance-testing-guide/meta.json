@@ -1,0 +1,12 @@
+{
+  "title": "Performance Testing Guide: Companion Files",
+  "slug": "performance-testing-guide",
+  "type": "documentation",
+  "topic": "performance-testing",
+  "category": "performance-testing",
+  "description": "Runnable k6 v0.51.0 load test script with ramp stages and p95/error-rate thresholds, ready for local, Docker, and CI runs.",
+  "language": ["en", "es"],
+  "files": [
+    "product-load-test.js"
+  ]
+}

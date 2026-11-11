@@ -1,0 +1,14 @@
+{
+  "title": "AI-Assisted Test Automation: Companion Files",
+  "slug": "ai-assisted-test-automation",
+  "type": "documentation",
+  "topic": "ai-testing",
+  "category": "ai-testing",
+  "description": "Self-healing fallback locator pattern in Python with a pytest suite that verifies the healing logic using a fake driver — no browser required.",
+  "language": ["en", "es"],
+  "files": [
+    "src/self_healing.py",
+    "tests/test_self_healing.py",
+    "requirements.txt"
+  ]
+}

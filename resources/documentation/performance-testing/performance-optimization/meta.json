@@ -1,0 +1,18 @@
+{
+  "title": "Performance Optimization: Companion Files",
+  "slug": "performance-optimization",
+  "type": "documentation",
+  "topic": "performance-testing",
+  "category": "performance-testing",
+  "description": "Backend optimization snippets: cursor pagination helper with pytest suite, N+1 ORM example, PostgreSQL index patterns, Redis cache commands, and nginx gzip config.",
+  "language": ["en", "es"],
+  "files": [
+    "src/cursor_pagination.py",
+    "src/n_plus_one.py",
+    "sql/index-optimization.sql",
+    "redis/cache-invalidation.md",
+    "nginx/gzip.conf",
+    "tests/test_cursor_pagination.py",
+    "requirements.txt"
+  ]
+}

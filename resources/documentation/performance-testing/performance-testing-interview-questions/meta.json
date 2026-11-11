@@ -1,0 +1,29 @@
+{
+  "title": "Performance Testing Interview Questions Companion",
+  "title_es": "Companion de Preguntas de Entrevista de Performance Testing",
+  "description": "Runnable k6 v0.56 load test script with parameterized CSV users, thresholds and stages, plus a JMeter 5.6 non-GUI CI runner for the QAPractices performance testing interview questions guide.",
+  "description_es": "Script de load testing ejecutable con k6 v0.56, usuarios parametrizados por CSV, thresholds y stages, más un runner non-GUI de JMeter 5.6 para CI de la guía de preguntas de entrevista de performance testing de QAPractices.",
+  "type": "documentation",
+  "topic": "performance-testing",
+  "slug": "performance-testing-interview-questions",
+  "source_urls": [
+    "https://qapractices.com/documentation/performance-testing-interview-questions/",
+    "https://qapractices.com/es/documentation/performance-testing-interview-questions/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "k6",
+    "jmeter",
+    "load-testing",
+    "performance-testing",
+    "interview-questions",
+    "ci-cd"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "interview-load-test.js",
+    "jmeter-ci.sh",
+    "data/users.csv"
+  ]
+}
