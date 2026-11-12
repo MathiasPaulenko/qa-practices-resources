@@ -8,7 +8,9 @@
   "slug": "reporting-analytics-export-test-cases",
   "source_urls": [
     "https://qapractices.com/test-cases/reporting-analytics-export-test-cases/",
-    "https://qapractices.com/es/test-cases/reporting-analytics-export-test-cases/"
+    "https://qapractices.com/es/test-cases/reporting-analytics-export-test-cases/",
+    "https://qapractices.com/test-cases/scheduled-report-delivery-test-cases/",
+    "https://qapractices.com/es/test-cases/scheduled-report-delivery-test-cases/"
   ],
   "language": "python",
   "tags": [
@@ -31,5 +33,5 @@
     "tests/test_export_checks.py"
   ],
   "difficulty": "intermediate",
-  "lastUpdated": "2026-10-20"
+  "lastUpdated": "2026-11-12"
 }

@@ -1,0 +1,17 @@
+{
+  "profile": {
+    "normal": { "dau": 45000, "concurrentUsers": 850, "rps": 340 },
+    "peak": { "dau": 120000, "concurrentUsers": 2500, "rps": 900 },
+    "blackFriday": { "dau": 380000, "concurrentUsers": 12000, "rps": 4200 }
+  },
+  "journeyMix": {
+    "baseline": { "browse": 50, "detail": 25, "cart": 15, "checkout": 7, "account": 3 },
+    "peak": { "browse": 45, "detail": 25, "cart": 18, "checkout": 10, "account": 2 },
+    "blackFriday": { "browse": 40, "detail": 30, "cart": 20, "checkout": 10 }
+  },
+  "thresholds": {
+    "http_req_duration_p95_ms": 2000,
+    "http_req_failed_rate": 0.01,
+    "checkout_success_rate": 0.98
+  }
+}

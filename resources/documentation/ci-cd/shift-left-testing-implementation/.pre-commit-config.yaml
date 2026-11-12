@@ -1,0 +1,21 @@
+# .pre-commit-config.yaml
+# Commit gate: runs lint, format and the fast unit-test subset on every commit.
+# Install once per clone: `pre-commit install`
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: local
+    hooks:
+      - id: fast-tests
+        name: fast unit tests
+        # Marker split keeps this under the two-minute budget —
+        # slow tests run in CI, not at the keyboard.
+        entry: pytest -m "not slow" -x -q
+        language: system
+        pass_filenames: false
+        always_run: true

@@ -1,0 +1,32 @@
+# .github/workflows/build-gate.yml
+# Build gate: merge is blocked unless tests pass and coverage clears the floor.
+# Wire this as a required status check on the target branch (Settings > Branches).
+name: build-gate
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt pytest pytest-cov
+
+      - name: Unit tests with coverage report
+        run: pytest --cov=src --cov-report=xml --junitxml=report.xml -m "not slow"
+
+      - name: Enforce coverage floor
+        # Start at your current coverage number; ratchet up monthly.
+        run: python scripts/check_coverage.py coverage.xml --floor 70
+
+      - name: Static analysis
+        run: pip install ruff && ruff check src --output-format=github

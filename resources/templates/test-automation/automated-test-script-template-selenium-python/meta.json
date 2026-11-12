@@ -1,0 +1,38 @@
+{
+  "title": "Automated Test Script Template (Selenium + Python) — Companion",
+  "title_es": "Plantilla de Script Automatizado (Selenium + Python) — Companion",
+  "description": "Runnable Selenium 4 + pytest suite scaffold from the QAPractices automated test script template: page object model, conftest fixtures with failure screenshots, JSON/YAML test data, parallel execution with pytest-xdist, and a GitHub Actions workflow.",
+  "description_es": "Esqueleto ejecutable de suite Selenium 4 + pytest de la plantilla de script automatizado de QAPractices: page object model, fixtures de conftest con capturas en fallo, datos de prueba en JSON/YAML, ejecución paralela con pytest-xdist y workflow de GitHub Actions.",
+  "type": "templates",
+  "topic": "test-automation",
+  "slug": "automated-test-script-template-selenium-python",
+  "source_urls": [
+    "https://qapractices.com/templates/automated-test-script-template-selenium-python/",
+    "https://qapractices.com/es/templates/automated-test-script-template-selenium-python/"
+  ],
+  "language": "python",
+  "tags": [
+    "selenium",
+    "pytest",
+    "page-object-model",
+    "ui-testing",
+    "test-automation",
+    "python"
+  ],
+  "files": [
+    "requirements.txt",
+    "pytest.ini",
+    "conftest.py",
+    "pages/base_page.py",
+    "pages/login_page.py",
+    "pages/dashboard_page.py",
+    "pages/checkout_page.py",
+    "tests/test_login.py",
+    "tests/test_checkout.py",
+    "utils/test_data_loader.py",
+    "utils/screenshot_utils.py",
+    "data/test_data.json",
+    "data/credentials.yaml",
+    "config/browsers.yaml"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Load Testing Scenario: E-commerce Checkout — Companion",
+  "slug": "load-testing-scenario-template-ecommerce",
+  "type": "templates",
+  "topic": "performance-testing",
+  "category": "performance-testing",
+  "description": "k6 checkout journey script, test user pool and scenario config for the e-commerce load testing template.",
+  "language": ["en", "es"],
+  "files": [
+    "scripts/checkout-journey.js",
+    "data/test-users.json",
+    "scenario-config.json",
+    "README.md",
+    "README.es.md"
+  ]
+}

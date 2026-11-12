@@ -1,0 +1,26 @@
+{
+  "users": {
+    "admin": { "username": "admin@company.com", "role": "admin" },
+    "standard": { "username": "tomsmith", "role": "user" },
+    "locked": { "username": "locked@company.com", "role": "locked" }
+  },
+  "products": {
+    "valid_sku": "PROD-001",
+    "invalid_sku": "PROD-999",
+    "out_of_stock_sku": "PROD-OOS"
+  },
+  "checkout": {
+    "shipping_address": {
+      "street": "123 Test Street",
+      "city": "Test City",
+      "zip": "12345",
+      "country": "United States"
+    },
+    "payment": { "card_number": "4111111111111111", "expiry": "12/28", "cvv": "123" }
+  },
+  "urls": {
+    "base_url": "https://the-internet.herokuapp.com",
+    "login_path": "/login",
+    "secure_path": "/secure"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "nosql-dynamodb-tests",
+  "private": true,
+  "version": "1.0.0",
+  "description": "DynamoDB consistency test for the NoSQL Database Testing companion",
+  "scripts": {
+    "test": "node consistency-test.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.700.0"
+  }
+}

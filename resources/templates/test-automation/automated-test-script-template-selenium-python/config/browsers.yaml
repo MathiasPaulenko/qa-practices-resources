@@ -1,0 +1,25 @@
+browsers:
+  chrome:
+    version: "latest"
+    headless: true
+    options:
+      - "--no-sandbox"
+      - "--disable-dev-shm-usage"
+      - "--window-size=1920,1080"
+      - "--disable-gpu"
+  firefox:
+    version: "latest"
+    headless: true
+    options:
+      - "--width=1920"
+      - "--height=1080"
+environments:
+  dev:
+    base_url: "http://localhost:3000"
+  staging:
+    base_url: "https://staging.company.com"
+  production:
+    base_url: "https://app.company.com"
+timeouts:
+  explicit: 10
+  page_load: 30

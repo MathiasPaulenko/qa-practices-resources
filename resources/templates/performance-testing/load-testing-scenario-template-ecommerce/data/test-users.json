@@ -1,0 +1,5 @@
+[
+  { "id": "lt-user-0001", "email": "loadtest+0001@your-app.internal" },
+  { "id": "lt-user-0002", "email": "loadtest+0002@your-app.internal" },
+  { "id": "lt-user-0003", "email": "loadtest+0003@your-app.internal" }
+]
