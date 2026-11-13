@@ -1,0 +1,20 @@
+{
+  "slug": "rest-api-testing-cheat-sheet",
+  "type": "documentation",
+  "topic": "api-testing",
+  "title": "REST API Testing Cheat Sheet",
+  "titleEs": "REST API Testing: Cheat Sheet",
+  "description": "Runnable companion for the REST API Testing Cheat Sheet: a .http file with the full per-method CRUD pass, auth header variants and security payloads, ready to run against JSONPlaceholder or your own staging API.",
+  "descriptionEs": "Companion ejecutable del Cheat Sheet de REST API Testing: archivo .http con la pasada CRUD completa por método, variantes de headers de autenticación y payloads de seguridad, listo para correr contra JSONPlaceholder o tu propia API de staging.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-11-13",
+  "tools": {
+    "rest-client": "VS Code REST Client / JetBrains HTTP Client / Postman import",
+    "curl": "8.x"
+  },
+  "files": [
+    "requests.http",
+    "README.md",
+    "README.es.md"
+  ]
+}

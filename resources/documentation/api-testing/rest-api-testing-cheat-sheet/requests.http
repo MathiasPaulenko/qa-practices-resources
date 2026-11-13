@@ -1,0 +1,104 @@
+# REST API Testing Cheat Sheet — runnable requests
+# Run with: VS Code REST Client, JetBrains HTTP Client, or import into Postman.
+# Default target: JSONPlaceholder (public test API — writes are faked, not persisted).
+# Swap @baseUrl for your staging API when testing a real service.
+
+@baseUrl = https://jsonplaceholder.typicode.com
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0MiIsInJvbGUiOiJxYSJ9.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+@apiKey = abc123def456
+
+###
+# GET — expect 200 and a JSON object with id 1
+GET {{baseUrl}}/posts/1
+Accept: application/json
+
+###
+# GET with query parameters — expect 200 and a filtered array
+GET {{baseUrl}}/posts?userId=1&_limit=5
+Accept: application/json
+
+###
+# GET negative — expect 404 on a resource that does not exist
+GET {{baseUrl}}/posts/99999
+Accept: application/json
+
+###
+# POST (create) — expect 201 and the new id in the response body
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+  "title": "qa-smoke",
+  "body": "release check",
+  "userId": 1
+}
+
+###
+# PUT (full update) — expect 200 and the complete replaced resource
+PUT {{baseUrl}}/posts/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "qa-smoke-replaced",
+  "body": "full update",
+  "userId": 1
+}
+
+###
+# PATCH (partial update) — expect 200, verify only "title" changed
+PATCH {{baseUrl}}/posts/1
+Content-Type: application/json
+
+{
+  "title": "qa-smoke-updated"
+}
+
+###
+# DELETE — expect 200 (JSONPlaceholder) or 204 on a real API
+DELETE {{baseUrl}}/posts/1
+
+###
+# HEAD — expect 200 with headers only, no body
+HEAD {{baseUrl}}/posts/1
+
+###
+# OPTIONS — inspect the Allow header
+OPTIONS {{baseUrl}}/posts/1
+
+###
+# Auth — Bearer token
+GET {{baseUrl}}/posts/1
+Authorization: Bearer {{token}}
+Accept: application/json
+
+###
+# Auth — API Key header
+GET {{baseUrl}}/posts/1
+X-API-Key: {{apiKey}}
+Accept: application/json
+
+###
+# Security — missing authentication (expect 401 on a protected endpoint;
+# JSONPlaceholder is public, so point @baseUrl at your own API for this one)
+GET {{baseUrl}}/admin/users
+Accept: application/json
+
+###
+# Security — SQL injection probe
+GET {{baseUrl}}/users?name=' OR '1'='1
+Accept: application/json
+
+###
+# Security — XSS probe in a body field
+POST {{baseUrl}}/comments
+Content-Type: application/json
+
+{
+  "text": "<script>alert('xss')</script>"
+}
+
+###
+# Security — path traversal probe (expect 400/404, never file contents)
+GET {{baseUrl}}/files/../../../../etc/passwd
+Accept: application/json
