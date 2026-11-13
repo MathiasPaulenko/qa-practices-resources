@@ -1,0 +1,34 @@
+{
+  "title": "Ad Monetization in Games Test Cases — Runnable Companion",
+  "title_es": "Casos de Prueba de Anuncios en Juegos — Companion Ejecutable",
+  "description": "Offline fakes for ad monetization testing — a fake rewarded-ad SDK that only fires the reward callback on full completion, a reward ledger that drains grants exactly once, and a freezegun-backed frequency capper — with a pytest suite mapped to TC-01 and TC-08.",
+  "description_es": "Fakes offline para testing de monetización con anuncios — un SDK recompensado simulado que solo dispara el callback tras la vista completa, un ledger que drena la recompensa una sola vez y un limitador de frecuencia con freezegun — con suite pytest mapeada a TC-01 y TC-08.",
+  "type": "test-cases",
+  "topic": "mobile-testing",
+  "slug": "ad-monetization-games-testing",
+  "source_urls": [
+    "https://qapractices.com/test-cases/ad-monetization-games-testing/",
+    "https://qapractices.com/es/test-cases/ad-monetization-games-testing/"
+  ],
+  "language": "python",
+  "tags": [
+    "ad-monetization",
+    "rewarded-video",
+    "frequency-cap",
+    "freezegun",
+    "pytest",
+    "mobile-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "ad_service.py",
+    "conftest.py",
+    "requirements.txt",
+    "features/rewarded_ads.feature",
+    "tests/test_rewarded_ads.py",
+    "tests/test_frequency_cap.py"
+  ],
+  "run": "pytest tests/ -q",
+  "requirements": "Python 3.10+, pytest 8.x, freezegun 1.5+"
+}
