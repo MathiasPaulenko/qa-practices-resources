@@ -1,0 +1,9 @@
+App: PulseCare Patient Portal — telehealth appointments, prescription refills, lab results
+
+- Base URL: https://staging.pulsecare.example (local: http://localhost:4200)
+- Framework + component library: Angular 17.3 + Angular Material 17.2
+- Compliance target: WCAG 2.2 AA
+- Regulatory driver: ADA Title III
+- Screen readers in use: NVDA 2024.4 + Firefox on Windows 11; VoiceOver iOS 17.6 + Safari on iPhone 15
+- Audit scope: patient dashboard, appointment booking, prescription refill
+- Team constraint: 2 QA engineers, no dedicated a11y specialist, GitHub Actions, 6-week deadline

@@ -1,0 +1,38 @@
+{
+  "title": "Pytest Starter Companion",
+  "title_es": "Companion del Tutorial de Pytest",
+  "description": "Runnable Python 3.11 + pytest 8.3 starter project mirroring the QAPractices tutorial: Calculator and checkout tests, fixtures, parametrize, markers, pytest.ini, coverage and a GitHub Actions workflow.",
+  "description_es": "Proyecto ejecutable de Python 3.11 + pytest 8.3 que replica el tutorial de QAPractices: tests de Calculator y checkout, fixtures, parametrize, markers, pytest.ini, coverage y un workflow de GitHub Actions.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "slug": "pytest-tutorial-python",
+  "source_urls": [
+    "https://qapractices.com/documentation/pytest-tutorial-python/",
+    "https://qapractices.com/es/documentation/pytest-tutorial-python/"
+  ],
+  "language": "python",
+  "tags": [
+    "pytest",
+    "python",
+    "test-automation",
+    "fixtures",
+    "parametrize",
+    "pytest-cov",
+    "github-actions",
+    "tutorial"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "pytest-starter/requirements.txt",
+    "pytest-starter/pytest.ini",
+    "pytest-starter/src/calculator.py",
+    "pytest-starter/src/checkout.py",
+    "pytest-starter/src/csv_export.py",
+    "pytest-starter/tests/conftest.py",
+    "pytest-starter/tests/test_calculator.py",
+    "pytest-starter/tests/test_checkout.py",
+    "pytest-starter/tests/test_csv_export.py",
+    "pytest-starter/.github/workflows/tests.yml"
+  ]
+}

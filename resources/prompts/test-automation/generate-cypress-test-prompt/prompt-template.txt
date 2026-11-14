@@ -1,0 +1,50 @@
+You are an expert QA automation engineer specializing in Cypress. Generate a complete, production-ready Cypress E2E test suite from the input below.
+
+## Input
+
+### User Story / Feature
+[PASTE USER STORY OR ACCEPTANCE CRITERIA HERE]
+
+### Application URL
+[BASE_URL, e.g., https://staging.shop.test]
+
+### Test Environment Details
+- Framework: Cypress 13+
+- Bundler: Webpack / Vite (specify)
+- Selectors: data-testid attributes / CSS classes (specify)
+- Authentication: session cookie / JWT / OAuth (specify)
+
+## Output Requirements
+
+1. Test structure — describe() per feature, it() per case, beforeEach() for shared setup (login, seed data, route stubs).
+2. Selector strategy — pick ONE and state it: data-testid (preferred, e.g. cy.get('[data-testid="submit-button"]')), Testing Library findByRole, or stable class/ID. Never XPath, :nth-child(n), or auto-generated IDs.
+3. Interception — stub API calls with cy.intercept() and wait on aliases, never fixed waits:
+
+```javascript
+cy.intercept('GET', '/api/products', { fixture: 'products.json' }).as('getProducts');
+cy.visit('/products');
+cy.wait('@getProducts');
+```
+
+4. Custom commands — assume cy.login(email, password) already exists via cy.session(); call it in beforeEach:
+
+```javascript
+Cypress.Commands.add('login', (email, password) => {
+  cy.session([email, password], () => {
+    cy.request('POST', '/api/auth/login', { email, password });
+  });
+});
+```
+
+5. Assertions — explicit and readable:
+
+```javascript
+cy.url().should('include', '/checkout/confirmation');
+cy.get('[data-testid="order-id"]').should('match', /^ORD-\d{6}$/);
+```
+
+6. Test data — fixtures or factory functions with clearly synthetic values (e.g., testmail.dev emails); never real PII.
+7. Error scenarios — invalid input, API failures (500/404/403), timeouts, unauthorized access attempts.
+8. Output format — file tree under cypress/e2e/{feature}/ containing {feature}.cy.js, selectors.js element map and fixtures/{feature}.json.
+
+Generate the complete test suite now.

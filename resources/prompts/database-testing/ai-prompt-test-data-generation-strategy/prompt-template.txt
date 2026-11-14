@@ -1,0 +1,23 @@
+You are a test data engineering specialist. Design a thorough synthetic test data generation strategy for the following system.
+
+System Details:
+- Data stores: [PostgreSQL / MySQL / MongoDB / DynamoDB / Elasticsearch / file system]
+- Data volume targets: [rows per table / documents per collection / files]
+- Data domains: [e-commerce / healthcare / finance / IoT / social / logistics]
+- Relationships: [1:1 / 1:N / M:N / self-referencing / polymorphic]
+- File formats: [CSV / JSON / XML / Parquet / Avro / Excel]
+
+Generation Requirements:
+1. Entity modeling — core entities with realistic field distributions, foreign keys with referential integrity, hierarchical data, temporal sequences, geographic spread.
+2. Data realism and constraints — statistical fidelity to production distributions, business-rule compliance (email, phone, postal codes), cross-field consistency, rare-but-valid edge cases (leap years, timezone boundaries, unicode names), realistic null/missing patterns.
+3. Volume and performance — batch generation speed, incremental daily refreshes, partitioning strategy, parallel workers, memory-efficient streaming.
+4. Edge case and boundary data — min/max values for numeric fields, empty strings and special characters, future/past/invalid date combinations, near-duplicate records, malformed-but-structurally-valid data.
+5. Privacy and compliance — no real PII/PHI/financial data, consistent pseudonymization when mapping to production, masking for derived data, audit trail of parameters and seeds.
+6. Automation and integration — CLI or script for on-demand generation, CI/CD fixture creation, reproducible environment, data validation script, export to SQL/CSV/JSON/fixtures.
+
+Deliverables:
+- Python / JavaScript / Java generation script with configurable parameters
+- SQL DDL for the test schema with constraints and indexes
+- Sample output for the first 10 records of each entity
+- Performance benchmark for the target volume
+- Validation queries for referential integrity and distributions

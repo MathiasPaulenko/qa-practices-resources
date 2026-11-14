@@ -1,0 +1,33 @@
+{
+  "title": "AI Prompt: Generate a k6 Performance Test Script",
+  "title_es": "Prompt de IA: Generar un Script de Pruebas de Rendimiento con k6",
+  "description": "Ready-to-copy AI prompt that turns a service description into runnable k6 scripts with executors, thresholds, workload mix and CI gates.",
+  "description_es": "Prompt de IA listo para copiar que convierte la descripción de un servicio en scripts k6 ejecutables con ejecutores, umbrales, mezcla de carga y gates de CI.",
+  "type": "prompts",
+  "topic": "performance-testing",
+  "slug": "ai-prompt-k6-performance-test-script",
+  "source_urls": [
+    "https://qapractices.com/prompts/ai-prompt-k6-performance-test-script/",
+    "https://qapractices.com/es/prompts/ai-prompt-k6-performance-test-script/"
+  ],
+  "language": "markdown",
+  "tags": [
+    "ai-prompt",
+    "k6",
+    "load-testing",
+    "stress-testing",
+    "spike-testing",
+    "soak-testing",
+    "performance-testing",
+    "ci-cd"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "prompt.md",
+    "example-input.txt",
+    "load-test.js",
+    "spike-test.js",
+    "users.json"
+  ]
+}

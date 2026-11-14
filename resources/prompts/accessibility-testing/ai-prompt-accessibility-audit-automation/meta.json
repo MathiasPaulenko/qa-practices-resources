@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt to Automate WCAG Accessibility Tests — Companion Files",
+  "slug": "ai-prompt-accessibility-audit-automation",
+  "type": "prompts",
+  "topic": "accessibility-testing",
+  "category": "accessibility-testing",
+  "description": "Prompt template, example input and output fragments for generating an axe-core + Playwright + Selenium accessibility test suite with CI gates mapped to WCAG 2.2 AA.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: Test Data Generation Strategy — Companion Files",
+  "slug": "ai-prompt-test-data-generation-strategy",
+  "type": "prompts",
+  "topic": "database-testing",
+  "category": "database-testing",
+  "description": "Prompt template, example input and output fragment for designing a synthetic test data generation strategy with volumes, constraints and edge cases.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md"
+  ]
+}

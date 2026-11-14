@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: Generate Cypress E2E Tests — Companion Files",
+  "slug": "generate-cypress-test-prompt",
+  "type": "prompts",
+  "topic": "test-automation",
+  "category": "test-automation",
+  "description": "Prompt template, example input and generated Cypress 13 suite fragment (selectors map, checkout spec, users fixture) for turning user stories into production-ready E2E tests.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md"
+  ]
+}

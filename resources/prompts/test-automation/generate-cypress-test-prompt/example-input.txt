@@ -1,0 +1,7 @@
+User story: "As a shopper, I can add a product to the cart and complete checkout with a saved card, so that I receive an order confirmation."
+
+BASE_URL: https://staging.shop.test
+Authentication: session cookie via POST /api/auth/login
+Selectors: data-testid attributes throughout
+Framework: Cypress 13.x, Vite bundler
+API surface: GET /api/products, POST /api/orders

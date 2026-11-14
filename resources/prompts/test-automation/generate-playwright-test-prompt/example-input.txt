@@ -1,0 +1,9 @@
+User story: As a returning customer, I want to pay with a saved credit card so
+checkout takes under a minute.
+Acceptance criteria:
+- Saved cards appear on /checkout after login
+- CVV is required again before payment
+- A declined card shows an inline error without losing the cart
+- The order ID matches ORD-\d{6} on the confirmation page
+
+BASE_URL: https://staging.myshop.test

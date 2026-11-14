@@ -1,0 +1,17 @@
+{
+  "title": "AI Prompt: Generate Playwright E2E Tests — Companion Files",
+  "slug": "generate-playwright-test-prompt",
+  "type": "prompts",
+  "topic": "test-automation",
+  "category": "test-automation",
+  "description": "Prompt template, example input and generated Playwright TypeScript suite fragment (POM, fixtures, route mocks, visual and multi-browser config) for turning user stories into production-ready E2E tests.",
+  "language": [
+    "en",
+    "es"
+  ],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md"
+  ]
+}

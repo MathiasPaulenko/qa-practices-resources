@@ -1,0 +1,9 @@
+API: real-time chat backend, Apollo Server 4 + graphql-ws
+
+- Transport: WebSocket (graphql-transport-ws protocol)
+- Auth: JWT in connection params
+- PubSub: Redis pub/sub, two nodes
+- Schema: moderate — messageAdded, presenceChanged, typingIndicator
+- Clients: web + mobile
+- Expected concurrent subscriptions: 10K per server
+- Event frequency: ~100 events/sec peak

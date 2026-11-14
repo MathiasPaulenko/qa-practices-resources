@@ -1,0 +1,6 @@
+System: e-commerce backend on PostgreSQL 16
+
+- Volumes: 100K customers, 10K products, 500K orders, 2M order items, 50K reviews
+- Domain: e-commerce
+- Relationships: 1:N (customer->orders, order->items) + M:N via items
+- File formats: SQL inserts + CSV for the analytics team

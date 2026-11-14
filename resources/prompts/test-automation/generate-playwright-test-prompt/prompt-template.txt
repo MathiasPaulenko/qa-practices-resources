@@ -1,0 +1,169 @@
+You are an expert QA automation engineer specializing in Playwright with TypeScript. Generate a complete, production-ready Playwright E2E test suite based on the input below.
+
+## Input
+
+### User Story / Feature
+[PASTE_USER_STORY_OR_ACCEPTANCE_CRITERIA]
+
+### Application URL
+[BASE_URL]
+
+### Environment Details
+- **Framework**: Playwright 1.49+
+- **Language**: TypeScript
+- **Browsers**: Chromium, Firefox, WebKit
+- **Test Runner**: Playwright Test (built-in)
+
+## Required Test Structure
+
+### 1. Page Object Model (POM)
+Create a dedicated page object class for each major page/flow:
+```typescript
+// pages/LoginPage.ts
+import { Page, Locator, expect } from '@playwright/test';
+
+export class LoginPage {
+  readonly usernameInput: Locator;
+  readonly passwordInput: Locator;
+  readonly submitButton: Locator;
+  readonly errorMessage: Locator;
+
+  constructor(private page: Page) {
+    this.usernameInput = page.locator('[data-testid="username-input"]');
+    this.passwordInput = page.locator('[data-testid="password-input"]');
+    this.submitButton = page.locator('[data-testid="login-button"]');
+    this.errorMessage = page.locator('[data-testid="error-message"]');
+  }
+
+  async login(username: string, password: string): Promise<void> {
+    await this.usernameInput.fill(username);
+    await this.passwordInput.fill(password);
+    await this.submitButton.click();
+  }
+
+  async expectError(message: string): Promise<void> {
+    await expect(this.errorMessage).toHaveText(message);
+  }
+}
+```
+
+### 2. Test Data with Fixtures
+Use Playwright fixtures for reusable test data and page instances:
+```typescript
+// fixtures/test-data.ts
+export const testUsers = {
+  standard: { username: 'qa.standard@testmail.dev', password: 'Test!ng123' },
+  locked: { username: 'qa.locked@testmail.dev', password: 'Test!ng123' },
+  invalid: { username: 'qa.invalid@testmail.dev', password: 'wrong_pass' },
+} as const;
+
+// fixtures/base-test.ts
+import { test as base } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
+
+export const test = base.extend<{ loginPage: LoginPage }>({
+  loginPage: async ({ page }, use) => {
+    await use(new LoginPage(page));
+  },
+});
+```
+
+### 3. API Mocking
+Stub network calls using Playwright's route API:
+```typescript
+import { test, expect } from '@playwright/test';
+
+test.beforeEach(async ({ page }) => {
+  await page.route('**/api/products', async (route) => {
+    await route.fulfill({
+      status: 200,
+      body: JSON.stringify([{ id: 1, name: 'Test Product', price: 29.99 }]),
+    });
+  });
+
+  await page.route('**/api/orders', async (route) => {
+    await route.fulfill({ status: 201, body: JSON.stringify({ orderId: 'ORD-12345' }) });
+  });
+});
+```
+
+### 4. Assertions
+Use Playwright's built-in, auto-retrying assertions:
+```typescript
+// Element state
+await expect(page.locator('[data-testid="success-message"]')).toBeVisible();
+await expect(page.locator('[data-testid="submit-button"]')).toBeEnabled();
+
+// Text content
+await expect(page.locator('h1')).toHaveText('Order Confirmed');
+await expect(page.locator('.order-id')).toContainText('ORD-');
+
+// URL validation
+await expect(page).toHaveURL(/\/checkout\/confirmation/);
+
+// Form validation
+await expect(page.locator('[data-testid="email-error"]')).toHaveText('Invalid email format');
+```
+
+### 5. Visual Regression Testing
+Include visual snapshot tests for critical UI flows:
+```typescript
+import { test, expect } from '@playwright/test';
+
+test('checkout page visual regression', async ({ page }) => {
+  await page.goto('/checkout');
+  await page.waitForLoadState('networkidle');
+  // Mask dynamic content (dates, order IDs)
+  await expect(page).toHaveScreenshot('checkout-page.png', {
+    mask: [page.locator('[data-testid="order-date"]')],
+  });
+});
+```
+
+### 6. Cross-Browser Configuration
+Tests must run on Chromium, Firefox, and WebKit with viewport configurations:
+```typescript
+// playwright.config.ts
+import { defineConfig, devices } from '@playwright/test';
+
+export default defineConfig({
+  projects: [
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+    { name: 'Mobile Chrome', use: { ...devices['Pixel 5'] } },
+    { name: 'Mobile Safari', use: { ...devices['iPhone 12'] } },
+  ],
+});
+```
+
+### 7. Error & Retry Handling
+Configure test-level retries and capture artifacts on failure:
+```typescript
+// playwright.config.ts
+export default defineConfig({
+  retries: process.env.CI ? 2 : 0,
+  use: {
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+  },
+});
+```
+
+### 8. Output Format
+Provide the complete test suite in this structure:
+```text
+tests/
+  [feature-name]/
+    [feature-name].spec.ts    # Main test file
+  pages/
+    [Feature]Page.ts          # Page Object(s)
+  fixtures/
+    test-data.ts              # Test data
+  utils/
+    helpers.ts                # Shared utilities
+playwright.config.ts          # Cross-browser config
+```
+
+Generate the complete test suite now.

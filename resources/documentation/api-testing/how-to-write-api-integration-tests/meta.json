@@ -1,0 +1,21 @@
+{
+  "id": "how-to-write-api-integration-tests",
+  "slug": "how-to-write-api-integration-tests",
+  "title": "API Integration Tests Companion",
+  "description": "Runnable companion for the API integration testing guide: a supertest 7 + Jest 30 suite against a minimal Express 5 app, a FastAPI + pytest 8 suite, and a GitHub Actions workflow with a Postgres 16 service.",
+  "type": "documentation",
+  "topic": "api-testing",
+  "languages": ["en", "es"],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "meta.json",
+    "js/package.json",
+    "js/app.js",
+    "js/api.integration.test.js",
+    "python/main.py",
+    "python/test_users_api.py",
+    "python/requirements.txt",
+    "ci/api-integration-tests.yml"
+  ]
+}

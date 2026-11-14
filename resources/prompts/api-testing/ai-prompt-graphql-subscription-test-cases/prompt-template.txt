@@ -1,0 +1,27 @@
+You are a GraphQL and real-time API testing expert. Generate comprehensive subscription test cases for the following GraphQL API:
+
+API Details:
+- GraphQL server: [Apollo Server / Yoga / Mercurius / graphql-ws / custom]
+- Transport: [WebSocket / SSE / HTTP streaming / hybrid]
+- Subscription protocol: [graphql-ws / graphql-transport-ws / custom]
+- Auth method: [JWT / session / API key / OAuth / connection params]
+- PubSub system: [Redis / Kafka / RabbitMQ / in-memory / PostgreSQL LISTEN]
+- Schema complexity: [simple / moderate / complex with nested subscriptions]
+- Client types: [web / mobile / desktop / IoT]
+- Expected concurrent subscriptions: [e.g., 10K per server]
+- Event frequency: [low (1/sec) / medium (100/sec) / high (10K/sec)]
+
+Generate test cases covering these ten areas, including the edge cases listed plus any others the API details make relevant:
+
+1. Connection lifecycle — handshake, valid/invalid/expired/missing auth, client/server close, idle timeout, connection limits, custom headers, protocol negotiation.
+2. Subscription initialization — valid vs invalid vs non-existent queries, missing or wrong-typed arguments, authorized vs unauthorized fields, variables, nested queries, fragments, directives, multiple subscriptions per connection.
+3. Event delivery — payload shape, nested objects, lists, enums, custom scalars, nulls, large payloads, ordering, latency, filter match/mismatch, bursts.
+4. Filtering and arguments — single and combined filters, dynamic variables, exact/range/list matching, mid-subscription filter changes, nulls and special characters, server-side filter cost.
+5. Error handling — resolver, pubsub, connection, serialization and auth errors; rate limits; GraphQL-spec error format; custom extensions.
+6. Reconnection and resilience — network drop, server restart, exponential backoff, max retries, session resumption and missed events, partial failures, load-balancer rerouting, zombie cleanup.
+7. Authentication and authorization — JWT expiry and refresh mid-subscription, own vs foreign data, role/scope checks per event, token revocation, connection params auth, multi-tenant isolation.
+8. Multi-subscription management — independent streams, deduplication, unsubscribe one vs all, resubscribe, ID and count limits, cleanup on disconnect or token expiry.
+9. Backpressure and flow control — slow consumers, buffer overflow policy, throttling, batching, client pause/resume, memory pressure, dropped-event metrics.
+10. Scalability — 1K/10K/100K concurrent subscriptions, fan-out latency, per-connection memory, pubsub throughput, horizontal scaling, sticky sessions.
+
+For each case provide: name and description, the subscription query, transport, preconditions (auth, connection, pubsub state), execution steps, expected result (events, errors, timing), pass/fail criteria, severity (Critical/High/Medium/Low), and type (functional/performance/security/resilience).

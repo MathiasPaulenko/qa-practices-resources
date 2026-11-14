@@ -1,0 +1,21 @@
+Act as an accessibility test architect in a [framework and version, e.g., Angular 17 + Angular Material] team.
+
+Application under test:
+- App: [name + what it does, e.g., PulseCare Patient Portal — appointments, prescription refills]
+- Base URL: [staging URL or localhost port]
+- Framework + component library: [e.g., Angular 17.3 + Angular Material 17.2]
+- Compliance target: [WCAG 2.2 AA / Section 508 / EN 301 549]
+- Regulatory driver: [ADA Title III / Section 508 / AODA / None]
+- Screen readers in use: [e.g., NVDA 2024.4 + Firefox, VoiceOver iOS 17.6 + Safari]
+- Audit scope: [pages/flows, e.g., patient dashboard, appointment booking]
+- Team constraint: [e.g., 2 QA, no a11y specialist, GitHub Actions, 6-week deadline]
+
+Deliver one markdown document with copy-pasteable code containing:
+
+1. Test plan — the 10-15 WCAG 2.2 criteria most relevant to the scope, each mapped to the page/component and user task it blocks, flagged automated vs manual NVDA/VoiceOver check.
+2. axe-core tests — npm install commands for [framework] (@axe-core/playwright, jest-axe); component tests that fail on violations; page-level tests in [test framework]; a config where every disabled rule carries a justification comment.
+3. Playwright tests — TypeScript tests verifying tab order matches visual order, visible focus indicators, modals trapping and returning focus, ARIA live regions, accessible names on interactive elements; plus a helper that screenshots focused elements.
+4. Selenium tests (if applicable) — [language] snippets injecting axe-core and asserting violations is empty per page, with driver setup, a violation mapper (impact/target/help/helpUrl), and a CSV reporter.
+5. CI workflow — .github/workflows/a11y.yml that installs, builds, runs the suites against staging, fails on new critical or serious violations, comments counts by impact on PRs, uploads an HTML report; nightly cron and browser matrix included.
+6. Screen-reader scripts — manual scripts for [screen reader 1] and [screen reader 2]: exact keyboard/gesture commands, what to listen for, pass/fail criteria.
+7. Runbook — "How to run locally" commands plus "How to interpret failures" mapping each impact level to the next action.
