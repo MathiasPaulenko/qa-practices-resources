@@ -42,22 +42,14 @@ pip install -r requirements.txt
 behave
 ```
 
-Expected output on Linux/macOS:
+Expected output with behave-pool 1.3.0:
 
 ```text
-Feature: Inventory reservation
-  Scenario: Reserve in-stock item ... passed
-  Scenario: Reserve another in-stock item ... passed
-
-Feature: Checkout cart
-  Scenario: Calculate cart total ... passed
-
-Feature: Payment processing
-  @serial
-  Scenario: Charge a card through the rate-limited gateway ... passed
-
-3 features passed, 0 failed, 0 skipped
-4 scenarios passed, 0 failed, 0 skipped
+USING RUNNER: behave_pool.runner:ParallelRunner
+feature:features/checkout.feature ... passed (0.02s)
+feature:features/inventory.feature ... passed (0.02s)
+feature:features/payment.feature#serial ... passed (0.00s)
+3 features, 4 scenarios, 13 steps - passed: 13, failed: 0, skipped: 0, undefined: 0
 ```
 
 After the run, the project root contains:
@@ -73,4 +65,4 @@ behave --jobs 1
 
 ## Sharding in CI
 
-The GitHub Actions workflow writes a per-shard `behave.ini`, runs `behave features/`, and uploads each shard's `behave-pool-report.json` as a separate artifact. The same pattern can be adapted to GitLab CI with `CI_NODE_INDEX` and `CI_NODE_TOTAL`.
+The GitHub Actions workflow runs `behave-pool --shard INDEX/TOTAL --parallel-report ...` per matrix job and uploads each shard's `behave-pool-report.json` as a separate artifact. The same pattern can be adapted to GitLab CI with `CI_NODE_INDEX` and `CI_NODE_TOTAL`.

@@ -1,0 +1,30 @@
+{
+  "title": "Automate Login Tests with Selenium",
+  "title_es": "Automatizar pruebas de login con Selenium",
+  "description": "Runnable login test suite matching the guide: TestNG Page Object Model with @DataProvider negative cases, plus a pytest equivalent. Selenium 4.21.0.",
+  "description_es": "Suite de tests de login ejecutable correspondiente a la guía: Page Object Model con TestNG y casos negativos via @DataProvider, más el equivalente en pytest. Selenium 4.21.0.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "slug": "automate-login-tests-selenium",
+  "source_urls": [
+    "https://qapractices.com/documentation/automate-login-tests-selenium/",
+    "https://qapractices.com/es/documentation/automate-login-tests-selenium/"
+  ],
+  "language": "java",
+  "tags": [
+    "selenium",
+    "login",
+    "page-object-model",
+    "testng",
+    "pytest",
+    "webdriver",
+    "e2e"
+  ],
+  "files": [
+    "login-tests/pom.xml",
+    "login-tests/src/test/java/LoginPage.java",
+    "login-tests/src/test/java/LoginTestPOM.java",
+    "login-tests/python/requirements.txt",
+    "login-tests/python/test_login.py"
+  ]
+}

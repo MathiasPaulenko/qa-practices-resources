@@ -39,19 +39,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install -r requirements.txt
-      - run: |
-          cat > behave.ini <<EOF
-          [behave]
-          runner = parallel
-          jobs = 4
-          shard = ${{ matrix.shard }}
-          parallel_report = reports/behave-pool-report-${{ matrix.id }}.json
-
-          [behave.runners]
-          parallel = behave_pool:ParallelRunner
-          EOF
-          mkdir -p reports
-          behave features/
+      - run: mkdir -p reports && behave-pool --shard ${{ matrix.shard }} --parallel-report reports/behave-pool-report-${{ matrix.id }}.json features/
       - uses: actions/upload-artifact@v4
         with:
           name: behave-pool-report-${{ matrix.id }}

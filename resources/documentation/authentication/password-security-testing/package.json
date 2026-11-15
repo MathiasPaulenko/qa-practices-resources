@@ -1,0 +1,12 @@
+{
+  "name": "password-security-testing",
+  "private": true,
+  "description": "Runnable password security test snippets from the QAPractices Password Security Testing Guide.",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "policy": "node password_policy.js"
+  }
+}

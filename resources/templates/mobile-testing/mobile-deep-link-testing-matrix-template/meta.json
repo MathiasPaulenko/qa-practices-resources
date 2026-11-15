@@ -1,0 +1,30 @@
+{
+  "title": "Mobile Deep Link Testing Matrix Template — Companion",
+  "title_es": "Plantilla de Matriz de Testing de Mobile Deep Link — Companion",
+  "description": "Fillable deep link testing matrix from the QAPractices template: blank matrix covering universal links, app links, custom URI schemes, deferred links, fallbacks, routing and analytics, plus a completed sample and the adb / simctl command helpers.",
+  "description_es": "Matriz de testing de deep links editable de la plantilla de QAPractices: matriz en blanco con universal links, app links, custom URI schemes, deferred links, fallbacks, routing y analytics, más una muestra completada y los comandos adb / simctl.",
+  "type": "templates",
+  "topic": "mobile-testing",
+  "slug": "mobile-deep-link-testing-matrix-template",
+  "source_urls": [
+    "https://qapractices.com/templates/mobile-deep-link-testing-matrix-template/",
+    "https://qapractices.com/es/templates/mobile-deep-link-testing-matrix-template/"
+  ],
+  "language": "markdown",
+  "tags": [
+    "deep-linking",
+    "universal-links",
+    "app-links",
+    "deferred-deep-links",
+    "mobile-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "deep-link-testing-matrix.md",
+    "deep-link-testing-matrix-sample.md",
+    "deep-link-commands.sh"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-11-15"
+}

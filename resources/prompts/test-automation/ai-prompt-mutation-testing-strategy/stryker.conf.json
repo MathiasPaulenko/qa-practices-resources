@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "_comment": "StrykerJS 10.x config — run with: npx stryker run --incremental. Requires Node.js 22+.",
+  "testRunner": "jest",
+  "reporters": ["html", "clear-text", "progress"],
+  "coverageAnalysis": "perTest",
+  "incremental": true,
+  "incrementalFile": "reports/stryker-incremental.json",
+  "mutate": [
+    "src/**/*.ts",
+    "!**/*.dto.ts",
+    "!**/*.constant.ts",
+    "!**/index.ts"
+  ],
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": 75
+  },
+  "timeoutMS": 60000,
+  "concurrency": 4
+}

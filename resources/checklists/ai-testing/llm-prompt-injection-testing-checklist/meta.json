@@ -1,0 +1,17 @@
+{
+  "title": "LLM Prompt Injection Testing Checklist: Companion Kit",
+  "slug": "llm-prompt-injection-testing-checklist",
+  "type": "checklists",
+  "topic": "ai-testing",
+  "category": "ai-testing",
+  "description": "Runnable probe harness, adversarial dataset and output guardrail check for testing LLM applications against prompt injection (OWASP LLM01).",
+  "language": ["en", "es"],
+  "files": [
+    "probe.py",
+    "mock_llm.py",
+    "guardrail.py",
+    "dataset.yaml",
+    "test_probe.py",
+    "requirements.txt"
+  ]
+}

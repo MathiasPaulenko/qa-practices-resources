@@ -1,0 +1,35 @@
+<!-- PIT mutation testing plugin block for Maven (pitest-maven 1.30.x). -->
+<!-- Run: mvn test-compile org.pitest:pitest-maven:mutationCoverage -->
+<!-- Scope targetClasses/targetTests to the module under strategy before a full rollout. -->
+<plugin>
+  <groupId>org.pitest</groupId>
+  <artifactId>pitest-maven</artifactId>
+  <version>1.30.2</version>
+  <configuration>
+    <targetClasses>
+      <param>com.acme.payment.*</param>
+    </targetClasses>
+    <targetTests>
+      <param>com.acme.payment.*Test</param>
+    </targetTests>
+    <mutators>
+      <mutator>STRONGER</mutator>
+    </mutators>
+    <!-- Build fails below this mutation score — the CI gate -->
+    <mutationThreshold>75</mutationThreshold>
+    <threads>4</threads>
+    <outputFormats>
+      <value>HTML</value>
+      <value>XML</value>
+    </outputFormats>
+    <!-- History files speed up repeated runs on unchanged code -->
+    <historyInputFile>target/pit-history.bin</historyInputFile>
+    <historyOutputFile>target/pit-history.bin</historyOutputFile>
+    <!-- Patterns known to produce equivalent mutants -->
+    <excludedMethods>
+      <param>*.toString</param>
+      <param>*.hashCode</param>
+      <param>*.equals</param>
+    </excludedMethods>
+  </configuration>
+</plugin>

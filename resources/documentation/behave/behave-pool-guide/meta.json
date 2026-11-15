@@ -1,8 +1,8 @@
 {
   "title": "Behave Pool Checkout Example",
   "title_es": "Ejemplo de Checkout con Behave Pool",
-  "description": "Runnable checkout example for behave-pool: feature-level parallelism, @serial scenarios, LPT balancing, and GitHub Actions sharding.",
-  "description_es": "Ejemplo ejecutable de checkout para behave-pool: paralelismo a nivel de feature, escenarios @serial, balanceo LPT y sharding en GitHub Actions.",
+  "description": "Runnable checkout example for behave-pool 1.3.x: feature- and scenario-level parallelism, @serial tags, LPT balancing, and GitHub Actions sharding.",
+  "description_es": "Ejemplo ejecutable de checkout para behave-pool 1.3.x: paralelismo a nivel de feature y escenario, etiquetas @serial, balanceo LPT y sharding en GitHub Actions.",
   "type": "documentation",
   "topic": "behave-bdd-testing",
   "slug": "behave-pool-guide",

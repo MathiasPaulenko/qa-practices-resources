@@ -1,0 +1,28 @@
+You are a software quality engineer specializing in mutation testing. Design a mutation testing strategy for the following codebase and, where mutants survive, propose the tests that would kill them.
+
+## Project context
+- Language: [Java / JavaScript / TypeScript / Python / Go / C#]
+- Test framework: [JUnit 5 / Jest / pytest / go test / NUnit]
+- Mutation tool: [PIT / Stryker / mutmut / cosmic-ray / go-mutesting / Infection]
+- Build system: [Maven / Gradle / npm / pip / go modules / dotnet]
+- CI platform: [GitHub Actions / GitLab CI / Jenkins / Azure DevOps]
+- Line coverage: [e.g. 85%] — Branch coverage: [e.g. 72%]
+- Mutation score (if measured): [e.g. 45% or "unknown"]
+- Modules in scope: [e.g. payment, auth — not the whole codebase]
+- Time budget per run: [e.g. 15 minutes in CI, full run nightly]
+
+## Code under test
+[Paste the class or module you want to mutation-test]
+
+## Existing tests
+[Paste the test class or describe what is covered]
+
+## Deliverables
+1. Operator selection — which mutators to enable (conditional boundary, arithmetic, return values, void method calls, increments) and which to disable for speed or equivalent-mutant noise.
+2. Score targets — a target mutation score per module (critical vs utility code) and a realistic overall goal. Do not default to 100%.
+3. Surviving-mutant analysis — for each likely survivor, classify it as an equivalent mutant or a real test gap, and write the test that kills the real ones.
+4. First-run scenario list — the highest-value mutation scenarios to run first, ordered by risk.
+5. CI/CD integration — incremental (diff-scoped) runs for pull requests vs full runs on a schedule, the gate threshold, and baseline tracking to catch score regressions.
+6. Team reporting — a short dashboard summary (score trend, weakest modules) plus a two-sentence explanation of mutation testing for a non-technical stakeholder.
+
+Include a sample configuration for the selected tool: pom.xml plugin block for PIT, stryker.conf.json for Stryker, setup.cfg/pyproject for mutmut, or equivalent.

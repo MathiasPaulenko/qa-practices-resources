@@ -1,0 +1,22 @@
+{
+  "title": "Blockchain Smart Contract Testing — Foundry Example",
+  "title_es": "Testing de Smart Contracts en Blockchain — Ejemplo con Foundry",
+  "description": "Minimal, runnable Foundry project for smart contract testing: unit tests, fuzz tests, a reentrancy-attacker contract and gas benchmarks against a deposit/withdraw vault.",
+  "description_es": "Proyecto Foundry mínimo y ejecutable para testing de smart contracts: tests unitarios, fuzz tests, un contrato atacante de reentrancy y benchmarks de gas sobre un vault de depósito/retiro.",
+  "type": "documentation",
+  "topic": "security-testing",
+  "slug": "blockchain-smart-contract-testing",
+  "source_urls": [
+    "https://qapractices.com/documentation/blockchain-smart-contract-testing-guide",
+    "https://qapractices.com/es/documentation/blockchain-smart-contract-testing-guide"
+  ],
+  "language": "solidity",
+  "tags": ["foundry", "solidity", "smart-contracts", "ethereum", "fuzz-testing"],
+  "files": [
+    "foundry.toml",
+    "src/SimpleVault.sol",
+    "test/SimpleVault.t.sol",
+    "test/ReentrancyExploit.t.sol",
+    ".github/workflows/foundry.yml"
+  ]
+}

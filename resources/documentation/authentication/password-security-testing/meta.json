@@ -1,0 +1,23 @@
+{
+  "title": "Password Security Testing Examples",
+  "title_es": "Ejemplos de Testing de Seguridad de Contraseñas",
+  "description": "Runnable password security test snippets: a Have I Been Pwned k-anonymity breach check, a NIST-style password policy validator and a Playwright rate-limit spec.",
+  "description_es": "Snippets ejecutables de testing de seguridad de contraseñas: chequeo de brechas con k-anonymity de Have I Been Pwned, validador de política estilo NIST y spec de rate limiting en Playwright.",
+  "type": "documentation",
+  "topic": "authentication",
+  "slug": "password-security-testing",
+  "source_urls": [
+    "https://qapractices.com/documentation/password-security",
+    "https://qapractices.com/es/documentation/password-security"
+  ],
+  "language": "python",
+  "tags": ["password-security", "authentication", "playwright", "hibp", "rate-limiting"],
+  "files": [
+    "breach_check.py",
+    "password_policy.js",
+    "login_rate_limit.spec.ts",
+    "requirements.txt",
+    "package.json",
+    ".github/workflows/password-tests.yml"
+  ]
+}

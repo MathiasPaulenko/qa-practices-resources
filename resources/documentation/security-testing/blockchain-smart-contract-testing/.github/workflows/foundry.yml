@@ -1,0 +1,31 @@
+name: Foundry Tests
+
+on:
+  push:
+    paths:
+      - 'resources/documentation/security-testing/blockchain-smart-contract-testing/**'
+  pull_request:
+    paths:
+      - 'resources/documentation/security-testing/blockchain-smart-contract-testing/**'
+
+env:
+  FOUNDRY_PROFILE: ci
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: resources/documentation/security-testing/blockchain-smart-contract-testing
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+      - name: Install forge-std
+        run: forge install foundry-rs/forge-std --no-commit
+      - name: Build
+        run: forge build --sizes
+      - name: Test
+        run: forge test -vvv
+      - name: Gas report
+        run: forge test --gas-report

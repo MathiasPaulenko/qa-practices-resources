@@ -1,0 +1,12 @@
+- Language: Java 21
+- Test framework: JUnit 5 + Mockito
+- Mutation tool: PIT (pitest-maven)
+- Build system: Maven
+- CI platform: GitHub Actions
+- Line coverage: 85% — Branch coverage: 72%
+- Mutation score: unknown (first run)
+- Modules in scope: payment processing only
+- Time budget: 15 minutes per PR, full run nightly
+
+Code under test: PaymentService.calculateFee() and PaymentService.refund()
+Existing tests: 42 unit tests, mostly happy-path assertions on returned values

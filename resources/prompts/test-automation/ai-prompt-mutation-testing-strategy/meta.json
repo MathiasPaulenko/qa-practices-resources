@@ -1,0 +1,16 @@
+{
+  "title": "AI Prompt: Mutation Testing Strategy — Companion Files",
+  "slug": "ai-prompt-mutation-testing-strategy",
+  "type": "prompts",
+  "topic": "test-automation",
+  "category": "test-automation",
+  "description": "Prompt template, example input and ready-to-adapt mutation testing configurations for PIT (Maven), StrykerJS and mutmut, matching the strategy prompt resource.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "pitest-pom.xml",
+    "stryker.conf.json",
+    "mutmut-setup.cfg"
+  ]
+}
