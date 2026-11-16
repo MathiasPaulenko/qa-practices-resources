@@ -1,0 +1,25 @@
+{
+  "resource": "/orders/{id}",
+  "path": "/orders/ORD-101",
+  "httpMethod": "GET",
+  "headers": {
+    "Accept": "application/json",
+    "Host": "api.staging.internal",
+    "X-Request-Id": "req-7f3a9c21"
+  },
+  "queryStringParameters": null,
+  "pathParameters": {
+    "id": "ORD-101"
+  },
+  "stageVariables": null,
+  "requestContext": {
+    "resourcePath": "/orders/{id}",
+    "httpMethod": "GET",
+    "requestId": "req-7f3a9c21",
+    "identity": {
+      "sourceIp": "10.0.0.42"
+    }
+  },
+  "body": null,
+  "isBase64Encoded": false
+}

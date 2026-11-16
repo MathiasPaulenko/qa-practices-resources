@@ -1,0 +1,34 @@
+{
+  "slug": "serverless-functions-testing",
+  "type": "documentation",
+  "topic": "deployment-testing",
+  "title": "How to Test Serverless Functions: AWS Lambda, Azure",
+  "titleEs": "Cómo Probar Funciones Serverless: AWS Lambda, Azure",
+  "description": "Runnable companion for the serverless functions testing guide: a SAM template for a GET /orders/{id} Lambda backed by DynamoDB, a synthetic API Gateway event for sam local invoke, and Jest unit tests with aws-sdk-client-mock.",
+  "descriptionEs": "Companion ejecutable de la guía de testing serverless: plantilla SAM para una Lambda GET /orders/{id} respaldada por DynamoDB, evento sintético de API Gateway para sam local invoke y pruebas unitarias Jest con aws-sdk-client-mock.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-11-16",
+  "source_urls": [
+    "https://qapractices.com/documentation/serverless-functions-testing",
+    "https://qapractices.com/es/documentation/serverless-functions-testing"
+  ],
+  "language": "javascript",
+  "tools": {
+    "aws-sam-cli": "1.172",
+    "nodejs": "22",
+    "jest": "30.x",
+    "aws-sdk-client-mock": "4.x",
+    "@aws-sdk/client-dynamodb": "3.x",
+    "localstack": "2026.10"
+  },
+  "files": [
+    "template.yaml",
+    "env.json",
+    "package.json",
+    "events/get-order.json",
+    "src/handler.mjs",
+    "tests/handler.test.mjs",
+    "README.md",
+    "README.es.md"
+  ]
+}
