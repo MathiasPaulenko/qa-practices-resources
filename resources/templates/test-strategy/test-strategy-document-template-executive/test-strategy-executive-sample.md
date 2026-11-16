@@ -32,7 +32,30 @@ Gate 0 requirements sign-off → Gate 1 sprint exit (>95% automation pass) →
 Gate 2 integration (contracts verified) → Gate 3 system test (>85% coverage) →
 Gate 4 UAT (>95% scenarios) → Gate 5 release readiness (CAB decision).
 
-## 4. Readiness Snapshot (Gate 5, filled)
+## 4. Test Scope
+
+- **In scope:** biometric + PIN login, instant transfers, card freeze/limits, balance migration, push notifications, offline read-only mode.
+- **Out of scope:** web banking, ATM network, customer-support chatbot, loan origination module (phase 2).
+
+## 5. Resources and Environments
+
+| Item | Decision |
+|---|---|
+| Team | 6 QA (2 automation, 1 security, 1 performance, 2 functional) + shared SDET pool |
+| Environments | dev → staging → pre-prod with prod-like data masking; device farm for biometric matrix |
+| Data | synthetic dataset + masked production snapshot refreshed weekly |
+
+## 6. Tools and Metrics
+
+| Area | Tool / Metric |
+|---|---|
+| UI automation | Appium 2.x on 40-device matrix (Bitrise) |
+| Contract testing | Pact 4.x against 12 services |
+| Performance | k6, target p95 <500ms at 2× peak load |
+| Security | OWASP ZAP weekly + external pentest pre-Gate 4 |
+| KPIs | coverage, automation pass rate, defect escape rate, gate pass rate |
+
+## 7. Release Readiness (Gate 5, filled)
 
 | Criterion | Target | Actual | Status |
 |---|---|---|---|
@@ -42,3 +65,10 @@ Gate 4 UAT (>95% scenarios) → Gate 5 release readiness (CAB decision).
 | Performance | p95 <500ms | 420ms | Pass |
 | Security | No critical | 2 medium, accepted | Pass |
 | Rollback | Verified | Rehearsed 2026-11-01 | Pass |
+
+Stakeholders: weekly steering deck (one-pager), CAB sign-off at Gate 5, 10% staged rollout with instant rollback.
+
+## 8. Compliance and Continuous Improvement
+
+- PCI DSS 4.0 evidence collected per gate; PSD2 SCA flow reviewed by legal before UAT.
+- Gate-3 defect taxonomy feeds sprint retros; escaped-defect review 30 days post-release.
