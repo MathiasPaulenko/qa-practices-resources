@@ -1,0 +1,30 @@
+{
+  "title": "Blockchain Smart Contract Testing Template — Companion",
+  "title_es": "Plantilla de Testing de Smart Contracts Blockchain — Companion",
+  "description": "Downloadable testing log for EVM smart contracts: blank document covering contract details, unit coverage, access control, gas budget, vulnerability checklist, upgrade tests, integration, deployment verification, defect tracking and sign-off, plus a completed sample for a fictional ERC-20.",
+  "description_es": "Documento de testing descargable para smart contracts EVM: plantilla en blanco con datos del contrato, cobertura unitaria, control de acceso, presupuesto de gas, checklist de vulnerabilidades, tests de upgrade, integración, verificación de deployment, seguimiento de defectos y sign-off, más un ejemplo completado de un ERC-20 ficticio.",
+  "type": "templates",
+  "topic": "security-testing",
+  "slug": "blockchain-smart-contract-testing-template",
+  "source_urls": [
+    "https://qapractices.com/templates/blockchain-smart-contract-testing-template/",
+    "https://qapractices.com/es/templates/blockchain-smart-contract-testing-template/"
+  ],
+  "language": "markdown",
+  "tags": [
+    "blockchain",
+    "smart-contracts",
+    "evm",
+    "solidity",
+    "testing-log",
+    "security-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "smart-contract-testing-log.md",
+    "smart-contract-testing-log-sample.md"
+  ],
+  "difficulty": "advanced",
+  "lastUpdated": "2026-11-19"
+}

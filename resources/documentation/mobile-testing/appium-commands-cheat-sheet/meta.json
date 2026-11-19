@@ -1,0 +1,22 @@
+{
+  "type": "documentation",
+  "resourceType": "documentation",
+  "slug": "appium-commands-cheat-sheet",
+  "title": "Appium Commands Cheat Sheet",
+  "titleEs": "Cheat Sheet de Comandos de Appium",
+  "description": "Companion repo for the Appium Commands Cheat Sheet: compilable Java examples for Appium 2.x commands, locators, gestures and waits.",
+  "topic": "mobile-testing",
+  "language": "java",
+  "framework": "appium",
+  "frameworkVersion": "2.x",
+  "clientVersion": "9.2.0",
+  "seleniumVersion": "4.21.0",
+  "junitVersion": "5.10.2",
+  "javaVersion": "17+",
+  "platforms": ["android", "ios"],
+  "topics": ["mobile-testing"],
+  "createdAt": "2026-11-19",
+  "updatedAt": "2026-11-19",
+  "author": "Mathias Paulenko",
+  "license": "MIT"
+}

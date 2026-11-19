@@ -1,0 +1,30 @@
+{
+  "title": "Workshop Retrospective Template QA — Companion",
+  "title_es": "Plantilla de Retrospectiva para Equipos de QA — Companion",
+  "description": "Downloadable facilitation document for QA team retrospectives: blank template with timed 90-minute agenda, discussion prompts, metrics review, action items, previous action review, team sentiment and ground rules, plus a completed sample.",
+  "description_es": "Documento de facilitación descargable para retrospectivas de equipos de QA: plantilla en blanco con agenda cronometrada de 90 minutos, preguntas guía, revisión de métricas, acciones, revisión de acciones anteriores, pulso de equipo y reglas básicas, más un ejemplo completado.",
+  "type": "templates",
+  "topic": "qa-management",
+  "slug": "workshop-retrospective-template-qa-teams",
+  "source_urls": [
+    "https://qapractices.com/templates/workshop-retrospective-template-qa-teams/",
+    "https://qapractices.com/es/templates/workshop-retrospective-template-qa-teams/"
+  ],
+  "language": "markdown",
+  "tags": [
+    "qa",
+    "retrospective",
+    "agile",
+    "facilitation",
+    "action-items",
+    "team-improvement"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "qa-retrospective-workshop.md",
+    "qa-retrospective-workshop-sample.md"
+  ],
+  "difficulty": "beginner",
+  "lastUpdated": "2026-11-19"
+}
