@@ -1,0 +1,4 @@
+ID,Risk,Category,Likelihood,Impact,Score,Owner,Mitigation,Status
+R01,Payment gateway failure,Technical,4,5,20,@qa-lead,End-to-end tests + monitoring,Open
+R02,New tax rule delay,Business,2,5,10,@pm,Compliance review + test cases,Mitigated
+R03,CI flakiness,Operational,4,2,8,@devops,Stabilize environment,In Progress

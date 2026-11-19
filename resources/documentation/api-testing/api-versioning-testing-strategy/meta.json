@@ -1,0 +1,26 @@
+{
+  "title": "API Versioning Testing Strategy Companion",
+  "title_es": "Companion de Testing de Versionado de APIs",
+  "description": "Bash script that diffs identical requests against two API versions to catch breaking changes before release.",
+  "description_es": "Script bash que compara requests idénticos contra dos versiones de API para detectar breaking changes antes del release.",
+  "type": "documentation",
+  "topic": "api-testing",
+  "slug": "api-versioning-testing-strategy",
+  "source_urls": [
+    "https://qapractices.com/documentation/api-versioning-testing-strategy/",
+    "https://qapractices.com/es/documentation/api-versioning-testing-strategy/"
+  ],
+  "language": "bash",
+  "tags": [
+    "api-versioning",
+    "backward-compatibility-testing",
+    "api-deprecation",
+    "curl",
+    "bash"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "compare-api-versions.sh"
+  ]
+}

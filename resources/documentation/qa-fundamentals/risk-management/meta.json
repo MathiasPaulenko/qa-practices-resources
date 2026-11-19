@@ -1,0 +1,27 @@
+{
+  "title": "Risk Management in Testing Companion",
+  "title_es": "Companion de Gestión de Riesgos en Testing",
+  "description": "Downloadable risk register (CSV + markdown template) with the worked example from the QAPractices risk management guide.",
+  "description_es": "Registro de riesgos descargable (CSV + plantilla markdown) con el ejemplo desarrollado de la guía de gestión de riesgos de QAPractices.",
+  "type": "documentation",
+  "topic": "qa-fundamentals",
+  "slug": "risk-management",
+  "source_urls": [
+    "https://qapractices.com/documentation/risk-management/",
+    "https://qapractices.com/es/documentation/risk-management/"
+  ],
+  "language": "csv",
+  "tags": [
+    "risk-management",
+    "risk-register",
+    "qa-fundamentals",
+    "csv",
+    "template"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "risk-register.csv",
+    "risk-register-template.md"
+  ]
+}
