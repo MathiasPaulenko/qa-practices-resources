@@ -1,0 +1,27 @@
+{
+    "topic":  "test-automation",
+    "version":  "1.0.0",
+    "license":  "MIT",
+    "title":  "Automation Framework Setup Template Companion",
+    "tags":  [
+                 "automation-framework-setup",
+                 "test-automation",
+                 "playwright",
+                 "typescript",
+                 "framework-scaffold"
+             ],
+    "author":  "Mathias Paulenko",
+    "type":  "templates",
+    "requirements":  [
+                         "Node.js 20+",
+                         "Playwright 1.44+",
+                         "TypeScript 5.4+",
+                         "GitHub Actions"
+                     ],
+    "description":  "Setup scaffold for a test automation framework: Playwright config, env template, lint rules, CI workflow and the setup document template.",
+    "slug":  "automation-framework-setup-template",
+    "titleEs":  "Plantilla de Configuración de Framework de Automatización Companion",
+    "createdAt":  "2026-11-20",
+    "updatedAt":  "2026-11-20",
+    "descriptionEs":  "Scaffold de setup para un framework de automatización: config de Playwright, plantilla de entorno, reglas de lint, workflow de CI y el documento de setup."
+}

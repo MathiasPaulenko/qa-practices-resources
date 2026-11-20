@@ -1,0 +1,26 @@
+{
+    "topic":  "mobile-testing",
+    "version":  "1.0.0",
+    "license":  "MIT",
+    "title":  "Mobile App Beta Distribution Testing Template Companion",
+    "tags":  [
+                 "beta-testing",
+                 "testflight",
+                 "play-console",
+                 "fastlane",
+                 "staged-rollout"
+             ],
+    "author":  "Mathias Paulenko",
+    "type":  "templates",
+    "requirements":  [
+                         "fastlane 2.220+",
+                         "App Store Connect API key",
+                         "Google Play service account JSON key"
+                     ],
+    "description":  "Beta distribution companion: fastlane lanes for TestFlight and Play Console tracks, env template, the blank beta distribution document and a filled CartWell sample.",
+    "slug":  "mobile-app-beta-distribution-testing-template",
+    "titleEs":  "Plantilla de Testing de Distribución Beta de App Móvil Companion",
+    "createdAt":  "2026-11-20",
+    "updatedAt":  "2026-11-20",
+    "descriptionEs":  "Companion de distribución beta: lanes de fastlane para tracks de TestFlight y Play Console, plantilla de entorno, documento de distribución en blanco y ejemplo completado de CartWell."
+}

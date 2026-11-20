@@ -1,0 +1,17 @@
+{
+  "title": "LLM Guardrails Testing Checklist: Companion Kit",
+  "slug": "llm-guardrails-testing-checklist",
+  "type": "checklists",
+  "topic": "ai-testing",
+  "category": "ai-testing",
+  "description": "Mock guarded pipeline, adversarial prompt dataset and pytest suite for exercising input validation, injection blocking and PII output filtering on an LLM endpoint.",
+  "language": ["en", "es"],
+  "files": [
+    "guardrails_config.json",
+    "guarded_pipeline.py",
+    "adversarial_prompts.json",
+    "adversarial_test.py",
+    "test_guardrails.py",
+    "requirements.txt"
+  ]
+}

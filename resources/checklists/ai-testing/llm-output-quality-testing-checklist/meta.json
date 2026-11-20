@@ -1,0 +1,20 @@
+{
+  "slug": "llm-output-quality-testing-checklist",
+  "title": "LLM Output Quality Evaluation Harness",
+  "titleEs": "Harness de Evaluación de Calidad de Output de LLM",
+  "description": "Offline evaluation harness for the LLM Output Quality Testing Checklist: a deterministic scorer that measures consistency, factual grounding, contradiction and relevance over a versioned prompt corpus.",
+  "descriptionEs": "Harness de evaluación offline para el checklist de calidad de output de LLM: scorer determinista que mide consistencia, anclaje factual, contradicción y relevancia sobre un corpus versionado.",
+  "type": "checklists",
+  "topic": "ai-testing",
+  "language": "python",
+  "difficulty": "advanced",
+  "resources": [
+    "quality_evaluator.py",
+    "eval_prompts.json",
+    "mock_model_outputs.json",
+    "run_evaluation.py",
+    "test_quality_evaluator.py"
+  ],
+  "siteUrl": "https://qapractices.com/checklists/llm-output-quality-testing-checklist",
+  "siteUrlEs": "https://qapractices.com/es/checklists/llm-output-quality-testing-checklist"
+}

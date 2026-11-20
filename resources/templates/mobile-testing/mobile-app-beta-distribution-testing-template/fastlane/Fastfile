@@ -1,0 +1,69 @@
+# Fastfile — beta distribution lanes matching the track table.
+# One lane per track so a wrong-track upload fails loudly, never silently.
+# Requires: fastlane 2.220+, App Store Connect API key, Play Console service account.
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Distribute build to TestFlight Internal (team only, no review)"
+  lane :ios_beta_internal do
+    build_app(scheme: "CartWell", export_method: "app-store")
+    upload_to_testflight(
+      groups: ["Engineering"],
+      distribute_external: false,
+      notify_external_testers: false,
+      changelog: "Internal beta — same-day feedback loop"
+    )
+  end
+
+  desc "Distribute build to TestFlight External (triggers Beta App Review)"
+  lane :ios_beta_external do
+    build_app(scheme: "CartWell", export_method: "app-store")
+    upload_to_testflight(
+      groups: ["Beta Cohort"],
+      distribute_external: true,
+      notify_external_testers: true,
+      changelog: "Beta 4.2.0 — new address-flow checkout. Report issues via shake-to-report."
+    )
+  end
+end
+
+platform :android do
+  desc "Distribute AAB to Play Console Internal track (max 100 testers)"
+  lane :android_beta_internal do
+    gradle(task: "bundleRelease")
+    upload_to_play_console(
+      track: "internal",
+      release_status: "completed",
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
+
+  desc "Distribute AAB to Play Console Closed track (email list / Google Group)"
+  lane :android_beta_closed do
+    gradle(task: "bundleRelease")
+    upload_to_play_console(
+      track: "beta",
+      release_status: "completed",
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
+
+  desc "Staged rollout to production — run per stage, never skip a stage"
+  lane :android_rollout do |options|
+    percent = options[:percent] || "0.05"
+    upload_to_play_console(
+      track: "production",
+      rollout: percent,
+      release_status: "inProgress",
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true,
+      skip_upload_aab: true
+    )
+  end
+end
