@@ -18,7 +18,7 @@ Feature: Shopping cart with behave-kit
       | Book    | 15.00 | 1        | 0        | 15.00 |
       | Book    | 15.00 | 2        | 10       | 27.00 |
 
-  @api
+  @api @timeout:5
   Scenario: Load test users from CSV
     Given the test users are loaded from CSV
     Then there should be 2 users
