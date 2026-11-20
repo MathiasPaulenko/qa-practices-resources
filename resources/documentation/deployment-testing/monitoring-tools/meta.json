@@ -1,0 +1,29 @@
+{
+  "type": "documentation",
+  "resourceType": "documentation",
+  "slug": "monitoring-tools",
+  "title": "Monitoring Tools Guide",
+  "titleEs": "Guía de Herramientas de Monitoreo",
+  "description": "Companion scripts for the Monitoring Tools Guide: Prometheus instrumentation, alert rules matching the P1-P4 severity matrix, OpenTelemetry OTLP setup and a Playwright synthetic health check.",
+  "topic": "deployment-testing",
+  "language": "python",
+  "languages": ["python", "yaml", "typescript", "javascript"],
+  "versions": {
+    "python": "3.10+",
+    "prometheus_client": "0.26.0",
+    "node": "20+",
+    "@opentelemetry/sdk-node": "0.301.2",
+    "@opentelemetry/exporter-trace-otlp-http": "0.301.2",
+    "@playwright/test": "1.65.1"
+  },
+  "files": [
+    "scripts/prometheus-instrumentation.py",
+    "scripts/alert-rules.yml",
+    "scripts/otel-node-setup.js",
+    "scripts/synthetic-login-check.spec.ts"
+  ],
+  "createdAt": "2026-11-20",
+  "updatedAt": "2026-11-20",
+  "author": "Mathias Paulenko",
+  "license": "MIT"
+}

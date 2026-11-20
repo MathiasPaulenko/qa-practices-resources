@@ -1,0 +1,6 @@
+{
+  "error_rate": 0.001,
+  "p99_latency_ms": 120,
+  "cpu_pct": 45,
+  "mem_pct": 60
+}

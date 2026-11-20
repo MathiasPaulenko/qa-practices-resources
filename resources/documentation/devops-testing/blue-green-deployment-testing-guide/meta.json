@@ -1,0 +1,21 @@
+{
+  "slug": "blue-green-deployment-testing-guide",
+  "type": "documentation",
+  "topic": "devops-testing",
+  "title": "Blue-Green Deployment Testing Guide",
+  "titleEs": "Guía de Testing de Blue-Green Deployment",
+  "description": "Companion scripts for testing each phase of a blue-green deployment: green readiness gate, cutover checks, metric comparison and rollback drills.",
+  "descriptionEs": "Scripts companion para probar cada fase de un despliegue blue-green: gate de preparación de green, checks de corte, comparación de métricas y ensayos de rollback.",
+  "files": [
+    "green_gate.sh",
+    "smoke_test.py",
+    "metric_gate.py",
+    "rollback_drill.py",
+    "rollout.yaml",
+    "metrics_baseline.json",
+    "metrics_green_sample.json",
+    "test_metric_gate.py"
+  ],
+  "language": ["bash", "python", "yaml"],
+  "sourceUrl": "https://qapractices.com/documentation/blue-green-deployment-testing-guide"
+}

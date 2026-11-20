@@ -1,0 +1,37 @@
+{
+  "title": "Java Testing Interview Companion",
+  "title_es": "Companion de Entrevista de Testing Java",
+  "description": "Runnable JUnit 5, TestNG, Mockito and Spring Boot examples that mirror the 20 answers from the QAPractices guide Java Testing Interview: Spring & JUnit.",
+  "description_es": "Ejemplos ejecutables de JUnit 5, TestNG, Mockito y Spring Boot que replican las 20 respuestas de la guía de QAPractices Entrevista de Testing Java: Spring y JUnit.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "slug": "java-testing-interview-questions",
+  "source_urls": [
+    "https://qapractices.com/documentation/java-testing-interview-questions/",
+    "https://qapractices.com/es/documentation/java-testing-interview-questions/"
+  ],
+  "language": "java",
+  "tags": [
+    "junit5",
+    "testng",
+    "mockito",
+    "spring-boot",
+    "maven",
+    "interview-prep"
+  ],
+  "difficulty": "intermediate",
+  "prerequisites": [
+    "JDK 17 or newer",
+    "Maven 3.9 or newer"
+  ],
+  "estimated_time": "45 minutes",
+  "files": [
+    "README.md",
+    "README.es.md",
+    "examples/pom.xml",
+    "examples/LifecycleAndAssertionsTest.java",
+    "examples/ParameterizedExamplesTest.java",
+    "examples/MockitoExamplesTest.java",
+    "examples/TestNgDataProviderTest.java"
+  ]
+}

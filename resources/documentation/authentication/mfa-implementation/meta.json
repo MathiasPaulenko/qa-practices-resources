@@ -1,0 +1,29 @@
+{
+  "type": "documentation",
+  "resourceType": "documentation",
+  "slug": "mfa-implementation",
+  "title": "MFA Implementation Testing Guide",
+  "titleEs": "Guía de Pruebas de Implementación de MFA",
+  "description": "Companion scripts for the MFA Implementation Testing Guide: TOTP generation, Playwright OTP challenge spec, lockout/rate-limit probe and WebAuthn virtual authenticator.",
+  "topic": "authentication",
+  "language": "python",
+  "languages": ["python", "typescript"],
+  "versions": {
+    "python": "3.10+",
+    "pyotp": "2.12.1",
+    "requests": "2.32.3",
+    "node": "20+",
+    "@playwright/test": "1.65.1",
+    "otplib": "13.6.0"
+  },
+  "files": [
+    "scripts/totp-helpers.py",
+    "scripts/lockout-probe.py",
+    "scripts/totp-login.spec.ts",
+    "scripts/webauthn-virtual-authenticator.spec.ts"
+  ],
+  "createdAt": "2026-11-20",
+  "updatedAt": "2026-11-20",
+  "author": "Mathias Paulenko",
+  "license": "MIT"
+}

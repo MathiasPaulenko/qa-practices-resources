@@ -1,0 +1,40 @@
+# Argo Rollouts 1.7 blueGreen strategy.
+# activeService keeps serving blue until the rollout is promoted;
+# previewService exposes green for pre-switch validation.
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: shop-api
+spec:
+  replicas: 4
+  strategy:
+    blueGreen:
+      activeService: shop-api-active
+      previewService: shop-api-preview
+      # Manual gate: promote only after smoke tests and metric checks pass.
+      autoPromotionEnabled: false
+      prePromotionAnalysis:
+        templates:
+        - templateName: green-smoke
+      # Keep blue pods warm for 5 minutes so rollback is instant.
+      scaleDownDelaySeconds: 300
+      # Terminate green pods if the rollout is aborted.
+      abortScaleDownDelaySeconds: 30
+  selector:
+    matchLabels:
+      app: shop-api
+  template:
+    metadata:
+      labels:
+        app: shop-api
+    spec:
+      containers:
+      - name: app
+        image: registry.example/shop-api:2.14.0   # placeholder: your registry
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          periodSeconds: 5
