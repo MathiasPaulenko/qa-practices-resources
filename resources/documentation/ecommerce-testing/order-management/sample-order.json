@@ -1,0 +1,17 @@
+{
+  "id": "ord_1042",
+  "state": "paid",
+  "currency": "USD",
+  "subtotal_cents": 10990,
+  "tax_cents": 1099,
+  "shipping_cents": 990,
+  "discount_cents": 89,
+  "total_due": 12990,
+  "total_captured": 12990,
+  "total_refunded": 0,
+  "items": [
+    { "sku": "TSH-BLK-M", "qty": 1, "unit_price_cents": 4990 },
+    { "sku": "MUG-CER-01", "qty": 2, "unit_price_cents": 3000 }
+  ],
+  "idempotency_key": "pay-42"
+}

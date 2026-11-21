@@ -1,0 +1,16 @@
+{
+  "title": "Order Management Testing — State Machine & Idempotency Suite",
+  "title_es": "Pruebas de Gestión de Pedidos — Suite de máquina de estados e idempotencia",
+  "description": "Runnable pytest suite: order lifecycle transition table (valid/invalid edges) and payment idempotency invariant, with a sample order payload.",
+  "description_es": "Suite pytest ejecutable: tabla de transiciones del ciclo de vida del pedido (aristas válidas/inválidas) e invariante de idempotencia del pago, con payload de pedido de ejemplo.",
+  "type": "documentation",
+  "topic": "ecommerce-testing",
+  "slug": "order-management",
+  "source_urls": [
+    "https://qapractices.com/documentation/order-management/",
+    "https://qapractices.com/es/documentation/order-management/"
+  ],
+  "language": "multi",
+  "tags": ["order-management", "state-machine", "idempotency", "pytest", "ecommerce-testing"],
+  "files": ["README.md", "README.es.md", "test_order_transitions.py", "sample-order.json"]
+}

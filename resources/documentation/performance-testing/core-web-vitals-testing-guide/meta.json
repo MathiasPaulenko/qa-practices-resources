@@ -1,0 +1,16 @@
+{
+  "title": "Core Web Vitals Testing — Lighthouse CI + RUM Snippets",
+  "title_es": "Testing de Core Web Vitals — Lighthouse CI + snippets RUM",
+  "description": "Runnable CWV gate: Lighthouse CI 0.16 lighthouserc.json with LCP/CLS/TBT budget assertions, a GitHub Actions workflow, and a web-vitals 6 RUM collector.",
+  "description_es": "Puerta de CWV ejecutable: lighthouserc.json de Lighthouse CI 0.16 con aserciones de budgets LCP/CLS/TBT, un workflow de GitHub Actions y un colector RUM con web-vitals 6.",
+  "type": "documentation",
+  "topic": "performance-testing",
+  "slug": "core-web-vitals-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/core-web-vitals-testing-guide/",
+    "https://qapractices.com/es/documentation/core-web-vitals-testing-guide/"
+  ],
+  "language": "multi",
+  "tags": ["core-web-vitals", "lighthouse-ci", "web-vitals", "lcp", "inp", "cls", "crux", "rum", "github-actions"],
+  "files": ["README.md", "README.es.md", "lighthouserc.json", "lighthouse-ci.yml", "cwv-report.js"]
+}
