@@ -4,14 +4,15 @@ Runnable example for the [Behave Step Library Guide](https://qapractices.com/doc
 
 ## What this is
 
-A minimal Behave project that uses `behave-steplib` 1.5.1 to run API, data and
+A minimal Behave project that uses `behave-steplib` 1.6.1 to run API, data and
 IO scenarios without writing custom step definitions.
 
 ## Requirements
 
 - Python 3.11+
-- `behave-steplib[api,io,data]` 1.5.1
+- `behave-steplib[api,io,data]` 1.6.1
 - `behave` 1.3.3
+- `httpx` 0.28.1
 
 ## Install
 
@@ -22,7 +23,7 @@ source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Version 1.5.1 is now on PyPI, so the normal install works. If you need the latest development build, use the GitHub main branch:
+Version 1.6.1 is now on PyPI, so the normal install works. If you need the latest development build, use the GitHub main branch:
 
 ```bash
 pip install "git+https://github.com/MathiasPaulenko/behave-steplib.git@main#egg=behave-steplib[api,io,data]"
