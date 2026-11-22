@@ -1,0 +1,31 @@
+{
+  "title": "Chaos Engineering Experiment Template — Companion",
+  "title_es": "Plantilla de Experimento de Chaos Engineering — Companion",
+  "description": "Downloadable files for the QAPractices chaos engineering experiment template: blank experiment document, Chaos Mesh PodChaos manifest and a completed sample (CE-042 pod-kill, hypothesis partially failed).",
+  "description_es": "Archivos descargables de la plantilla de experimento de chaos engineering de QAPractices: documento en blanco, manifiesto PodChaos de Chaos Mesh y un ejemplo completado (CE-042 pod-kill, hipótesis parcialmente fallida).",
+  "type": "templates",
+  "topic": "chaos-engineering",
+  "slug": "chaos-engineering-experiment-template",
+  "source_urls": [
+    "https://qapractices.com/templates/chaos-engineering-experiment-template/",
+    "https://qapractices.com/es/templates/chaos-engineering-experiment-template/"
+  ],
+  "language": "markdown",
+  "tags": [
+    "chaos-engineering",
+    "chaos-mesh",
+    "podchaos",
+    "blast-radius",
+    "steady-state",
+    "game-day"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "chaos-engineering-experiment-template.md",
+    "experiment-ce-042-sample.md",
+    "pod-kill.yaml"
+  ],
+  "difficulty": "advanced",
+  "lastUpdated": "2026-11-22"
+}
