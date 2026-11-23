@@ -1,0 +1,16 @@
+# objection 1.11.x runtime session — run inside `objection -g <package> explore`
+# Order matters: bypass controls first, then inspect.
+
+# --- Control bypasses (verify each control actually exists first) ---
+android sslpinning disable     # traffic should appear in mitmproxy/ZAP after this
+android root disable           # keep the app running on the rooted test device
+# ios sslpinning disable       # iOS equivalent on a jailbroken device
+
+# --- Storage and environment ---
+env                            # app directories: where files actually live
+# then browse with the file system commands or pull via adb/objection download
+
+# --- Deeper inspection when needed ---
+android hooking list classes            # enumerate app classes
+android hooking search classes keystore # find crypto-related classes
+memory dump all /tmp/app-memory.bin     # inspect strings for secrets
