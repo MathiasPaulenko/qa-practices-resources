@@ -1,0 +1,13 @@
+{
+  "resourceType": "checklists",
+  "slug": "api-versioning-testing-checklist",
+  "title": "API Versioning Testing Checklist",
+  "description": "Runnable companion for the API Versioning Testing Checklist: a deprecation-header verifier that asserts Deprecation/Sunset/Link presence and format (RFC 9745, RFC 8594), and a version-negotiation probe covering missing, invalid and conflicting version indicators.",
+  "type": "checklists",
+  "topic": "api-testing",
+  "companionVersion": "1.0.0",
+  "files": [
+    "scripts/verify-deprecation-headers.sh",
+    "scripts/check-version-negotiation.sh"
+  ]
+}
