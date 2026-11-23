@@ -1,0 +1,30 @@
+{
+  "title": "Test Data Privacy Masking Template (GDPR) — Companion",
+  "title_es": "Plantilla de Enmascaramiento de Datos de Prueba (GDPR) — Companion",
+  "description": "Downloadable files for the QAPractices GDPR test-data masking template: blank 7-section document, PostgreSQL validation script and a completed sample (Northline Commerce customers table, 41,208 rows masked).",
+  "description_es": "Archivos descargables de la plantilla GDPR de enmascaramiento de datos de prueba de QAPractices: documento en blanco de 7 secciones, script de validación PostgreSQL y un ejemplo completado (tabla customers de Northline Commerce, 41.208 filas enmascaradas).",
+  "type": "templates",
+  "topic": "data-privacy",
+  "slug": "test-data-privacy-masking-template-gdpr",
+  "source_urls": [
+    "https://qapractices.com/templates/test-data-privacy-masking-template-gdpr/",
+    "https://qapractices.com/es/templates/test-data-privacy-masking-template-gdpr/"
+  ],
+  "language": "markdown",
+  "tags": [
+    "data-masking",
+    "gdpr",
+    "pii",
+    "test-data",
+    "anonymization"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "test-data-privacy-masking-template.md",
+    "customers-masking-sample.md",
+    "masking-validation.sql"
+  ],
+  "difficulty": "advanced",
+  "lastUpdated": "2026-11-22"
+}

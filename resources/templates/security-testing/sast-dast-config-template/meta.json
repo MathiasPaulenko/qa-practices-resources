@@ -1,0 +1,31 @@
+{
+  "title": "SAST/DAST Configuration Template — Companion",
+  "title_es": "Plantilla de Configuración SAST/DAST — Companion",
+  "description": "Downloadable YAML configuration for SAST and DAST scanners: blank template covering tool inventory, rule sets, severity thresholds, exclusions with expiry, scan scope, CI gate behavior and triage ownership, plus a completed sample for a fintech payments API using Semgrep and OWASP ZAP.",
+  "description_es": "Configuración YAML descargable para scanners SAST y DAST: plantilla en blanco con inventario de herramientas, rule sets, umbrales de severidad, exclusiones con expiración, alcance de escaneo, comportamiento del gate en CI y propiedad del triage, más un ejemplo completado de una API de pagos fintech con Semgrep y OWASP ZAP.",
+  "type": "templates",
+  "topic": "security-testing",
+  "slug": "sast-dast-config-template",
+  "source_urls": [
+    "https://qapractices.com/templates/sast-dast-config-template/",
+    "https://qapractices.com/es/templates/sast-dast-config-template/"
+  ],
+  "language": "yaml",
+  "tags": [
+    "sast",
+    "dast",
+    "security-scanning",
+    "semgrep",
+    "owasp-zap",
+    "ci-security-gates",
+    "devsecops"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "scan-config-template.yaml",
+    "scan-config-sample.yaml"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-11-23"
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TaskFlow Referral Flow — Test Fixture</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 560px; margin: 2rem auto; }
+  label { display: block; margin-top: 1rem; }
+  input, button { padding: .4rem; font-size: 1rem; }
+  pre { background: #f1f5f9; padding: 1rem; border-radius: 6px; }
+  .blocked { color: #b91c1c; font-weight: 700; }
+</style>
+</head>
+<body>
+<h1>Referral page fixture</h1>
+<p>Simulates the TaskFlow referral flow: link click → tracking cookie → signup → purchase → attribution, plus the self-referral fraud check.</p>
+<label>Referral cookie (taskflow_ref_code): <span id="cookie">—</span></label>
+<label>Referee email <input name="email" value="carlos.ruiz@example.com"></label>
+<button data-testid="signup-button">Sign up</button>
+<button data-testid="complete-purchase" disabled>Complete Pro purchase</button>
+<h2>Attribution status</h2>
+<pre id="status" data-testid="status">{}</pre>
+<script>
+// The ?code= param simulates the tracking cookie set on link click.
+const code = new URLSearchParams(location.search).get('code');
+if (code) localStorage.setItem('taskflow_ref_code', code);
+const cookie = localStorage.getItem('taskflow_ref_code');
+document.getElementById('cookie').textContent = cookie || 'none';
+
+const status = {};
+const render = () => document.getElementById('status').textContent = JSON.stringify(status, null, 2);
+
+document.querySelector('[data-testid="signup-button"]').addEventListener('click', () => {
+  const email = document.querySelector('[name="email"]').value.trim();
+  const ref = localStorage.getItem('taskflow_ref_code');
+  // Self-referral check: referee email root matches the referrer's (LUIS25 → luis.herrera@taskflow.io).
+  const selfReferral = ref === 'LUIS25' && /^luis\.herrera/.test(email);
+  status.referee_email = email;
+  if (selfReferral) {
+    status.referred_by = null;
+    status.fraud = 'Self-referral detected for ' + ref;
+  } else {
+    status.referred_by = ref || null;
+  }
+  render();
+  if (!status.fraud) document.querySelector('[data-testid="complete-purchase"]').disabled = false;
+});
+
+document.querySelector('[data-testid="complete-purchase"]').addEventListener('click', () => {
+  status.order_id = 'ORD-2026-7890';
+  status.plan = 'Pro';
+  if (status.referred_by) {
+    status.referrer_email = 'luis.herrera@taskflow.io';
+    status.reward_type = 'percentage_discount';
+    status.reward_value = 10.00;
+    status.reward_status = 'credited';
+  } else {
+    status.attribution = 'organic';
+  }
+  render();
+});
+render();
+</script>
+</body>
+</html>

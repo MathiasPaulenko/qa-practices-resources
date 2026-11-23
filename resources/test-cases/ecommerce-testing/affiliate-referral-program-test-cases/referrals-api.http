@@ -1,0 +1,56 @@
+# TaskFlow referral API — requests from the resource's Example Commands section.
+# Run with curl or import into Postman/Insomnia. Replace tokens with real staging credentials.
+
+### Generate a referral code (TC001)
+curl -X POST https://app.taskflow.io/api/v1/referrals \
+  -H "Authorization: Bearer <luis_herrera_token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "user_email": "luis.herrera@taskflow.io"
+  }'
+
+# Expected 200:
+# {
+#   "code": "LUIS25",
+#   "link": "https://app.taskflow.io/referrals?code=LUIS25",
+#   "qr_url": "https://app.taskflow.io/qr/LUIS25.png",
+#   "referrer_email": "luis.herrera@taskflow.io",
+#   "expires_at": "2027-07-28T23:59:59Z"
+# }
+
+### Track a conversion (TC005/TC006)
+curl -X POST https://app.taskflow.io/api/v1/referrals/convert \
+  -H "Authorization: Bearer <service_token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "referral_code": "LUIS25",
+    "referee_email": "carlos.ruiz@example.com",
+    "order_id": "ORD-2026-7890",
+    "plan": "Pro",
+    "amount": 50.00,
+    "currency": "USD"
+  }'
+
+# Expected 200:
+# {
+#   "conversion_id": "CONV-2026-001",
+#   "referrer_email": "luis.herrera@taskflow.io",
+#   "referee_email": "carlos.ruiz@example.com",
+#   "referral_code": "LUIS25",
+#   "order_id": "ORD-2026-7890",
+#   "reward_type": "percentage_discount",
+#   "reward_value": 10.00,
+#   "reward_currency": "USD",
+#   "status": "credited"
+# }
+
+### Negative case: code over max length (edge table row 1)
+curl -X POST https://app.taskflow.io/api/v1/referrals \
+  -H "Authorization: Bearer <luis_herrera_token>" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "user_email": "luis.herrera@taskflow.io",
+    "code": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  }'
+
+# Expected 400: "Referral code exceeds maximum length of 32 characters."

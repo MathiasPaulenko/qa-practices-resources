@@ -1,0 +1,18 @@
+{
+  "title": "Affiliate and Referral Program Test Cases — Playwright + curl Companion",
+  "title_es": "Casos de Prueba de Programa de Afiliados y Referidos — Companion Playwright + curl",
+  "description": "Self-contained referral-flow fixture (link click, tracking cookie, signup, purchase, fraud check) plus a Playwright 1.48 spec covering attribution, self-referral blocking, and organic fallback — loads via file://, no server needed.",
+  "description_es": "Fixture auto-contenido del flujo de referidos (clic en el enlace, cookie de tracking, registro, compra, control de fraude) más una spec de Playwright 1.48 que cubre atribución, bloqueo de autorreferencia y fallback orgánico — carga vía file://, sin servidor.",
+  "type": "test-cases",
+  "topic": "ecommerce-testing",
+  "slug": "affiliate-referral-program-test-cases",
+  "source_urls": [
+    "https://qapractices.com/test-cases/affiliate-referral-program-test-cases/",
+    "https://qapractices.com/es/test-cases/affiliate-referral-program-test-cases/"
+  ],
+  "language": "typescript",
+  "tags": ["referral-program", "affiliate-testing", "conversion-attribution", "affiliate-fraud", "playwright", "cookie-tracking"],
+  "files": ["README.md", "README.es.md", "fixture-referral.html", "referral-flow.spec.ts", "referrals-api.http", "package.json"],
+  "run": "npm install && npx playwright test referral-flow.spec.ts",
+  "requirements": "Node.js 20+, Playwright 1.48"
+}

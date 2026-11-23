@@ -1,0 +1,12 @@
+{
+  "name": "affiliate-referral-program-test-cases",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Runnable companion for QAPractices Affiliate and Referral Program Test Cases",
+  "scripts": {
+    "test": "playwright test referral-flow.spec.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}

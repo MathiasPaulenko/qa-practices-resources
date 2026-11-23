@@ -1,0 +1,38 @@
+# SAST/DAST Scan Configuration — payments-api
+# Owner: platform-security    Last review: 2026-11-10
+
+sast:
+  tool: "Semgrep 1.99"
+  languages: "TypeScript, Python"
+  rulesets:
+    enabled: "p/owasp-top-ten, p/cwe-top-25, p/typescript"
+    disabled: "generic.secrets.gitleaks — replaced by dedicated trufflehog job"
+  severity_thresholds:
+    fail_on: "critical >= 1 or high >= 3"
+    warn_on: "medium >= 1"
+  exclusions:
+    - path: "src/generated/openapi/**"
+      reason: "auto-generated client code"
+      expires: "never"
+    - path: "migrations/legacy/**"
+      reason: "frozen legacy SQL — flagged for removal Q1"
+      expires: "2027-03-31"
+
+dast:
+  tool: "OWASP ZAP 2.16"
+  target: "https://staging.payments.internal"
+  auth: "context script with service account token"
+  profile: "baseline on PRs, api-scan nightly"
+  fail_on: "high alert or above"
+
+ci_gate:
+  runs_on: "pull request (SAST), nightly (DAST)"
+  blocks_merge: "yes — since 2026-10-01"
+  report_path: "ci-artifacts/security/"
+  failure_owner: "on-call platform engineer"
+
+triage:
+  sla_critical: "48 hours"
+  sla_high: "1 week"
+  false_positive_log: "security/false-positives.md"
+  config_approver: "security lead + tech lead"

@@ -1,0 +1,35 @@
+# SAST/DAST Scan Configuration — [project name]
+# Owner: [name or team]    Last review: [YYYY-MM-DD]
+
+sast:
+  tool: "[e.g. Semgrep 1.x, CodeQL, Checkmarx]"
+  languages: "[languages the scanner must cover]"
+  rulesets:
+    enabled: "[rule packs, e.g. p/owasp-top-ten, p/cwe-top-25]"
+    disabled: "[rules turned off — each needs a written reason]"
+  severity_thresholds:
+    fail_on: "[e.g. critical >= 1 or high >= 5]"
+    warn_on: "[e.g. medium >= 1]"
+  exclusions:
+    - path: "[glob, e.g. src/generated/**]"
+      reason: "[why this path is out]"
+      expires: "[YYYY-MM-DD or never]"
+
+dast:
+  tool: "[e.g. OWASP ZAP 2.16, Burp Suite]"
+  target: "[staging URL the scanner may attack — never production]"
+  auth: "[how the scanner logs in: session script, token, none]"
+  profile: "[e.g. baseline, api-scan, full-scan]"
+  fail_on: "[alert level that fails the gate]"
+
+ci_gate:
+  runs_on: "[push | pull request | nightly]"
+  blocks_merge: "[yes/no — and since which date]"
+  report_path: "[where scan results are archived]"
+  failure_owner: "[who triages a red build]"
+
+triage:
+  sla_critical: "[e.g. 48 hours]"
+  sla_high: "[e.g. 1 week]"
+  false_positive_log: "[where suppressions get documented]"
+  config_approver: "[who approves changes to this file]"
