@@ -1,0 +1,8 @@
+# Definition of Done checklist — automate as a build gate
+definition_of_done:
+  - unit_tests_pass: true
+  - code_review_approved: true
+  - acceptance_criteria_met: true
+  - qa_verified: true
+  - documentation_updated: true
+  - no_critical_bugs: true

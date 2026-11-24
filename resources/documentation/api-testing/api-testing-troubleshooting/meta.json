@@ -1,0 +1,31 @@
+{
+  "title": "API Testing Troubleshooting — Runnable Companion",
+  "title_es": "Troubleshooting de API Testing — Companion Ejecutable",
+  "description": "Snippets from the QAPractices API troubleshooting guide: supertest test isolation, Ajv JSON schema validation and a k6 performance test with SLA thresholds.",
+  "description_es": "Snippets de la guía de troubleshooting de API de QAPractices: aislamiento de tests con supertest, validación de JSON schema con Ajv y un test de rendimiento k6 con umbrales de SLA.",
+  "type": "documentation",
+  "topic": "api-testing",
+  "slug": "api-testing-troubleshooting",
+  "source_urls": [
+    "https://qapractices.com/documentation/api-testing-troubleshooting/",
+    "https://qapractices.com/es/documentation/api-testing-troubleshooting/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "api-testing",
+    "troubleshooting",
+    "supertest",
+    "ajv",
+    "k6",
+    "contract-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "test-isolation.js",
+    "schema-validation.js",
+    "k6-perf-test.js"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-11-24"
+}

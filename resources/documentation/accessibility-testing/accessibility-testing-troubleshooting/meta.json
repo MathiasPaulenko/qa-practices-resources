@@ -1,0 +1,33 @@
+{
+  "title": "Accessibility Testing Troubleshooting — Runnable Companion",
+  "title_es": "Troubleshooting de Accessibility Testing — Companion Ejecutable",
+  "description": "Snippets from the QAPractices troubleshooting guide: contrast-verified design tokens, ARIA labeling patterns, live regions, a vanilla-JS focus trap and Angular SPA focus management.",
+  "description_es": "Snippets de la guía de troubleshooting de QAPractices: design tokens con contraste verificado, patrones de etiquetado ARIA, regiones live, una trampa de foco en JS vanilla y gestión de foco SPA en Angular.",
+  "type": "documentation",
+  "topic": "accessibility-testing",
+  "slug": "accessibility-testing-troubleshooting",
+  "source_urls": [
+    "https://qapractices.com/documentation/accessibility-testing-troubleshooting/",
+    "https://qapractices.com/es/documentation/accessibility-testing-troubleshooting/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "accessibility",
+    "wcag",
+    "aria",
+    "focus-management",
+    "screen-reader",
+    "a11y"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "contrast-tokens.css",
+    "aria-labels.html",
+    "live-regions.html",
+    "focus-trap.js",
+    "spa-focus.ts"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-11-24"
+}

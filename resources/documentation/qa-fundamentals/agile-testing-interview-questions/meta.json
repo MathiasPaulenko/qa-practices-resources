@@ -1,0 +1,33 @@
+{
+  "title": "Agile Testing Interview Questions — Runnable Companion",
+  "title_es": "Preguntas de Entrevista de Agile Testing — Companion Ejecutable",
+  "description": "Runnable artifacts from the QAPractices agile testing interview guide: a Jenkins continuous-testing pipeline, sprint burndown tracker, DoD gate, TDD example and BDD feature file.",
+  "description_es": "Artefactos ejecutables de la guía de entrevistas de agile testing de QAPractices: pipeline Jenkins de continuous testing, burndown de sprint, gate de DoD, ejemplo TDD y feature BDD.",
+  "type": "documentation",
+  "topic": "qa-fundamentals",
+  "slug": "agile-testing-interview-questions",
+  "source_urls": [
+    "https://qapractices.com/documentation/agile-testing-interview-questions/",
+    "https://qapractices.com/es/documentation/agile-testing-interview-questions/"
+  ],
+  "language": "python",
+  "tags": [
+    "agile-testing",
+    "tdd",
+    "bdd",
+    "ci-cd",
+    "definition-of-done",
+    "scrum"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "Jenkinsfile",
+    "sprint_burndown.py",
+    "dod_check.yaml",
+    "tdd_discount.py",
+    "login.feature"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-11-24"
+}

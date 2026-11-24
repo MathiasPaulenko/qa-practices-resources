@@ -1,0 +1,21 @@
+// Continuous testing pipeline — testing integrated into every sprint stage
+pipeline {
+  agent any
+  stages {
+    stage('Unit Tests') {
+      steps { sh 'npm test -- --grep unit' }
+    }
+    stage('Integration Tests') {
+      steps { sh 'npm run test:integration' }
+    }
+    stage('E2E Smoke Tests') {
+      steps { sh 'npm run test:e2e:smoke' }
+    }
+    stage('Deploy to Staging') {
+      steps { sh 'npm run deploy:staging' }
+    }
+    stage('Exploratory Test Session') {
+      steps { sh 'npm run test:exploratory' }
+    }
+  }
+}
