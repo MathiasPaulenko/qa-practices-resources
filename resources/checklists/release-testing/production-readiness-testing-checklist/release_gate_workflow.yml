@@ -1,0 +1,56 @@
+# GitHub Actions go/no-go release gate.
+# Runs after staging validation and before production deploy.
+# Any failing step blocks the release — do not add continue-on-error.
+
+name: production-readiness-gate
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_sha:
+        description: "Build SHA approved in staging"
+        required: true
+      environment:
+        description: "Target environment"
+        required: true
+        default: "production"
+
+jobs:
+  readiness-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify artifact identity
+        run: |
+          # The deployed artifact must be the one that passed staging.
+          test "${{ inputs.build_sha }}" = "${{ github.sha }}" || {
+            echo "Artifact drift: approved SHA differs from deploy SHA"; exit 1; }
+
+      - name: Run production smoke suite
+        run: |
+          # 5-10 critical paths against the production entry point (LB/CDN).
+          npx playwright test --grep @smoke --config=playwright.prod.config.ts
+
+      - name: Check monitoring and alert coverage
+        run: |
+          # Fail if new endpoints have no alert rules registered.
+          python3 scripts/check_alert_coverage.py --release ${{ inputs.build_sha }}
+
+      - name: Verify migration rollback compatibility
+        run: |
+          # Expand-migrate-contract: schema must tolerate previous app version.
+          python3 scripts/check_migration_compat.py --strict
+
+      - name: Confirm rollback rehearsal recency
+        run: |
+          # Block if last rollback drill is older than 90 days.
+          ./rollback_drill.sh --check-recency --max-days 90
+
+      - name: Capacity headroom check
+        run: |
+          # Expected peak vs current headroom; fail below 30% margin.
+          python3 scripts/check_capacity.py --min-headroom-pct 30
+
+      - name: GO
+        run: echo "All gates green — proceed with canary deploy + halt criteria."

@@ -1,0 +1,42 @@
+# GitHub Actions — performance regression gate on release candidates
+# Save as: .github/workflows/perf-gate.yml
+name: perf-gate
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+jobs:
+  perf-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: grafana/setup-k6-action@v1
+
+      # 1. Warm-up: let caches and pools reach steady state (not measured)
+      - name: Warm-up
+        run: k6 run --env BASE_URL=${{ vars.STAGING_URL }} --duration 1m k6_thresholds.js || true
+
+      # 2. Measured run, JSON output for the comparison step
+      - name: Measured run
+        run: >
+          k6 run --env BASE_URL=${{ vars.STAGING_URL }}
+          --out json=results/candidate.json k6_thresholds.js
+
+      # 3. Gate: candidate vs stored baseline, 10% max degradation
+      - name: Compare against baseline
+        run: >
+          python compare_baseline.py
+          --baseline baselines/${{ github.ref_name }}.json
+          --candidate results/candidate.json
+          --max-degradation 0.10 --max-error-rate 0.005
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: perf-comparison
+          path: |
+            results/
+            baselines/

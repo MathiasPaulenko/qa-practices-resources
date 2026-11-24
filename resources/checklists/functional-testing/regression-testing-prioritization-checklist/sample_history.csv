@@ -1,0 +1,9 @@
+test,area,last_failed,fails_12w,flake_rate,runtime_s
+login_e2e,auth,0,0,0.00,45
+checkout_card,payments,1,4,0.02,120
+cart_merge,payments,3,2,0.00,60
+profile_avatar,users,6,0,0.31,30
+search_filters,search,2,3,0.05,90
+admin_audit_log,admin,8,0,0.00,25
+shared_serializer,shared,1,5,0.00,15
+report_export,reports,5,1,0.20,200

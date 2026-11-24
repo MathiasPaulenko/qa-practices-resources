@@ -1,0 +1,60 @@
+# GitHub Actions — deterministic 4-way Playwright sharding with merged report
+# Save as: .github/workflows/e2e-sharded.yml
+name: e2e-sharded
+
+on:
+  pull_request:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false        # let all shards finish so the report is complete
+      matrix:
+        shard: [1, 2, 3, 4]   # one shard index per CI machine
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+      - run: npx playwright install --with-deps
+
+      # Deterministic split: same shard index = same tests, every run.
+      # Each shard should own its own database schema/namespace.
+      - run: npx playwright test --shard=${{ matrix.shard }}/4
+        env:
+          SHARD_INDEX: ${{ matrix.shard }}
+
+      - uses: actions/upload-artifact@v4
+        if: always()          # upload even when tests fail
+        with:
+          name: blob-report-${{ matrix.shard }}
+          path: blob-report
+
+  merge:
+    needs: e2e
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: blob-report-*
+          path: blob-report
+          merge-multiple: true
+
+      # One HTML report across all shards
+      - run: npx playwright merge-reports ./blob-report --reporter=html
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: merged-html-report
+          path: playwright-report
