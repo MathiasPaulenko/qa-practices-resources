@@ -1,0 +1,42 @@
+# GitHub Actions workflow: runs the QA stack on Podman, rootless.
+# Requires a Linux runner with Podman installed (ubuntu-latest ships it).
+name: podman-tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start QA pod
+        run: |
+          podman pod create --name qa-stack -p 8080:8080
+          podman run -d --pod qa-stack --name test-postgres \
+            -e POSTGRES_PASSWORD=qa \
+            -e POSTGRES_DB=testdb \
+            docker.io/library/postgres:15
+
+      - name: Build and run app under test
+        run: |
+          podman build -t app-under-test:latest -f src/Containerfile src/
+          podman run -d --pod qa-stack --name app app-under-test:latest
+
+      - name: Wait for Postgres
+        run: |
+          for i in $(seq 1 20); do
+            podman exec test-postgres pg_isready -U postgres -d testdb && exit 0
+            sleep 2
+          done
+          exit 1
+
+      - name: Run test suite
+        run: npm test
+
+      - name: Tear down
+        if: always()
+        run: podman pod rm -f qa-stack

@@ -1,0 +1,12 @@
+# Minimal image for the app under test.
+# Builds identically with: docker build -f Containerfile -t app-under-test .
+#                       or: podman build -f Containerfile -t app-under-test .
+FROM docker.io/library/node:20-alpine
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --omit=dev
+COPY . .
+
+EXPOSE 8080
+CMD ["node", "server.js"]

@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: qa-stack
+  labels:
+    app: qa-stack
+spec:
+  containers:
+    - name: db
+      image: docker.io/library/postgres:15
+      env:
+        - name: POSTGRES_PASSWORD
+          value: qa
+        - name: POSTGRES_DB
+          value: testdb
+      ports:
+        - containerPort: 5432
+    - name: app
+      image: localhost/app-under-test:latest
+      env:
+        - name: DATABASE_URL
+          value: postgres://postgres:qa@localhost:5432/testdb
+      ports:
+        - containerPort: 8080
+          hostPort: 8080

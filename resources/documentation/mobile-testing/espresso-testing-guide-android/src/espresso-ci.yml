@@ -1,0 +1,29 @@
+# GitHub Actions workflow: run connectedAndroidTest on an emulator matrix.
+# Copy to .github/workflows/espresso-ci.yml and adjust api-levels.
+name: Espresso Tests
+
+on: [push, pull_request]
+
+jobs:
+  espresso:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        api-level: [29, 33, 34]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Espresso tests on emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ matrix.api-level }}
+          arch: x86_64
+          profile: pixel_5
+          script: ./gradlew connectedAndroidTest
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: espresso-results-api-${{ matrix.api-level }}
+          path: app/build/reports/

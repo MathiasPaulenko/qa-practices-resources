@@ -1,0 +1,17 @@
+name: Docker Tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and test
+        run: |
+          docker compose -f docker-compose.test.yml up --abort-on-container-exit --exit-code-from tests
+          docker compose -f docker-compose.test.yml down -v
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: test-results/

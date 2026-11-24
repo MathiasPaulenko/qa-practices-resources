@@ -1,0 +1,26 @@
+# GitHub Actions: sharded Cypress E2E with recording.
+name: cypress-e2e
+on: [push]
+jobs:
+  e2e:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.10
+          cache: npm
+      - run: npm ci
+      - name: Run Cypress (shard ${{ matrix.shard }}/3)
+        uses: cypress-io/github-action@v6
+        with:
+          record: true
+          parallel: true
+          group: e2e-chrome
+          tag: shard-${{ matrix.shard }}
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_KEY }}
