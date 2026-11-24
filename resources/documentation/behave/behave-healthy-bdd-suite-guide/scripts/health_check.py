@@ -3,12 +3,13 @@ import ast
 import os
 import re
 import subprocess
+import sys
 from collections import defaultdict
 
 
 def run_behave_counts():
     result = subprocess.run(
-        ["behave", "--dry-run", "--no-capture"],
+        [sys.executable, "-m", "behave", "--dry-run", "--no-capture"],
         capture_output=True,
         text=True,
     )
