@@ -1,0 +1,33 @@
+{
+  "title": "Web Testing Troubleshooting — Runnable Companion",
+  "title_es": "Troubleshooting de Web Testing — Companion Ejecutable",
+  "description": "Snippets from the QAPractices web testing troubleshooting guide: condition-based waits, stable selectors, CI config overrides, screenshot masking and test sharding for Playwright 1.65.",
+  "description_es": "Snippets de la guía de troubleshooting de web testing de QAPractices: waits por condición, selectores estables, overrides de config para CI, enmascaramiento de screenshots y sharding de pruebas en Playwright 1.65.",
+  "type": "documentation",
+  "topic": "web-testing",
+  "slug": "web-testing-troubleshooting",
+  "source_urls": [
+    "https://qapractices.com/documentation/web-testing-troubleshooting/",
+    "https://qapractices.com/es/documentation/web-testing-troubleshooting/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "playwright",
+    "flaky-tests",
+    "cross-browser",
+    "visual-regression",
+    "ci-pipeline",
+    "web-testing"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "explicit-waits.js",
+    "stable-selectors.js",
+    "playwright-ci.config.ts",
+    "visual-mask.js",
+    "shard-ci.sh"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-11-25"
+}
