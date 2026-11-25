@@ -1,0 +1,35 @@
+{
+  "title": "Robot Framework Testing Guide — Runnable Companion",
+  "title_es": "Guía de Robot Framework Testing — Companion Ejecutable",
+  "description": "Runnable snippets from the QAPractices Robot Framework guide: first SeleniumLibrary test, variables, user keywords, resource files, data-driven templates, custom Python library and a GitHub Actions workflow.",
+  "description_es": "Snippets ejecutables de la guía de Robot Framework de QAPractices: primer test con SeleniumLibrary, variables, user keywords, resource files, templates data-driven, librería Python propia y workflow de GitHub Actions.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "slug": "robot-framework-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/robot-framework-testing-guide/",
+    "https://qapractices.com/es/documentation/robot-framework-testing-guide/"
+  ],
+  "language": "python",
+  "tags": [
+    "robot-framework",
+    "seleniumlibrary",
+    "keyword-driven-testing",
+    "ci-cd"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "tests/login_tests.robot",
+    "tests/api_tests.robot",
+    "tests/data_driven_tests.robot",
+    "resources/common_keywords.robot",
+    "libraries/CustomLibrary.py",
+    ".github/workflows/robot-tests.yml"
+  ],
+  "versions": {
+    "robotframework": "7.2.2",
+    "robotframework-seleniumlibrary": "6.6.1",
+    "python": "3.10+"
+  }
+}

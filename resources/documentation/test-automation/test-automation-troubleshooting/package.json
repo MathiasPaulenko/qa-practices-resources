@@ -1,0 +1,12 @@
+{
+  "name": "test-automation-troubleshooting-companion",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Runnable Playwright examples for diagnosing test automation failures.",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.1"
+  }
+}

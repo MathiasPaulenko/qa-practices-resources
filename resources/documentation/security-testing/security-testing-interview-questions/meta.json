@@ -1,0 +1,38 @@
+{
+  "title": "Security Testing Interview Questions — Runnable Companion",
+  "title_es": "Preguntas de Entrevista de Security Testing — Companion Ejecutable",
+  "description": "Payloads, proof-of-concept pages and scan configuration from the QAPractices security testing interview guide: SQLi, SSRF, CSRF, clickjacking, mass assignment and OWASP ZAP baseline scans.",
+  "description_es": "Payloads, páginas de prueba de concepto y configuración de escaneo de la guía de entrevistas de security testing de QAPractices: SQLi, SSRF, CSRF, clickjacking, mass assignment y baseline scans de OWASP ZAP.",
+  "type": "documentation",
+  "topic": "security-testing",
+  "slug": "security-testing-interview-questions",
+  "source_urls": [
+    "https://qapractices.com/documentation/security-testing-interview-questions/",
+    "https://qapractices.com/es/documentation/security-testing-interview-questions/"
+  ],
+  "language": "bash",
+  "tags": [
+    "security-testing",
+    "owasp-top-10",
+    "sql-injection",
+    "xss",
+    "ssrf",
+    "csrf",
+    "owasp-zap"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "payloads/sqli.txt",
+    "payloads/ssrf.txt",
+    "payloads/mass-assignment.json",
+    "poc/csrf-transfer.html",
+    "poc/clickjacking-test.html",
+    "scripts/zap-baseline-scan.sh",
+    ".github/workflows/security-scan.yml"
+  ],
+  "versions": {
+    "owasp-zap": "2.14.0",
+    "zaproxy-action-baseline": "0.11.0"
+  }
+}

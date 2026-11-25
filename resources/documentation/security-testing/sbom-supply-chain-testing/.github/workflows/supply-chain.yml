@@ -1,0 +1,22 @@
+name: Supply Chain Checks
+on: [push]
+
+jobs:
+  sbom:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: anchore/sbom-action@v0.18
+        with:
+          image: myapp:${{ github.sha }}
+          format: cyclonedx-json
+          output-file: sbom.cdx.json
+      - uses: anchore/scan-action@v6
+        with:
+          sbom: sbom.cdx.json
+          fail-build: true
+          severity-cutoff: critical
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: sbom.cdx.json

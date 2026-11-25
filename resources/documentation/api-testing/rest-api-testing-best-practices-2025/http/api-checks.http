@@ -1,0 +1,52 @@
+### REST API best-practice checks — point @baseUrl at staging
+### Run with the VS Code REST Client extension, JetBrains HTTP Client, or `httpyac`.
+@baseUrl = {{$dotenv API_BASE_URL}}
+@token = {{$dotenv API_TOKEN}}
+
+### 1. Health check — expect 200 and p95 < 200ms
+GET {{baseUrl}}/health
+Accept: application/json
+
+### 2. Unauthenticated request — expect 401 Unauthorized
+GET {{baseUrl}}/v1/users
+Accept: application/json
+
+### 3. Authenticated, paginated request — expect 200 + pagination fields
+GET {{baseUrl}}/v1/users?page=1&size=20
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### 4. Oversized page — expect 400 or clamped size (never 10000 items)
+GET {{baseUrl}}/v1/users?page=1&size=10000
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### 5. Forbidden role — expect 403 Forbidden for a non-admin token
+GET {{baseUrl}}/v1/admin/users
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### 6. Rate-limit headers — repeat quickly; expect X-RateLimit-* headers, then 429 + Retry-After
+GET {{baseUrl}}/v1/users?page=1&size=5
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### 7. Idempotent create — same Idempotency-Key twice must not create two resources
+POST {{baseUrl}}/v1/orders
+Authorization: Bearer {{token}}
+Content-Type: application/json
+Idempotency-Key: check-2026-001
+
+{"product_id": "SKU-123", "quantity": 1}
+
+### 8. Schema validation — extra/malformed fields must be rejected (400) or ignored per policy
+POST {{baseUrl}}/v1/users
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{"email": "not-an-email", "unexpected_field": true}
+
+### 9. Structured error body — expect machine code + message, not an HTML page
+GET {{baseUrl}}/v1/users/does-not-exist
+Authorization: Bearer {{token}}
+Accept: application/json

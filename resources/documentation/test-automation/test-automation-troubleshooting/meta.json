@@ -1,0 +1,21 @@
+{
+  "id": "test-automation-troubleshooting",
+  "slug": "test-automation-troubleshooting",
+  "title": "Test Automation Troubleshooting Companion",
+  "title_es": "Companion de Resolución de Problemas en Automatización",
+  "description": "Runnable Playwright tests demonstrating explicit waits and role-based locators for the Test Automation Troubleshooting guide.",
+  "description_es": "Tests ejecutables de Playwright que demuestran esperas explícitas y locators por rol para la guía de resolución de problemas en automatización.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "languages": ["en", "es"],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "meta.json",
+    "package.json",
+    "playwright.config.ts",
+    "tests/pipeline-status.spec.ts",
+    "tests/selector-contract.spec.ts",
+    ".github/workflows/playwright.yml"
+  ]
+}

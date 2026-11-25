@@ -1,0 +1,16 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  zap-baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run OWASP ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v0.11.0
+        with:
+          target: 'https://staging.example.com'  # placeholder: replace with staging URL
+          fail_action: 'true'

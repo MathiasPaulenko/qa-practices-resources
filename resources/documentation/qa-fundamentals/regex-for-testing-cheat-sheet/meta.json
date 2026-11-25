@@ -1,0 +1,20 @@
+{
+  "slug": "regex-for-testing-cheat-sheet",
+  "type": "documentation",
+  "topic": "qa-fundamentals",
+  "title": "Regular Expressions for Testing Cheat Sheet",
+  "titleEs": "Expresiones Regulares para Testing: Cheat Sheet",
+  "description": "Runnable companion for the Regex for Testing Cheat Sheet: every validation pattern from the guide plus a dependency-free Node script that checks each pattern against positive and negative samples.",
+  "descriptionEs": "Companion ejecutable del Cheat Sheet de Regex para Testing: todos los patrones de validación de la guía más un script de Node sin dependencias que verifica cada patrón contra muestras positivas y negativas.",
+  "author": "Mathias Paulenko",
+  "lastUpdated": "2026-11-25",
+  "tools": {
+    "node": "18+"
+  },
+  "files": [
+    "src/patterns.txt",
+    "src/patterns.test.js",
+    "README.md",
+    "README.es.md"
+  ]
+}

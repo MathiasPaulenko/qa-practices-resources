@@ -1,0 +1,4 @@
+Given [precondition]
+When [action]
+Then [observable result]
+And [additional constraint or threshold]

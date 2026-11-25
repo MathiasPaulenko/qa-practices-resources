@@ -1,0 +1,5 @@
+# SSRF target candidates — use only on systems you own or have written permission to test
+http://localhost:8080/admin
+http://169.254.169.254/latest/meta-data/
+http://internal-invoice-service:3000/api/users
+file:///etc/passwd

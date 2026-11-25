@@ -1,0 +1,35 @@
+{
+  "title": "SBOM and Supply Chain Testing — Runnable Companion",
+  "title_es": "Testing de SBOM y Cadena de Suministro — Companion Ejecutable",
+  "description": "Runnable snippets from the QAPractices SBOM guide: Syft SBOM generation, Grype vulnerability scan, Cosign signing and a GitHub Actions supply-chain workflow.",
+  "description_es": "Snippets ejecutables de la guía SBOM de QAPractices: generación de SBOM con Syft, escaneo con Grype, firma con Cosign y workflow de GitHub Actions de cadena de suministro.",
+  "type": "documentation",
+  "topic": "security-testing",
+  "slug": "sbom-supply-chain-testing",
+  "source_urls": [
+    "https://qapractices.com/documentation/sbom-supply-chain-testing/",
+    "https://qapractices.com/es/documentation/sbom-supply-chain-testing/"
+  ],
+  "language": "bash",
+  "tags": [
+    "sbom",
+    "cyclonedx",
+    "spdx",
+    "supply-chain-security",
+    "ci-cd"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "scripts/generate-sbom.sh",
+    "scripts/scan-sbom.sh",
+    "scripts/sign-and-attach.sh",
+    "scripts/drift-check.sh",
+    ".github/workflows/supply-chain.yml"
+  ],
+  "versions": {
+    "syft": "1.5+",
+    "grype": "0.79+",
+    "cosign": "2.x"
+  }
+}
