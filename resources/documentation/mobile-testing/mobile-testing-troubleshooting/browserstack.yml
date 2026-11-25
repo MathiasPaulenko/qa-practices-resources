@@ -1,0 +1,10 @@
+# BrowserStack Appium configuration
+platforms:
+  - platform: android
+    devices:
+      - "Samsung Galaxy S22"
+    app: "apps/fittrack-android-arm64.apk"
+  - platform: android
+    devices:
+      - "Google Pixel Emulator"
+    app: "apps/fittrack-android-x86.apk"

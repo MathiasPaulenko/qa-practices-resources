@@ -1,0 +1,35 @@
+{
+  "title": "Mobile Testing Troubleshooting — Runnable Companion",
+  "title_es": "Troubleshooting de Mobile Testing — Companion Ejecutable",
+  "description": "Snippets from the QAPractices mobile testing troubleshooting guide: emulator acceleration checks, stable locator strategies, OS-version permission handling, BrowserStack network throttling and cloud device config.",
+  "description_es": "Snippets de la guía de troubleshooting de mobile testing de QAPractices: verificación de aceleración de emuladores, estrategias de localizadores estables, manejo de permisos por versión de OS, throttling de red en BrowserStack y configuración de dispositivos en la nube.",
+  "type": "documentation",
+  "topic": "mobile-testing",
+  "slug": "mobile-testing-troubleshooting",
+  "source_urls": [
+    "https://qapractices.com/documentation/mobile-testing-troubleshooting/",
+    "https://qapractices.com/es/documentation/mobile-testing-troubleshooting/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "mobile-testing",
+    "appium",
+    "webdriverio",
+    "browserstack",
+    "troubleshooting"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "check-emulator-acceleration.sh",
+    "locator-strategies.js",
+    "os-version-permissions.js",
+    "network-throttling.js",
+    "browserstack.yml"
+  ],
+  "versions": {
+    "appium": "2.x",
+    "webdriverio": "8.x",
+    "node": "20 LTS"
+  }
+}

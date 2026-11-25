@@ -1,0 +1,34 @@
+{
+  "title": "Postman vs Insomnia — Runnable Companion",
+  "title_es": "Postman vs Insomnia — Companion Ejecutable",
+  "description": "ShopNext checkout artifacts from the QAPractices comparison: pm.* test script, Insomnia gRPC response test, Newman GitHub Actions workflow, staging environment and CSV data file.",
+  "description_es": "Artefactos del checkout de ShopNext de la comparativa de QAPractices: script de test pm.*, test de respuesta gRPC de Insomnia, workflow de GitHub Actions con Newman, entorno staging y CSV de datos.",
+  "type": "documentation",
+  "topic": "api-testing",
+  "slug": "postman-vs-insomnia",
+  "source_urls": [
+    "https://qapractices.com/documentation/postman-vs-insomnia/",
+    "https://qapractices.com/es/documentation/postman-vs-insomnia/"
+  ],
+  "language": "javascript,yaml,bash,json,csv",
+  "tags": [
+    "postman",
+    "insomnia",
+    "newman",
+    "inso-cli",
+    "api-testing",
+    "grpc",
+    "ci-cd",
+    "github-actions"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "postman/checkout-smoke-tests.js",
+    "postman/newman-run.sh",
+    "insomnia/grpc-inventory-test.js",
+    "ci/api-tests.yml",
+    "data/order-rows.csv",
+    "data/staging.json"
+  ]
+}

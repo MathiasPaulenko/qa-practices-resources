@@ -1,0 +1,4 @@
+sku,qty,expectedTotal
+SKU-100,1,19.99
+SKU-200,2,59.98
+SKU-300,1,5.00

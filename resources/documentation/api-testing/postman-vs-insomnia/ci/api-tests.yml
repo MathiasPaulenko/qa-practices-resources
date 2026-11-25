@@ -1,0 +1,20 @@
+# GitHub Actions gate — Postman + Newman (from the guide's CI recommendation)
+name: API Tests
+on:
+  pull_request:
+    branches: [main, staging]
+jobs:
+  api-tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install -g newman newman-reporter-htmlextra
+      - run: newman run collections/shopnext-checkout.json -e env/staging.json -d data/order-rows.csv --reporters cli,junit,htmlextra --reporter-htmlextra-export report.html
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: api-test-report
+          path: report.html

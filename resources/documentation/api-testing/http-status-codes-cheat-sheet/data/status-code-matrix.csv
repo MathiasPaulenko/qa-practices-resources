@@ -1,0 +1,13 @@
+scenario,method,path,expected_code,notes
+Valid resource retrieval,GET,/users/1,200,Response body matches user schema
+Create new resource,POST,/users,201,Location header points to new resource
+Delete existing resource,DELETE,/users/1,204,Empty body; next GET returns 404
+Non-existent resource,GET,/users/999999,404,Error body uses problem-details shape
+Missing authentication,GET,/users,401,WWW-Authenticate header present
+Insufficient permissions,GET,/admin,403,Valid user token without admin role
+Invalid input data,POST,/users,422,Well-formed JSON failing validation
+Malformed JSON,POST,/users,400,Unparseable payload
+Duplicate resource,POST,/users,409,Unique field already exists
+Unsupported method,POST,/users/1,405,Allow header lists GET
+Wrong media type,POST,/users,415,Content-Type text/xml to JSON-only API
+Rate limit exceeded,GET,/users,429,Burst beyond limit; Retry-After present

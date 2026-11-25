@@ -1,0 +1,33 @@
+{
+  "title": "Page Object Model in Test Automation — Runnable Companion",
+  "title_es": "Page Object Model en Automatización de Pruebas — Companion Ejecutable",
+  "description": "Page objects from the QAPractices guide: LoginPage, DashboardPage, HeaderComponent and BasePage in Java (Selenium 4.x + PageFactory + TestNG 7.x) plus the Python equivalent with tuple locators.",
+  "description_es": "Page objects de la guía de QAPractices: LoginPage, DashboardPage, HeaderComponent y BasePage en Java (Selenium 4.x + PageFactory + TestNG 7.x) más el equivalente en Python con locators como tuplas.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "slug": "page-object-model-test-automation",
+  "source_urls": [
+    "https://qapractices.com/documentation/page-object-model-test-automation/",
+    "https://qapractices.com/es/documentation/page-object-model-test-automation/"
+  ],
+  "language": "java,python",
+  "tags": [
+    "page-object-model",
+    "selenium",
+    "test-automation",
+    "pagefactory",
+    "java",
+    "python"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "java/BasePage.java",
+    "java/LoginPage.java",
+    "java/DashboardPage.java",
+    "java/HeaderComponent.java",
+    "java/ProductPage.java",
+    "java/LoginTest.java",
+    "python/login_page.py"
+  ]
+}

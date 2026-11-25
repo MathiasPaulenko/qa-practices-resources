@@ -1,0 +1,37 @@
+{
+  "title": "Puppeteer Testing Guide — Runnable Companion",
+  "title_es": "Guía de Puppeteer Testing — Companion Ejecutable",
+  "description": "Runnable Puppeteer 24.x + jest-puppeteer 10 examples from the QAPractices guide: setup, selectors, waits, screenshots, request interception, PDFs, Page Object Model, Jest config and a GitHub Actions workflow.",
+  "description_es": "Ejemplos ejecutables de Puppeteer 24.x + jest-puppeteer 10 de la guía de QAPractices: setup, selectores, esperas, screenshots, interceptación de requests, PDFs, Page Object Model, config de Jest y workflow de GitHub Actions.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "slug": "puppeteer-testing-guide",
+  "source_urls": [
+    "https://qapractices.com/documentation/puppeteer-testing-guide/",
+    "https://qapractices.com/es/documentation/puppeteer-testing-guide/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "puppeteer",
+    "headless-chrome",
+    "e2e-testing",
+    "test-automation",
+    "jest-puppeteer",
+    "github-actions"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "javascript/verify-install.js",
+    "javascript/first-test.js",
+    "javascript/selectors.js",
+    "javascript/screenshots.js",
+    "javascript/waits.js",
+    "javascript/network-interception.js",
+    "javascript/pdf.js",
+    "javascript/jest.config.js",
+    "pages/LoginPage.js",
+    "pages/login.test.js",
+    ".github/workflows/puppeteer-tests.yml"
+  ]
+}

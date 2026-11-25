@@ -1,0 +1,39 @@
+{
+  "title": "Playwright API Cheat Sheet — Runnable Companion",
+  "title_es": "Playwright API: Cheat Sheet — Companion Ejecutable",
+  "description": "Copy-paste @playwright/test 1.x snippets from the QAPractices cheat sheet: browser/context, navigation, locators, actions, assertions, auto-waiting, network, dialogs, screenshots, tabs, fixtures and config.",
+  "description_es": "Snippets de @playwright/test 1.x listos para copiar del cheat sheet de QAPractices: browser/context, navegación, locators, acciones, aserciones, auto-waiting, red, diálogos, screenshots, pestañas, fixtures y config.",
+  "type": "documentation",
+  "topic": "test-automation",
+  "slug": "playwright-api-cheat-sheet",
+  "source_urls": [
+    "https://qapractices.com/documentation/playwright-api-cheat-sheet/",
+    "https://qapractices.com/es/documentation/playwright-api-cheat-sheet/"
+  ],
+  "language": "typescript",
+  "tags": [
+    "playwright",
+    "cheat-sheet",
+    "e2e-testing",
+    "test-automation",
+    "typescript",
+    "locators",
+    "assertions"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "typescript/browser-context.ts",
+    "typescript/navigation.ts",
+    "typescript/locators.ts",
+    "typescript/actions.ts",
+    "typescript/assertions.ts",
+    "typescript/auto-waiting.ts",
+    "typescript/network.ts",
+    "typescript/dialogs.ts",
+    "typescript/screenshots.ts",
+    "typescript/multiple-pages.ts",
+    "typescript/fixtures-hooks.ts",
+    "typescript/playwright.config.ts"
+  ]
+}
