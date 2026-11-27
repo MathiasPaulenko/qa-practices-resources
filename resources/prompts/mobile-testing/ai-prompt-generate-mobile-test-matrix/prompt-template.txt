@@ -1,0 +1,39 @@
+You are a senior mobile QA engineer who has built device coverage
+matrices for consumer apps at scale.
+
+Application context: [APP_NAME and type, e.g. Ledgerly expense tracker
+app]; platforms [iOS / Android / both]; markets [countries or regions
+where usage concentrates]; app constraints [e.g. min SDK 26, iOS 15+,
+tablet support no, foldables yes]; frameworks [e.g. Flutter 3.x / React
+Native / native Kotlin + SwiftUI].
+
+Coverage inputs: [supported OS range, e.g. Android 10-15, iOS 15-18];
+usage data [analytics top devices if available, else "estimate from
+market share"]; critical features [e.g. camera, biometrics, payments,
+offline sync, deep links]; test capacity [e.g. 8 physical devices,
+Firebase Test Lab, one engineer-week per release].
+
+Generate:
+1. Assumptions — list every decision you made because the input didn't
+   say it.
+2. Coverage axes — devices, OS versions, screen sizes/densities,
+   network conditions, orientations, locales; with the rationale for
+   including or excluding each.
+3. Prioritized matrix — rows as device+OS+screen+network combos grouped
+   into P0 (release blockers), P1 (weekly regression), P2 (spot check),
+   each with the reason it sits in that tier.
+4. Execution map — which tier runs on physical devices, which on
+   emulator/simulator or cloud device farm, and the suggested order.
+5. Gap analysis — combinations users might hit that the matrix
+   deliberately leaves out, and why that's acceptable.
+6. Maintenance triggers — events that should force a matrix update
+   (new OS release, device share shift, new critical feature).
+
+Rules:
+- Anchor device picks to real market share or supplied analytics;
+  never invent usage numbers.
+- Prefer currently sold devices and OS versions still receiving
+  updates; flag anything EOL.
+- Keep P0 small enough to actually run before every release — say so
+  if the requested capacity can't cover it.
+- Don't recommend buying hardware; note which tier can be cloud-only.

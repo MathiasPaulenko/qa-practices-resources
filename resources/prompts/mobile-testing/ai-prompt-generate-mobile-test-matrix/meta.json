@@ -1,0 +1,18 @@
+{
+  "title": "AI Prompt: Mobile Test Matrix — Companion Files",
+  "slug": "ai-prompt-generate-mobile-test-matrix",
+  "type": "prompts",
+  "topic": "mobile-testing",
+  "category": "mobile-testing",
+  "description": "Prompt template, mobile app input example, output fragment and matrix CSV template for generating a prioritized device and OS test matrix.",
+  "language": [
+    "en",
+    "es"
+  ],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md",
+    "matrix-template.csv"
+  ]
+}

@@ -1,0 +1,60 @@
+NS-041 | Compound index field order | Index | High
+Operation: Find
+Preconditions: orders collection, 1M docs, index {status:1, createdAt:-1}
+Steps: 1. Run find({status:'shipped'}).sort({createdAt:-1})
+       2. Inspect explain('executionStats')
+Expected: index used (IXSCAN), totalDocsExamined ≈ docsReturned
+Failure: COLLSCAN or docsExamined >> docsReturned
+Cleanup: none
+
+NS-052 | Read from secondary under lag | Consistency | Critical
+Operation: Find
+Preconditions: replica set with secondary lagging 5 s behind
+Steps: 1. Write order with majority concern
+       2. Immediately read same order from secondary
+Expected: secondary returns pre-write state; lag measured and documented
+Failure: test asserts fresh read without lag tolerance configured
+Cleanup: reset read preference to primary
+
+NS-063 | Hot shard under skewed key | Partition | High
+Operation: Insert
+Preconditions: shard key = country_code, 90% of traffic is one value
+Steps: 1. Insert 100K docs with skewed distribution
+       2. Check shard chunk distribution metrics
+Expected: test flags uneven distribution; recommendation to reshard
+Failure: single shard takes >80% of writes
+Cleanup: drop test collection
+
+NS-070 | Pool exhaustion under burst | Connection | High
+Operation: Find (concurrent)
+Preconditions: pool size 10, burst of 50 concurrent queries
+Steps: 1. Fire 50 concurrent finds
+       2. Observe queue/timeout behavior
+Expected: requests queue and complete; no unhandled errors
+Failure: connections rejected or app crashes
+Cleanup: reset pool size
+
+NS-078 | TTL index expiration | Index | Medium
+Operation: Insert + wait
+Preconditions: sessions collection with TTL index on expiresAt
+Steps: 1. Insert doc with expiresAt = now+60s
+       2. Wait 90s, query doc
+Expected: document removed by TTL monitor
+Failure: doc still present after 2× TTL
+Cleanup: drop TTL index if test-only
+
+NS-085 | Schema validation rejects bad doc | Schema | Critical
+Operation: Insert
+Preconditions: validator requires email:string, age:int>=0
+Steps: 1. Insert doc with age:-5
+Expected: validation error, insert rejected
+Failure: document accepted silently
+Cleanup: none
+
+NS-090 | Invalid credential access | Security | Critical
+Operation: Connect
+Preconditions: user without read role on orders
+Steps: 1. Connect and run find on orders
+Expected: permission denied, attempt logged in audit log
+Failure: data returned
+Cleanup: revoke test user

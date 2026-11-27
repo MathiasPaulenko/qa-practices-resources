@@ -1,0 +1,66 @@
+Workflow: e-commerce checkout
+States: Cart, Shipping, Payment, Review, Complete, Abandoned
+
+Invalid transitions: Cart -> Complete, Cart -> Payment, Shipping -> Review,
+Shipping -> Complete, Payment -> Complete, Review -> Shipping (skipping Payment
+not allowed on first pass), Abandoned -> any state
+
+MBT-001: Happy path
+Cart -> Shipping (enter address) -> Payment (select method) -> Review (confirm) -> Complete (payment success)
+Preconditions: items in cart, valid payment method on file
+Expected: order created, confirmation shown
+
+MBT-002: Edit address from payment
+Cart -> Shipping -> Payment -> Shipping (edit address) -> Payment -> Review -> Complete
+Preconditions: valid shipping address already entered
+Expected: payment method retained, order completes
+
+MBT-003: Abandon at shipping
+Cart -> Shipping -> Abandoned (session timeout)
+Preconditions: user idle past session limit
+Expected: cart persisted, no order created
+
+MBT-004: Invalid card retry
+Cart -> Shipping -> Payment (invalid card) -> Payment (retry) -> Review -> Complete
+Preconditions: card ending in a declined number
+Expected: error shown, retry succeeds within attempt limit, order completes
+
+MBT-005: Edit cart from review
+Cart -> Shipping -> Payment -> Review -> Cart (edit items) -> Shipping -> Payment -> Review -> Complete
+Preconditions: at least 2 items in cart
+Expected: totals recalculated on return to Review
+
+MBT-006: Invalid direct-to-complete transition
+Cart -> Complete (attempt)
+Preconditions: items in cart, no shipping data
+Expected: transition rejected, user stays on Cart
+
+MBT-007: Invalid skip to payment
+Cart -> Payment (attempt)
+Preconditions: items in cart, no shipping data
+Expected: transition rejected, user stays on Cart
+
+MBT-008: Abandon at payment
+Cart -> Shipping -> Payment -> Abandoned (browser closed)
+Preconditions: payment method selected but not submitted
+Expected: cart persisted, no charge attempted, no order created
+
+MBT-009: Retry limit exhausted
+Cart -> Shipping -> Payment (invalid card) -> Payment (retry x3 fails)
+Preconditions: 3rd retry attempt fails
+Expected: retry blocked, error suggests alternative payment, stays on Payment
+
+MBT-010: Return to payment from review
+Cart -> Shipping -> Payment -> Review -> Payment (change method) -> Review -> Complete
+Preconditions: second valid payment method available
+Expected: new method used, order completes
+
+MBT-011: Invalid review without payment
+Cart -> Shipping -> Review (attempt, skipping payment)
+Preconditions: shipping entered, no payment method
+Expected: transition rejected, user stays on Shipping
+
+MBT-012: Reactivation after abandon
+Cart -> Shipping -> Abandoned -> Cart (new session)
+Preconditions: previous session timed out
+Expected: cart restored with items, user resumes at Cart

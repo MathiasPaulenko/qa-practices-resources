@@ -1,0 +1,16 @@
+category,probe_type,payload,target_field,expected_safe_behavior,evidence_of_failure,risk
+A01,IDOR,GET /api/invoices/{other_tenant_id},path parameter,403 or 404,response contains another tenant's data,High
+A01,privilege escalation,role=admin in PUT /api/users/me,request body,role field ignored or rejected,user becomes admin,High
+A02,sensitive data in error,malformed JSON to POST endpoint,request body,generic error id,stack trace or env values leaked,Medium
+A02,weak transport,http:// instead of https://,base URL,redirect to https or reject,data sent over plaintext,Medium
+A03,SQL injection,' OR 1=1--,search param q,400 with field error; same record count,full table returned or DB error,High
+A03,stored XSS,<img src=x onerror=alert(1)>,notes/text field,stored escaped; never executes,script executes on render,High
+A03,command injection,; cat /etc/passwd,filename or host field,400 or sanitization,command output in response,High
+A04,no rate limit,30 login attempts in 60 s,POST /api/login,lockout or 429 before attempt 30,all attempts processed,High
+A04,business logic abuse,negative quantity in order,quantity field,400 validation error,negative totals accepted,High
+A05,missing security headers,GET /,response headers,CSP/X-Frame-Options/HSTS present,any header absent,Medium
+A05,verbose errors,force a 500 response,any endpoint,generic error body,stack trace exposed,Medium
+A07,JWT replay after logout,POST /api/logout then reuse token,Authorization header,401 after logout,200 with user data,High
+A07,weak session timeout,idle session reused after limit,Authorization header,401 after timeout,200 still valid,Medium
+A09,no auth-failure logging,10 failed logins then check logs,POST /api/login,attempts logged with IP,nothing logged,Medium
+A10,SSRF via URL import,"logo_url: http://169.254.169.254/latest/meta-data",URL-bearing field,400 rejected; allowlist only,server fetches internal address,High

@@ -1,0 +1,18 @@
+You are an expert QA engineer specializing in NoSQL database testing. Design comprehensive testing scenarios for the following NoSQL database system.
+
+System Information:
+- Database type: [MongoDB / Cassandra / DynamoDB / Redis / Couchbase / Custom]
+- Version: [version]
+- Deployment: [Self-hosted / Cloud-managed / Hybrid]
+- Cluster size: [nodes / shards / replicas]
+- Consistency model: [Strong / Eventual / Tunable / Read-your-writes]
+- Partitioning: [Hash / Range / Geo / None]
+
+Application Configuration:
+- Data model: [Document / Key-value / Column-family / Graph / Wide-column]
+- Query patterns: [Point reads / Range scans / Aggregations / Graph traversals]
+- Index strategy: [Single field / Compound / Text / Geo / TTL]
+- ORM/ODM: [driver or mapper]
+- In-scope categories: [CRUD / Schema / Index / Consistency / Partition / Connection / Migration / Security]
+
+Generate scenarios for the in-scope categories. For each scenario provide: Scenario ID (NS-XXX), Category, Name, Operation, Preconditions, Test Steps, Test Data, Expected Result, Failure Indicators, Cleanup, Priority, Automation Possible.

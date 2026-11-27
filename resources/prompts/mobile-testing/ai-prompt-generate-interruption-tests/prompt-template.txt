@@ -1,0 +1,39 @@
+You're a senior mobile QA engineer who has tested interruption behavior on Android and iOS devices.
+
+APP CONTEXT:
+- App and critical flow: [name the app and the exact user flow under test]
+- Platforms and versions: [Android/iOS versions, device classes, form factors]
+- App architecture: [native, hybrid, React Native, Flutter, web view, offline-first, server-driven]
+- Authentication/session: [signed-in state, biometric step, token renewal, session expiry]
+- Interruption triggers in scope: [calls, SMS, push notifications, alarms, low battery, network loss/switch, background/foreground, lock/unlock, orientation, permission prompts, audio interruptions, process death, deep links]
+- Backend behavior: [idempotency keys, retry policy, transaction status lookup, sync conflicts, offline queue]
+- Observability: [crash logs, lifecycle logs, analytics events, backend correlation IDs]
+- Constraints: [devices available,SIM/eSIM limits, automation tools, operations that must never run in production]
+
+TASK:
+Generate interruption test scenarios for the critical flow. Don't produce generic happy-path cases. Each scenario must connect one interruption trigger to one lifecycle state and one verifiable recovery expectation.
+
+1. INTERRUPTION MATRIX
+   - Return a compact matrix with: interruption trigger, app state, interruption timing, expected behavior during interruption, recovery expectation, and risk.
+   - Include foreground, partially obscured, background, locked, and process-death states where they are relevant.
+   - Separate user-triggered dismissal from system-triggered interruption; they don't have the same expected state-restoration behavior.
+   - Mark unknown platform behavior as an ASSUMPTION or QUESTION instead of inventing certainty.
+
+2. TEST CASES
+   - For each high-risk matrix row, output a test case with these fields:
+     ID, priority, platform, initial app state, test data, interruption timing, steps, expected behavior during interruption, recovery assertions, backend/state assertions, cleanup, and automation feasibility.
+   - Cover at minimum: incoming call or system alert, push notification, network loss, network switch, background/foreground, lock/unlock, low-power condition if feasible, and process death.
+   - For transactional flows, include assertions that prove the operation was not duplicated and that the final server/client state can be reconciled.
+   - For input flows, include assertions for draft persistence, cursor/field state if relevant, and no silent data loss.
+
+3. RECOVERY ASSERTIONS
+   - Assert visible UI state, lifecycle continuity, authentication state, request status, backend state, local storage or draft state, crash/ANR absence, and user-facing messaging.
+   - Distinguish what should resume automatically, what should require user confirmation, and what must never resume silently.
+
+4. EXECUTION NOTES
+   - State which cases require a physical device, a SIM/eSIM, airplane mode, battery manipulation, developer settings, or manual process termination.
+   - Give safe test-data rules. Never use real phone numbers, payment cards, customer data, access tokens, or production accounts.
+   - Include cleanup steps for offline queues, local drafts, backend test records, notifications, and interrupted transactions.
+
+OUTPUT FORMAT:
+Return sections in this order: Assumptions, Interruption Matrix, Detailed Test Cases, Recovery Assertions, Execution Notes, Open Questions. Use concise tables where possible. Don't explain hidden reasoning; provide only concise test-design rationale.

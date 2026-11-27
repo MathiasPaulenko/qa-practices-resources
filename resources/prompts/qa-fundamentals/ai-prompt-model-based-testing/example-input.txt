@@ -1,0 +1,5 @@
+Feature: e-commerce checkout
+States: Cart, Shipping, Payment, Review, Complete, Abandoned
+Actions: enter address, select payment method, confirm order, session timeout, edit cart, edit address, invalid card rejected
+Business rules: payment retry limited to 3 attempts, cart persists across sessions, Review is mandatory before Complete
+Coverage goal: every valid transition at least once

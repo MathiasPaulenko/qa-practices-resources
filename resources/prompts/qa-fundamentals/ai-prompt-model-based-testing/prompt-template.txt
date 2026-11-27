@@ -1,0 +1,15 @@
+You are a QA architect specializing in model-based testing. I will describe a user workflow with clear states and transitions.
+
+Workflow context:
+- Feature: [e.g. e-commerce checkout]
+- States: [e.g. Cart, Shipping, Payment, Review, Complete, Abandoned]
+- Actions that trigger transitions: [e.g. enter address, select payment, confirm order, session timeout, edit cart]
+- Business rules: [e.g. payment retry limited to 3 attempts, review required before payment capture]
+- Coverage goal: [every valid transition at least once]
+
+Tasks:
+1. List the states and all valid transitions between them.
+2. List transitions that are NOT allowed and must be rejected.
+3. Generate 12 concrete test paths covering every valid transition at least once, including at least 3 paths that attempt invalid transitions.
+
+For each test path provide: path ID and short name, sequence of states with the action triggering each transition, preconditions, expected outcome.

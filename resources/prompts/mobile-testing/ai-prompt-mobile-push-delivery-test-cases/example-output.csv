@@ -1,0 +1,19 @@
+id,title,platform,push_type,severity,expected
+PUSH-001,Token registered on first install,Both,N/A,Critical,FCM token stored with user ID and platform
+PUSH-002,Token rotated after refresh,Both,N/A,High,Old token invalidated; new token registered
+PUSH-003,Token deregistered on logout,Both,N/A,Critical,Token removed from backend
+PUSH-004,Multi-device delivery,Both,Alert,High,All registered devices receive the push
+PUSH-005,APNs 410 invalid token,iOS,Alert,Critical,Backend purges token on 410 response
+PUSH-006,APNs collapse ID replaces notification,iOS,Alert,Medium,Only latest notification with collapse ID shown
+PUSH-007,Invalid token purged from registry,Both,N/A,High,UNREGISTERED token deleted from backend
+PUSH-008,FCM data message processed,Android,Data,High,Payload processed without tray notification
+PUSH-009,Payload over 4KB rejected,Both,Alert,High,APNs 413 / FCM error; notification not sent
+PUSH-010,Rich notification with image,Both,Rich,Medium,Image rendered; fallback to text on fetch failure
+PUSH-011,Silent push wakes background app,Both,Silent,High,Data synced without visible notification
+PUSH-012,Silent push rate-limited by APNs,iOS,Silent,Medium,APNs throttles; sync deferred to foreground
+PUSH-013,High priority wakes device,Both,Alert,High,Delivered immediately even in Doze
+PUSH-014,Retry with exponential backoff,Both,Any,High,Failed push retried; no duplicate delivery
+PUSH-015,SMS fallback on push failure,Both,Any,Medium,SMS sent after max push retries
+PUSH-016,Opt-out per category,Both,Alert,High,Promotional suppressed; transactional still sent
+PUSH-017,Permission revoked mid-session,Both,Any,Critical,Token invalidated; no further sends attempted
+PUSH-018,Frequency cap enforced,Both,Alert,Medium,Push suppressed once daily cap reached

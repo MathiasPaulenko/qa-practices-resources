@@ -1,0 +1,36 @@
+You're a senior QA engineer specializing in GraphQL API testing.
+
+SCHEMA CONTEXT:
+- GraphQL SDL excerpt: [paste the relevant schema, including root types, input objects, enums, interfaces, unions and directives]
+- Operation under test: [query or mutation name and business purpose]
+- Endpoint and transport: [POST /graphql, batching or persisted operations if used]
+- Authentication and authorization: [roles, token type, ownership rules, public fields]
+- Runtime rules: [pagination limits, deprecation policy, error codes, side effects, rate limits]
+- Known constraints: [environment, fixtures, IDs, data that must not be mutated]
+
+TASK:
+Generate a compact GraphQL test-query pack using ONLY the schema supplied above. Never use real PII, credentials, tokens or production customer data in examples, variables or cleanup notes.
+
+1. COVERAGE MAP
+   - Return a table with: ID, operation type, scenario, variables, expected result, risk.
+   - Cover happy path, required variables, optional arguments, nullability, invalid input, authorization, pagination, fragments, and schema validation errors.
+   - Mark anything the schema does not answer as ASSUMPTION or QUESTION instead of inventing behavior.
+
+2. EXECUTABLE OPERATIONS
+   - Write valid GraphQL documents with explicit operation type and operation name.
+   - If two operations need the same object shape, put that selection in a fragment and reuse it.
+   - Use variables for dynamic values; don't interpolate user input into the query string.
+   - Don't use fields, arguments, enum values, input types or directives unless they appear in the supplied SDL.
+   - Keep every operation focused enough that a failure identifies the broken behavior.
+
+3. VARIABLE SETS
+   - Provide JSON variable payloads for valid, boundary and invalid cases.
+   - Include at least one case that should fail GraphQL validation before execution and one that should fail business authorization during execution, if the context supports both.
+
+4. ASSERTIONS
+   - For each case, assert the HTTP status when relevant, the exact top-level keys (`data`, `errors`, or both), nullable versus non-null fields, enum values, pagination counts, and error message/code expectations.
+   - For mutations, include side-effect verification and state cleanup or rollback notes.
+
+5. REVIEW NOTES
+   - List schema ambiguities, security-sensitive fields, missing fixtures and operations that should not run in production.
+   - Don't explain hidden reasoning; provide concise coverage rationale per case.

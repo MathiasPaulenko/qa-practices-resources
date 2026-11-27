@@ -1,0 +1,7 @@
+Application: invoicing web app for SMBs.
+Stack: React 18 SPA, Node.js 20 REST API, PostgreSQL, Nginx proxy,
+Docker on a VPS.
+Auth model: JWT Bearer with roles user / accountant / admin; session
+timeout 30 min.
+Scope: staging environment only; endpoints under /api/invoices and
+/api/users; never the payment-gateway webhook.

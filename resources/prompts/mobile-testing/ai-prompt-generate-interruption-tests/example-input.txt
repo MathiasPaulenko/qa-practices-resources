@@ -1,0 +1,8 @@
+App and critical flow: ShopFlow mobile app; signed-in user confirms a cart order with a saved payment token
+Platforms and versions: Android 14 on Pixel-class device; iOS 17 on iPhone-class device
+App architecture: native Android/iOS clients; checkout depends on REST APIs and local cart cache
+Authentication/session: signed-in user; biometric confirmation before payment; access token may expire during checkout
+Interruption triggers in scope: incoming call, push notification, airplane mode, Wi-Fi/cellular switch, background/foreground, lock/unlock, low battery, process death
+Backend behavior: order creation uses idempotency key checkout-{cartId}; GET /orders/{orderId} exposes status; payment authorization is asynchronous
+Observability: lifecycle events, order correlation ID, crash reporting, network request logs
+Constraints: use staging only; mock payment provider; physical devices available; no real SMS or payment cards

@@ -1,0 +1,14 @@
+Application: OrderHub checkout REST API
+Base URL: https://staging.orderhub.io
+Endpoints: POST /auth/login, GET /products?category=electronics, POST /orders,
+           GET /orders/{orderId}
+Auth: Bearer JWT returned by /auth/login, must be reused and refreshed
+Environment: staging only
+
+Load model: 500 concurrent users, 5-minute ramp-up, 20 minutes
+sustained, SLA p95 < 800 ms and error rate < 1%, think time
+1-3 s uniform random between requests
+
+JMeter specifics: JMeter 5.6.3, CSV with 1 000 test users
+(username, password columns), GUI for debugging and non-GUI
+for the real run

@@ -1,0 +1,19 @@
+You are a mobile push notification and delivery testing expert. Generate comprehensive push delivery test cases for the following system:
+
+System Details:
+- Platforms: [iOS (APNs) / Android (FCM) / both / web (Web Push)]
+- Push provider: [FCM / APNs directly / SNS / OneSignal / Firebase / custom]
+- App type: [e-commerce / banking / social / healthcare / news / custom]
+- Notification types: [transactional / promotional / system / chat / alerts]
+- Rich notifications: [yes / no]
+- Silent push: [yes / no]
+- Notification groups: [yes / no]
+- Scheduled notifications: [yes / no]
+- Multi-device: [yes / no]
+- Push volume: [low / medium / high]
+- Auth: [API key / OAuth2 / JWT / certificate (APNs)]
+- Fallback: [SMS / email / in-app / none]
+
+Generate test cases covering: token registration and lifecycle, APNs delivery, FCM delivery, payload validation, rich notifications, silent/background push, delivery priority and timing, retry and fallback, segmentation and targeting, permission and opt-out.
+
+For each test case provide: test name, platform, push type, preconditions, payload, execution steps, expected result, delivery metrics, pass/fail criteria, severity, test type.

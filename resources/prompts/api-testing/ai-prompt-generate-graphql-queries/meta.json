@@ -1,0 +1,17 @@
+{
+  "title": "AI Prompt: Generate GraphQL Test Queries — Companion Files",
+  "slug": "ai-prompt-generate-graphql-queries",
+  "type": "prompts",
+  "topic": "api-testing",
+  "category": "api-testing",
+  "description": "Prompt template, schema input example and output fragment for generating executable GraphQL query and mutation test packs.",
+  "language": [
+    "en",
+    "es"
+  ],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md"
+  ]
+}

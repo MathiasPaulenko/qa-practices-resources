@@ -1,0 +1,12 @@
+Application: Ledgerly, expense tracking app with receipt camera
+Platforms: Android + iOS
+Markets: US, Mexico, Brazil
+Constraints: minSdk 26, iOS 15+, no tablet layout, foldables supported
+Framework: Flutter 3.24
+
+Coverage inputs: Android 10-15, iOS 15-18
+Usage data: not available — estimate from market share
+Critical features: receipt camera, offline mode, biometric unlock,
+  push notifications, deep links
+Test capacity: 6 physical devices, Firebase Test Lab, ~3 QA days per
+  release

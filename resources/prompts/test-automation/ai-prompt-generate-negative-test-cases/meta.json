@@ -1,0 +1,18 @@
+{
+  "title": "AI Prompt: Negative Test Cases — Companion Files",
+  "slug": "ai-prompt-generate-negative-test-cases",
+  "type": "prompts",
+  "topic": "test-automation",
+  "category": "test-automation",
+  "description": "Prompt template, API contract input example, output fragment and payload CSV for generating negative test cases across five failure categories.",
+  "language": [
+    "en",
+    "es"
+  ],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md",
+    "negative-payloads.csv"
+  ]
+}

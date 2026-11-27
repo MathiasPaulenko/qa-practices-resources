@@ -1,0 +1,18 @@
+{
+  "title": "AI Prompt: JMeter Test Plan — Companion Files",
+  "slug": "ai-prompt-generate-jmeter-plan",
+  "type": "prompts",
+  "topic": "performance-testing",
+  "category": "performance-testing",
+  "description": "Prompt template, checkout API input example, output fragment and sample CSV dataset for generating a JMeter load test plan.",
+  "language": [
+    "en",
+    "es"
+  ],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md",
+    "users.csv"
+  ]
+}

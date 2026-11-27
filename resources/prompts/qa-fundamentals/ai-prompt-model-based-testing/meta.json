@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: Model-Based Testing State Models — Companion Files",
+  "slug": "ai-prompt-model-based-testing",
+  "type": "prompts",
+  "topic": "qa-fundamentals",
+  "category": "qa-fundamentals",
+  "description": "Prompt template, example input and full example output for generating a finite-state model and transition-covering test paths with model-based testing.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.txt"
+  ]
+}

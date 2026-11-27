@@ -1,0 +1,11 @@
+tier,device,os_version,screen,network,locale,orientation,execution,rationale
+P0,Pixel 8,Android 15,6.2in 420dpi,4G,en-US,portrait,physical,top US share flagship reference
+P0,Galaxy S23,Android 14,6.1in 480dpi,5G,en-US,portrait,physical,Samsung camera path differs from Pixel
+P0,Moto G84,Android 13,6.5in 405dpi,4G,es-MX,portrait,physical,dominant MX/BR mid-range
+P0,iPhone 15,iOS 18,6.1in,4G,en-US,portrait,physical,current-gen iOS reference
+P0,iPhone 12,iOS 16,6.1in,3G,en-US,portrait,physical,oldest supported form factor at scale
+P0,Galaxy A12 class,Android 10,6.5in 270dpi,4G,pt-BR,portrait,physical,low-RAM floor of supported OS
+P1,Pixel 8 (emulator),Android 12,6.2in,4G,en-US,landscape,emulator,OS step + landscape variant
+P1,iPhone 14 (simulator),iOS 17,6.1in,5G,es-MX,portrait,simulator,iOS mid-step + es-MX locale
+P2,Foldable inner display,Android 15,7.6in,beta,en-US,portrait,cloud,foldable spot check
+P2,iPhone 15,iOS 18 beta,6.1in,2G-edge,pt-BR,portrait,cloud,beta + edge network spot check

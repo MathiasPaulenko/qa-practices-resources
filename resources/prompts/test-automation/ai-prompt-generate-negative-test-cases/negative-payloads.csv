@@ -1,0 +1,19 @@
+category,payload,field_hint,expected_probe
+invalid_input,"",required field,field-required error
+invalid_input,"   ",required field (whitespace-only),field-required error
+invalid_input,"'; DROP TABLE users;--",text field,validation rejection - fixture only
+invalid_input,"<script>alert(1)</script>",text field,escaped storage or rejection - fixture only
+invalid_input,"../../../etc/passwd",path/filename field,path traversal rejection - fixture only
+boundary,"0",positive-only numeric field,validation error
+boundary,"-1",positive-only numeric field,validation error
+boundary,"9999999999999999999",integer field,overflow rejection
+boundary,"1.5",integer-only field,type rejection
+malformed,"not json",body with application/json,parser error contract
+malformed,"{""a"":1,""a"":2}",duplicate JSON member,deterministic last-wins or reject
+malformed,"{broken",truncated JSON body,parser error contract
+authorization,"Bearer expired.token.here",Authorization header,401
+authorization,"Basic garbage",Authorization header (wrong scheme),401
+concurrency,"two identical POSTs sent in parallel",endpoint body,one 201 one 409
+concurrency,"POST while DELETE of same resource in flight",endpoint,race-safe deterministic outcome
+network,"request aborted mid-upload",endpoint,server cleanup - no partial state
+network,"response slower than client timeout",endpoint,timeout contract and no hung job

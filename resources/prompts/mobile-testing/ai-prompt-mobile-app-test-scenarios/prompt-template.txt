@@ -1,0 +1,58 @@
+You are a senior mobile QA engineer with deep expertise in cross-platform apps, device fragmentation, and real-world user conditions. I need you to design a mobile test scenario catalog for the following fitness/health app.
+
+## App Under Test
+- App name: [e.g., FitPulse]
+- Framework: [React Native / Flutter / Native iOS / Native Android]
+- Platforms: [iOS / Android / Both]
+- Target OS versions: [e.g., iOS 15+ / Android 10+]
+- Target devices: [Phone / Tablet / Foldable / Watch companion]
+- Core features: [Workout tracking / Heart-rate sync / Meal logging / Live class booking / Biometric login / Push reminders / Offline mode]
+- User profile: [Age, health data sensitivity, region, subscription tier]
+- Network model: [Online only / Offline capable with sync / Hybrid]
+- Auth: [Biometric / PIN / Password / OAuth / None]
+
+## Device and Environment Constraints
+- Test devices: [List: iPhone 15, Samsung S24, Xiaomi 14, Pixel 8, etc.]
+- Screen sizes and notches: [Dynamic Island, punch-hole, foldable inner/outer]
+- Network conditions: [Strong wifi / Weak cellular / 3G / 4G / 5G / Offline / Airplane mode]
+- Interrupts: [Incoming call / SMS / Push notification / Alarm / Low battery / Battery saver / USB connect / Bluetooth device]
+- Permissions: [Camera / Microphone / Location / Notifications / Health data / Biometric / Storage]
+
+## Deliverables
+1. **App Lifecycle Scenarios (5-7)**
+   - Fresh launch, background/foreground, kill and relaunch, suspend/resume, upgrade, state preservation, memory pressure, background sync.
+2. **Offline and Sync Scenarios (5-7)**
+   - Start workout offline, record data without network, sync on reconnect, conflict resolution, queue handling, data loss prevention.
+3. **Biometric Authentication Scenarios (4-6)**
+   - Face ID, Touch ID, fingerprint, fallback to PIN/password, biometric change, revoked permission, multiple enrolled users.
+4. **Push Notification Scenarios (4-6)**
+   - Local reminders, class start alerts, deep-link to screen, permission grant/deny, notification in do-not-disturb, rich media, localization.
+5. **Network and Interrupt Scenarios (5-7)**
+   - Wifi to cellular handoff, offline to online, call during workout recording, alarm during video class, low battery warning.
+6. **Device Fragmentation Scenarios (4-6)**
+   - Different screen sizes, OS versions, manufacturers, tablet layout, notch/dynamic island, foldable screens, accessibility settings.
+7. **Health Data and Permission Scenarios (4-6)**
+   - Health sensor integration, permission grant/deny/revocation, privacy compliance, data encryption, background sensor access.
+8. **Cross-Platform Consistency Scenarios (3-5)**
+   - UI rendering parity, navigation patterns, deep links, in-app purchase flows, native module fallback.
+
+## Output Structure
+For each scenario, provide:
+- Scenario ID: [MOB-001, MOB-002, .]
+- Category: [Lifecycle / Offline-Sync / Biometric / Push / Network-Interrupt / Fragmentation / Health-Permission / Cross-Platform]
+- Title: [Clear, scenario-specific title]
+- Platform: [iOS / Android / Both]
+- Priority: [High / Medium / Low]
+- Precondition: [What must be true before the test]
+- Steps: [Numbered steps]
+- Expected Result: [Observable pass condition]
+- Failure Indicator: [Observable fail condition]
+- Test Tool: [Manual / Appium / XCUITest / Espresso / Detox / Maestro]
+- Device/Environment Notes: [Specific device, OS, network, or sensor needed]
+
+## Constraints
+- Cover both iOS and Android; call out platform-specific differences explicitly.
+- Include at least one edge case per category.
+- Prioritize user safety and data privacy for health data.
+- Consider app store review guidelines and health-framework compliance.
+- Mark each scenario as the suggested tool.

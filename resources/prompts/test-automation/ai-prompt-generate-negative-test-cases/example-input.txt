@@ -1,0 +1,9 @@
+Surface: POST /api/users — user registration endpoint
+Context: Node.js + Express 4, JSON body, JWT optional (admin creates
+users), PostgreSQL
+Validation rules:
+- email: required, RFC 5322 format, unique, max 254 chars
+- password: required, min 8, max 72 chars, bcrypt
+- name: optional, max 100 chars, UTF-8
+Constraints: rate limit 100 req/min per IP; returns 201 + user object
+or 4xx with {error: {code, message}}

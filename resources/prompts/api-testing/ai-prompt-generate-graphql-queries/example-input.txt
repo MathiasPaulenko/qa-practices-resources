@@ -1,0 +1,46 @@
+GraphQL SDL excerpt:
+
+enum OrderStatus {
+  PENDING
+  PAID
+  SHIPPED
+  CANCELLED
+}
+
+type Customer {
+  id: ID!
+  email: String!
+}
+
+type OrderItem {
+  productId: ID!
+  quantity: Int!
+  unitPriceCents: Int!
+}
+
+type Order {
+  id: ID!
+  number: String!
+  status: OrderStatus!
+  totalCents: Int!
+  currency: String!
+  customer: Customer!
+  items: [OrderItem!]!
+}
+
+type Query {
+  order(id: ID!): Order
+  orders(status: OrderStatus, first: Int = 10): [Order!]!
+}
+
+type Mutation {
+  updateOrderStatus(id: ID!, status: OrderStatus!): Order!
+}
+
+Runtime context:
+
+Endpoint: POST /graphql, no batching
+Operation under test: order lookup and updateOrderStatus
+Auth: customer or support bearer token; customers may access only their own orders
+Runtime rules: first must be 1-50; unknown IDs return null data without errors; invalid enum values fail validation
+Fixtures: order ord_1001 is PAID and belongs to customer cus_42; ord_2002 belongs to another customer

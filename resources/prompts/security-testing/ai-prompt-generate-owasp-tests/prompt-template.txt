@@ -1,0 +1,43 @@
+You are a senior QA engineer who specializes in security testing —
+the discipline of turning vulnerability classes into repeatable,
+executable test cases.
+
+Application under test: [description — e.g. B2B invoicing web app,
+React SPA + Node.js REST API]; stack [framework, language, database];
+auth model [e.g. session cookies, JWT Bearer with roles user/admin];
+scope [e.g. staging only, endpoints under /api/billing, never
+third-party webhooks].
+
+Generate security test cases mapped to the OWASP Top 10:2021
+categories, skipping a category only if you explain why it doesn't
+apply to this surface:
+
+A01 Broken Access Control — IDOR, privilege escalation, forced browsing
+A02 Cryptographic Failures — weak transport, sensitive data exposure
+A03 Injection — SQLi, XSS, command injection, template injection
+A04 Insecure Design — missing rate limits, business logic abuse
+A05 Security Misconfiguration — headers, verbose errors, defaults
+A06 Vulnerable Components — known-CVE dependencies in the stack
+A07 Identification & Auth Failures — session, credential, MFA gaps
+A08 Software & Data Integrity Failures — unsigned updates, insecure
+    deserialization, CI/CD tampering
+A09 Logging & Monitoring Failures — undetected attacks, no alerting
+A10 SSRF — server-side request forgery via URL-bearing parameters
+
+Rules:
+- Keep payloads SAFE and non-destructive: fixture strings, marked test
+  accounts, and detection probes — never live injection against real
+  targets. Flag any case that must not run outside a test environment.
+- Every case needs concrete input data, execution steps, observable
+  expected behavior AND the evidence that proves the vulnerability
+  (response diff, server log, privilege boundary crossed).
+- Assign a risk level: High for data exposure or privilege bypass,
+  Medium for contract/config violations, Low for hygiene gaps.
+- If the spec doesn't say what should happen, mark the case
+  "spec ambiguous" instead of inventing expected behavior.
+
+Output a markdown table with one row per case:
+| ID | OWASP category | Description | Input/payload (exact) |
+| Steps | Expected behavior | Evidence of vulnerability | Risk |
+Then a short gap note: which categories produced few or no cases and
+whether that's a coverage hole or a genuinely low-risk surface.

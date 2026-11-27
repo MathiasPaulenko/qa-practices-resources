@@ -1,0 +1,10 @@
+App: FitPulse
+Framework: React Native 0.74
+Platforms: iOS and Android
+OS: iOS 15+ / Android 10+
+Devices: iPhone 15, Samsung S24, Xiaomi 14, Pixel 8
+Features: Workout tracking, heart-rate sync, meal logging, live class booking, Face ID/fingerprint, offline mode, push reminders
+Network: Offline capable with queue-and-sync
+Auth: Biometric with PIN fallback
+Health data: Apple Health and Google Fit integration
+Locale: English, Spanish, Portuguese

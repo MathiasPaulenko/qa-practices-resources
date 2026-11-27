@@ -1,0 +1,12 @@
+Platforms: both (iOS via APNs through FCM, Android via FCM)
+Push provider: FCM (Firebase Cloud Messaging)
+App type: e-commerce
+Notification types: transactional (order confirmed, shipped, delivered)
+Rich notifications: yes (product image, "Track order" action button)
+Silent push: yes
+Notification groups: yes
+Scheduled notifications: no
+Multi-device: yes
+Push volume: medium (<100K/day)
+Auth: OAuth2 service account
+Fallback: SMS for delivery confirmation

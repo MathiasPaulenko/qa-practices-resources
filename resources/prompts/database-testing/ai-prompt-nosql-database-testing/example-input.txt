@@ -1,0 +1,6 @@
+Database: MongoDB 7.0
+Deployment: Atlas M30 cluster, 3 replicas
+Consistency: Majority reads and writes
+Data model: Document
+Indexes: Compound, text, TTL
+Connection: Mongoose with pool size 10

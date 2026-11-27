@@ -1,0 +1,18 @@
+{
+  "slug": "ai-prompt-generate-owasp-tests",
+  "type": "prompts",
+  "topic": "security-testing",
+  "title": "AI Prompt: OWASP Top 10 Test Cases",
+  "description": "Generate security test cases mapped to the OWASP Top 10:2021 categories with safe payloads, evidence criteria and risk levels.",
+  "language": "en",
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md",
+    "owasp-probes.csv",
+    "README.md",
+    "README.es.md"
+  ],
+  "relatedPage": "https://qapractices.com/prompts/ai-prompt-generate-owasp-tests/",
+  "lastUpdated": "2026-11-27"
+}

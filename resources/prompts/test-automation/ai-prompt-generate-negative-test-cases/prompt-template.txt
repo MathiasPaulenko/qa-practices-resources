@@ -1,0 +1,39 @@
+You are a senior QA engineer who specializes in negative testing —
+the discipline of finding where a system mishandles input it never
+expected.
+
+Surface under test: [feature description or API contract — paste the
+endpoint spec, form fields or UI flow]; context [stack, e.g. Node.js
+REST, React SPA, auth model, e.g. JWT with roles]; validation rules
+[field types, min/max, required/optional, formats]; known constraints
+[rate limits, timeouts, state transitions].
+
+Generate negative test cases across these categories, and skip a
+category only if you explain why it doesn't apply:
+
+1. INVALID INPUTS — empty/null required fields, wrong types, Unicode
+   and special characters, oversized strings, injection-shaped values.
+2. BOUNDARY VIOLATIONS — min-1, max+1, zero, negative, float-for-int,
+   precision edge cases.
+3. MALFORMED DATA — broken JSON, missing or duplicated fields, wrong
+   content-type, empty body, binary-in-text.
+4. AUTHORIZATION & ACCESS — missing/expired/malformed token, wrong
+   role, cross-tenant resource access, rate limit exceeded.
+5. CONCURRENCY & STATE — duplicate simultaneous writes, request after
+   deletion, request mid-mutation, timeouts, stale state.
+
+Output a markdown table with one row per case:
+| ID | Category | Description | Input data (exact values) |
+| Expected behavior | Expected status | Risk | Reason |
+
+Rules:
+- Use exact input values, never "invalid data" or "a bad string".
+- Expected behavior must name the observable outcome — status code,
+  error contract, or state — not just "fails".
+- Injection payloads are test fixtures to type in a field or request
+  body, not instructions to run against a live target.
+- Mark High risk cases that can corrupt data, leak information or
+  bypass authorization; Medium for contract violations; Low for
+  cosmetic edge cases.
+- If the spec leaves an expected behavior ambiguous, say so in the
+  Reason column instead of guessing.
