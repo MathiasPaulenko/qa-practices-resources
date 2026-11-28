@@ -1,0 +1,30 @@
+{
+  "title": "Appium Test Script Template — Companion",
+  "title_es": "Plantilla de Script de Test con Appium — Companion",
+  "description": "Fill-in Appium 2.x test script from the QAPractices template: WebdriverIO skeleton with W3C capabilities for UiAutomator2 and XCUITest, an explicit-wait helper, plus the completed Android login sample.",
+  "description_es": "Script de test Appium 2.x rellenable de la plantilla de QAPractices: esqueleto WebdriverIO con capabilities W3C para UiAutomator2 y XCUITest, helper de wait explícito, más el ejemplo Android de login completado.",
+  "type": "templates",
+  "topic": "mobile-testing",
+  "slug": "appium-test-script-template",
+  "source_urls": [
+    "https://qapractices.com/templates/appium-test-script-template/",
+    "https://qapractices.com/es/templates/appium-test-script-template/"
+  ],
+  "language": "javascript",
+  "tags": [
+    "appium",
+    "appium test script template",
+    "mobile automation",
+    "appium capabilities",
+    "webdriverio",
+    "uiautomator2"
+  ],
+  "files": [
+    "README.md",
+    "README.es.md",
+    "appium-test-template.js",
+    "appium-login-sample.js"
+  ],
+  "difficulty": "intermediate",
+  "lastUpdated": "2026-11-28"
+}

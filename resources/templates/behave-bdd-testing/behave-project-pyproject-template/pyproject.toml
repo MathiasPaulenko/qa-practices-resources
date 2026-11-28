@@ -29,7 +29,7 @@ classifiers = [
     "Topic :: Software Development :: Testing",
 ]
 dependencies = [
-    "behave>=[MIN_BEHAVE_VERSION, e.g. 1.2.6]",
+    "behave>=[MIN_BEHAVE_VERSION, e.g. 1.3.0]",
     "parse>=[MIN_PARSE_VERSION, e.g. 1.19]",
 ]
 
