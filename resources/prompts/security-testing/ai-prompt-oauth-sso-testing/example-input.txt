@@ -1,0 +1,13 @@
+App: SecureApp
+Role: OAuth client (SPA + API)
+OAuth: 2.0 with OIDC
+Grants: Authorization Code + PKCE, Refresh Token
+SSO providers: Google, Microsoft, GitHub
+Token: JWT access (15min), rotating opaque refresh (30 days)
+Storage: httpOnly cookie for both tokens
+PKCE: Required (S256)
+State: Required
+Nonce: Required
+Redirect URI validation: Exact match
+CSRF: SameSite=Lax cookies
+

@@ -1,0 +1,92 @@
+Function: calculateDiscount(price: decimal, tier: enum{bronze, silver, gold, platinum}) -> decimal
+
+1. Property: Non-negative discount
+   Invariant: The returned discount is >= 0 for every non-negative price.
+   Generator: price = decimals(0, 1000000); tier = sampled_from([bronze, silver, gold, platinum])
+   Falsifying inputs: price=0, price=-1 (rejected), price near 0 like 0.01
+   Framework sketch: @given(price=st.decimals(min_value=0, max_value=1000000), tier=st.sampled_from(TIERS))
+
+2. Property: Discount never exceeds price
+   Invariant: calculateDiscount(p, t) <= p for all p >= 0.
+   Generator: as above
+   Falsifying inputs: very small prices (0.01), tier=platinum with price at rounding boundary
+   Framework sketch: assert result <= price
+
+3. Property: Tier ordering is monotone
+   Invariant: For fixed price, discount(platinum) >= discount(gold) >= discount(silver) >= discount(bronze).
+   Generator: single price; iterate over tier pairs
+   Falsifying inputs: price where two tiers tie (e.g. price below minimum threshold)
+   Framework sketch: assert disc[PLATINUM] >= disc[GOLD] >= disc[SILVER] >= disc[BRONZE]
+
+4. Property: Determinism
+   Invariant: Two calls with identical inputs return identical results (no time or state dependency).
+   Generator: fixed input pair, N=100 invocations
+   Falsifying inputs: run near midnight if implementation uses dates
+   Framework sketch: assert f(p, t) == f(p, t)
+
+5. Property: Zero price yields zero discount
+   Invariant: calculateDiscount(0, t) == 0 for every tier.
+   Generator: tier sampled uniformly, price fixed at 0
+   Falsifying inputs: none — fixed-point check
+   Framework sketch: assert calculateDiscount(0, t) == 0
+
+6. Property: Discount scales with price (metamorphic)
+   Invariant: If price2 > price1 for the same tier, discount(price2) >= discount(price1).
+   Generator: two related prices p1 < p2, same tier
+   Falsifying inputs: prices straddling a tier threshold where discount is capped
+   Framework sketch: assert f(p2, t) >= f(p1, t) when p2 > p1
+
+7. Property: Unknown tier yields zero discount
+   Invariant: calculateDiscount(p, unknownTier) == 0 for any p.
+   Generator: valid prices; tier sampled from strings not in the enum
+   Falsifying inputs: tier=null, tier="Platinum" (case), tier=""
+   Framework sketch: assert f(p, "unknown") == 0
+
+8. Property: Discount plus final price equals original
+   Invariant: price - discount == final charged amount; discount == price - final.
+   Generator: any valid pair
+   Falsifying inputs: prices where rounding could drift by a cent
+   Framework sketch: assert price - result == final_price(price, tier)
+
+9. Property: Precision stability
+   Invariant: The result has at most 2 decimal places (currency precision).
+   Generator: prices with 4+ decimal places
+   Falsifying inputs: price=99.9999, tier=platinum
+   Framework sketch: assert result == round(result, 2)
+
+10. Property: Bounded discount rate
+    Invariant: discount / price <= MAX_TIER_RATE (e.g. 0.5) for every valid input.
+    Generator: any valid pair
+    Falsifying inputs: minimum non-zero price with platinum tier
+    Framework sketch: assert result <= price * 0.5
+
+=== Hypothesis implementation sketch ===
+
+from hypothesis import given, settings, strategies as st
+from decimal import Decimal
+
+TIERS = ["bronze", "silver", "gold", "platinum"]
+prices = st.decimals(min_value=0, max_value=1000000, places=4)
+tiers = st.sampled_from(TIERS)
+
+@given(prices, tiers)
+@settings(max_examples=500)
+def test_discount_never_exceeds_price(price, tier):
+    assert calculate_discount(price, tier) <= price
+
+@given(prices, tiers)
+def test_discount_non_negative(price, tier):
+    assert calculate_discount(price, tier) >= 0
+
+@given(prices)
+def test_tier_ordering_monotone(price):
+    d = {t: calculate_discount(price, t) for t in TIERS}
+    assert d["platinum"] >= d["gold"] >= d["silver"] >= d["bronze"]
+
+@given(prices, tiers)
+def test_deterministic(price, tier):
+    assert calculate_discount(price, tier) == calculate_discount(price, tier)
+
+@given(tiers)
+def test_zero_price(tier):
+    assert calculate_discount(0, tier) == 0

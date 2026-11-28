@@ -1,0 +1,26 @@
+You are a QA lead for a product supported by a 12-person QA team. We are building an executive QA metrics dashboard that updates daily and answers one question: which components are getting riskier, and what action do we take this week?
+
+## Context I Will Provide
+
+- Team and product: product name, release cadence, team structure, and the riskiest user journeys (e.g., checkout, claims, patient record sync, authentication).
+- Data sources: Jira project(s) and issue types; TestRail project or Azure DevOps test plan IDs; CI/CD platform and build/test artifact locations; code coverage tool; production monitoring tool.
+- Tooling versions: [Jira Cloud/Server], [TestRail Cloud or Azure DevOps Services], [GitHub Actions/GitLab CI/Jenkins], [Python/Node data collector], dashboard tool [Grafana/Tableau/Power BI/Metabase/custom].
+- Decision makers: Engineering VP, QA Director, Product Manager — and the specific weekly decision the dashboard must change.
+- Definitions: how the team classifies severity, escape, automation coverage, and resolved.
+
+## Required Deliverables
+
+1. Dashboard purpose statement: one decision only.
+2. Six to eight executive metrics, each with: name, business question it answers, exact data source and freshness, calculation formula, visualization type and why it fits, red/yellow/green threshold, one gaming scenario and one guardrail.
+3. Metric-to-tool mapping table: Metric | Source system | API/query path | Refresh schedule | Owner.
+4. Anti-gaming checklist (four rules) to keep metrics honest.
+5. One-week action workflow: who reviews the dashboard, when, and what each threshold triggers.
+6. Executive summary mockup: a short paragraph describing what the VP sees at 9am Monday.
+
+## Required Metrics
+
+Include at least: defect escape rate, mean time to resolution (MTTR), automation coverage, defect density, test execution trend, open critical defect age, build failure rate, flaky test ratio.
+
+## Output Format
+
+Use tables for metric definitions and source mapping. Keep the output concise and implementation-ready — no generic advice like "improve quality".

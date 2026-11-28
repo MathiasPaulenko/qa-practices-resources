@@ -1,0 +1,175 @@
+You are a QA/security engineer testing an OAuth 2.0 / OIDC / SSO system. Generate concrete test scenarios for
+the system described below.
+
+## System Information
+- Application name: [Name]
+- Role: [OAuth client / OAuth provider (authorization server) / Resource server / All]
+- OAuth version: [2.0 / 2.1 / OIDC (OpenID Connect)]
+- Grant types supported: [Authorization Code / Implicit / Client Credentials / Password / Device Code / Refresh Token / PKCE]
+
+## SSO Configuration
+- SSO providers: [Google / Microsoft / GitHub / Okta / Auth0 / Keycloak / Custom / None]
+- SSO protocols: [OAuth 2.0 / OIDC / SAML / CAS / Custom]
+- Multi-provider: [Yes - user can link multiple providers / No - single provider per user]
+- Account linking: [Automatic by email / Manual by user / Not supported]
+- Provider conflict: [Email already used by another provider - what happens?]
+
+## Token Configuration
+- Access token type: [JWT / Opaque / Reference]
+- Access token lifetime: [Value in minutes/hours]
+- Refresh token: [Yes / No]
+- Refresh token lifetime: [Value in days]
+- Refresh token rotation: [Yes / No]
+- Token storage: [Cookie (httpOnly) / LocalStorage / SessionStorage / In-memory / Backend session]
+- Token endpoint: [Same domain / Different domain / CORS configured]
+
+## Security Configuration
+- PKCE: [Required / Optional / Not used]
+- State parameter: [Yes / No]
+- Nonce parameter: [Yes / No - OIDC only]
+- Redirect URI validation: [Exact match / Wildcard / Scheme validation]
+- CORS: [Configured for token endpoint / Not configured / Same-origin only]
+- CSRF protection: [SameSite cookies / Custom CSRF token / None]
+- Rate limiting: [Yes - limits / No]
+
+## Testing Scenarios Required
+
+1. Authorization Code Flow Tests (10-15 scenarios)
+   - Successful authorization code flow with PKCE
+   - Authorization code flow without PKCE (if supported)
+   - Redirect URI mismatch rejection
+   - Invalid client_id rejection
+   - Missing state parameter handling
+   - State parameter mismatch detection
+   - Authorization code reuse prevention
+   - Expired authorization code rejection
+   - User denies consent - error handling
+   - User cancels login - error handling
+   - Concurrent authorization requests from the same user
+   - Authorization code interception (PKCE prevents token exchange)
+   - Redirect URI with query parameters - handling
+   - Redirect URI with fragments - handling
+   - Multiple redirect URIs registered - correct selection
+
+2. Client Credentials Flow Tests (6-10 scenarios)
+   - Successful client credentials flow for server-to-server
+   - Invalid client secret rejection
+   - Expired client secret handling
+   - Scope limitation on client credentials token
+   - Rate limiting on token endpoint
+   - Concurrent token requests from the same client
+   - Client credentials with mTLS
+   - Revocation of client credentials token
+
+3. Token Management Tests (10-15 scenarios)
+   - Access token expiration and refresh
+   - Refresh token rotation - old token invalidated
+   - Refresh token reuse detection
+   - Refresh token expiration - forced re-authentication
+   - Concurrent refresh token requests
+   - Token revocation via revocation endpoint
+   - Token introspection - valid token
+   - Token introspection - revoked token
+   - Token introspection - expired token
+   - JWT signature validation
+   - JWT tampering detection
+   - JWT with wrong issuer
+   - JWT with wrong audience
+   - Token scope validation on resource server
+   - Insufficient scope - access denied
+
+4. SSO Provider Integration Tests (8-12 scenarios)
+   - Successful login via Google SSO
+   - Successful login via Microsoft SSO
+   - Successful login via GitHub SSO
+   - SSO provider unavailable - error handling
+   - SSO provider returns an error - error handling
+   - SSO provider returns unexpected data - handling
+   - User email mismatch between SSO and local account
+   - User links multiple SSO providers to the same account
+   - User removes an SSO provider link
+   - SSO provider changes user email - sync handling
+   - SSO provider token expiration during session
+   - SSO provider API rate limit hit
+
+5. Session Management Tests (8-12 scenarios)
+   - Single session - login, use, logout
+   - Multiple concurrent sessions (same user, different devices)
+   - Session timeout - idle expiration
+   - Session timeout - absolute expiration
+   - Logout from one device - other sessions remain
+   - Logout from all devices - global session revocation
+   - Session fixation prevention
+   - Session token theft - detection and revocation
+   - Back-channel logout (OIDC)
+   - Front-channel logout (OIDC)
+   - Session persistence across browser restart
+   - Session sharing across subdomains
+
+6. Security and Attack Tests (10-15 scenarios)
+   - Authorization code interception attack (PKCE mitigation)
+   - Redirect URI manipulation attack
+   - State parameter CSRF attack
+   - Token replay attack
+   - Token theft from LocalStorage (XSS)
+   - Token theft from Cookie (CSRF)
+   - Open redirect via redirect_uri
+   - Scope escalation attempt
+   - Client impersonation attack
+   - Refresh token theft and replay
+   - Mixed token usage (access token from one client used with another)
+   - JWT algorithm confusion (none algorithm, RS256 vs HS256)
+   - Token leakage via referrer header
+   - Token leakage via browser history
+   - Token leakage via logs
+
+7. Multi-Provider and Account Linking Tests (6-10 scenarios)
+   - User signs up with Google, later links GitHub
+   - User signs up with GitHub, later links Google
+   - User attempts to link a provider whose email is already used by another provider
+   - User unlinks primary SSO - password fallback
+   - User unlinks all SSO providers - account access
+   - Same email from different providers - auto-link or conflict
+   - Provider returns a different user ID on re-login
+
+8. Edge Cases and Error Handling (8-12 scenarios)
+   - Network timeout during authorization
+   - Network timeout during token exchange
+   - Clock skew between client and server - JWT validation
+   - Malformed authorization code
+   - Malformed refresh token
+   - Empty scope in token request
+   - Unknown scope in token request
+   - User account disabled during active session
+   - User password changed during active session
+   - OAuth provider certificate expired
+   - OAuth provider changes API version
+   - Concurrent login from different time zones
+
+## Output Format
+For each test scenario, provide:
+- Scenario ID: [OAUTH-001, OAUTH-002, .]
+- Category: [Auth Code / Client Credentials / Token / SSO / Session / Security / Multi-Provider / Edge Case]
+- Scenario Name: [Descriptive name]
+- Flow: [Which OAuth flow is being tested]
+- Preconditions: [Initial state, test users, provider config]
+- Test Steps: [Numbered steps including HTTP requests]
+- Expected Result: [What should happen - success or specific error]
+- Security Implication: [What vulnerability this test prevents]
+- Test Data: [Client IDs, redirect URIs, scopes, test users]
+- Cleanup: [Token revocation, session cleanup]
+- Priority: [Critical / High / Medium / Low]
+- Automation Possible: [Yes - API / Yes - Playwright / Manual]
+
+## Additional Instructions
+- Include actual HTTP request/response examples where possible.
+- Cover both happy path and error path for each flow.
+- Factor in browser security features (SameSite, ITP, CORS).
+- Include OIDC-specific tests (ID token, userinfo, discovery).
+- Consider mobile app authentication (AppAuth, custom tabs).
+- Provide test user setup recommendations.
+- Include token debugging and inspection tools.
+- Map tests to OAuth 2.0 Security BCP recommendations.
+
+Generate the scenarios now.
+

@@ -1,0 +1,42 @@
+You are a QA engineer specializing in RAG (Retrieval-Augmented Generation)
+evaluation. Design a measurable evaluation suite for the pipeline below.
+The goal is to know WHICH layer fails when quality drops — retrieval or
+generation.
+
+Pipeline context:
+- Use case: [QA chatbot / doc search / knowledge base / support / code assistant]
+- Generation LLM: [model + version]
+- Embedding model: [model + version]
+- Vector store: [Pinecone / Weaviate / Chroma / Qdrant / pgvector]
+- Framework: [LangChain / LlamaIndex / Haystack / custom]
+- Chunking: [strategy + size + overlap, e.g. recursive 512/50]
+- Retrieval: [semantic / hybrid / multi-query / reranked] with top-K = [n]
+- Evaluation tooling: [RAGAS / TruLens / LangSmith / DeepEval / undecided]
+- Ground truth: [existing dataset / needs to be created]
+- Domain: [support docs / legal / medical / internal wiki / code]
+
+Deliverables:
+1. Evaluation matrix: metric | layer it measures | definition | target
+   threshold | failure indicator — covering context_precision,
+   context_recall, faithfulness, answer_relevancy and a hallucination
+   rate you define precisely for my domain.
+2. Test scenarios: 3-5 per category (retrieval quality, faithfulness,
+   answer relevance, hallucination, citation accuracy, edge cases like
+   empty retrieval and out-of-scope questions). Per scenario: ID, query,
+   ground-truth context needed, metric, pass threshold, and why it
+   isolates one layer.
+3. Ground-truth dataset spec: the fields I must label per entry
+   (query, expected answer, expected chunks, difficulty) and a realistic
+   sizing for a first regression suite.
+4. Judging setup: which LLM judges which metric — and flag every place
+   where using my generation model as its own judge would hide bias.
+5. CI integration: which metrics gate the build and which are
+   report-only for the first month.
+
+Constraints:
+- Prefer scenarios that isolate one layer; a scenario that tests
+  retrieval AND generation tells me nothing when it fails.
+- Every adversarial scenario must name the failure it provokes
+  (fabricated citation, wrong entity, overgeneralization).
+- If my ground truth doesn't exist yet, the dataset spec is the first
+  deliverable — nothing else is measurable without it.

@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: OAuth 2.0 and SSO Testing Scenarios — Companion Files",
+  "slug": "ai-prompt-oauth-sso-testing",
+  "type": "prompts",
+  "topic": "security-testing",
+  "category": "security-testing",
+  "description": "Prompt template, example input and sample output for generating OAuth 2.0 / OIDC / SSO test scenarios across grant flows, token lifecycle, PKCE, sessions and attack vectors.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.txt"
+  ]
+}

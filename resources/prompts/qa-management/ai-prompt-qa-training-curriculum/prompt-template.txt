@@ -1,0 +1,39 @@
+You are a QA education lead designing an internal training program. Build a
+training curriculum for my team using the context below. The goal is skills
+that transfer to our actual product — not a generic testing course.
+
+Team context:
+- Audience: [junior QA / mid-level QA / QA leads / mixed / developers doing QA]
+- Team size and split: [e.g., 5 QA engineers supporting 15 developers]
+- Available time: [total duration, e.g., 6 weeks] with [hours per week, e.g., 4h]
+- Delivery format: [in-person / remote / hybrid / self-paced mix]
+- Tech stack: [web / mobile / API / desktop], languages [JS/TS / Python / Java]
+- Automation tools: [Playwright / Cypress / Selenium / Postman / k6 / none yet]
+- CI/CD: [GitHub Actions / GitLab CI / Jenkins / none]
+- Current skill level: [beginner / intermediate / advanced / mixed — describe the gap]
+- Business domain: [e-commerce / finance / healthcare / SaaS]
+- The one skill gap this program must close: [e.g., "nobody writes API tests"]
+- Certification goal: [ISTQB Foundation / internal assessment / none]
+- Constraints: [budget, timezone overlap, production access for labs, etc.]
+
+Deliverables:
+1. Curriculum overview: 4-8 modules ordered by dependency, each one mapped
+   to the skill gap it closes. If a module doesn't serve the gap or the
+   stack, leave it out and say why.
+2. Per module: name, learning objectives (observable, e.g., "writes a
+   parameterized API test suite"), prerequisites, duration in hours,
+   delivery format, 2-3 hands-on labs that exercise OUR stack and domain,
+   assessment method (project / quiz / demo / code review), and the
+   resources needed.
+3. Pacing plan: week-by-week schedule showing how training coexists with
+   sprint work — no week should exceed the hours-per-week I gave you.
+4. Assessment checkpoints: 2-3 points in the program where you verify the
+   skill transferred (e.g., "trainee's API suite runs in our CI"), and what
+   to do if a checkpoint fails.
+5. Lab setup list: environments, test data, access and tooling each lab
+   needs before week 1 starts.
+
+Constraints:
+- Prefer hands-on labs over lectures; cap lecture time at 40% of each module.
+- Every lab must use our real stack and domain — no todo-app exercises.
+- Flag any module where self-paced material is a poor substitute for pairing.

@@ -1,0 +1,30 @@
+You are a QA career coach and senior QA engineering leader with 15+ years of experience hiring and mentoring testers. Generate a personalized QA career roadmap for the person described below.
+
+## Current Profile
+- Role: [Junior QA / Mid QA / Senior QA / QA Lead / SDET / Manual Tester / Career changer]
+- Experience: [0-1 / 1-3 / 3-5 / 5-10 / 10+] years
+- Skills: [Manual testing / Automation (Selenium, Playwright, Cypress) / API / Performance / Security / Mobile / AI testing / CI/CD]
+- Tools: [Jira / Postman / Selenium / Playwright / JMeter / Burp Suite / GitHub Actions / Custom]
+- Education: [CS degree / Bootcamp / Self-taught / ISTQB certified / Custom]
+
+## Career Goals
+- Target role: [Senior QA / QA Lead / QA Manager / SDET / Test Architect / Consultant]
+- Timeline: [6 months / 1 year / 2 years / 3 years / 5 years]
+- Specialization: [Automation / Performance / Security / Mobile / AI Testing / DevOps / Generalist]
+- Industry and company size: [Fintech / Healthcare / SaaS / etc.] at [Startup / Mid-size / Enterprise]
+- Weekly hours for learning: [e.g. 5] and yearly budget for courses/certs: [e.g. USD 500]
+
+## Roadmap Sections Required
+1. **Skill Assessment**: rate each skill 1-5 (manual testing, test design, automation, API, performance, security, CI/CD, leadership, communication); prioritized gaps vs the target role with time to close each.
+2. **Learning Path**: months 1-3, 4-6, 7-12 with specific skills, courses (search terms, no made-up URLs), books (title and author), and practice projects; year 2+ for specialization and leadership.
+3. **Certifications**: only what fits the target (ISTQB CTFL, CTAL-TA/CTAL-TM, specialist modules; AWS, CKA or CEH only when justified), with order, study hours and cost.
+4. **Progression Milestones**: measurable readiness criteria for the transition (e.g. "designed a maintainable framework the team uses").
+5. **Specialization Track Analysis**: compare 2-3 fitting tracks on required skills, market demand and salary impact; recommend one.
+6. **Portfolio, Mentorship and Interview Prep**: 3-5 concrete portfolio projects, GitHub/resume improvements, where to find a mentor and fitting communities, interview topics by level.
+7. **6-Month Action Plan**: week-by-week first month, then monthly milestones with time commitment and success metrics.
+
+## Output Format
+For each section give: Current State / Target State / Gap; measurable Action Items; Resources (courses, books, tools, communities); Timeline and Success Metrics; Priority (Critical/High/Medium/Low); Dependencies.
+
+## Constraints
+Personalize everything to this profile — no generic advice. Respect the weekly hours and budget. Include a fallback if the primary path fails. Consider location and remote opportunities.

@@ -1,0 +1,9 @@
+Audience: mixed — 3 junior QA + 1 mid QA
+Team: 4 QA supporting 18 developers, e-commerce checkout product
+Time: 6 weeks, 4h per person per week
+Format: remote, self-paced modules + weekly 1h lab session together
+Stack: web storefront + REST APIs, TypeScript, Playwright, GitHub Actions
+Skill level: juniors are beginner (manual testing only), mid is intermediate
+Skill gap: nobody writes API tests; all coverage is UI-level
+Certification: ISTQB Foundation for the juniors
+Constraints: staging environment available; no budget for paid courses

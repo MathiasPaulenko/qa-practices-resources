@@ -1,0 +1,11 @@
+Current role: Mid QA, 3 years experience, mostly manual plus some Selenium (Java)
+Current skills: Manual testing, API testing with Postman, basic Selenium, Jira
+Current tools: Selenium, Postman, Jira, Jenkins
+Education: CS degree, ISTQB CTFL (2023)
+Target role: Senior QA / SDET
+Timeline: 12-18 months
+Specialization: Automation
+Industry: Fintech
+Company size: Mid-size
+Weekly hours available: 6 hours
+Budget: USD 400/year

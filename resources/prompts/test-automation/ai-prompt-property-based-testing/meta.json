@@ -1,0 +1,14 @@
+{
+  "title": "AI Prompt: Property-Based Testing Scenarios — Companion Files",
+  "slug": "ai-prompt-property-based-testing",
+  "type": "prompts",
+  "topic": "test-automation",
+  "category": "test-automation",
+  "description": "Prompt template, example input and full sample output for generating property-based test scenarios: invariants, generator strategies and falsifying inputs.",
+  "language": ["en", "es"],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.txt"
+  ]
+}

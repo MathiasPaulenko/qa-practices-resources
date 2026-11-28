@@ -1,0 +1,19 @@
+{
+  "title": "AI Prompt: Rate Limiting Test Scenarios — Companion Files",
+  "slug": "ai-prompt-rate-limiting-testing",
+  "type": "prompts",
+  "topic": "api-testing",
+  "category": "api-testing",
+  "description": "Prompt template, example input and output fragment for generating rate limiting test scenarios: burst, sustained load, header validation and 429 handling.",
+  "language": [
+    "en",
+    "es"
+  ],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md",
+    "README.md",
+    "README.es.md"
+  ]
+}

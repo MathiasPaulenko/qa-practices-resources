@@ -1,0 +1,17 @@
+{
+  "title": "AI Prompt: QA Career Roadmap Planning — Companion Files",
+  "slug": "ai-prompt-qa-career-roadmap",
+  "type": "prompts",
+  "topic": "qa-management",
+  "category": "qa-management",
+  "description": "Prompt template, profile input example and realistic output fragment for generating a personalized QA career roadmap.",
+  "language": [
+    "en",
+    "es"
+  ],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md"
+  ]
+}

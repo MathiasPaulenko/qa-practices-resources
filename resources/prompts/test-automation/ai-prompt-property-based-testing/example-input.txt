@@ -1,0 +1,8 @@
+Name: calculateDiscount
+Signature: calculateDiscount(price: decimal, tier: enum{bronze, silver, gold, platinum}) -> decimal
+Input domain: price in [0, 1_000_000], tier is one of the four enum values
+Output contract: discount amount in same currency as price; >= 0
+Business rules: discount <= price; platinum >= gold >= silver >= bronze for the same price;
+  unknown tier yields 0 discount; result is deterministic
+N: 10
+

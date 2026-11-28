@@ -1,0 +1,17 @@
+{
+  "title": "AI Prompt: QA Interview Preparation — Companion Files",
+  "slug": "ai-prompt-qa-interview-preparation",
+  "type": "prompts",
+  "topic": "qa-management",
+  "category": "qa-management",
+  "description": "Prompt template, example input and realistic output fragment for generating personalized QA interview preparation packs.",
+  "language": [
+    "en",
+    "es"
+  ],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md"
+  ]
+}

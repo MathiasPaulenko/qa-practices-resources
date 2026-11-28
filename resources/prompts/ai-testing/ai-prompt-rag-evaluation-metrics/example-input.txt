@@ -1,0 +1,10 @@
+Use case: internal knowledge-base chatbot for a support team
+Generation LLM: GPT-4o
+Embedding model: text-embedding-3-large
+Vector store: Pinecone
+Framework: LangChain
+Chunking: recursive, 512 tokens, 50 overlap
+Retrieval: hybrid (semantic + BM25), top-5, no reranker
+Evaluation tooling: RAGAS
+Ground truth: none yet — needs to be created
+Domain: product support docs (return policies, setup guides)

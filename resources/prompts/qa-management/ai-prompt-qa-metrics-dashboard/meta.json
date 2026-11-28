@@ -1,0 +1,17 @@
+{
+  "title": "AI Prompt: Executive QA Metrics Dashboard — Companion Files",
+  "slug": "ai-prompt-qa-metrics-dashboard",
+  "type": "prompts",
+  "topic": "qa-management",
+  "category": "qa-management",
+  "description": "Prompt template, example input and realistic output fragment for designing an executive QA metrics dashboard with guardrails.",
+  "language": [
+    "en",
+    "es"
+  ],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md"
+  ]
+}

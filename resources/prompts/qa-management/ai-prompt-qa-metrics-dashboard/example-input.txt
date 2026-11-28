@@ -1,0 +1,9 @@
+Product: MedTrack
+QA team: 12 engineers across web, mobile, and platform squads
+Data sources: Jira Cloud (bugs), TestRail Cloud (test runs), GitHub Actions
+  (builds and tests), Grafana (dashboard), Datadog (production alerts)
+Release cadence: two-week sprints
+Riskiest flows: patient record sync, prescription refill, provider search
+Definitions: escape = bug found in production within 7 days of release;
+  resolved = verified and closed; automation coverage = automated
+  assertions / total assertions

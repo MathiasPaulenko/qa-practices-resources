@@ -1,0 +1,19 @@
+{
+  "title": "AI Prompt: Generate a QA Training Curriculum — Companion Files",
+  "slug": "ai-prompt-qa-training-curriculum",
+  "type": "prompts",
+  "topic": "qa-management",
+  "category": "qa-management",
+  "description": "Prompt template, example input and realistic output fragment for generating a structured QA training curriculum with modules, duration and assessment criteria.",
+  "language": [
+    "en",
+    "es"
+  ],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md",
+    "README.md",
+    "README.es.md"
+  ]
+}

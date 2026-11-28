@@ -1,0 +1,6 @@
+Target role: Senior QA
+Experience: 5-10 years
+Company type and industry: Mid-size company in Fintech
+Stack: Playwright, Postman, GitHub Actions
+Interview format: Technical round (60 minutes)
+Focus areas: Test automation + API testing + one behavioral question

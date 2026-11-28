@@ -1,0 +1,13 @@
+API: PaymentAPI — payment processing for an e-commerce platform
+Algorithm: token bucket
+Enforcement point: middleware before the app
+Infrastructure: Redis cluster as shared counter, 3 app instances
+Counter state: shared store
+Default limit: 100 requests per minute
+Burst: 20 requests
+Counting key: API key
+Tiers: Free 10/min, Pro 100/min, Enterprise 1000/min — tier resolved
+  from the API key record
+Headers: X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+  Retry-After
+Response when exceeded: 429 with JSON error body

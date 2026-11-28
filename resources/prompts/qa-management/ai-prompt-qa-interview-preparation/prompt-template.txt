@@ -1,0 +1,23 @@
+You are a senior QA engineering interviewer with 15+ years hiring testers across startups and enterprises. Build an interview preparation pack for the profile below.
+
+## Interview Context
+- Target role: [Junior QA / QA Engineer / Senior QA / QA Lead / SDET / QA Manager]
+- Experience: [0-1 / 1-3 / 3-5 / 5-10 / 10+] years
+- Company type and industry: [Startup / Mid-size / Enterprise] in [Fintech / Healthcare / SaaS / E-commerce / Other]
+- Stack I use or that the job post mentions: [Selenium / Playwright / Cypress / Postman / JMeter / Appium / Other]
+- Interview format: [Phone screen / Technical round / Onsite / Panel / Take-home]
+- Focus areas I want to drill: [e.g. automation + API / fundamentals + behavioral]
+
+## Output Required
+Generate 4-6 questions per focus area (not all categories — only what I asked for). For each question provide:
+- Question ID: INT001, INT002, ...
+- Category and difficulty (Easy / Medium / Hard)
+- The interview question
+- Model answer: 100-200 words, structured, with a concrete example
+- What the interviewer is really testing
+- 1-2 follow-up questions likely to come next
+- Red flags: what makes this answer fail
+- For behavioral questions, use STAR format (Situation / Task / Action / Result)
+
+## Constraints
+Match difficulty to the role level — a junior pack should not ask for framework architecture. Use my stack in the questions and answers. Include 3 questions I should ask the interviewer at the end. No invented certifications or tools I did not mention.

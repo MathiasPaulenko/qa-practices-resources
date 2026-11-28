@@ -1,0 +1,44 @@
+You are a QA engineer specializing in rate limiting. Design a test suite
+for the rate limiter described below. The goal is evidence that the limit
+holds at boundaries, survives the failure modes of my infrastructure,
+and resists the bypass attempts a real client would try.
+
+Limiter context:
+- API: [name and what it does]
+- Algorithm: [token bucket / sliding window / fixed window / leaky bucket / custom]
+- Enforcement point: [API gateway / reverse proxy / middleware / app code]
+- Infrastructure: [Nginx / Kong / AWS API Gateway / Cloudflare / Redis store]
+- Counter state: [shared store (Redis/cluster) / per-instance / hybrid]
+- Default limit: [X requests per Y window]
+- Burst allowance: [value or none]
+- Counting key: [IP / API key / user ID / tenant ID / composite]
+- Tiers: [none / describe each tier's limit and how the tier is resolved]
+- Headers returned: [X-RateLimit-Limit / Remaining / Reset / Retry-After / none]
+- Response when exceeded: [429 / 503 / custom], body format
+
+Deliverables:
+1. Test scenarios: 3-5 per relevant category — boundary enforcement
+   (at, under, over the limit, at window edges), algorithm-specific
+   behavior, header accuracy, distributed consistency (only if I have a
+   shared store), tier handling (only if I have tiers), and bypass
+   attempts (only for the key I actually count on). Skip categories
+   that don't apply and say why.
+2. Per scenario: ID, name, the exact request sequence with timing,
+   expected status/headers/body at each step, and the failure the
+   scenario catches.
+3. Boundary math: show the arithmetic for my specific limit and window —
+   which request numbers should pass and which should be rejected, and
+   the tolerance a real implementation is allowed.
+4. Failover expectation: what my limiter SHOULD do when the shared store
+   is unreachable — fail open or fail closed — and how to test whichever
+   I choose.
+5. Automation split: which scenarios run as API tests, which need a load
+   tool (k6/Artillery), and which are manual.
+
+Constraints:
+- Bypass scenarios must match my counting key — don't test IP rotation
+  when I count on API keys.
+- Every scenario names the bug it catches (misaligned window, non-atomic
+  increment, wrong-tier lookup, spoofable key).
+- Header checks verify accuracy, not just presence: Remaining must
+  decrement correctly and Retry-After must match the real wait.

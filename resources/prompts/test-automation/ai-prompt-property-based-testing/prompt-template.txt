@@ -1,0 +1,27 @@
+You are a QA engineer experienced in property-based testing. I will describe a function and its input
+domain. Generate [N = 10] independent properties that should always hold for it.
+
+## Function under test
+- Name: [Function name]
+- Signature: [Signature with types, e.g. calculateDiscount(price: decimal, tier: enum) -> decimal]
+- Input domain: [Valid inputs, ranges, enums, constraints]
+- Output contract: [What the return value means, its range or shape]
+- Business rules: [Invariants from requirements, e.g. "discount never exceeds price"]
+
+## For each property provide
+- Name: [Short descriptive name]
+- Invariant: [The property stated as an assertion in plain English]
+- Generator strategy: [How to generate inputs, e.g. "decimals in [0, 10000], tier sampled uniformly"]
+- Falsifying inputs: [Edge cases most likely to break it: boundaries, empty, null, overflow, precision]
+- Framework sketch: [One line of pseudo-code or the target framework: Hypothesis / fast-check / jqwik]
+
+## Prioritize
+- Boundary, null, empty, and overflow behavior
+- Ordering and monotonicity (sorted input, sorted output, rank preservation)
+- Round-trip properties (encode/decode, serialize/parse, add/remove)
+- Metamorphic properties (scaling input scales output, reordering input preserves result)
+- Idempotence and determinism
+
+Flag any property that cannot be decided without more business context, and state what information is
+missing. Generate the properties now.
+

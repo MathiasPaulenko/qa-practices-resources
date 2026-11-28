@@ -1,0 +1,19 @@
+{
+  "title": "AI Prompt: RAG Evaluation Metrics and Test Scenarios — Companion Files",
+  "slug": "ai-prompt-rag-evaluation-metrics",
+  "type": "prompts",
+  "topic": "ai-testing",
+  "category": "ai-testing",
+  "description": "Prompt template, example input and output fragment for generating RAG evaluation metric scenarios (faithfulness, relevance, context recall) with score thresholds.",
+  "language": [
+    "en",
+    "es"
+  ],
+  "files": [
+    "prompt-template.txt",
+    "example-input.txt",
+    "example-output.md",
+    "README.md",
+    "README.es.md"
+  ]
+}
